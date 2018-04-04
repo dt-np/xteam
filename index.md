@@ -36,19 +36,6 @@ and analysis process following the documentation.
 
 <img src="/graph/flow.png" alt="Flow of CEPC SDRAM" usemap="#flow-map" />
 
-<map name="flow-map">
-    <area alt="Whizard" title="Whizard" href="/guides/Generation/docs/Introduction/" coords="244,195,111,243,244,292,378,244" shape="poly">
-    <area alt="Fast Simulation" title="Fast Simulation" href="/guides/Simulation/docs/fastsim/" coords="790,485,617,548,791,612,964,548" shape="poly">
-    <area alt="Full Simulation" title="Full Simulation" href="/guides/Simulation/docs/fullsim/" coords="278,594,107,660,278,724,451,660" shape="poly">
-    <area alt="Digitization" title="Digitization" href="/guides/Digitization/docs/introduction/" coords="428,847,257,912,428,976,602,912" shape="poly">
-    <area alt="Detector" title="Detector" href="/guides/introduction/docs/detectors/" coords="29,985,283,1066" shape="rect">
-    <area alt="DAQ" title="DAQ" href="/guides/DAQ/docs/daq/" coords="417,1001,537,1061" shape="rect">
-    <area alt="Tracking" title="Tracking" href="/guides/Tracking/docs/introduction/" coords="1151,849,979,912,1153,978,1325,911" shape="poly">
-    <area alt="PFA" title="PFA" href="/guides/PFA/docs/ParticleFlowAlgorithm/" coords="1290,620,1115,684,1293,748,1469,684" shape="poly">
-    <area alt="High Level Physics Objects" title="High Level Physics Objects" href="/guides/HighLevel/docs/demo/" coords="1353,378,1178,441,1354,508,1526,442" shape="poly">
-    <area alt="Analysis" title="Analysis" href="/guides/Analysis/docs/demo/" coords="1353,179,1178,242,1351,307,1523,242" shape="poly">
-</map>
-
 </div>
 <!-- End the right column -->
 
