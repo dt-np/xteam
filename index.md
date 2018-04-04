@@ -1,11 +1,3 @@
----
-title: Home
-landing: false
-tree: false
-notoc: true
-notags: true
-nonav: true
----
 
 <div class="row">
 
