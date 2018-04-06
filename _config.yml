@@ -1,0 +1,29 @@
+name: "XTEAM"
+title: "XTEAM"
+description: "XTEAM Home Page"
+
+encoding: utf-8
+timezone: Asia/Shanghai
+
+collections:
+  research:
+    permalink: /research/:path/
+    output: true
+
+defaults:
+  -
+    scope:
+      path: _research
+      type: research
+    values:
+      layout: research 
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - TODO
+  - LICENSE
+  - README.md

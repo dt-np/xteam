@@ -1,0 +1,16 @@
+<ul>
+  {% for section in include.toc %}
+    <li>
+      {{ section.title }}
+      <ul>
+        {% for item in section.pages %}
+          {% assign item_url = item | prepend: "/" | prepend: include.path | prepend: "/" | append: "/" %}
+          {% assign p = include.cols | where:"url", item_url | first %}
+          <li>
+            <a href="{{ p.url }}">{{ p.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>
