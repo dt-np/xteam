@@ -10,6 +10,10 @@ collections:
     permalink: /research/:path/
     output: true
 
+  members:
+    permalink: /members/:path/
+    output: true
+
 defaults:
   -
     scope:
@@ -17,6 +21,12 @@ defaults:
       type: research
     values:
       layout: research 
+  -
+    scope:
+      path: _members
+      type: members
+    values:
+      layout: members 
 
 sass:
   style: compressed
