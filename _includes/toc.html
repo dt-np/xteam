@@ -1,0 +1,25 @@
+<ol class="toc-level-0 selected">
+{% for section in include.toc %}
+  <li class="toc-level-0">
+    <a href="#">{{ section.title }}</a>
+
+    {% assign selected = false %}
+    {% for item in section.pages %}
+    {% assign item_url = item | prepend: "/" | prepend: include.path | prepend: "/" | append: "/" %}
+      {% if item_url == page.url %}
+        {% assign selected = true %}
+      {% endif %}
+    {% endfor %}
+
+    <ol class="toc-level-1{% if selected %} selected{% endif %}">
+      {% for item in section.pages %}
+        {% assign item_url = item | prepend: "/" | prepend: include.path | prepend: "/" | append: "/" %}
+        {% assign p = include.cols | where:"url", item_url | first %}
+        <li class="toc-level-1{% if item_url == page.url %} selected{% endif %}">
+          <a href="{{ p.url }}">{{ p.title }}</a>
+        </li>
+      {% endfor %}
+    </ol>
+  </li>
+{% endfor %}
+</ol>

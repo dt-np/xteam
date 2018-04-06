@@ -1,3 +1,6 @@
-# Welcome to X-TEAM ! 
+---
+title: Home
+layout: default
+---
 
-
+Welcome to X-TEAM ! 

@@ -1,0 +1,22 @@
+{% assign toc = include.toc | map: "pages" | join: "," | split: "," %}
+
+<footer>
+  {% for item in toc %}
+    {% assign item_url = item | prepend: "/" | prepend: include.path | prepend: "/" | append: "/" %}
+    {% if item_url == page.url %}
+      {% unless forloop.first %}
+        {% assign previous = forloop.index0 | minus: 1 %}
+        {% assign previous_url = toc[previous] | prepend: "/" | prepend: include.path | prepend: "/" | append: "/" %}
+        {% assign previous_page = include.cols | where:"url", previous_url | first %}
+        <a href="{{ previous_url }}" class="previous-guide">{{ previous_page.title }}</a>
+      {% endunless %}
+      {% unless forloop.last %}
+        {% assign next = forloop.index0 | plus: 1 %}
+        {% assign next_url = toc[next] | prepend: "/" | prepend: include.path | prepend: "/" | append: "/" %}
+        {% assign next_page = include.cols | where:"url", next_url | first %}
+        <a href="{{ next_url }}" class="next-guide">{{ next_page.title }}</a>
+      {% endunless %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+</footer>

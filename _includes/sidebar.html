@@ -1,0 +1,10 @@
+<aside class="sidebar">
+  <input id="toc-toggle" class="toc-toggle visually-hidden" type="checkbox" />
+  <label for="toc-toggle">Table of Contents <span class="visually-hidden">toggle</span></label>
+
+  <nav class="toc-container" aria-label="table of contents">
+    {% include toc.html toc=include.toc cols=include.cols path=include.path %}
+  </nav>
+
+  <a href="#" class="back-to-top">&#11014; Back to Top</a>
+</aside>
