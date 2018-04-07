@@ -5,6 +5,6 @@ permalink: /news/
 author: all
 ---
 
-{% for post in site.posts %}
+{% for post in site.posts limit:10 %}
   {% include news_item.html %}
 {% endfor %}
