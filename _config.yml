@@ -14,26 +14,32 @@ collections:
     permalink: /members/:path/
     output: true
 
+  posts:
+    permalink: "/news/:year/:month/:day/:title/"
+    output: true
+
 defaults:
-  -
-    scope:
+  - scope:
       path: _research
       type: research
     values:
       layout: research 
-  -
-    scope:
+  - scope:
       path: _members
       type: members
     values:
       layout: members 
-
+  - scope:
+      path: _posts
+      type: posts
+    values:
+      layout: news_item
+plugins:
+  - jekyll-avatar
 sass:
   style: compressed
 
 exclude:
   - Gemfile
   - Gemfile.lock
-  - TODO
-  - LICENSE
   - README.md
