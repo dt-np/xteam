@@ -13,6 +13,10 @@ collections:
   members:
     permalink: /members/:path/
     output: true
+ 
+  docs:
+    permalink: /docs/:path/
+    output: true
 
   posts:
     permalink: "/news/:year/:month/:day/:title/"
@@ -29,6 +33,11 @@ defaults:
       type: members
     values:
       layout: members 
+  - scope:
+      path: _docs
+      type: docs
+    values:
+      layout: docs 
   - scope:
       path: _posts
       type: posts
