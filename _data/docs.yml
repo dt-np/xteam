@@ -1,6 +1,14 @@
+- title: Getting Started
+  pages: 
+  - quickstart 
+
 - title: Computing
   pages:
     - comp/git
     - comp/mac
     - comp/vsc
 
+- title: Activities
+  pages: 
+    - journalclub
+    - puertorico
