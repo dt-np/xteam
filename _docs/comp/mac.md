@@ -14,7 +14,8 @@ title: MacOS Tips
 
 Note: step 4. : if the cmake is not in the default path, add this line to the .bashrc: 
 
-   export PATH=/Applications/Cmake.app/Contents/bin:$PATH 
+	export PATH=/Applications/Cmake.app/Contents/bin:$PATH 
+
 
 
 ## Install   Emacs  
@@ -31,6 +32,8 @@ Note: step 4. : if the cmake is not in the default path, add this line to the .b
 
 ## Change hostname 
 
-https://apple.stackexchange.com/questions/66611/how-to-change-computer-name-so-terminal-displays-it-in-mac-os-x-mountain-lion
+From this link [1]: 
 
 $ sudo scutil --set HostName "newname"
+
+[1]: https://apple.stackexchange.com/questions/66611/how-to-change-computer-name-so-terminal-displays-it-in-mac-os-x-mountain-lion
