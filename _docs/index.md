@@ -1,5 +1,5 @@
 ---
-title: Docsuments
+title: Documents
 layout: dochome
 permalink: /docs/
 ---
