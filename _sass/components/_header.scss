@@ -64,10 +64,10 @@
 
 .header-logo {
   a {
-    @include size(100px 40px);
-    background: url("/images/ember-logo.svg") no-repeat;
+    @include size(240px 80px);
+    background: url("/images/x-team-logo.svg") no-repeat;
     display: block;
-    margin: -15px auto 0 auto;
+    margin: 15px auto 0 auto;
     @include media($large-screen) {
       margin-left: 0;
     }
