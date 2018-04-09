@@ -65,7 +65,7 @@
 .header-logo {
   a {
     @include size(240px 80px);
-    background: url("/images/x-team-logo.svg") no-repeat;
+    background: url("/images/xteam-logo.svg") no-repeat;
     display: block;
     margin: 15px auto 0 auto;
     @include media($large-screen) {
