@@ -4,7 +4,7 @@ layout: dochome
 permalink: /docs/
 ---
 
-Documents for X-TEAM. 
+Documents for X-Team. 
 
 
 

@@ -3,4 +3,4 @@ title: Home
 layout: default
 ---
 
-Welcome to X-TEAM ! 
+Welcome to X-Team ! 
