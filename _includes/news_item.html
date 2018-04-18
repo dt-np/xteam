@@ -4,11 +4,11 @@
       {{ post.title }}
     </a>
   </h2>
-  <span class="post-category">
+  <!-- <span class="post-category">
     <span class="label">
       {{ post.categories | array_to_sentence_string }}
     </span>
-  </span>
+  </span> -->
   <div class="post-meta">
     <span class="post-date">
       {{ post.date | date_to_string }}
@@ -21,5 +21,6 @@
   </div>
   <div class="post-content">
     {{ post.content }}
+    <!-- {{ post.excerpt }} -->
   </div>
 </article>

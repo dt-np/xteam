@@ -6,7 +6,7 @@ version: 0.3
 categories: release jadepix 
 ---
 
-https://github.com/cepc/jadepix/projects/2
+<https://github.com/cepc/jadepix/projects/2>
 
 
 
