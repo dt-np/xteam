@@ -10,6 +10,6 @@ JadePix1 Simulation and display v0.2
 
 Finished work can be found at:
 
-https://github.com/cepc/jadepix/projects/1
+<https://github.com/cepc/jadepix/projects/1>
 
 
