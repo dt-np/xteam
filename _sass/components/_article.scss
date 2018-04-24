@@ -21,6 +21,40 @@ article {
     }
   }
 
+  .label {
+    float: left;
+    // text-transform: uppercase;
+    font-weight: 400;
+    color:#F7F7F7; 
+    background-color:  #D8D2C9; //  #B31B1B;
+    // text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+  }
+  
+  @media (max-width: 568px) {
+    .post-category { padding-left: 30px; }
+  }
+  
+  @media (min-width: 768px) {
+    .post-category { margin-left: -50px; }
+  }
+  
+
+  .avatar {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .post-meta {
+    padding: 5px 0;
+    color: #c0c0c0;
+    font-weight: 600;
+    // text-shadow: 0 -1px 0 #000;
+  }
+  
+  .post-date,
+  .post-author { margin-left: 10px; }
+  
+
   h2,
   h3 {
     margin-top: $base-spacing;

@@ -11,5 +11,5 @@ This is the first stable release used at the Fe55 test.
 
 The FPGA bit file for v1.0 can be found at: (need internal web)
 
-https://github.com/cepc/kc705/releases/tag/v1.0
+<https://github.com/cepc/kc705/releases/tag/v1.0>
 

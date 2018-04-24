@@ -6,15 +6,15 @@ title: VS Code
 
 We recommend team members to use VSCode for major programing tasks.  
 
-https://code.visualstudio.com
+<https://code.visualstudio.com>
 
-Source code development at: https://github.com/Microsoft/vscode 
+Source code development at: <https://github.com/Microsoft/vscode>
 
  
 
 ## Remote Edit 
 
-https://codepen.io/ginfuru/post/remote-editing-files-with-ssh
+<https://codepen.io/ginfuru/post/remote-editing-files-with-ssh>
 
 
 * Server side configuration 
@@ -46,17 +46,17 @@ Add this line in your $HOME/.bashrc file:
 [Windows] "Shift + Ctrl + p" > Remote: Start Server  
 
 3. [Windows] install OpenSSH:
-Install OpenSSH : http://www.mls-software.com/opensshd.html
-Set Path :  C:\Program Files\OpenSSH\bin (depend on your install path)
+	Install [OpenSSH](http://www.mls-software.com/opensshd.html)
+	Set Path :  C:\Program Files\OpenSSH\bin (depend on your install path)
 
 4. Config local ssh RemoteForward: 
-[Mac] ~/.ssh/config
-[Windows] C:\Users\username\.ssh\config
+	[Mac] ~/.ssh/config
+	[Windows] C:\Users\username\.ssh\config
 
-```
-Host myRemoteServerName
-    RemoteForward <my-port-number> localhost:52698
-```
+	```
+	Host myRemoteServerName
+    	RemoteForward <my-port-number> localhost:52698
+	```
 
 ### Remote Open files 
 
@@ -75,8 +75,7 @@ This should open this example_program file on your local VSCode.
 
 ### Resolving conflict for multiple users  
 
-Conflict port number: 
-https://ernie.io/2011/12/12/textmate-2-rmate-awesome/
+Conflict port number [1]: 
 
 Note: Different people need to set a different  <my-port-number> by yourself, if you have setted your own  <my-port-number>, please register in the following form and others cannot use it anymore.
 
@@ -126,7 +125,7 @@ Change the port info as(if for Yuzhen):
 
 ## VSCode in terminal 
 
-https://stackoverflow.com/questions/30065227/run-open-vscode-from-mac-terminal
+<https://stackoverflow.com/questions/30065227/run-open-vscode-from-mac-terminal>
 
 [Mac] Cmd+shift+p:   > Shell Command: Install code in PATH 
 
@@ -145,3 +144,5 @@ VScode for Chinese version：
 文件->首选项->设置->文件
 Change ''file.eol'' : ''\r\n'' -> ''file.eol'' : ''\n''
 
+
+[1]: https://ernie.io/2011/12/12/textmate-2-rmate-awesome/
