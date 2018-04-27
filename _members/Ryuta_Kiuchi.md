@@ -2,6 +2,7 @@
 title: Ryuta Kiuchi (木内隆太)
 ---
 
+<img src="/images/Ryuta_Kiuchi.jpg" width="200"/>
 
 ## Contact 
   - Email: kiuchi@ihep.ac.cn 
