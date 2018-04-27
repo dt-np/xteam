@@ -31,5 +31,5 @@ title: Ryuta Kiuchi (木内隆太)
 ## Hobbies
   - piano (classic)
   - Japanese chess 
-  - traveling
+ 
   
