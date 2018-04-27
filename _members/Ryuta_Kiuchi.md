@@ -12,8 +12,8 @@ title: Ryuta Kiuchi (木内隆太)
   - [BESIII](http://bes3.ihep.ac.cn) New Physics Search 
 
 ## Education
-  - Ph.D., High Energy Astro-Particle Physics, [Tokyo University](https://www.u-tokyo.ac.jp/en/), 2008.
-  - M.S., High Energy Astro-Particle Physics, [Tokyo University](https://www.u-tokyo.ac.jp/en/), 2005.
+  - Ph.D., High Energy Astro-Particle Physics, [Tokyo University](https://www.u-tokyo.ac.jp/en/), 2008.
+  - M.S., High Energy Astro-Particle Physics, [Tokyo University](https://www.u-tokyo.ac.jp/en/), 2005.
   - B.S., Physics, Tokyo University, 2003. 
 
 ## Work Experience
