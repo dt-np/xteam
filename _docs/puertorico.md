@@ -48,14 +48,5 @@ Using up  the score result in game over.
 | Ryuta  | 13       | 15      | 7          | 35    |
 
 
-## 2017.09.28 
-	
-| Team          | Building | Victory | Additional | Total |
-| ------------- | -------- | ------- | ---------- | ----- |
-| Tao, Lingteng | 16       | 10      | 7+5        | 38    |
-| Yumo, Yuzhen  | 19       | 26      | 6          | 51    |
-| Suyu, Xin     | 23       | 32      | 8          | 63    |
-| Kai, Ryuta    | 16       | 31      | 5          | 52    |
-	
 	
 [1]: https://en.wikipedia.org/wiki/Puerto_Rico_%28board_game%29
