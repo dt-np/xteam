@@ -9,7 +9,7 @@ title: Ryuta Kiuchi (木内隆太)
 
 ## Research 
   - [CEPC](http://cepc.ihep.ac.cn) Silicon Vertex Detector R&D
-  - [BESIII](http://bes3.ihep.ac.cn) New Physics Search 
+  - [BESIII](http://bes3.ihep.ac.cn) New Physics Search 
 
 ## Education
   - Ph.D., High Energy Astro-Particle Physics, [Tokyo University](https://www.u-tokyo.ac.jp/en/), 2008.
