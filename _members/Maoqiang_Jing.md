@@ -2,6 +2,8 @@
 title: Maoqiang Jing (荆茂强)
 ---
 
+<img src="/images/jingmaoqiang.jpg" width="200"/>
+
 ## Contact
 - Email: jingmq@ihep.ac.cn
 - Phone: 18811131052
@@ -9,6 +11,7 @@ title: Maoqiang Jing (荆茂强)
 
 ## Research
 - [CEPC](http://cepc.ihep.ac.cn) Silicon Vertex Detector Simulation
+- [BESIII](http://bes3.ihep.ac.cn) Inclusive KS Decay
 
 ## Education
 - B.S., Nuclear Physics, [University of South China](http://www.usc.edu.cn/), 2014.
