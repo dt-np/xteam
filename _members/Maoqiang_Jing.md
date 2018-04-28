@@ -2,6 +2,8 @@
 title: Maoqiang Jing (荆茂强)
 ---
 
+<img src="/images/jingmaoqiang.jpg" width="200"/>
+
 ## Contact
 - Email: jingmq@ihep.ac.cn
 - Phone: 18811131052
