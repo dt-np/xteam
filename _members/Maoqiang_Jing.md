@@ -9,6 +9,7 @@ title: Maoqiang Jing (荆茂强)
 
 ## Research
 - [CEPC](http://cepc.ihep.ac.cn) Silicon Vertex Detector Simulation
+- [BESIII](http://bes3.ihep.ac.cn) Inclusive KS Decay
 
 ## Education
 - B.S., Nuclear Physics, [University of South China](http://www.usc.edu.cn/), 2014.
