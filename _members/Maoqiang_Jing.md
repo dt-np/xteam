@@ -2,7 +2,7 @@
 title: Maoqiang Jing (荆茂强)
 ---
 
-<img src="/images/jingmaoqiang.jpg" width="200"/>
+<img src="/images/Maoqiang_Jing.jpg" width="200"/>
 
 ## Contact
 - Email: jingmq@ihep.ac.cn
