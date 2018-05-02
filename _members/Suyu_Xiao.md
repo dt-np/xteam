@@ -1,8 +1,7 @@
 ---
 title: Suyu Xiao (肖素玉)
 ---
- 
-BS  Shandong U 
+
 ## Contact 
 - Email: xiaosuyu@ihep.ac.cn 
 - Office: IHEP Main building A427, 19B YuquanLu Shijingshan District, Beijing 100049
