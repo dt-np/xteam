@@ -1,6 +1,7 @@
 ---
 title: Tao Yang (杨涛)
 ---
+<img src="/images/tao.jpg" width="200"/>
 
 BS USTB 
 
