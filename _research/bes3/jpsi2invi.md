@@ -15,10 +15,10 @@ beyond the SM. Invisible decays of some other particles have be studied.
 
 Using $14.0\times10^6$ $\psip$ events, the BESII experiment obtained a first upper 
 limit, $\mathcal{B}(\jpsi\to{\rm invisible})/\mathcal{B}(\jpsi\to\mu^+\mu^-)<1.2\times10^{-2}$,
-corresponding to $\mathcal{B}(\jpsi\to{\rm invisible})<7\times10^{-4}$~\cite{PRL100192001} 
+corresponding to $\mathcal{B}(\jpsi\to{\rm invisible})<7\times10^{-4}$ 
 via the $\psip\to\pip\pim\jpsi$ transition. We present here updated results 
 of search for the invisible decay of the $\jpsi$. The data sample used consists of 
-$(106.41\pm0.86)\times10^6$ $\psip$ events~\cite{npsip} collected with the BESIII detector~\cite{BESIII}
+$(106.41\pm0.86)\times10^6$ $\psip$ events collected with the BESIII detector
 at the BEPCII collider~\cite{BEPCII}.
 
 
