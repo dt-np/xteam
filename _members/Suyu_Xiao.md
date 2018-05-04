@@ -17,10 +17,6 @@ title: Suyu Xiao (肖素玉)
 - B.S., Applied Physics, [Shandong University, Weihai](http://www.wh.sdu.edu.cn), 2010-2014. 
 
 ## Experience
-- Process Engineer in [ASE, Weihai](http://www.aseglobal.com/ch/), 2014-2015
+- Process Engineer in [ASE, Weihai](http://www.aseglobal.com/ch/), 2014-2015.
 
 
-## Experience
-- Process Engineer in [ASE, Weihai](http://www.aseglobal.com/ch/), 2014-2015
- 
- 
