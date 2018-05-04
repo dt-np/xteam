@@ -1,0 +1,10 @@
+---
+title: JadePix
+layout: news
+category: jadepix 
+---
+
+{% for post in site.categories[page.category] %}
+  {% include news_item.html %}
+{% endfor %}
+
