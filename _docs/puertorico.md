@@ -11,8 +11,8 @@ We play the board game [Puerto Rico][1] every month. Below are scores for each t
 | Team          | Building | Victory | Additional | Total |
 | ------------- | -------- | ------- | ---------- | ----- |
 | Tao, Suyu     | 20       | 36      | 6          | 62    |
-| Ryuta         | 21       | 26      | 11         | 58    |
-| Kai           | 21       | 15      | 11         | 47    |
+| Kai           | 21       | 26      | 11         | 58    |
+| Ryuta         | 21       | 15      | 11         | 47    |
 
 
 ## 2018.04.27 
