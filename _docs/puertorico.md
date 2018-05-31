@@ -4,6 +4,28 @@ title: Puerto Rico
 
 We play the board game [Puerto Rico][1] every month. Below are scores for each team. 
 
+## 2018.05.31 
+
+* Organizer: Suyu
+
+| Team          | Building | Victory | Additional | Total |
+| ------------- | -------- | ------- | ---------- | ----- |
+| Tao, Suyu     | 20       | 36      | 6          | 62    |
+| Ryuta         | 21       | 26      | 11         | 58    |
+| Kai           | 21       | 15      | 11         | 47    |
+
+
+## 2018.04.27 
+
+* Organizer: Tao 
+
+| Team          | Building | Victory | Additional | Total |
+| ------------- | -------- | ------- | ---------- | ----- |
+| Suyu, Tao     | 13       | 27      | 5          | 45    |
+| Ryuta         | 19       | 29      | 7          | 55    |
+| Maoqiang, Hao | 19       | 37      | 6          | 62    |
+
+
 ## 2018.03.30 
 
 * Organizer: Hao 
