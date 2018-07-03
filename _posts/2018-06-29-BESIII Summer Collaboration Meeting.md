@@ -5,4 +5,13 @@ author: xiaosy1
 categories: jc
 ---
 
-<https://indico.ihep.ac.cn//event/8183/>
+<https://indico.ihep.ac.cn/event/7831/session/14/contribution/19/material/slides/0.pdf>
+
+A talk is given at BESIII Summer Collaboration Meeting on June 27 - July 1, 2018. 
+It's a version without TDC cut(suggested by Professor Yuan at Charmonium Round-table Meeting on May 9, 2018). 
+Several comments and suggestions are received. More details are recorded on OneNote June 29, 2018. 
+And some of the suggestions I've tried to see whether background can be suppressed. 
+Until now, no chi_c peaks appear. 
+
+
+<img src="/images/chic_20180703.jpg" width="200"/>
