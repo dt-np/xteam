@@ -3,7 +3,7 @@ title: Amit Pathak
 ---
 
 
-<img src="/images/Suyu_Xiao.jpg" width="200"/>
+<img src="/images/Amit_Pathak.jpg" width="200"/>
 
 ## Contact 
 - Email: amit@ihep.ac.cn 
@@ -13,8 +13,8 @@ title: Amit Pathak
 - [BESIII](http://bes3.ihep.ac.cn) New Physics Search
 
 ## Education
-- PhD,High Energy Physics,[Institute of High Energy Physics Chinese Academy of Sciences, Beijing, P.R. China](www.ihep.cas.cn), Present.
-- PhD,High Energy Physics,[Institute of Theoretical Physics Chinese Academy of Sciences, Beijing, P.R. China](www.itp.cas.cn), 2016-Present.
+- PhD,High Energy Physics,[Institute of High Energy Physics Chinese Academy of Sciences, Beijing](www.ihep.cas.cn), Present.
+- PhD,High Energy Physics,[Institute of Theoretical Physics Chinese Academy of Sciences, Beijing](www.itp.cas.cn), 2016-Present.
 - M.Sc., Applied Physics, [B.B. Ambedkar University, Lucknow (U.P.), India](www.bbau.ac.in), 2012-2014.
 - B.Sc.,Physics and Mathematics, [University of Lucknow, Lucknow (U.P.), India](www.lkouniv.ac.in), 2009-2012.
 
