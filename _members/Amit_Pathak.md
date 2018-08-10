@@ -20,7 +20,7 @@ title: Amit Pathak
 - B.Sc., Physics and Mathematics, [University of Lucknow, Lucknow(U.P.), India](http://www.lkouniv.ac.in/), 2009-2012. 
 
 ## Hobbies
-- Cricket (http://www.icc-cricket.com/)
+- [Cricket] (http://www.icc-cricket.com/)
 - Badminton
 - Trekking
 
