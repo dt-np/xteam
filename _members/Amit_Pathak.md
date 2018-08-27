@@ -14,13 +14,13 @@ title: Amit Pathak
 - [BESIII](http://bes3.ihep.ac.cn) New Physics Search
 
 ## Education
-- PhD, High Energy Physics, [Institute of High Energy Physics Chinese Academy of Sciences, Beijing](www.ihep.cas.cn), Now
-- PhD, High Energy Physics, [Institute of Theoretical Phyics Chinese Academy of Sciences, Beijing](www.itp.cas.cn), 2016-Now
-- M.Sc., Applied Physics, [B.B.Ambedkar University, Lucknow(U.P.), India](www.bbau.ac.in), 2012-2014.
-- B.Sc., Physics and Mathematics, [University of Lucknow, Lucknow(U.P.), India](www.lkouniv.ac.in), 2009-2012. 
+- PhD, High Energy Physics, [Institute of High Energy Physics Chinese Academy of Sciences, Beijing](http://www.ihep.cas.cn/), Now
+- PhD, High Energy Physics, [Institute of Theoretical Phyics Chinese Academy of Sciences, Beijing](http://www.itp.cas.cn/), 2016-Now
+- M.Sc., Applied Physics, [B.B.Ambedkar University, Lucknow(U.P.), India](http://www.bbau.ac.in/), 2012-2014.
+- B.Sc., Physics and Mathematics, [University of Lucknow, Lucknow(U.P.), India](http://www.lkouniv.ac.in/), 2009-2012. 
 
 ## Hobbies
-- Cricket (www.icc-cricket.com)
+- [Cricket] (http://www.icc-cricket.com/)
 - Badminton
 - Trekking
 

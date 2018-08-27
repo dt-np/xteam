@@ -15,6 +15,8 @@ title: Tao Yang (杨涛)
 
 ## Education
 - B.S., Physics, [University of Science and Technology Beijing](http://www.ustb.edu.cn), 2018.
+- Thesis: [CEPC CMOS Charge collection efficiency](http://twiki.ihep.ac.cn/pub/Xteam/ThesisList/YangTao_2018_CEPC_JadePix.pdf)
+
 
 
 
