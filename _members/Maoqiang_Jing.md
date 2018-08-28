@@ -15,6 +15,8 @@ title: Maoqiang Jing (荆茂强)
 ## Education
 - B.S., Nuclear Physics, [University of South China](http://www.usc.edu.cn/), 2018.
 
+- Thesis: [CEPC CMOS Pixel Charge Collection Efficiency Simulation](http://twiki.ihep.ac.cn/pub/Xteam/ThesisList/JingMaoqiang_2018_CEPC_JadePix.pdf)
+
 
 
 
