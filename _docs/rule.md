@@ -11,7 +11,7 @@ Search for New Physics with advanced particle detectors.
  - [Journal club](/docs/journalclub) happens every Friday from 12:00 - 13:00.  
  - Group meeting happens every Friday from 13:00 - 14:00.
  - Monthly plan will be made at the beginning of every month. 
- - [Puerto Rico](/docs/puertorico) will be played on Tuesday 11:30-14:00 of the last week each month.  
+ - [Puerto Rico](/docs/puertorico) will be played on Thursday 11:30-14:00 of the last week each month.  
  - Quarterly review will be done every three months. 
 
 ## Action 
