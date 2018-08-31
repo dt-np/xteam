@@ -9,7 +9,7 @@ title: Shan Gu（顾珊）
 - Office: IHEP Main building B427, 19B YuquanLu Shijingshan District, Beijing 100049
 
 ## Research
-- [BESIII](http://bes3.ihep.ac.cn) BESIII data analysis
+- [BESIII](http://bes3.ihep.ac.cn) data analysis
 
 
 ## Education
