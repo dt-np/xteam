@@ -43,7 +43,7 @@ Add this line in your $HOME/.bashrc file:
 
 2. Start the remote server:
 [Mac]  "Shift+cmd+p" > Remote: Start Server 
-[Windows] "Shift + Ctrl + p" > Remote: Start Server  
+[Windows/Linux] "Shift + Ctrl + p" > Remote: Start Server  
 
 3. [Windows] install OpenSSH:
 	Install [OpenSSH](http://www.mls-software.com/opensshd.html)
@@ -66,7 +66,7 @@ Use any terminal which can do the ssh, (here we recommend you use the integrated
 
 ```
 $ ssh user@remote.org 
-[Windows7]  $ssh -R <my-port-number>:localhost:52698 user@example.org
+[Windows7/Linux]  $ssh -R <my-port-number>:localhost:52698 user@example.org
 $ rcode -p  <my-port-number> example_program(you can change port number to be yourself number in $HOME/local/bin/rcode, if you want to use command "rcode example_program" to open a file)
 ```
 
@@ -99,7 +99,7 @@ Note: Different people need to set a different  <my-port-number> by yourself, if
 | YANG Yuzhen   | 52600       |
 | XIAO Suyu-Mac | 55556       |
 | Yang Tao      | 54321       |
-	
+| Amit Pathak	| 52700	      | 	
 	
 	ssh -Y -R xxxxx:127.0.0.1:52698 username@lxslc6.ihep.ac.cn
 
