@@ -99,8 +99,9 @@ Note: Different people need to set a different  <my-port-number> by yourself, if
 | YANG Yuzhen   | 52600       |
 | XIAO Suyu-Mac | 55556       |
 | Yang Tao      | 54321       |
-| Amit Pathak	| 52700	      | 	
-	
+| Amit Pathak	| 52700	      |
+| Tan Yuhang	| 59637       |
+ 	
 	ssh -Y -R xxxxx:127.0.0.1:52698 username@lxslc6.ihep.ac.cn
 
 Solve the conflict:
