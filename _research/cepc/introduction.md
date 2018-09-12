@@ -2,6 +2,8 @@
 title: CEPC  
 ---
 
+<img src="/images/cepc_acc.jpg" width="200"/>
+
 ## Introduction
  The CEPC is a circular positron-electron collider with its circumference of
 100 km. The precise measurements of the Higgs boson properties will serve tests
