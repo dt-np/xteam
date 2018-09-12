@@ -1,5 +1,5 @@
 ﻿---
-title: CEPC
+title: intro
 ---
 
 <img src="/images/cepc_acc.jpg" width="200"/>
