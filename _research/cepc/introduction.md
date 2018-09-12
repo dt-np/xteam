@@ -1,8 +1,8 @@
 ---
-title: CEPC  
+title: The CEPC Project
 ---
 
-<img src="/images/cepc_acc.jpg" width="200"/>
+<img src="/images/cepc_acc.jpg" width="600"/>
 
 ## Introduction
  The CEPC is a circular positron-electron collider with its circumference of
