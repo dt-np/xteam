@@ -1,5 +1,5 @@
 ﻿---
-title: CEPC (Circular Electron Positron Collider)
+title: CEPC
 ---
 
 <img src="/images/cepc_acc.jpg" width="200"/>
