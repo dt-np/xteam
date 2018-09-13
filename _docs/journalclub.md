@@ -2,15 +2,15 @@
 title: Journal Club
 ---
 
-- Time:  Every Friday morning at 9am
-- Location:  B324. 
+- Time:  Every Friday 12:00-13:00 
+- Location:  B424. 
 - Contents: 
 	
 1. Regular JC paper discussion
 	
-	a. Paper should be uploaded by Friday afternoon
+	a. Paper should be uploaded by Friday noon. 
 	
-	b. Questions should be sent to JC speaker by Wednesday evening 
+	b. Questions should be sent to JC speaker by the end of Tuesday. No question means no reading!  
 	
 	c. Highlights for others to pay attention 
 
