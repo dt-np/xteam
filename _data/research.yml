@@ -4,6 +4,7 @@
 
 - title: BESIII
   pages:
+    - bes3/intro
     - bes3/jpsi2invi
     - bes3/chic2invi
 
