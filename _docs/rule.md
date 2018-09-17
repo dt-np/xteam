@@ -1,5 +1,5 @@
 ---
-title: Team Rule 
+title: Team Rule v1.1
 ---
 
 ## Goal 
@@ -10,6 +10,7 @@ Search for New Physics with advanced particle detectors.
 
  - [Journal club](/docs/journalclub) happens every Friday from 12:00 - 13:00.  
  - Group meeting happens every Friday from 13:00 - 14:00.
+ - Coffee break happens on every Tuesday and Thursday from 15:00 - 16:00 at Particle Cafe. 
  - Monthly plan will be made at the beginning of every month. 
  - [Puerto Rico](/docs/puertorico) will be played on Thursday 11:30-14:00 of the last week each month.  
  - Quarterly review will be done every three months. 
@@ -22,9 +23,9 @@ Search for New Physics with advanced particle detectors.
     - What's the outcome? If solved, save the results and code (push on your github). If not, what's the alternative method? 
     - At the end of the day, write done the action items for tomorrow.  
 
+- Every team member is *strongly encouraged* to 
 
-
-- By the end of each Tuesday, every team member is **required** to send at least one question regarding to the journal club paper which posted last Friday. 
+- By the end of each Tuesday, every team member is **required** to send just ONE question about the journal club paper which posted last Friday to the journal club mailing list, so that everyone can see it. 
 
 
 - By the end of each Thursday, every team member is **required** to send one slide to summarize his/her weekly progress to the sub-group leaders. 
