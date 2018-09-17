@@ -23,7 +23,7 @@ Search for New Physics with advanced particle detectors.
     - What's the outcome? If solved, save the results and code (push on your github). If not, what's the alternative method? 
     - At the end of the day, write done the action items for tomorrow.  
 
-- Every team member is *strongly encouraged* to 
+- Every team member is *strongly encouraged* to take a Coffee break at the Particle Cafe on every Tuesday and Thursday afternoon to chat with other team members for any research related topics. This is the source of generating and sparking new ideas! 
 
 - By the end of each Tuesday, every team member is **required** to send just ONE question about the journal club paper which posted last Friday to the journal club mailing list, so that everyone can see it. 
 
