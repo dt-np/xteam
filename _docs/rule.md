@@ -1,5 +1,5 @@
 ---
-title: Team Rule v1.1
+title: Team Rule v1.2
 ---
 
 ## Goal 
@@ -10,7 +10,7 @@ Search for New Physics with advanced particle detectors.
 
  - [Journal club](/docs/journalclub) happens every Friday from 12:00 - 13:00.  
  - Group meeting happens every Friday from 13:00 - 14:00.
- - Coffee break happens on every Tuesday and Thursday from 15:00 - 16:00 at Particle Cafe. 
+ - Coffee break happens on every Tuesday and Thursday from 16:00 - 17:00 at Particle Cafe. 
  - Monthly plan will be made at the beginning of every month. 
  - [Puerto Rico](/docs/puertorico) will be played on Thursday 11:30-14:00 of the last week each month.  
  - Quarterly review will be done every three months. 
