@@ -1,5 +1,5 @@
 ---
-title: Team Rule v1.2
+title: Team Rule v1.3
 ---
 
 ## Goal 
@@ -28,16 +28,18 @@ Search for New Physics with advanced particle detectors.
 - By the end of each Tuesday, every team member is **required** to send just ONE question about the journal club paper which posted last Friday to the journal club mailing list, so that everyone can see it. 
 
 
-- By the end of each Thursday, every team member is **required** to send one slide to summarize his/her weekly progress to the sub-group leaders. 
+- By the end of each Thursday, every team member is **required** to send one slide to summarize his/her weekly progress to the sub-group leaders. Sub-group leaders need to download the [plan](/plan.gan) file and adjust according to member's progress. 
 
-- Before noon on each Friday, two speakers (Journal Club and Special Topic) should upload the slides on indico page. The next JC speaker should upload the paper, which will be mentioned briefly by the end of the JC.  By the end of Friday, the JC convener should post a news on X-Team homepage and create the indico page for next week. 
+- Before noon on each Friday, two speakers (Journal Club and Special Topic) should upload the slides on indico page, *and* the next JC speaker should upload the paper. By the end of Friday, the JC convener should post a news on X-Team homepage and create the indico page for next week. 
 
 - During the group meeting each Friday, each sub-group leader will give a 15 minutes summary talk, which contains: 
-    - Progress of each sub-group based on the monthly plan page (OneNote). 
+    - Progress of each sub-group and Gantt chart based on the plan file.  
     - Each sub-group member's progress in one slide.
-    - Plan for next week with the updated plan page (OneNote)
+    - Plan for next week with the updated plan page (OneNote) 
+  
+- At the end of group meeting each Friday, one member will give a 15 minutes formal talk, which should contain enough background information, personal progress, summary and plan. 
 
-- At the end of group meeting each Friday, one student will give a 15 minutes formal talk, which should contain enough background information, personal progress, summary and plan. 
+- After the group meeting, sub-group leaders are encouraged to discuss with their members to confirm the action items for next week, then update the plan file to github for merge. 
 
-- By the end of Friday, each sub-group leader should update the monthly plan page on OneNote; team leader will send out the announcement for next meeting. 
+- By the end of Friday, team leader will merge all the changes for plan and send out the group meeting announcement for next meeting. 
 
