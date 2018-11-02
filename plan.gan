@@ -161,7 +161,7 @@
                         <task id="35" name="Calculate new yield of (inv. - peaking bkg)" color="#8cb6ce" meeting="false" start="2018-10-30" duration="2" complete="100" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true"/>
                     </task>
                     <task id="93" name="repeat acceptance value with 09 sample" color="#ff0033" meeting="false" start="2018-11-01" duration="6" complete="30" thirdDate="2018-10-08" thirdDate-constraint="0" expand="false">
-                        <task id="" name="generate samples,  processing data samples with preselection" color="#8cb6ce" meeting="false" start="2018-11-01" duration="3" complete="60" thirdDate="2018-11-01" thirdDate-constraint="0" expand="true"/>
+                        <task id="102" name="generate samples,  processing data samples with preselection" color="#8cb6ce" meeting="false" start="2018-11-01" duration="3" complete="60" thirdDate="2018-11-01" thirdDate-constraint="0" expand="true"/>
                         <task id="97" name="09 acceptance, compare with values in memo" color="#8cb6ce" meeting="false" start="2018-11-06" duration="2" complete="0" thirdDate="2018-10-08" thirdDate-constraint="0" expand="true"/>
                         <task id="101" name="discussion on the result" color="#8cb6ce" meeting="false" start="2018-11-08" duration="1" complete="0" thirdDate="2018-11-08" thirdDate-constraint="0" expand="true">
                             <depend id="36" type="2" difference="0" hardness="Strong"/>
