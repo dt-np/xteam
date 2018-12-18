@@ -1,16 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="X-Team Plan" company="" webLink="http://xteam.ihep.ac.cn" view-date="2018-11-19" view-index="0" gantt-divider-location="451" resource-divider-location="378" version="2.8.9" locale="en">
+<?xml version="1.0" encoding="UTF-8"?><project name="X-Team Plan" company="" webLink="http://xteam.ihep.ac.cn" view-date="2018-11-28" view-index="0" gantt-divider-location="770" resource-divider-location="378" version="2.8.9" locale="en">
     <description/>
     <view zooming-state="default:2" id="gantt-chart">
-        <field id="tpd3" name="Name" width="273" order="0"/>
-        <field id="tpd4" name="Begin date" width="40" order="1"/>
-        <field id="tpd5" name="End date" width="54" order="2"/>
-        <field id="tpd8" name="Coordinator" width="64" order="3"/>
-        <option id="taskLabelUp" value=""/>
-        <option id="taskLabelLeft" value="name"/>
+        <field id="tpd3" name="Name" width="357" order="0"/>
+        <field id="tpd4" name="Begin date" width="124" order="1"/>
+        <field id="tpd5" name="End date" width="138" order="2"/>
+        <field id="tpd8" name="Coordinator" width="147" order="3"/>
         <option id="color.recent"><![CDATA[#f0f0f0]]></option>
     </view>
     <view id="resource-table">
-        <field id="0" name="Name" width="241" order="0"/>
+        <field id="0" name="Name" width="240" order="0"/>
         <field id="1" name="Default role" width="134" order="1"/>
     </view>
     <!-- -->
@@ -76,7 +74,7 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="ATLAS" color="#8cb6ce" meeting="false" start="2018-10-15" duration="56" complete="37" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
+        <task id="0" name="ATLAS" color="#8cb6ce" meeting="false" start="2018-10-15" duration="56" complete="50" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
             <task id="10" name="RAL-SOP" color="#000000" meeting="false" start="2018-10-29" duration="9" complete="68" thirdDate="2018-10-15" thirdDate-constraint="0" expand="false">
                 <task id="11" name="RAL-SOP-000" color="#009999" meeting="false" start="2018-10-29" duration="2" complete="100" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
                     <notes><![CDATA[master]]></notes>
@@ -107,29 +105,25 @@
                 <task id="234" name="ITk presentation for CLHCP v1" color="#009999" meeting="false" start="2018-12-03" duration="10" complete="80" thirdDate="2018-12-13" thirdDate-constraint="0" expand="true"/>
                 <task id="224" name="LGAD proposal" color="#009999" meeting="false" start="2018-12-03" duration="8" complete="100" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="20" name="HGTD Sensor test" color="#000000" meeting="false" start="2018-10-15" duration="46" complete="25" thirdDate="2018-10-15" thirdDate-constraint="0" expand="false">
-                <task id="21" name="LGAD 5x5 probe" meeting="false" start="2018-10-15" duration="1" complete="0" expand="true"/>
-                <task id="22" name="Prober and usage" color="#8cb6ce" meeting="false" start="2018-11-21" duration="8" complete="50" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
-                    <depend id="111" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="23" name="Parameter analyzer" color="#8cb6ce" meeting="false" start="2018-11-21" duration="8" complete="70" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
-                    <depend id="111" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="24" name="Cable connection" color="#8cb6ce" meeting="false" start="2018-11-21" duration="8" complete="20" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
-                    <depend id="111" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="107" name="I-V measurement on single pad" color="#8cb6ce" meeting="false" start="2018-11-27" duration="10" complete="0" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
-                <task id="111" name="I-V measurement on 5x5 HPK sensor" color="#8cb6ce" meeting="false" start="2018-12-03" duration="10" complete="0" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
-                <task id="25" name="Probe card" meeting="false" start="2018-10-15" duration="1" complete="0" expand="true">
-                    <task id="26" name="Purchase card" meeting="false" start="2018-10-15" duration="1" complete="0" expand="true"/>
-                    <task id="27" name="Connector-Cable Connection" color="#8cb6ce" meeting="false" start="2018-10-15" duration="1" complete="0" thirdDate="2018-10-15" thirdDate-constraint="1" expand="true"/>
-                </task>
-                <task id="114" name="I-V on HPK sensor, using Probe Card" color="#8cb6ce" meeting="false" start="2018-12-10" duration="6" complete="0" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
+            <task id="20" name="HGTD Sensor test" color="#000000" meeting="false" start="2018-10-15" duration="55" complete="51" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
+                <task id="22" name="Learn &amp; Practise on the Prober" color="#8cb6ce" meeting="false" start="2018-11-21" duration="8" complete="100" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true"/>
+                <task id="23" name="Parameter analyzer" color="#8cb6ce" meeting="false" start="2018-11-21" duration="8" complete="100" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true"/>
+                <task id="24" name="Cable connection" color="#8cb6ce" meeting="false" start="2018-11-21" duration="8" complete="100" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true"/>
                 <task id="215" name="Make LGAD sensor list" color="#8cb6ce" meeting="false" start="2018-11-19" duration="3" complete="100" thirdDate="2018-11-01" thirdDate-constraint="0" expand="true"/>
+                <task id="107" name="I-V measurement on single pad" color="#8cb6ce" meeting="false" start="2018-11-27" duration="14" complete="100" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
+                <task id="25" name="Probe card" meeting="false" start="2018-10-15" duration="55" complete="28" expand="true">
+                    <task id="26" name="Purchase card" meeting="false" start="2018-10-15" duration="1" complete="0" expand="true"/>
+                    <task id="27" name="Connector-Cable Connection" color="#8cb6ce" meeting="false" start="2018-12-11" duration="14" complete="30" thirdDate="2018-10-15" thirdDate-constraint="1" expand="true">
+                        <task id="282" name="Toward very first connection" color="#8cb6ce" meeting="false" start="2018-12-11" duration="14" complete="30" thirdDate="2018-11-19" thirdDate-constraint="0" expand="true"/>
+                    </task>
+                    <task id="285" name="Card Holder" color="#8cb6ce" meeting="false" start="2018-12-13" duration="12" complete="10" thirdDate="2018-11-13" thirdDate-constraint="0" expand="true"/>
+                </task>
+                <task id="304" name="I-V on 5x5 HPK sensors with Probe Card" color="#8cb6ce" meeting="false" start="2018-10-15" duration="1" complete="0" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true"/>
+                <task id="111" name="I-V on 5x5 HPK sensors with Probe Tips" color="#8cb6ce" meeting="false" start="2018-10-15" duration="1" complete="0" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
             </task>
             <task id="28" name="HGTD Sensor design" color="#8cb6ce" meeting="false" start="2018-10-15" duration="1" complete="0" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="2" name="BESIII" color="#8cb6ce" meeting="false" start="2018-10-15" duration="51" complete="78" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
+        <task id="2" name="BESIII" color="#8cb6ce" meeting="false" start="2018-10-15" duration="51" complete="78" thirdDate="2018-10-15" thirdDate-constraint="0" expand="false">
             <task id="29" name="Jpsi2Invi Analysis" color="#000000" meeting="false" start="2018-10-15" duration="49" complete="89" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
                 <task id="30" name="Reply referees suggestions" meeting="false" start="2018-10-15" duration="49" complete="89" expand="true">
                     <task id="31" name="Acceptance for 2012 data" color="#ff0000" meeting="false" project="true" start="2018-10-15" duration="13" complete="100" thirdDate="2018-10-15" thirdDate-constraint="0" priority="4" expand="true">
@@ -213,19 +207,21 @@
                 <task id="280" name="writing draft" color="#8cb6ce" meeting="false" start="2018-12-10" duration="5" complete="100" thirdDate="2018-11-07" thirdDate-constraint="0" expand="true"/>
             </task>
         </task>
-        <task id="4" name="CEPC" color="#8cb6ce" meeting="false" start="2018-10-15" duration="40" complete="69" thirdDate="2018-10-15" thirdDate-constraint="0" expand="false">
+        <task id="4" name="CEPC" color="#8cb6ce" meeting="false" start="2018-10-15" duration="64" complete="80" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
             <task id="55" name="CMOS Pixel Sensor JapePix1" color="#8cb6ce" meeting="false" start="2018-10-15" duration="1" complete="0" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true"/>
             <task id="98" name="Make a presentation for CEPC workshop" color="#8cb6ce" meeting="false" start="2018-11-05" duration="5" complete="100" thirdDate="2018-10-03" thirdDate-constraint="0" expand="true"/>
-            <task id="56" name="Hig2Invi Analysis" color="#000000" meeting="false" start="2018-10-15" duration="35" complete="54" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
+            <task id="56" name="Hig2Invi Analysis" color="#000000" meeting="false" start="2018-10-15" duration="55" complete="81" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
                 <task id="57" name="Calculation of sensitivity of BR(Hig2Inv)" color="#8cb6ce" meeting="false" start="2018-10-15" duration="15" complete="100" thirdDate="2018-10-15" thirdDate-constraint="0" priority="4" expand="true"/>
                 <task id="92" name="Preparation of poster for CEPC workshop" color="#8cb6ce" meeting="false" start="2018-11-05" duration="5" complete="100" thirdDate="2018-10-09" thirdDate-constraint="0" expand="true"/>
-                <task id="95" name="Make an analysis document" color="#8cb6ce" meeting="false" start="2018-11-08" duration="17" complete="0" thirdDate="2018-10-09" thirdDate-constraint="0" expand="true"/>
+                <task id="95" name="Make an analysis document" color="#8cb6ce" meeting="false" start="2018-11-08" duration="22" complete="100" thirdDate="2018-10-09" thirdDate-constraint="0" expand="true"/>
+                <task id="317" name="Update cut flows : Z(-&gt;mm)Higgs(-&gt;invi)" color="#8cb6ce" meeting="false" start="2018-12-07" duration="6" complete="100" thirdDate="2018-11-21" thirdDate-constraint="0" expand="true"/>
+                <task id="313" name="Converge Z(-&gt;ee)Higgs(-&gt;invi.) channel" color="#8cb6ce" meeting="false" start="2018-12-14" duration="11" complete="0" thirdDate="2018-11-21" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="59" name="Hig2ZZ Analysis" color="#000000" meeting="false" start="2018-10-15" duration="40" complete="80" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
+            <task id="59" name="Hig2ZZ Analysis" color="#000000" meeting="false" start="2018-10-15" duration="64" complete="80" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
                 <task id="60" name="Calculation of precision of sigma(ZH)xBR(Hig2ZZ*)" color="#8cb6ce" meeting="false" start="2018-10-15" duration="10" complete="100" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true"/>
                 <task id="63" name="Apply the procedure for other combination" color="#8cb6ce" meeting="false" start="2018-10-22" duration="5" complete="100" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true"/>
                 <task id="100" name="Preparation of poster for CEPC workshop" color="#8cb6ce" meeting="false" start="2018-11-05" duration="5" complete="100" thirdDate="2018-10-12" thirdDate-constraint="0" expand="true"/>
-                <task id="208" name="Check the component in ZH bg." color="#8cb6ce" meeting="false" start="2018-12-03" duration="5" complete="0" thirdDate="2018-11-01" thirdDate-constraint="0" expand="true"/>
+                <task id="208" name="Check the component in ZH bg." color="#8cb6ce" meeting="false" start="2019-01-07" duration="5" complete="0" thirdDate="2019-01-07" thirdDate-constraint="1" expand="true"/>
             </task>
         </task>
     </tasks>
