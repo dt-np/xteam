@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="X-Team Plan" company="" webLink="http://xteam.ihep.ac.cn" view-date="2018-11-28" view-index="0" gantt-divider-location="770" resource-divider-location="378" version="2.8.9" locale="en">
+<?xml version="1.0" encoding="UTF-8"?><project name="X-Team Plan" company="" webLink="http://xteam.ihep.ac.cn" view-date="2018-11-19" view-index="0" gantt-divider-location="338" resource-divider-location="378" version="2.8.9" locale="en">
     <description/>
     <view zooming-state="default:2" id="gantt-chart">
-        <field id="tpd3" name="Name" width="357" order="0"/>
-        <field id="tpd4" name="Begin date" width="124" order="1"/>
-        <field id="tpd5" name="End date" width="138" order="2"/>
-        <field id="tpd8" name="Coordinator" width="147" order="3"/>
+        <field id="tpd3" name="Name" width="213" order="0"/>
+        <field id="tpd4" name="Begin date" width="27" order="1"/>
+        <field id="tpd5" name="End date" width="32" order="2"/>
+        <field id="tpd8" name="Coordinator" width="45" order="3"/>
+        <option id="taskLabelLeft" value="name"/>
         <option id="color.recent"><![CDATA[#f0f0f0]]></option>
     </view>
     <view id="resource-table">
-        <field id="0" name="Name" width="240" order="0"/>
-        <field id="1" name="Default role" width="134" order="1"/>
+        <field id="0" name="Name" width="239" order="0"/>
+        <field id="1" name="Default role" width="133" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -74,7 +75,7 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="ATLAS" color="#8cb6ce" meeting="false" start="2018-10-15" duration="56" complete="50" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
+        <task id="0" name="ATLAS" color="#8cb6ce" meeting="false" start="2018-10-15" duration="64" complete="51" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
             <task id="10" name="RAL-SOP" color="#000000" meeting="false" start="2018-10-29" duration="9" complete="68" thirdDate="2018-10-15" thirdDate-constraint="0" expand="false">
                 <task id="11" name="RAL-SOP-000" color="#009999" meeting="false" start="2018-10-29" duration="2" complete="100" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
                     <notes><![CDATA[master]]></notes>
@@ -86,14 +87,16 @@
                     <notes><![CDATA[electrical test]]></notes>
                 </task>
             </task>
-            <task id="16" name="B106 cleanroom" color="#000000" meeting="false" start="2018-10-30" duration="45" complete="35" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
-                <task id="17" name="Pull tester contact" color="#009999" meeting="false" start="2018-11-26" duration="14" complete="100" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
+            <task id="16" name="B106 cleanroom" color="#000000" meeting="false" start="2018-10-30" duration="53" complete="42" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
+                <task id="17" name="Pull tester contact" color="#009999" meeting="false" start="2018-11-26" duration="24" complete="93" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
                     <task id="221" name="competitive negotiation document v1" color="#009999" meeting="false" start="2018-11-26" duration="14" complete="100" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true"/>
+                    <task id="318" name="document review meeting" color="#009999" meeting="false" start="2018-12-27" duration="1" complete="0" thirdDate="2018-11-28" thirdDate-constraint="0" expand="true"/>
                 </task>
-                <task id="89" name="Tools &amp; Materials" meeting="false" start="2018-10-30" duration="45" complete="16" expand="true">
+                <task id="89" name="Tools &amp; Materials" meeting="false" start="2018-10-30" duration="53" complete="19" expand="true">
                     <task id="90" name="receive bristles holder, wait for purchase" color="#009999" meeting="false" start="2018-11-01" duration="32" complete="80" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
                         <notes><![CDATA[ask Jing for the purchase process]]></notes>
                     </task>
+                    <task id="321" name="order clean room clothes" color="#009999" meeting="false" start="2018-12-18" duration="18" complete="50" thirdDate="2018-11-28" thirdDate-constraint="0" expand="true"/>
                     <task id="91" name="tungten probe" color="#009999" meeting="false" start="2018-11-06" duration="39" complete="2" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
                         <notes><![CDATA[search online]]></notes>
                     </task>
@@ -101,8 +104,8 @@
                     <task id="19" name="Al wire" color="#009999" meeting="false" start="2018-10-30" duration="45" complete="0" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true"/>
                 </task>
             </task>
-            <task id="232" name="others" color="#009999" meeting="false" start="2018-12-03" duration="10" complete="88" thirdDate="2018-12-13" thirdDate-constraint="0" expand="true">
-                <task id="234" name="ITk presentation for CLHCP v1" color="#009999" meeting="false" start="2018-12-03" duration="10" complete="80" thirdDate="2018-12-13" thirdDate-constraint="0" expand="true"/>
+            <task id="232" name="others" color="#009999" meeting="false" start="2018-12-03" duration="10" complete="100" thirdDate="2018-12-13" thirdDate-constraint="0" expand="true">
+                <task id="234" name="ITk presentation for CLHCP v1" color="#009999" meeting="false" start="2018-12-03" duration="10" complete="100" thirdDate="2018-12-13" thirdDate-constraint="0" expand="true"/>
                 <task id="224" name="LGAD proposal" color="#009999" meeting="false" start="2018-12-03" duration="8" complete="100" thirdDate="2018-10-26" thirdDate-constraint="0" expand="true"/>
             </task>
             <task id="20" name="HGTD Sensor test" color="#000000" meeting="false" start="2018-10-15" duration="55" complete="51" thirdDate="2018-10-15" thirdDate-constraint="0" expand="true">
@@ -251,6 +254,8 @@
         <allocation task-id="221" resource-id="3" function="1" responsible="true" load="100.0"/>
         <allocation task-id="234" resource-id="3" function="1" responsible="true" load="100.0"/>
         <allocation task-id="224" resource-id="3" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="318" resource-id="3" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="321" resource-id="3" function="1" responsible="true" load="100.0"/>
         <allocation task-id="29" resource-id="4" function="2" responsible="true" load="100.0"/>
         <allocation task-id="28" resource-id="4" function="2" responsible="true" load="100.0"/>
         <allocation task-id="56" resource-id="6" function="2" responsible="true" load="100.0"/>
