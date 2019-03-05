@@ -4,10 +4,11 @@
 
 - title: BESIII
   pages:
-    - bes3/jpsi2invi 
-    - bes3/chic2invi 
+    - bes3/intro
+    - bes3/jpsi2invi
+    - bes3/chic2invi
 
 - title: CEPC
   pages:
+    - cepc/intro
     - cepc/jadepix
-    
