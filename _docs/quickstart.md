@@ -4,9 +4,7 @@ title: Quick Start
 
 ## Distributed Analysis Scheme 
 
-What is the "Distributed Analysis Scheme"? 
-
-Here is a [talk](https://indico.ihep.ac.cn//event/6253/session/7/contribution/30/material/slides/0.pdf) by [Xin](/members/Xin_Shi)
+What is the "Distributed Analysis Scheme"? Here is a [talk](https://indico.ihep.ac.cn//event/6253/session/7/contribution/30/material/slides/0.pdf) by [Xin](/members/Xin_Shi). 
 
 ## Common Tools for new comers 
 
@@ -17,21 +15,5 @@ Here is a nice [talk](https://indico.ihep.ac.cn/event/7614/session/9/material/0/
 How to write the MarkDown page like in this web? One can check: 
 
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-
-## Install ROOT on Linux as User 
-
-$ cd ~/tmp 
-
-$ wget  https://root.cern.ch/download/root_v5.34.36.source.tar.gz  #download root files
-
-$ tar xf root_v5.34.36.source.tar.gz                               #Decompression files
-
-$ cd root
-
-$ ./configure --prefix=$HOME/local                                 #check 
-
-$ make                                     #Corresponding to include
-
-$ make install 
 
 
