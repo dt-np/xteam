@@ -12,8 +12,6 @@ Here is a nice [talk](https://indico.ihep.ac.cn/event/7614/session/9/material/0/
 
 ## MarkDown Syntax 
 
-How to write the MarkDown page like in this web? One can check: 
-
-https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+How to write the MarkDown page like in this web? One can check [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). 
 
 
