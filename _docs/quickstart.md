@@ -2,6 +2,11 @@
 title: Quick Start 
 ---
 
+## Distributed Analysis Scheme 
+
+What is the "Distributed Analysis Scheme"? 
+
+Here is a [talk](https://indico.ihep.ac.cn//event/6253/session/7/contribution/30/material/slides/0.pdf) by [Xin](/members/Xin_Shi)
 
 ## Common Tools for new comers 
 
@@ -9,15 +14,9 @@ Here is a nice [talk](https://indico.ihep.ac.cn/event/7614/session/9/material/0/
 
 ## MarkDown Syntax 
 
-Headers
-
-# H1
-## H2
-### H3
+How to write the MarkDown page like in this web? One can check: 
 
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-
-
 
 ## Install ROOT on Linux as User 
 
