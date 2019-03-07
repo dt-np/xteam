@@ -27,6 +27,8 @@ Mailing list :
 
 Indico page: 
 
+2019: <http://indico.ihep.ac.cn/event/9242/>
+
 2018: <http://indico.ihep.ac.cn/event/7614/>
 
 2017: <http://indico.ihep.ac.cn/event/6655/>
