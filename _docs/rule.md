@@ -13,7 +13,7 @@ Develop advanced particle detectors and search for New Physics.
  - Sub-group project meeting every Friday 14:00 - 15:00. 
  - Weekly action items discussion every Friday 15:00 - 16:00. 
 
- - Monthly [plan](/plan.gan) and [X Courier](/news/xc.html) update at the beginning of every month. 
+ - Monthly [plan](/plan.gan), [X Courier](/news/xc.html) and [Research](/research/) pages update at the beginning of every month. 
  - [Puerto Rico](/docs/puertorico) will be played on Thursday 11:30-14:00 of the last week each month. As encouragment, the team with the lowest score will be the next orgnizer. 
   
  - Quarterly review will be done every three months. 
@@ -37,6 +37,6 @@ Develop advanced particle detectors and search for New Physics.
 - After the group meeting, from 14:00 - 15:00, team leader and sub-group leaders discuss the project progress and update the monthly plan page. 
 - Then from 15:00 to 16:00, each sub-group leader will discuss with their group members about the weekly action items and update the plan page. 
 
-- By the end of Friday, team leader will check the status of the plan page and send out the group meeting announcement for next meeting. 
+- By the end of Friday, team leader checks the plan page and announce the next group meeting. 
 
-- At the beginning of each month, team leader will update the [plan](/plan.gan) and release [X Courier](/news/xc.html). 
+- At the beginning of each month, team leader updates the [plan](/plan.gan) and releases [X Courier](/news/xc.html). Sub-group leaders update the [Research](/research/) pages.  
