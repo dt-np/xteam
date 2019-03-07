@@ -26,6 +26,7 @@ Mailing list :
 <http://maillist.ihep.ac.cn/mailman/listinfo/journal-club>
 
 Indico page: 
+
 2019: <http://indico.ihep.ac.cn/event/9242/>
 
 2018: <http://indico.ihep.ac.cn/event/7614/>
