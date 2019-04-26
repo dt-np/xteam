@@ -21,6 +21,6 @@ title: Amit Pathak
 
 ## Hobbies
 - [Cricket](http://www.icc-cricket.com/)
-- Badminton
+- [Badminton](https://bwf.tournamentsoftware.com/Home/)
 - Trekking
 
