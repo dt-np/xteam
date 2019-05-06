@@ -1,0 +1,10 @@
+    
+---
+title: Special Topic
+layout: news
+category: st
+---
+
+{% for post in site.categories[page.category] %}
+  {% include news_item.html %}
+{% endfor %}
