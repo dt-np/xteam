@@ -10,8 +10,8 @@ usage() {
     printf "\nSYNOPSIS\n"
     printf "\n\t%-5s\n" "source setup.sh [OPTION]" 
     printf "\nOPTIONS\n" 
-    printf "\n\t%-9s  %-40s"  "init-boss-7.0.4"      "initialise the boss 7.0.4"
-    printf "\n\t%-9s  %-40s"  "boss-7.0.4"           "setup the boss 7.0.4"
+    printf "\n\t%-20s  %-40s"  "init-boss-7.0.4"      "initialise the boss 7.0.4"
+    printf "\n\t%-20s  %-40s"  "boss-7.0.4"           "setup the boss 7.0.4"
     printf "\n\n" 
 }
 if [[ $# -eq 0 ]]; then
@@ -57,8 +57,8 @@ case $option in
     source setup.sh
 
     cd ../TestRelease/TestRelease-00-00-84/cmt
-    cd - 
-    cd ..
+    source setup.sh
+    cd ../../../
     
     ;;
 
