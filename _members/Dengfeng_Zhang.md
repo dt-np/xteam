@@ -16,7 +16,7 @@ Working Experience:
 Education:
 ---
 * 2013.09-2018.06	  Ph.D. in Particle Physics and Nuclear Physics, Shandong University\
-Advisor: Prof. Chengguang Zhu(祝成光教授)\
+&emsp;&emsp;&emsp;&emsp; Advisor: Prof. Chengguang Zhu(祝成光教授)\
 Thesis: Search for new phenomena in dijet events with the ATLAS detector at √s = 13 TeV
 * 2016.10-2017.08   Visiting Scholar, California State University, Fresno\
 Advisor: Prof. Yongsheng Gao
