@@ -30,6 +30,6 @@ Education:
 Research:
 ---
 * ATLAS Silicon microstrip tracker phase II upgrade
-* Search for new physics in dijet event on the ATLAS Detector of LHC
+* Search for new physics in dijet events on the ATLAS Detector of LHC
 * Electromagnetic Particle Detector For LHAASO
 * Semiconductor Tracker Quality Accurance for FASER
