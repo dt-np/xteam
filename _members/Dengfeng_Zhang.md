@@ -26,3 +26,10 @@ Education:
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;    Advisor: Prof. Yongsheng Gao
 * 2009.09-2013.07   &emsp;&emsp;    B.S. in Applied Physics, Shandong University (Weihai)
 * 2010.09-2012.07   &emsp;&emsp;    B.E. in Software Engineering, Shandong University (Weihai)
+
+Research:
+---
+* ATLAS Silicon microstrip tracker phase II upgrade
+* Search for new physics in dijet event on the ATLAS Detector of LHC
+* Electromagnetic Particle Detector For LHAASO
+* Semiconductor Tracker Quality Accurance for FASER
