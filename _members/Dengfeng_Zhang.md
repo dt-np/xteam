@@ -32,4 +32,4 @@ Research:
 * ATLAS Silicon microstrip tracker phase II upgrade
 * Search for new physics in dijet events on the ATLAS Detector of LHC
 * Electromagnetic Particle Detector For LHAASO
-* Semiconductor Tracker Quality Accurance for FASER
+* Semiconductor Tracker Quality Assurance for FASER
