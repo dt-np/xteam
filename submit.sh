@@ -11,8 +11,8 @@ usage() {
     printf "\nOPTIONS\n" 
 
     printf "\n\t%-9s  %-40s"  "0.1"      "[run on jpsiantisigmaminussigmaplus]"
-    printf "\n\t%-9s  %-40s"  "0.2"    "Generate -- 20000 jpsiantisigmaminussigmaplus MC signal..."
-    printf "\n\t%-9s  %-40s"  "0.3"    "Reconstruction -- 20000 jpsiantisigmaminussigmaplus MC signal..."
+    printf "\n\t%-9s  %-40s"  "0.1.1"    "Generate -- 20000 jpsiantisigmaminussigmaplus MC signal..."
+    printf "\n\t%-9s  %-40s"  "0.1.2"    "Reconstruction -- 20000 jpsiantisigmaminussigmaplus MC signal..."
    
 
     printf "\n\n" 
@@ -39,16 +39,16 @@ case $option in
 0.1) echo "[run on signal MC--jpsiantisigmaminussigmaplus]"
 	 ;;
 
-    0.2) echo "simulation --20000 signal MC sample jpsiantisigmaminussigmaplus events..."
+    0.1.1) echo "simulation --20000 signal MC sample jpsiantisigmaminussigmaplus events..."
         
         cd scripts/jpsiantisigmaminussigmaplus/jobs_jpsiantisigmaminussigmaplus
-        boss.exe jobOptions_sim_jpsiantisigmaminussigmaplus.txt
+        boss.condor -g physics jobOptions_sim_jpsiantisigmaminussigmaplus.txt
         ;;
     
-    0.3) echo "reconstruction -- generate 20000 signal MC sample..."
+    0.1.2) echo "reconstruction -- generate 20000 signal MC sample..."
             
 	    cd scripts/jpsiantisigmaminussigmaplus/jobs_jpsiantisigmaminussigmaplus
-        boss.exe -g physics jobOptions_rec_jpsiantisigmaminussigmaplus.txt
+        boss.condor -g physics jobOptions_rec_jpsiantisigmaminussigmaplus.txt
         ;;
 
 esac
