@@ -14,7 +14,8 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.1.1"    "simulation --10 signal MC sample interactively for jpsiantisigmaminussigmaplus events..."
     printf "\n\t%-9s  %-40s"  "0.1.2"    "Generate -- 20000 jpsiantisigmaminussigmaplus MC signal..."
     printf "\n\t%-9s  %-40s"  "0.1.3"    "Reconstruction -- 20000 jpsiantisigmaminussigmaplus MC signal..."
-   
+    printf "\n\t%-9s  %-40s"  "0.1.4"    "Preselection for 20k events -- generate root file [Checking interactively]..."
+    printf "\n\t%-9s  %-40s"  "0.1.5"    "Preselection for 20k events -- generate root file [cluster job]..."
 
     printf "\n\n" 
 
@@ -78,5 +79,18 @@ case $option in
 	    cd scripts/jpsiantisigmaminussigmaplus/jobs_jpsiantisigmaminussigmaplus
         boss.condor -g physics jobOptions_rec_jpsiantisigmaminussigmaplus.txt
         ;;
+
+    0.1.4) echo "Preselection for 20k events -- generate root file [Checking interactively]..."
+	
+	    cd scripts/jpsiantisigmaminussigmaplus/jobs_jpsiantisigmaminussigmaplus/
+	    boss.exe jobOptions_jpsiantisigmaminussigmaplus_gen_mc.txt
+        ;;
+
+    0.1.5) echo "Preselection for 20k events -- generate root file [cluster job]..."
+	
+	    cd scripts/jpsiantisigmaminussigmaplus/jobs_jpsiantisigmaminussigmaplus/
+	    boss.condor -g physics jobOptions_jpsiantisigmaminussigmaplus_gen_mc.txt
+        ;;
+
 
 esac
