@@ -1,0 +1,19 @@
+Decay J/psi
+
+1.0      Sigma+     anti-Sigma-              J2BB1;
+
+Enddecay
+
+Decay anti-Sigma-
+1.0        anti-p-  pi0                       PHSP;
+Enddecay
+
+Decay pi0
+1.0         gamma   gamma                     PHSP;
+Enddecay
+
+Decay   Sigma+
+1.0        p+      nu_e    anti-nu_e          PHSP;
+Enddecay
+
+End
