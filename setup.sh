@@ -4,7 +4,6 @@
 # Author AMIT PATHAK <amit@ihep.ac.cn>
 # Created [2019-05-06 Mon 07:58]
 
-
 usage() {
     printf "NAME\n\tsetup.sh - Main driver to setup the environment \n"
     printf "\nSYNOPSIS\n"

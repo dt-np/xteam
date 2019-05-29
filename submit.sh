@@ -14,10 +14,10 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.1.1"    "simulation --10 signal MC sample interactively for jpsiantisigmaminussigmaplus events..."
     printf "\n\t%-9s  %-40s"  "0.1.2"    "Generate -- 20000 jpsiantisigmaminussigmaplus MC signal..."
     printf "\n\t%-9s  %-40s"  "0.1.3"    "Reconstruction -- 20000 jpsiantisigmaminussigmaplus MC signal..."
-   
+    printf "\n\t%-9s  %-40s"  "0.1.4"    "Preselection for 10 events -- generate root file [Checking interactively]..."
+    printf "\n\t%-9s  %-40s"  "0.1.5"    "Preselection for 20k events -- generate root file [cluster job]..."
 
     printf "\n\n" 
-
 
 }
 
@@ -49,7 +49,8 @@ case $option in
             then
             echo "now in yes"
 
-            cd scripts/jpsiantisigmaminussigmaplus/jobs_jpsiantisigmaminussigmaplus
+            cd /besfs/users/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts
+            cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_sim_jpsiantisigmaminussigmaplus.txt ./
             boss.exe jobOptions_sim_jpsiantisigmaminussigmaplus.txt
             cd $HOME/bes/hypermiss
         else
@@ -65,8 +66,9 @@ case $option in
             then
             echo "now in yes"
         
-            cd scripts/jpsiantisigmaminussigmaplus/jobs_jpsiantisigmaminussigmaplus
-            boss.condor -g physics jobOptions_sim_jpsiantisigmaminussigmaplus.txt
+            cd /besfs/users/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts
+            cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_sim_jpsiantisigmaminussigmaplus.txt ./
+            boss.condor -os SL6 jobOptions_sim_jpsiantisigmaminussigmaplus.txt
             cd $HOME/bes/hypermiss
         else
             echo "Default value is 'NO'."
@@ -75,8 +77,46 @@ case $option in
     
     0.1.3) echo "reconstruction -- generate 20000 signal MC sample..."
             
-	    cd scripts/jpsiantisigmaminussigmaplus/jobs_jpsiantisigmaminussigmaplus
-        boss.condor -g physics jobOptions_rec_jpsiantisigmaminussigmaplus.txt
+	    cd /besfs/users/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_rec_jpsiantisigmaminussigmaplus.txt ./
+        boss.condor -os SL6 jobOptions_rec_jpsiantisigmaminussigmaplus.txt
+        cd $HOME/bes/hypermiss
+        ;;
+
+    0.1.4) echo "Preselection for 10 events -- generate root file [Checking interactively]..."
+
+        echo "have you changed event number to 10 for interactive job?(yes / NO)"
+        
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+        
+        cd /besfs/users/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_jpsiantisigmaminussigmaplus_gen_mc.txt ./
+	    boss.exe jobOptions_jpsiantisigmaminussigmaplus_gen_mc.txt
+        cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change the event number"
+        fi
+        ;;
+        
+    0.1.5) echo "Preselection for 20k events -- generate root file [cluster job]..."
+	
+        echo "have you changed event number from 10 which was previously set for interactive job?(yes / NO)"
+        
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+
+	    cd /besfs/users/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_jpsiantisigmaminussigmaplus_gen_mc.txt ./
+	    boss.condor -os SL6 jobOptions_jpsiantisigmaminussigmaplus_gen_mc.txt
+        cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change the event number"
+        fi
         ;;
 
 esac
