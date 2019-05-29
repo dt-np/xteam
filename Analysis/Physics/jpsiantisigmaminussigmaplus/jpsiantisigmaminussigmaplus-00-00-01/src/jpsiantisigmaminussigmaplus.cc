@@ -1,9 +1,9 @@
 // -*- C++ -*- //
 //
-// Description: jpsiantisigmaminussigmaplus -> e+ e- 
+// Description: J/psi   ->  antisigmaminus  sigmaplus
 //
 // Original Author:  Amit pathak <amitraahul@itp.ac.cn>
-//         Created:  [2018-07-25 Mon 16:30] 
+//         Created:  [2018-05-17 Fri 14:30] 
 //         Inspired by SHI Xin's code 
 //         Helped by maoqiang
 //

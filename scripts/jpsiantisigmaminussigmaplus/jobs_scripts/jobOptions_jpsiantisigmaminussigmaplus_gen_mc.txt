@@ -2,7 +2,7 @@
 #include "$VERTEXFITROOT/share/jobOptions_VertexDbSvc.txt" 
 #include "$MAGNETICFIELDROOT/share/MagneticField.txt"      
 #include "$ABSCORROOT/share/jobOptions_AbsCor.txt"         
-#include "$HOME/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scipts/jobOptions_jpsiantisigmaminussigmaplus_gen_mc_pathfile.txt" 
+#include "$HOME/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_jpsiantisigmaminussigmaplus_gen_mc_pathfile.txt" 
                                                               
                                                 
 ApplicationMgr.DLLs += {"jpsiantisigmaminussigmaplus"};                       
