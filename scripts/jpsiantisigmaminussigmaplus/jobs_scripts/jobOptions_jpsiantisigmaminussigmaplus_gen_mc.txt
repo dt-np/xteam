@@ -2,7 +2,7 @@
 #include "$VERTEXFITROOT/share/jobOptions_VertexDbSvc.txt" 
 #include "$MAGNETICFIELDROOT/share/MagneticField.txt"      
 #include "$ABSCORROOT/share/jobOptions_AbsCor.txt"         
-#include "$HOME/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_jpsiantisigmaminussigmaplus_gen_mc_pathfile.txt" 
+#include "/besfs/users/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_jpsiantisigmaminussigmaplus_gen_mc_pathfile.txt" 
                                                               
                                                 
 ApplicationMgr.DLLs += {"jpsiantisigmaminussigmaplus"};                       
@@ -13,8 +13,8 @@ MessageSvc.OutputLevel = 5;
                                                               
 // Number of events to be processed (default is 10)           
 //ApplicationMgr.EvtMax = 6000;                               
-ApplicationMgr.EvtMax = 10;                                   
+ApplicationMgr.EvtMax = 1000;                                   
                                                               
 jpsiantisigmaminussigmaplus.IsMonteCarlo="true";                             
-jpsiantisigmaminussigmaplus.OutputFileName="../../../root_jpsiantisigmaminussigmaplus/jpsiantisigmaminussigmaplus_gen_mc.root"; 
+jpsiantisigmaminussigmaplus.OutputFileName="../../../run/root_jpsiantisigmaminussigmaplus/jpsiantisigmaminussigmaplus_gen_mc.root"; 
                                                               

@@ -3,13 +3,10 @@
 // Description: J/psi   ->  antisigmaminus  sigmaplus
 //
 // Original Author:  Amit pathak <amitraahul@itp.ac.cn>
-//         Created:  [2018-05-17 Fri 14:30] 
+//         Created:  [2019-05-17 Fri 14:30] 
 //         Inspired by SHI Xin's code 
-//         Helped by maoqiang
-//
+//         
 
-
-//
 // system include files
 //
 
@@ -47,7 +44,7 @@
 #include <TH1.h>
 #include <TTree.h>
 //
-// class declaration //
+// class declaration 
 //
 
 class jpsiantisigmaminussigmaplus : public Algorithm {
@@ -62,7 +59,8 @@ public:
 private:
 
 double m_ecms;
-double m_total_number_of_charged_max;
+double m_vr0cut, m_vz0cut;
+double m_cha_costheta_cut;
 
 //output file
 std::string m_output_filename;
@@ -81,16 +79,22 @@ TTree* m_tree;
 //common info
 int m_run;
 int m_event;
+
 //
-//Neutral Tracks
+//charged tracks
 //
 int m_ncharged;
+int m_nptrk;
+int m_nmtrk;
 
 //
 //jpsiantisigmaminussigmaplus
 //
 int m_ntrk;
 
+// vertex 
+double m_vr0;
+double m_vz0;
 
 //
 //functions
@@ -99,8 +103,16 @@ void book_histogram();
 void book_tree();
 void clearVariables();
 bool buildjpsiantisigmaminussigmaplus();
+int selectChargedTracks(SmartDataPtr<EvtRecEvent>,
+	  SmartDataPtr<EvtRecTrackCol>,
+	  std::vector<int> &,
+    std::vector<int> &);
 
+bool passVertexSelection(CLHEP::Hep3Vector,
+			   RecMdcKalTrack* ); 
+  CLHEP::Hep3Vector getOrigin();
 };
+
 
 //
 //module declare 
@@ -125,11 +137,11 @@ m_tree(0)
 {
 declareProperty("OutputFileName",m_output_filename);
 declareProperty("IsMonteCarlo",m_isMonteCarlo);
-declareProperty("TotalNumberOfChargedMax",m_total_number_of_charged_max = 50);
-
+declareProperty("Ecms", m_ecms = 3.686);
+declareProperty("Vr0cut", m_vr0cut=1.0);
+declareProperty("Vz0cut", m_vz0cut=10.0);
+declareProperty("ChaCosthetaCut", m_cha_costheta_cut=0.93);
 }
-
-
 
 StatusCode jpsiantisigmaminussigmaplus::initialize(){ MsgStream log(msgSvc(), name());
  log << MSG::INFO << ">>>>>>> in initialize()" << endmsg;
@@ -162,12 +174,9 @@ if (!eventHeader) return StatusCode::FAILURE;
 m_run = eventHeader->runNumber();
 m_event = eventHeader->eventNumber();
 
-
-
 if (buildjpsiantisigmaminussigmaplus()) {
 m_tree->Fill();// only fill tree for the selected events 
 }
-
 
 return StatusCode::SUCCESS; 
 }
@@ -181,8 +190,7 @@ m_tree->Write();
 h_evtflw->Write();
 m_fout->Close();
 
-
- return StatusCode::SUCCESS;
+return StatusCode::SUCCESS;
 }
 
 
@@ -203,31 +211,107 @@ if (!m_tree) return;
 // common info
 m_tree->Branch("run",&m_run,"run/I");
 m_tree->Branch("event",&m_event,"event/I");
-
+m_tree->Branch("ncharged",&m_ncharged,"nchargedTrack/I");
+m_tree->Branch("nptrk", &m_nptrk, "nptrk/I");
+m_tree->Branch("nmtrk", &m_nmtrk, "nmtrk/I");
 }
 
 void jpsiantisigmaminussigmaplus::clearVariables(){
 m_run=0;
 m_event=0;
+m_ncharged=-1;
 }
+
 bool jpsiantisigmaminussigmaplus::buildjpsiantisigmaminussigmaplus() {
 
 SmartDataPtr<EvtRecEvent>evtRecEvent(eventSvc(),"/Event/EvtRec/EvtRecEvent");
-	if(!evtRecEvent) return false;
+if(!evtRecEvent) return false;
+SmartDataPtr<EvtRecTrackCol> evtRecTrkCol(eventSvc(), "/Event/EvtRec/EvtRecTrackCol");
+if(!evtRecTrkCol) return false;
 
-	h_evtflw->Fill(9);
+std::vector<int> iPGood, iMGood;
+selectChargedTracks(evtRecEvent, evtRecTrkCol, iPGood, iMGood);
 
-	m_ncharged = evtRecEvent->totalCharged();
-	if (m_ncharged != 0) return false;
-	h_evtflw->Fill(1); // N_{Good} = 0
+//if(selectLeptonPlusLeptonMinus(evtRecTrkCol, iPGood, iMGood) != 1) return false; 
+//selectNeutralTracks(evtRecEvent, evtRecTrkCol);
 
-	std::vector<int> iGam;
-	iGam.clear();
-	std::vector<int> iShow;
-	iShow.clear();
-
+//h_evtflw->Fill(9);
 
 return true;
 
+}
+
+CLHEP::Hep3Vector jpsiantisigmaminussigmaplus::getOrigin() {
+  CLHEP::Hep3Vector xorigin(0,0,0);
+  IVertexDbSvc*  vtxsvc;
+  Gaudi::svcLocator()->service("VertexDbSvc", vtxsvc);
+  if(vtxsvc->isVertexValid()){
+    double *dbv = vtxsvc->PrimaryVertex(); 
+    xorigin.setX(dbv[0]);
+    xorigin.setY(dbv[1]);
+    xorigin.setZ(dbv[2]);
+  }
+  return xorigin; 
+}
+bool jpsiantisigmaminussigmaplus::passVertexSelection(CLHEP::Hep3Vector xorigin,
+				    RecMdcKalTrack* mdcTrk ) {
+  HepVector a = mdcTrk->helix();
+  HepSymMatrix Ea = mdcTrk->err();
+  HepPoint3D point0(0.,0.,0.);
+  VFHelix helixip(point0,a,Ea);
+  HepPoint3D IP(xorigin[0],xorigin[1],xorigin[2]);
+  helixip.pivot(IP);
+  HepVector vecipa = helixip.a();
+  
+  m_vz0 = vecipa[3];
+  m_vr0 = vecipa[0];
+  
+  if(fabs(m_vz0) >= m_vz0cut) return false;
+  if(fabs(m_vr0) >= m_vr0cut) return false;
+  
+  return true;
+}
+
+int jpsiantisigmaminussigmaplus::selectChargedTracks(SmartDataPtr<EvtRecEvent> evtRecEvent,
+                                 SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,
+                                 std::vector<int> & iPGood,
+                                 std::vector<int> & iMGood) {
+
+  CLHEP::Hep3Vector xorigin = getOrigin();
+
+  std::vector<int> iGood;
+  iGood.clear();
+  iPGood.clear();
+  iMGood.clear();
+
+ // loop through charged tracks 
+ for(int i = 0; i < evtRecEvent->totalCharged(); i++){
+   // get mdcTrk 
+   EvtRecTrackIterator itTrk=evtRecTrkCol->begin() + i;
+
+   // Good Kalman Track 
+   if(!(*itTrk)->isMdcKalTrackValid()) continue;
+
+   if(!(*itTrk)->isMdcTrackValid()) continue;
+   RecMdcKalTrack* mdcTrk = (*itTrk)->mdcKalTrack();
+
+   // Good Vertex 
+   if (!passVertexSelection(xorigin, mdcTrk) ) continue; 
+
+   // Polar angle cut
+   if(fabs(cos(mdcTrk->theta())) > m_cha_costheta_cut) continue;
+    iGood.push_back((*itTrk)->trackId());
+    
+   // otherwise, lepton candidates
+    if(mdcTrk->charge()>0) iPGood.push_back((*itTrk)->trackId());
+    if(mdcTrk->charge()<0) iMGood.push_back((*itTrk)->trackId());
+    
+ } // end charged tracks
+
+m_ncharged = iGood.size();
+m_nptrk = iPGood.size();
+m_nmtrk = iMGood.size();
+
+  return iGood.size();
 
 }
