@@ -10,8 +10,7 @@ Working Experience:
 ---
 
 * 2018.11-present   &emsp;&emsp;    Post-Doctor, Tsinghua University    
-
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;&ensp;    Advisor: Prof. Xin Chen(陈新教授)
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;&ensp;&ensp;&ensp;    Advisor: Prof. Xin Chen(陈新教授)
 * 2019.02-2019.04   &emsp;&emsp;    Visiting Scholar, CERN
 * 2018.11-2019.01   &emsp;&emsp;    Visiting Scholar, CERN
 
