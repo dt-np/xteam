@@ -466,7 +466,7 @@ int jpsiantisigmaminussigmaplus::selectNeutralTracks(SmartDataPtr<EvtRecEvent> e
   m_ngam = iGam.size();
   m_nshow = iShow.size();
 
-  //saveGamInfo(iGam, evtRecTrkCol);
+  saveGamInfo(iGam, evtRecTrkCol);
   
   return iGam.size(); 
 }
