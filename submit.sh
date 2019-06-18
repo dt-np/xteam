@@ -112,7 +112,7 @@ case $option in
 
 	    cd /besfs/users/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts
         cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_jpsiantisigmaminussigmaplus_gen_mc.txt ./
-	    boss.condor -os SL6 jobOptions_jpsiantisigmaminussigmaplus_gen_mc.txt
+	    boss.condor -g physics jobOptions_jpsiantisigmaminussigmaplus_gen_mc.txt
         cd $HOME/bes/hypermiss
         else
             echo "Default value is 'NO', please change the event number"
