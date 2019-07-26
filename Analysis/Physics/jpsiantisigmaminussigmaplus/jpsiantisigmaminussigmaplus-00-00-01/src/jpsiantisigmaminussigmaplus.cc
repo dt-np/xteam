@@ -5,7 +5,7 @@
 // Original Author:  Amit pathak <amitraahul@itp.ac.cn>
 //         Created:  [2019-05-17 Fri 14:30] 
 //         Inspired by SHI Xin's code 
-//         
+         
 
 // system include files
 //
@@ -71,12 +71,12 @@ double m_costheta_endcap_max;
 double m_energy_barrel_min;
 double m_energy_endcap_min;
 double m_photon_iso_angle_min;
-double m_pion_polar_angle_max;
-double m_pion_momentum_max;
-double m_dipion_mass_min; 
-double m_dipion_mass_max;
-double m_pipi_costheta_max;
-double m_pipisys_costheta_max; 
+double m_proton_polar_angle_max;
+double m_proton_momentum_max;
+double m_diproton_mass_min; 
+double m_diproton_mass_max;
+double m_prpr_costheta_max;
+double m_prprsys_costheta_max; 
 
 //output file
 std::string m_output_filename;
@@ -161,27 +161,6 @@ double m_prm_px;
 double m_prm_py;
 double m_prm_pz;
 
-// fitted info
-double m_vtx_pip_px; 
-double m_vtx_pip_py; 
-double m_vtx_pip_pz; 
-double m_vtx_pip_p; 
-double m_vtx_pip_e;
-double m_vtx_pip_costheta;
-double m_vtx_pip_phi;
-
-double m_vtx_pim_px; 
-double m_vtx_pim_py; 
-double m_vtx_pim_pz; 
-double m_vtx_pim_p; 
-double m_vtx_pim_e;
-double m_vtx_pim_costheta;
-double m_vtx_pim_phi;
-
-double m_vtx_mpipi;
-double m_vtx_mrecpipi;
-double m_vtx_cospipi;
-double m_vtx_cos2pisys;
 
 //
 //functions
@@ -194,8 +173,6 @@ void saveTrkInfo(EvtRecTrackIterator,
 		EvtRecTrackIterator);
 void saveProtonInfo(RecMdcKalTrack *,
 		RecMdcKalTrack *);
-void saveVtxInfo(HepLorentzVector,
-		HepLorentzVector);
 int selectChargedTracks(SmartDataPtr<EvtRecEvent>,
 	  SmartDataPtr<EvtRecTrackCol>,
 	  std::vector<int> &,
@@ -203,9 +180,6 @@ int selectChargedTracks(SmartDataPtr<EvtRecEvent>,
 int selectProtonPlusProtonMinus(SmartDataPtr<EvtRecTrackCol>,
     std::vector<int>,
     std::vector<int>);
-bool hasGoodPrPrVertex(RecMdcKalTrack *,
-			 RecMdcKalTrack *,
-			 bool);
 int selectNeutralTracks(SmartDataPtr<EvtRecEvent>,
 		SmartDataPtr<EvtRecTrackCol>);
 void saveGamInfo(std::vector<int>,
@@ -236,6 +210,15 @@ LOAD_FACTORY_ENTRIES( jpsiantisigmaminussigmaplus )
 //
 
 const double PROTON_MASS = 0.938272;
+
+const int ELECTRON_PDG_ID = 11;
+const int MUON_PDG_ID = 13;
+const int PIONPLUS_PDG_ID = 211;
+
+const int JPSI_PDG_ID = 443;
+const int PSI2S_PDG_ID = 100443;
+const int PROTON_PDG_ID = 2212; 
+const int NEUTRON_PDG_ID = 2112; 
 
 //
 //member functions
@@ -275,10 +258,10 @@ declareProperty("CosthetaEndcapMax", m_costheta_endcap_max=0.92);
 declareProperty("EnergyBarrelMin", m_energy_barrel_min=0.025); 
 declareProperty("EnergyEndcapMin", m_energy_endcap_min=0.050);
 declareProperty("PhotonIsoAngleMin", m_photon_iso_angle_min=20.0);
-declareProperty("DipionMassMin", m_dipion_mass_min=3.0);
-declareProperty("DipionMassMax", m_dipion_mass_max=3.2);
-declareProperty("PiPiCosthetaMax", m_pipi_costheta_max=0.99);
-declareProperty("PiPiSysCosthetaMax", m_pipisys_costheta_max=0.99);
+declareProperty("DiprotonMassMin", m_diproton_mass_min=3.0);
+declareProperty("DiprotonMassMax", m_diproton_mass_max=3.2);
+declareProperty("PrPrCosthetaMax", m_prpr_costheta_max=0.99);
+declareProperty("PrPrSysCosthetaMax", m_prprsys_costheta_max=0.99);
 }
 
 StatusCode jpsiantisigmaminussigmaplus::initialize(){ MsgStream log(msgSvc(), name());
@@ -368,7 +351,11 @@ m_tree->Branch("trkm_py", &m_trkm_py, "trkm_py/D");
 m_tree->Branch("trkm_pz", &m_trkm_pz, "trkm_pz/D"); 
 m_tree->Branch("trkm_theta", &m_trkm_theta, "trkm_theta/D"); 
 m_tree->Branch("trkm_phi", &m_trkm_phi, "trkm_phi/D"); 
-m_tree->Branch("trkm_eraw", &m_trkm_eraw, "trkm_eraw/D"); 
+m_tree->Branch("trkm_eraw", &m_trkm_eraw, "trkm_eraw/D");
+
+//vertex
+m_tree->Branch("vr0", &m_vr0, "vr0/D");
+m_tree->Branch("vz0", &m_vz0, "vz0/D");
 
 //netual tracks
 m_tree->Branch("nshow", &m_nshow, "nshow/I");
@@ -404,28 +391,6 @@ m_tree->Branch("prm_px", &m_prm_px, "prm_px/D");
 m_tree->Branch("prm_py", &m_prm_py, "prm_py/D");
 m_tree->Branch("prm_pz", &m_prm_pz, "prm_pz/D");
 
-// fitted info
-m_tree->Branch("vtx_pip_px", &m_vtx_pip_px, "vtx_pip_px/D");
-m_tree->Branch("vtx_pip_py", &m_vtx_pip_py, "vtx_pip_py/D");
-m_tree->Branch("vtx_pip_pz", &m_vtx_pip_pz, "vtx_pip_pz/D");
-m_tree->Branch("vtx_pip_p", &m_vtx_pip_p, "vtx_pip_p/D");
-m_tree->Branch("vtx_pip_e", &m_vtx_pip_e, "vtx_pip_e/D");
-m_tree->Branch("vtx_pip_costheta", &m_vtx_pip_costheta, "vtx_pip_costheta/D");
-m_tree->Branch("vtx_pip_phi", &m_vtx_pip_phi, "vtx_pip_phi/D");
-
-m_tree->Branch("vtx_pim_px", &m_vtx_pim_px, "vtx_pim_px/D");
-m_tree->Branch("vtx_pim_py", &m_vtx_pim_py, "vtx_pim_py/D");
-m_tree->Branch("vtx_pim_pz", &m_vtx_pim_pz, "vtx_pim_pz/D");
-m_tree->Branch("vtx_pim_p", &m_vtx_pim_p, "vtx_pim_p/D");
-m_tree->Branch("vtx_pim_e", &m_vtx_pim_e, "vtx_pim_e/D");
-m_tree->Branch("vtx_pim_costheta", &m_vtx_pim_costheta, "vtx_pim_costheta/D");
-m_tree->Branch("vtx_pim_phi", &m_vtx_pim_phi, "vtx_pim_phi/D");
-
-m_tree->Branch("vtx_mpipi", &m_vtx_mpipi, "vtx_mpipi/D");
-m_tree->Branch("vtx_mrecpipi", &m_vtx_mrecpipi, "vtx_mrecpipi/D");
-m_tree->Branch("vtx_cospipi", &m_vtx_cospipi, "vtx_cospipi/D");
-m_tree->Branch("vtx_cos2pisys", &m_vtx_cos2pisys, "vtx_cos2pisys/D");
-
 }
 
 void jpsiantisigmaminussigmaplus::clearVariables(){
@@ -445,7 +410,7 @@ if(!evtRecTrkCol) return false;
 std::vector<int> iPGood, iMGood;
 selectChargedTracks(evtRecEvent, evtRecTrkCol, iPGood, iMGood);
 
-//if(selectLeptonPlusLeptonMinus(evtRecTrkCol, iPGood, iMGood) != 1) return false; 
+//if(selectProtonPlusProtonMinus(evtRecTrkCol, iPGood, iMGood) != 1) return false; 
 selectNeutralTracks(evtRecEvent, evtRecTrkCol);
 if (m_ngam >= 20) return false;
 //h_evtflw->Fill(9);
@@ -552,13 +517,13 @@ int jpsiantisigmaminussigmaplus::selectProtonPlusProtonMinus(SmartDataPtr<EvtRec
       if (mdcTrk_m->charge() > 0) continue; // only negative charged tracks
 
       // polar angle for both pions
-      if ( ! ( fabs(cos(mdcTrk_p->theta())) < m_pion_polar_angle_max &&
-      	       fabs(cos(mdcTrk_m->theta())) < m_pion_polar_angle_max )) continue;
+      if ( ! ( fabs(cos(mdcTrk_p->theta())) < m_proton_polar_angle_max &&
+      	       fabs(cos(mdcTrk_m->theta())) < m_proton_polar_angle_max )) continue;
       if ( !evtflw_filled ) h_evtflw->Fill(2); // |cos#theta| cut 
 
       // pion momentum
-      if ( ! ( fabs(mdcTrk_p->p()) < m_pion_momentum_max  &&
-      	       fabs(mdcTrk_m->p()) < m_pion_momentum_max )) continue;
+      if ( ! ( fabs(mdcTrk_p->p()) < m_proton_momentum_max  &&
+      	       fabs(mdcTrk_m->p()) < m_proton_momentum_max )) continue;
 
       if ( !evtflw_filled ) h_evtflw->Fill(3); //|p| cut 
       
@@ -587,9 +552,7 @@ int jpsiantisigmaminussigmaplus::selectProtonPlusProtonMinus(SmartDataPtr<EvtRec
       RecMdcKalTrack *prmTrk = (*(evtRecTrkCol->begin()+iMGood[i2]))->mdcKalTrack();
 
       saveProtonInfo(prpTrk, prmTrk);
-      
-      if (! hasGoodPrPrVertex(prpTrk, prmTrk, evtflw_filled) ) continue; 
-      
+          
       nprpr++;
       evtflw_filled = true;
     }
@@ -615,6 +578,36 @@ void jpsiantisigmaminussigmaplus::calcTrackPID(EvtRecTrackIterator itTrk_p,
   // pidp->usePidSys(pidp->useDedx());
   pidp->identify(pidp->onlyPionKaonProton());
   pidp->calculate();
+  
+  /*
+  // loop through charged tracks
+  if ((pidp->probProton()>pidp->probKaon()) && (pidp->probProton()>pidp->probPion())){ //proton
+  if (!(*itTrk)->isMdcKalTrackValid()) continue;
+  RecMdcKalTrack::setPidType (RecMdcKalTrack::proton);
+  if(mdcKalTrk->charge() >0){
+      iprop.push_back(iGood[i]);
+      HepLorentzVector ptrk;
+      ptrk.setPx(mdcKalTrk->px());
+      ptrk.setPy(mdcKalTrk->py());
+      ptrk.setPz(mdcKalTrk->pz());
+      double p3 = ptrk.mag();
+      ptrk.setE(sqrt(p3*p3+mp*mp));
+      pprop.push_back(ptrk);
+
+  }
+  else{
+      iprom.push_back(iGood[i]);
+      HepLorentzVector ptrk;
+      ptrk.setPx(mdcKalTrk->px());
+      ptrk.setPy(mdcKalTrk->py());
+      ptrk.setPz(mdcKalTrk->pz());
+      double p3 = ptrk.mag();
+      ptrk.setE(sqrt(p3*p3+mp*mp));
+      pprom.push_back(ptrk);
+
+  }  
+  }
+*/
   if(pidp->IsPidInfoValid()) {
     prob_pip = pidp->probPion();
     prob_kp  = pidp->probKaon();
@@ -622,80 +615,8 @@ void jpsiantisigmaminussigmaplus::calcTrackPID(EvtRecTrackIterator itTrk_p,
   }
 }
 
-bool jpsiantisigmaminussigmaplus::hasGoodPrPrVertex(RecMdcKalTrack *prpTrk,
-				  RecMdcKalTrack *prmTrk,
-				  bool evtflw_filled) {
-
-  HepLorentzVector pcms;
-  if (!m_isZCcondition){
-    pcms = HepLorentzVector(0.011*m_ecms, 0., 0., m_ecms);
-  }
-  else{ pcms = HepLorentzVector(0.011*m_ecms, -0.001, 0.005, m_ecms); }
-
-  HepLorentzVector p4_vtx_pip, p4_vtx_pim, p4_vtx_pipi, p4_vtx_recpipi;
-  WTrackParameter wvprpTrk, wvprmTrk;
-  prpTrk->setPidType(RecMdcKalTrack::proton);
-  wvprpTrk = WTrackParameter(PROTON_MASS, prpTrk->getZHelixP(), prpTrk->getZErrorP());
-
-  prmTrk->setPidType(RecMdcKalTrack::pion);
-  wvprmTrk = WTrackParameter(PROTON_MASS, prmTrk->getZHelixP(), prmTrk->getZErrorP());
-  
-  HepPoint3D vx(0., 0., 0.);
-  HepSymMatrix Evx(3, 0);
-
-  double bx = 1E+6;
-  double by = 1E+6;
-  double bz = 1E+6;
-  Evx[0][0] = bx*bx;
-  Evx[1][1] = by*by;
-  Evx[2][2] = bz*bz;
-  
-  VertexParameter vxpar;
-  vxpar.setVx(vx);
-  vxpar.setEvx(Evx);
-  
-  VertexFit* vtxfit = VertexFit::instance();
-  vtxfit->init();
-  vtxfit->AddTrack(0,  wvprpTrk);
-  vtxfit->AddTrack(1,  wvprmTrk);
-  vtxfit->AddVertex(0, vxpar,0,1);
-
-  if(!vtxfit->Fit(0)) return false;
-
-  vtxfit->Swim(0);
-      
-  WTrackParameter wprp = vtxfit->wtrk(0);
-  WTrackParameter wprm = vtxfit->wtrk(1);
-  p4_vtx_pip = vtxfit->pfit(0) ;
-  p4_vtx_pim = vtxfit->pfit(1) ;
-  p4_vtx_recpipi = pcms - p4_vtx_pip - p4_vtx_pim;
-  p4_vtx_pipi = p4_vtx_pip + p4_vtx_pim;
-
-  double cospipi = cos(p4_vtx_pip.vect().angle(p4_vtx_pim.vect()));
-  double cos2pisys = (p4_vtx_pip + p4_vtx_pim).cosTheta();
-
-  //if( ! (cospipi < m_pipi_costheta_max) ) return false;
-  if( !evtflw_filled ) h_evtflw->Fill(5); // "cos#theta_{#pi^{+}#pi^{-}}<0.99"
-
-  //if( ! (fabs(cos2pisys) < m_pipisys_costheta_max ) ) return false;
-  if( !evtflw_filled ) h_evtflw->Fill(6); // cos#theta_{#pi#pi sys}<0.99 
-
-  if( ! ( p4_vtx_recpipi.m() >= m_dipion_mass_min &&
-	  p4_vtx_recpipi.m() <= m_dipion_mass_max) ) return false;
-  if( !evtflw_filled ) h_evtflw->Fill(7); // 3<M_{#pi#pi}^{rec}<3.2
-
-  saveVtxInfo(p4_vtx_pip, p4_vtx_pim);
-  m_vtx_mrecpipi = p4_vtx_recpipi.m();
-  m_vtx_mpipi = p4_vtx_pipi.m();
-  m_vtx_cospipi = cospipi;
-  m_vtx_cos2pisys = cos2pisys;
-  
-  return true;
-}
-
-
 int jpsiantisigmaminussigmaplus::selectNeutralTracks(SmartDataPtr<EvtRecEvent> evtRecEvent,
-				   SmartDataPtr<EvtRecTrackCol> evtRecTrkCol) {
+		SmartDataPtr<EvtRecTrackCol> evtRecTrkCol) {
 
   std::vector<int> iGam;
   iGam.clear();
@@ -808,8 +729,6 @@ void jpsiantisigmaminussigmaplus::saveTrkInfo(EvtRecTrackIterator itTrk_p,
 
 }
 
-
-
 void jpsiantisigmaminussigmaplus::saveGamInfo(std::vector<int> iGam,
 			    SmartDataPtr<EvtRecTrackCol> evtRecTrkCol){
 
@@ -831,18 +750,18 @@ m_raw_secmom->clear();
 m_raw_time->clear();
 
 
-  for(vector<int>::size_type i=0; i<iGam.size(); i++)  {
+for(vector<int>::size_type i=0; i<iGam.size(); i++)  {
     
-    EvtRecTrackIterator itTrk = evtRecTrkCol->begin() + iGam[i];
-    RecEmcShower* emcTrk = (*itTrk)->emcShower();
-    double eraw = emcTrk->energy();
-    double phi = emcTrk->phi();
-    double theta = emcTrk->theta();
+EvtRecTrackIterator itTrk = evtRecTrkCol->begin() + iGam[i];
+RecEmcShower* emcTrk = (*itTrk)->emcShower();
+double eraw = emcTrk->energy();
+double phi = emcTrk->phi();
+double theta = emcTrk->theta();
 
-    HepLorentzVector p4 = HepLorentzVector(eraw * sin(theta) * cos(phi),
-					   eraw * sin(theta) * sin(phi),
-					   eraw * cos(theta),
-					   eraw );
+HepLorentzVector p4 = HepLorentzVector(eraw * sin(theta) * cos(phi),
+		eraw * sin(theta) * sin(phi),
+		eraw * cos(theta),
+		eraw );
     m_raw_gpx->push_back(p4.px());
     m_raw_gpy->push_back(p4.py());
     m_raw_gpz->push_back(p4.pz());
@@ -866,7 +785,7 @@ m_raw_time->clear();
   }
 }
 void jpsiantisigmaminussigmaplus::saveProtonInfo(RecMdcKalTrack *prpTrk,
-			     RecMdcKalTrack *prmTrk){
+		 RecMdcKalTrack *prmTrk){
 
   m_prp_px = prpTrk->px();
   m_prp_py = prpTrk->py();
@@ -876,24 +795,4 @@ void jpsiantisigmaminussigmaplus::saveProtonInfo(RecMdcKalTrack *prpTrk,
   m_prm_py = prmTrk->py();
   m_prm_pz = prmTrk->pz();
   
-}
-void jpsiantisigmaminussigmaplus::saveVtxInfo(HepLorentzVector p4_vtx_pip,
-			    HepLorentzVector p4_vtx_pim){
-
-  m_vtx_pip_px = p4_vtx_pip.px();
-  m_vtx_pip_py = p4_vtx_pip.py();
-  m_vtx_pip_pz = p4_vtx_pip.pz();
-  m_vtx_pip_p = p4_vtx_pip.rho();
-  m_vtx_pip_e = p4_vtx_pip.e();
-  m_vtx_pip_costheta = p4_vtx_pip.cosTheta();
-  m_vtx_pip_phi = p4_vtx_pip.phi();
-
-  m_vtx_pim_px = p4_vtx_pim.px();
-  m_vtx_pim_py = p4_vtx_pim.py();
-  m_vtx_pim_pz = p4_vtx_pim.pz();
-  m_vtx_pim_p = p4_vtx_pim.rho();
-  m_vtx_pim_e = p4_vtx_pim.e();
-  m_vtx_pim_costheta = p4_vtx_pim.cosTheta();
-  m_vtx_pim_phi = p4_vtx_pim.phi();
-
 }
