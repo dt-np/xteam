@@ -6,8 +6,8 @@ title: Xin Shi (史欣)
 
 ## Contact 
 - Email: shixin@ihep.ac.cn 
-- Phone: +86-10-88235642
-- Office: IHEP Main building B425, 19B YuquanLu Shijingshan District, Beijing 100049
+- Phone: +86-10-88235172
+- Office: IHEP Main building B402, 19B YuquanLu Shijingshan District, Beijing 100049
 
 ## Research 
 - [ATLAS](http://atlas.cern) Silicon microstrip tracker phase II upgrade 
@@ -33,9 +33,9 @@ title: Xin Shi (史欣)
 
 - “Physics II: Heat/Electromagnetism”, Department of Physics, Cornell University, 2008.
 - ​“Intermediate Quantum Mechanics”, Department of Physics, Cornell University, 2007.
-- “Intermediate Electricity and Magnetism”, Department of Physics, Cornell University,  2006.
+- “Intermediate Electricity and Magnetism", Department of Physics, Cornell University,  2006.
 
 ## Honors 
-- Fellow of China Thousand Talents Program for Young Scientists, 2016 
-- Fellow of One Hundred Talents Program of Chinese Academey of Sciences, 2015 
+- Fellow of China Program for Young Scientists, 2016 
+- Fellow of One Hundred Talents Program of Chinese Academy of Sciences, 2015 
 

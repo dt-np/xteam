@@ -1,14 +1,20 @@
 - title: Getting Started
   pages: 
   - quickstart 
-
+  - rule
+  
 - title: Computing
   pages:
     - git
     - mac
     - vsc
+    - linux 
 
 - title: Activities
   pages: 
     - journalclub
     - puertorico
+
+- title: Conferences
+  pages: 
+    - conf2019

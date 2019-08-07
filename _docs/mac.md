@@ -2,7 +2,7 @@
 title: MacOS Tips
 ---
 
-## Install ROOT   
+## Install ROOT from source 
 
 1. Download the ROOT source into $HOME/local/share/
 2. Unpack with 'tar xf root-6.10.06.tar.gz'
@@ -16,6 +16,10 @@ Note: step 4. : if the cmake is not in the default path, add this line to the .b
 
 	export PATH=/Applications/Cmake.app/Contents/bin:$PATH 
 
+## Install ROOT from dmg
+1. Download the ROOT dmg file
+2. Double click and install 
+3. $ source /Applications/root_v6.14.04/bin/thisroot.sh
 
 
 ## Install   Emacs  
