@@ -3,7 +3,7 @@
 Generate plots
 """
 
-author__ = "AMIT PATHAK <amit@ihep.ac.cn>"
+__author__ = "AMIT PATHAK <amit@ihep.ac.cn>"
 __copyright__ = "Copyright (c) AMIT PATHAK"
 __created__ = "[2019-07-22 Tue 15:00]"
 
