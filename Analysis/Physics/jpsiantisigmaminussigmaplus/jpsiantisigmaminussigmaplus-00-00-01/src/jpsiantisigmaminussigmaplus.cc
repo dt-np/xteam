@@ -75,6 +75,7 @@ double m_proton_polar_angle_max;
 double m_proton_momentum_max;
 double m_diproton_mass_min; 
 double m_diproton_mass_max;
+double m_prob_proton_min; //changed with proton according to invisible code in which pion min was defined
 double m_prpr_costheta_max;
 double m_prprsys_costheta_max; 
 
@@ -258,6 +259,7 @@ declareProperty("CosthetaEndcapMax", m_costheta_endcap_max=0.92);
 declareProperty("EnergyBarrelMin", m_energy_barrel_min=0.025); 
 declareProperty("EnergyEndcapMin", m_energy_endcap_min=0.050);
 declareProperty("PhotonIsoAngleMin", m_photon_iso_angle_min=20.0);
+declareProperty("ProbPionMin", m_prob_proton_min=0.001);
 declareProperty("DiprotonMassMin", m_diproton_mass_min=3.0);
 declareProperty("DiprotonMassMax", m_diproton_mass_max=3.2);
 declareProperty("PrPrCosthetaMax", m_prpr_costheta_max=0.99);
@@ -376,20 +378,20 @@ m_tree->Branch("raw_time", &m_raw_time);
 
 // PID info
 m_tree->Branch("prob_pip", &m_prob_pip, "prob_pip/D"); 
-m_tree->Branch("prob_pim", &m_prob_pim, "prob_pim/D"); 
+//m_tree->Branch("prob_pim", &m_prob_pim, "prob_pim/D"); 
 m_tree->Branch("prob_kp", &m_prob_kp, "prob_kp/D"); 
-m_tree->Branch("prob_km", &m_prob_km, "prob_km/D"); 
+//m_tree->Branch("prob_km", &m_prob_km, "prob_km/D"); 
 m_tree->Branch("prob_p", &m_prob_p, "prob_p/D"); 
-m_tree->Branch("prob_pb", &m_prob_pb, "prob_pb/D");
+//m_tree->Branch("prob_pb", &m_prob_pb, "prob_pb/D");
 
 // save proton info
 m_tree->Branch("prp_px", &m_prp_px, "prp_px/D");
 m_tree->Branch("prp_py", &m_prp_py, "prp_py/D");
 m_tree->Branch("prp_pz", &m_prp_pz, "prp_pz/D");
 
-m_tree->Branch("prm_px", &m_prm_px, "prm_px/D");
-m_tree->Branch("prm_py", &m_prm_py, "prm_py/D");
-m_tree->Branch("prm_pz", &m_prm_pz, "prm_pz/D");
+//m_tree->Branch("prm_px", &m_prm_px, "prm_px/D");
+//m_tree->Branch("prm_py", &m_prm_py, "prm_py/D");
+//m_tree->Branch("prm_pz", &m_prm_pz, "prm_pz/D");
 
 }
 
@@ -410,7 +412,7 @@ if(!evtRecTrkCol) return false;
 std::vector<int> iPGood, iMGood;
 selectChargedTracks(evtRecEvent, evtRecTrkCol, iPGood, iMGood);
 
-//if(selectProtonPlusProtonMinus(evtRecTrkCol, iPGood, iMGood) != 1) return false; 
+selectProtonPlusProtonMinus(evtRecTrkCol, iPGood, iMGood);
 selectNeutralTracks(evtRecEvent, evtRecTrkCol);
 if (m_ngam >= 20) return false;
 //h_evtflw->Fill(9);
@@ -528,22 +530,22 @@ int jpsiantisigmaminussigmaplus::selectProtonPlusProtonMinus(SmartDataPtr<EvtRec
       if ( !evtflw_filled ) h_evtflw->Fill(3); //|p| cut 
       
       // track PID
-      double prob_pip, prob_kp, prob_pim, prob_km, prob_p, prob_pb; 
+      double prob_pip, prob_kp, prob_p; 
       calcTrackPID(itTrk_p, prob_pip, prob_kp, prob_p);  
-      calcTrackPID(itTrk_m, prob_pim, prob_km, prob_pb);
+      //calcTrackPID(itTrk_m, prob_pim, prob_km, prob_pb);
       // printf(">>> %f, %f, %f, %f \n", prob_pip, prob_kp, prob_pim, prob_km);
 
       m_prob_pip = prob_pip;
       m_prob_kp = prob_kp;
       m_prob_p = prob_p;
-      m_prob_pim = prob_pim;
-      m_prob_km = prob_km;
-      m_prob_pb = prob_pb;
+     // m_prob_pim = prob_pim;
+     // m_prob_km = prob_km;
+     // m_prob_pb = prob_pb;
       
-      // if(! (prob_pip > prob_kp &&
-      // 	    prob_pip > m_prob_pion_min &&
-      // 	    prob_pim > prob_km &&
-      // 	    prob_pim > m_prob_pion_min) ) continue;
+      if(! (prob_p > prob_kp &&
+          prob_p > m_prob_proton_min &&
+          prop_p > prob_pip &&
+       	    prob_p > m_prob_proton_min ) continue;
 
       if ( !evtflw_filled ) h_evtflw->Fill(4); //PID
  
