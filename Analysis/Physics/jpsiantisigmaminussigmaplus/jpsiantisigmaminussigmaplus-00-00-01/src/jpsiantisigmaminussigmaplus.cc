@@ -71,8 +71,8 @@ double m_costheta_endcap_max;
 double m_energy_barrel_min;
 double m_energy_endcap_min;
 double m_photon_iso_angle_min;
-double m_proton_polar_angle_max;//Pion has been chnaged by proton
-double m_proton_momentum_max;// pion has been changed by proton
+//double m_proton_polar_angle_max;//Pion has been chnaged by proton
+//double m_proton_momentum_max;// pion has been changed by proton
 double m_diproton_mass_min; 
 double m_diproton_mass_max;
 double m_prob_proton_min; //changed with proton according to invisible code in which pion min was defined
@@ -260,8 +260,8 @@ declareProperty("EnergyBarrelMin", m_energy_barrel_min=0.025);
 declareProperty("EnergyEndcapMin", m_energy_endcap_min=0.050);
 declareProperty("PhotonIsoAngleMin", m_photon_iso_angle_min=20.0);
 declareProperty("ProbProtonMin", m_prob_proton_min=0.001);
-declareProperty("ProtonPolarAngleMax", m_proton_polar_angle_max=0.99);
-declareProperty("ProtonMomentumMax", m_proton_momentum_max=0.8);
+//declareProperty("ProtonPolarAngleMax", m_proton_polar_angle_max=0.99);
+//declareProperty("ProtonMomentumMax", m_proton_momentum_max=0.8);
 declareProperty("DiprotonMassMin", m_diproton_mass_min=3.0);
 declareProperty("DiprotonMassMax", m_diproton_mass_max=3.2);
 declareProperty("PrPrCosthetaMax", m_prpr_costheta_max=0.99);
@@ -413,7 +413,7 @@ if(!evtRecTrkCol) return false;
 
 std::vector<int> iPGood, iMGood;
 selectChargedTracks(evtRecEvent, evtRecTrkCol, iPGood, iMGood);
-if (selectProtonPlusProtonMinus(evtRecTrkCol, iPGood, iMGood)<0) return false;
+if (selectProtonPlusProtonMinus(evtRecTrkCol, iPGood, iMGood)!=1 ) return false;
 selectNeutralTracks(evtRecEvent, evtRecTrkCol);
 if (m_ngam >= 20) return false;
 //h_evtflw->Fill(9);
@@ -512,34 +512,34 @@ int jpsiantisigmaminussigmaplus::selectProtonPlusProtonMinus(SmartDataPtr<EvtRec
   
 //cout<< "I reached here 1 "<< endl;
   for(unsigned int i1 = 0; i1 < iPGood.size(); i1++) {
-    EvtRecTrackIterator itTrk_p = evtRecTrkCol->begin() + iPGood[i1];
-    RecMdcTrack* mdcTrk_p = (*itTrk_p)->mdcTrack();
-    if (mdcTrk_p->charge() < 0) continue; // only positive charged tracks
+   EvtRecTrackIterator itTrk_p = evtRecTrkCol->begin() + iPGood[i1];
+   RecMdcTrack* mdcTrk_p = (*itTrk_p)->mdcTrack();
+   if (mdcTrk_p->charge() < 0) continue; // only positive charged tracks
 
 //cout<< "I reached here 2 "<< endl;
-    for(unsigned int i2 = 0; i2 < iMGood.size(); i2++) {
-      EvtRecTrackIterator itTrk_m = evtRecTrkCol->begin() + iMGood[i2];
-      RecMdcTrack* mdcTrk_m = (*itTrk_m)->mdcTrack();
-      if (mdcTrk_m->charge() > 0) continue; // only negative charged tracks
+  for(unsigned int i2 = 0; i2 < iMGood.size(); i2++) {
+    EvtRecTrackIterator itTrk_m = evtRecTrkCol->begin() + iMGood[i2];
+    RecMdcTrack* mdcTrk_m = (*itTrk_m)->mdcTrack();
+    if (mdcTrk_m->charge() > 0) continue; // only negative charged tracks
 
 //cout<< "I reached here 3 "<< endl;
       // polar angle for both pions
-      if ( ! ( fabs(cos(mdcTrk_p->theta())) < m_proton_polar_angle_max &&
-      	       fabs(cos(mdcTrk_m->theta())) < m_proton_polar_angle_max )) continue;
-      if ( !evtflw_filled ) h_evtflw->Fill(2); // |cos#theta| cut 
+//      if ( ! ( fabs(cos(mdcTrk_p->theta())) < m_proton_polar_angle_max &&
+//      	       fabs(cos(mdcTrk_m->theta())) < m_proton_polar_angle_max )) continue;
+//      if ( !evtflw_filled ) h_evtflw->Fill(2); // |cos#theta| cut 
 
 //cout<< "I reached here 4 "<< endl;
       // pion momentum
-      if ( ! ( fabs(mdcTrk_p->p()) < m_proton_momentum_max  &&
-      	       fabs(mdcTrk_m->p()) < m_proton_momentum_max )) continue;
+//      if ( ! ( fabs(mdcTrk_p->p()) < m_proton_momentum_max  &&
+//      	       fabs(mdcTrk_m->p()) < m_proton_momentum_max )) continue;
 
 //cout<< "I reached here 5 "<< endl;
-      if ( !evtflw_filled ) h_evtflw->Fill(3); //|p| cut 
+//      if ( !evtflw_filled ) h_evtflw->Fill(3); //|p| cut 
       
       // track PID
       double prob_pip, prob_kp, prob_p, prob_km, prob_pim, prob_pb; 
       calcTrackPID(itTrk_p, prob_pip, prob_kp, prob_p);  
-      calcTrackPID(itTrk_m, prob_pim, prob_km, prob_pb);
+      //calcTrackPID(itTrk_m, prob_pim, prob_km, prob_pb);
       // printf(">>> %f, %f, %f, %f \n", prob_pip, prob_kp, prob_pim, prob_km);
 
       m_prob_pip = prob_pip;
@@ -562,11 +562,11 @@ int jpsiantisigmaminussigmaplus::selectProtonPlusProtonMinus(SmartDataPtr<EvtRec
       RecMdcKalTrack *prmTrk = (*(evtRecTrkCol->begin()+iMGood[i2]))->mdcKalTrack();
 
       saveProtonInfo(prpTrk, prmTrk);
-          
+          }
       nprpr++;
       evtflw_filled = true;
     }
-  } 
+   
 
   return nprpr; 
 }
@@ -578,6 +578,7 @@ void jpsiantisigmaminussigmaplus::calcTrackPID(EvtRecTrackIterator itTrk_p,
   prob_pip = 999.; 
   prob_kp = 999.; 
   prob_p = 999.; 
+
   ParticleID * pidp = ParticleID::instance();
   pidp->init();
   pidp->setMethod(pidp->methodProbability());
@@ -588,41 +589,11 @@ void jpsiantisigmaminussigmaplus::calcTrackPID(EvtRecTrackIterator itTrk_p,
   // pidp->usePidSys(pidp->useDedx());
   pidp->identify(pidp->onlyPionKaonProton());
   pidp->calculate();
-  
-  /*
-  // loop through charged tracks
-  if ((pidp->probProton()>pidp->probKaon()) && (pidp->probProton()>pidp->probPion())){ //proton
-  if (!(*itTrk)->isMdcKalTrackValid()) continue;
-  RecMdcKalTrack::setPidType (RecMdcKalTrack::proton);
-  if(mdcKalTrk->charge() >0){
-      iprop.push_back(iGood[i]);
-      HepLorentzVector ptrk;
-      ptrk.setPx(mdcKalTrk->px());
-      ptrk.setPy(mdcKalTrk->py());
-      ptrk.setPz(mdcKalTrk->pz());
-      double p3 = ptrk.mag();
-      ptrk.setE(sqrt(p3*p3+mp*mp));
-      pprop.push_back(ptrk);
-
-  }
-  else{
-      iprom.push_back(iGood[i]);
-      HepLorentzVector ptrk;
-      ptrk.setPx(mdcKalTrk->px());
-      ptrk.setPy(mdcKalTrk->py());
-      ptrk.setPz(mdcKalTrk->pz());
-      double p3 = ptrk.mag();
-      ptrk.setE(sqrt(p3*p3+mp*mp));
-      pprom.push_back(ptrk);
-
-  }  
-  }
-*/
-  if(pidp->IsPidInfoValid()) {
-    prob_pip = pidp->probPion();
-    prob_kp  = pidp->probKaon();
-    prob_p   = pidp->probProton();
-  }
+	if(pidp->IsPidInfoValid()) {
+    	prob_pip = pidp->probPion();
+    	prob_kp  = pidp->probKaon();
+    	prob_p   = pidp->probProton();
+	}
 }
 
 int jpsiantisigmaminussigmaplus::selectNeutralTracks(SmartDataPtr<EvtRecEvent> evtRecEvent,
