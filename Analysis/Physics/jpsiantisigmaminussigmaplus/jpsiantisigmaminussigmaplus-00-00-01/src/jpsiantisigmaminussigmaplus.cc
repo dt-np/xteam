@@ -170,16 +170,12 @@ void book_histogram();
 void book_tree();
 void clearVariables();
 bool buildjpsiantisigmaminussigmaplus();
-void saveTrkInfo(EvtRecTrackIterator,
-		EvtRecTrackIterator);
-void saveProtonInfo(RecMdcKalTrack *,
-		RecMdcKalTrack *);
+void saveTrkInfo(EvtRecTrackIterator);
+void saveProtonInfo(RecMdcKalTrack *);
 int selectChargedTracks(SmartDataPtr<EvtRecEvent>,
 	  SmartDataPtr<EvtRecTrackCol>,
-	  std::vector<int> &,
-    std::vector<int> &);
+	  std::vector<int> &);
 int selectProtonPlusProtonMinus(SmartDataPtr<EvtRecTrackCol>,
-    std::vector<int>,
     std::vector<int>);
 int selectNeutralTracks(SmartDataPtr<EvtRecEvent>,
 		SmartDataPtr<EvtRecTrackCol>);
@@ -412,8 +408,8 @@ SmartDataPtr<EvtRecTrackCol> evtRecTrkCol(eventSvc(), "/Event/EvtRec/EvtRecTrack
 if(!evtRecTrkCol) return false;
 
 std::vector<int> iPGood, iMGood;
-selectChargedTracks(evtRecEvent, evtRecTrkCol, iPGood, iMGood);
-if (selectProtonPlusProtonMinus(evtRecTrkCol, iPGood, iMGood)!=1 ) return false;
+selectChargedTracks(evtRecEvent, evtRecTrkCol, iPGood);
+if (selectProtonPlusProtonMinus(evtRecTrkCol, iPGood)!=1 ) return false;
 selectNeutralTracks(evtRecEvent, evtRecTrkCol);
 if (m_ngam >= 20) return false;
 //h_evtflw->Fill(9);
@@ -456,15 +452,13 @@ bool jpsiantisigmaminussigmaplus::passVertexSelection(CLHEP::Hep3Vector xorigin,
 
 int jpsiantisigmaminussigmaplus::selectChargedTracks(SmartDataPtr<EvtRecEvent> evtRecEvent,
                                  SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,
-                                 std::vector<int> & iPGood,
-                                 std::vector<int> & iMGood) {
+                                 std::vector<int> & iPGood) {
 
   CLHEP::Hep3Vector xorigin = getOrigin();
 
   std::vector<int> iGood;
   iGood.clear();
   iPGood.clear();
-  iMGood.clear();
 
  // loop through charged tracks 
  for(int i = 0; i < evtRecEvent->totalCharged(); i++){
@@ -486,18 +480,14 @@ int jpsiantisigmaminussigmaplus::selectChargedTracks(SmartDataPtr<EvtRecEvent> e
     
    // otherwise, lepton candidates
     if(mdcTrk->charge()>0) iPGood.push_back((*itTrk)->trackId());
-    if(mdcTrk->charge()<0) iMGood.push_back((*itTrk)->trackId());
-    
+      
  } // end charged tracks
 
 m_ncharged = iGood.size();
 m_nptrk = iPGood.size();
-m_nmtrk = iMGood.size();
-
-if (m_nptrk > 0 && m_nmtrk > 0) {
+if (m_nptrk > 0 ) {
    EvtRecTrackIterator itTrk_p = evtRecTrkCol->begin() + iPGood[0];
-   EvtRecTrackIterator itTrk_m = evtRecTrkCol->begin() + iMGood[0];
-   saveTrkInfo(itTrk_p, itTrk_m);
+   saveTrkInfo(itTrk_p);
   }
 
 return iGood.size();
@@ -505,8 +495,7 @@ return iGood.size();
 }
 
 int jpsiantisigmaminussigmaplus::selectProtonPlusProtonMinus(SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,
-				       std::vector<int> iPGood,
-				       std::vector<int> iMGood) {
+				       std::vector<int> iPGood) {
   int nprpr = 0;
   bool evtflw_filled = false;
   
@@ -516,58 +505,20 @@ int jpsiantisigmaminussigmaplus::selectProtonPlusProtonMinus(SmartDataPtr<EvtRec
    RecMdcTrack* mdcTrk_p = (*itTrk_p)->mdcTrack();
    if (mdcTrk_p->charge() < 0) continue; // only positive charged tracks
 
-//cout<< "I reached here 2 "<< endl;
-  for(unsigned int i2 = 0; i2 < iMGood.size(); i2++) {
-    EvtRecTrackIterator itTrk_m = evtRecTrkCol->begin() + iMGood[i2];
-    RecMdcTrack* mdcTrk_m = (*itTrk_m)->mdcTrack();
-    if (mdcTrk_m->charge() > 0) continue; // only negative charged tracks
-
-//cout<< "I reached here 3 "<< endl;
-      // polar angle for both pions
-//      if ( ! ( fabs(cos(mdcTrk_p->theta())) < m_proton_polar_angle_max &&
-//      	       fabs(cos(mdcTrk_m->theta())) < m_proton_polar_angle_max )) continue;
-//      if ( !evtflw_filled ) h_evtflw->Fill(2); // |cos#theta| cut 
-
-//cout<< "I reached here 4 "<< endl;
-      // pion momentum
-//      if ( ! ( fabs(mdcTrk_p->p()) < m_proton_momentum_max  &&
-//      	       fabs(mdcTrk_m->p()) < m_proton_momentum_max )) continue;
-
-//cout<< "I reached here 5 "<< endl;
-//      if ( !evtflw_filled ) h_evtflw->Fill(3); //|p| cut 
-      
-      // track PID
-      double prob_pip, prob_kp, prob_p, prob_km, prob_pim, prob_pb; 
+     // track PID
+      double prob_pip, prob_kp, prob_p; 
       calcTrackPID(itTrk_p, prob_pip, prob_kp, prob_p);  
-      //calcTrackPID(itTrk_m, prob_pim, prob_km, prob_pb);
-      // printf(">>> %f, %f, %f, %f \n", prob_pip, prob_kp, prob_pim, prob_km);
-
       m_prob_pip = prob_pip;
       m_prob_kp = prob_kp;
       m_prob_p = prob_p;
-//cout<< "I reached here 6 "<< endl;
-     // m_prob_pim = prob_pim;
-     // m_prob_km = prob_km;
-     // m_prob_pb = prob_pb;
-      
-      //if(! (prob_p > prob_kp &&
-       //   prob_p > m_prob_proton_min &&
-         // prob_p > prob_pip &&
-       	   // prob_p > m_prob_proton_min )) continue;
-
       if ( !evtflw_filled ) h_evtflw->Fill(4); //PID
  
       // apply vertex fit
       RecMdcKalTrack *prpTrk = (*(evtRecTrkCol->begin()+iPGood[i1]))->mdcKalTrack();
-      RecMdcKalTrack *prmTrk = (*(evtRecTrkCol->begin()+iMGood[i2]))->mdcKalTrack();
-
-      saveProtonInfo(prpTrk, prmTrk);
+      saveProtonInfo(prpTrk);
           }
       nprpr++;
       evtflw_filled = true;
-    }
-   
-
   return nprpr; 
 }
 
@@ -679,8 +630,7 @@ int jpsiantisigmaminussigmaplus::selectNeutralTracks(SmartDataPtr<EvtRecEvent> e
   
   return iGam.size(); 
 }
-void jpsiantisigmaminussigmaplus::saveTrkInfo(EvtRecTrackIterator itTrk_p,
-			    EvtRecTrackIterator itTrk_m) {
+void jpsiantisigmaminussigmaplus::saveTrkInfo(EvtRecTrackIterator itTrk_p) {
 
   RecMdcTrack* mdcTrk_p = (*itTrk_p)->mdcTrack(); 
   m_trkp_p = mdcTrk_p->p();
@@ -693,19 +643,6 @@ void jpsiantisigmaminussigmaplus::saveTrkInfo(EvtRecTrackIterator itTrk_p,
   if((*itTrk_p)->isEmcShowerValid()){
     RecEmcShower *emcTrk_p = (*itTrk_p)->emcShower();
     m_trkp_eraw = emcTrk_p->energy();
-  }
-
-  RecMdcTrack* mdcTrk_m = (*itTrk_m)->mdcTrack();
-  m_trkm_p = mdcTrk_m->p();
-  m_trkm_px = mdcTrk_m->px();
-  m_trkm_py = mdcTrk_m->py();
-  m_trkm_pz = mdcTrk_m->pz();
-  m_trkm_theta = mdcTrk_m->theta();
-  m_trkm_phi = mdcTrk_m->phi();
-  
-  if((*itTrk_m)->isEmcShowerValid()){
-    RecEmcShower *emcTrk_m = (*itTrk_m)->emcShower();
-    m_trkm_eraw = emcTrk_m->energy();
   }
 
 }
@@ -765,15 +702,10 @@ HepLorentzVector p4 = HepLorentzVector(eraw * sin(theta) * cos(phi),
     m_raw_time->push_back(time);
   }
 }
-void jpsiantisigmaminussigmaplus::saveProtonInfo(RecMdcKalTrack *prpTrk,
-		 RecMdcKalTrack *prmTrk){
+void jpsiantisigmaminussigmaplus::saveProtonInfo(RecMdcKalTrack *prpTrk){
 
   m_prp_px = prpTrk->px();
   m_prp_py = prpTrk->py();
   m_prp_pz = prpTrk->pz();
-
-  m_prm_px = prmTrk->px();
-  m_prm_py = prmTrk->py();
-  m_prm_pz = prmTrk->pz();
   
 }
