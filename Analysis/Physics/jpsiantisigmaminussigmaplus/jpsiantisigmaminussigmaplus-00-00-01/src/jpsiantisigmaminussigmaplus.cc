@@ -175,7 +175,7 @@ void saveProtonInfo(RecMdcKalTrack *);
 int selectChargedTracks(SmartDataPtr<EvtRecEvent>,
 	  SmartDataPtr<EvtRecTrackCol>,
 	  std::vector<int> &);
-int selectProtonPlusProtonMinus(SmartDataPtr<EvtRecTrackCol>,
+int selectProton(SmartDataPtr<EvtRecTrackCol>,
     std::vector<int>);
 int selectNeutralTracks(SmartDataPtr<EvtRecEvent>,
 		SmartDataPtr<EvtRecTrackCol>);
@@ -184,6 +184,8 @@ void saveGamInfo(std::vector<int>,
 void calcTrackPID(EvtRecTrackIterator,
 		double&,
 		double&,
+		double&);
+void selectPion0(SmartDataPtr<EvtRecEvent> evtRecEvent,
 		double&);
 bool passVertexSelection(CLHEP::Hep3Vector,
 		RecMdcKalTrack* ); 
@@ -242,7 +244,7 @@ declareProperty("OutputFileName",m_output_filename);
 declareProperty("IsMonteCarlo",m_isMonteCarlo);
 declareProperty("ZChi_AnaCondition", m_isZCcondition=false);
 declareProperty("Ecms", m_ecms = 3.686);
-declareProperty("Vr0cut", m_vr0cut=1.0);
+declareProperty("Vr0cut", m_vr0cut=2.0);
 declareProperty("Vz0cut", m_vz0cut=10.0);
 declareProperty("ChaCosthetaCut", m_cha_costheta_cut=0.93);
 declareProperty("TotalNumberOfChargedMax", m_total_number_of_charged_max=50);
@@ -409,7 +411,7 @@ if(!evtRecTrkCol) return false;
 
 std::vector<int> iPGood, iMGood;
 selectChargedTracks(evtRecEvent, evtRecTrkCol, iPGood);
-if (selectProtonPlusProtonMinus(evtRecTrkCol, iPGood)!=1 ) return false;
+if (selectProton(evtRecTrkCol, iPGood)!=1 ) return false;
 selectNeutralTracks(evtRecEvent, evtRecTrkCol);
 if (m_ngam >= 20) return false;
 //h_evtflw->Fill(9);
@@ -494,7 +496,7 @@ return iGood.size();
 
 }
 
-int jpsiantisigmaminussigmaplus::selectProtonPlusProtonMinus(SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,
+int jpsiantisigmaminussigmaplus::selectProton(SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,
 				       std::vector<int> iPGood) {
   int nprpr = 0;
   bool evtflw_filled = false;
@@ -503,11 +505,12 @@ int jpsiantisigmaminussigmaplus::selectProtonPlusProtonMinus(SmartDataPtr<EvtRec
   for(unsigned int i1 = 0; i1 < iPGood.size(); i1++) {
    EvtRecTrackIterator itTrk_p = evtRecTrkCol->begin() + iPGood[i1];
    RecMdcTrack* mdcTrk_p = (*itTrk_p)->mdcTrack();
-   if (mdcTrk_p->charge() < 0) continue; // only positive charged tracks
+  // if (mdcTrk_p->charge() < 0) continue; // only positive charged tracks
 
      // track PID
       double prob_pip, prob_kp, prob_p; 
       calcTrackPID(itTrk_p, prob_pip, prob_kp, prob_p);  
+      
       m_prob_pip = prob_pip;
       m_prob_kp = prob_kp;
       m_prob_p = prob_p;
@@ -541,12 +544,66 @@ void jpsiantisigmaminussigmaplus::calcTrackPID(EvtRecTrackIterator itTrk_p,
   pidp->identify(pidp->onlyPionKaonProton());
   pidp->calculate();
 	if(pidp->IsPidInfoValid()) {
+
+
+      if((pidp->probProton() > pidp->probPion()) || (pidp->probProton() > pidp->probKaon())) 
     	prob_pip = pidp->probPion();
     	prob_kp  = pidp->probKaon();
     	prob_p   = pidp->probProton();
 	}
 }
+/*
+void jpsiantisigmaminussigmaplus::selectPion0(SmartDataPtr<EvtRecEvent> evtRecEvent, double& Vp4 Vpi0_like ){
+  // Apply 1C kinematic fit
+  
+   HepLorentzVector ecms(0.034,0,0,3.097);
+  
+         // HepLorentzVector ecms(3.650*sin(0.022*0.5),0.0,0.0,3.650);
+ 
+ 
+           double chisq = 9999.0;
+           double delta = 9999.0;
+           int ig1 = -1;
+           int ig2 = -1;
+           double massdiff(0.0);
+   Vp4 Vpi0_like;
+   Vpi0_like.clear();
 
+   HepLorentzVector pTot(0);
+
+   KalmanKinematicFit * kmfit = KalmanKinematicFit::instance();
+
+   for(int i = 0; i < nGam-1; i++) {
+   if(m_time[i] < 0  || m_time[i] > 14 ) continue;
+   if(m_dang_ch[i] <=10) continue;
+
+    RecEmcShower *g1Trk = (*(evtRecTrkCol->begin()+iGam[i]))->emcShower();
+
+    for(int j = i+1; j < nGam; j++) {
+
+     if(m_time[j] < 0  || m_time[j] > 14 ) continue;
+     if(m_dang_ch[j] <=10) continue;
+
+     RecEmcShower *g2Trk = (*(evtRecTrkCol->begin()+iGam[j]))->emcShower();
+
+        kmfit->init();
+
+        kmfit->setBeamPosition(xorigin_use);
+        kmfit->setVBeamPosition(xem_use);
+
+        kmfit->AddTrack(0, 0.0, g1Trk);
+        kmfit->AddTrack(1, 0.0, g2Trk);
+        kmfit->AddResonance(0, mpi0, 0, 1);
+        bool oksq = kmfit->Fit();
+        if(oksq) {
+          double chi2 = kmfit->chisq();
+          if(chi2 < chisq) {
+          chisq = chi2;
+          Vpi0_like.push_back(pTot);
+
+          }}}}
+}
+*/
 int jpsiantisigmaminussigmaplus::selectNeutralTracks(SmartDataPtr<EvtRecEvent> evtRecEvent,
 		SmartDataPtr<EvtRecTrackCol> evtRecTrkCol) {
 
