@@ -136,14 +136,15 @@ std::vector<int> *m_raw_nhit;
 std::vector<int> *m_raw_module;
 std::vector<double> *m_raw_secmom;
 std::vector<double> *m_raw_time; 
-
-
+std::vector<double> *p4_gamma1;
+std::vector<double> *p4_gamma2;
 //jpsiantisigmaminussigmaplus
 int m_ntrk;
 
 // vertex 
 double m_vr0;
 double m_vz0;
+
 
 // PID info
 double m_prob_pip;
@@ -162,6 +163,8 @@ double m_prm_px;
 double m_prm_py;
 double m_prm_pz;
 
+// digamma invariant mass
+double m_kmfit_rec_mass;
 
 //
 //functions
@@ -188,7 +191,7 @@ void calcTrackPID(EvtRecTrackIterator,
 		double&);
 int kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,
 		std::vector<int>);
-void KinematicFitInfo(double,HepLorentzVector,HepLorentzVector);
+int KinematicFitInfo(HepLorentzVector,HepLorentzVector,double);
 bool passVertexSelection(CLHEP::Hep3Vector,
 		RecMdcKalTrack* ); 
 CLHEP::Hep3Vector getOrigin();
@@ -240,6 +243,8 @@ m_raw_cstat(0),
 m_raw_nhit(0),
 m_raw_module(0),
 m_raw_secmom(0),
+p4_gamma1(0),
+p4_gamma2(0),
 m_raw_time(0)
 {
 declareProperty("OutputFileName",m_output_filename);
@@ -378,21 +383,18 @@ m_tree->Branch("raw_time", &m_raw_time);
 
 // PID info
 m_tree->Branch("prob_pip", &m_prob_pip, "prob_pip/D"); 
-//m_tree->Branch("prob_pim", &m_prob_pim, "prob_pim/D"); 
 m_tree->Branch("prob_kp", &m_prob_kp, "prob_kp/D"); 
-//m_tree->Branch("prob_km", &m_prob_km, "prob_km/D"); 
 m_tree->Branch("prob_p", &m_prob_p, "prob_p/D"); 
-//m_tree->Branch("prob_pb", &m_prob_pb, "prob_pb/D");
 
 // save proton info
 m_tree->Branch("prp_px", &m_prp_px, "prp_px/D");
 m_tree->Branch("prp_py", &m_prp_py, "prp_py/D");
 m_tree->Branch("prp_pz", &m_prp_pz, "prp_pz/D");
 
-//m_tree->Branch("prm_px", &m_prm_px, "prm_px/D");
-//m_tree->Branch("prm_py", &m_prm_py, "prm_py/D");
-//m_tree->Branch("prm_pz", &m_prm_pz, "prm_pz/D");
-
+// save gamma information
+m_tree->Branch("p4_gamma1",&p4_gamma1);
+m_tree->Branch("p4_gamma2",&p4_gamma2);
+m_tree->Branch("m_kmfit_rec_mass",&m_kmfit_rec_mass, "m_kmfit_rec_mass/D");
 }
 
 void jpsiantisigmaminussigmaplus::clearVariables(){
@@ -415,9 +417,8 @@ if (selectProton(evtRecTrkCol, iPGood)!=1 ) return false;
 
 std::vector<int> iGam;
 selectNeutralTracks(evtRecEvent, evtRecTrkCol, iGam);
-
-if (kinematicFit(evtRecTrkCol, iGam)==0 ) return false; // no chisq fitting success combination
-
+//KinematicFitInfo(p4_gamma1, p4_gamma2, m_kmfit_rec_mass);
+kinematicFit(evtRecTrkCol, iGam); 
 if (m_ngam >= 20) return false;
 //h_evtflw->Fill(9);
 
@@ -637,9 +638,8 @@ int jpsiantisigmaminussigmaplus::selectNeutralTracks(SmartDataPtr<EvtRecEvent> e
 
   m_ngam = iGam.size();
   m_nshow = iShow.size();
-
+//cout<<"m_nGam"  <<  m_ngam <<endl;
   saveGamInfo(iGam, evtRecTrkCol);
-  
   return iGam.size(); 
 }
 
@@ -661,6 +661,7 @@ int jpsiantisigmaminussigmaplus::kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRe
 
   KalmanKinematicFit *kmfit = KalmanKinematicFit::instance();
   double chisq_4c = 9999.;
+double m_kmfit_rec_mass;
   int ig[3] = {-1, -1, -1};
   HepLorentzVector p4_gamma1, p4_gamma2;
 
@@ -693,30 +694,39 @@ int jpsiantisigmaminussigmaplus::kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRe
         if (oksq)
         {
           double chisq = kmfit->chisq();
-          //std::cout << "Chi Square = " << chisq << std::endl;
+
+         //std::cout << " checking the value of chisquare= " << chisq << std::endl;
+         //std::cout << "Chi Square = " << chisq << std::endl;
           count++;
           if (chisq < chisq_4c)
           {
             chisq_4c = chisq;
+//cout<<"chisquare value"<<chisq<<endl;
             ig[0] = i1;
             ig[1] = i2;
             p4_gamma1 = kmfit->pfit(0);
             p4_gamma2 = kmfit->pfit(1);
+//cout<<"first gamma value"<< p4_gamma1<<endl;
+//cout<<"second gamma value"<< p4_gamma2<<endl;
+//HepLorentzVector p4_gamma12 = p4_gamma1+p4_gamma2;
+//m_kmfit_rec_mass=p4_gamma12.m();
+//cout<< "value of recoil mass" << m_kmfit_rec_mass<<endl;
             }}}}}
 
-  //saveKinematicFitInfo(chisq_4c, p4_gamma1, p4_gamma2);
+//saveKinematicFitInfo(p4_gamma1, p4_gamma2,m_kmfit_rec_mass);
 
   return count;
 }
 
-/*void jpsiantisigmaminussigmaplus::saveKinematicFitInfo(double chisq,HepLorentzVector p4_gamma1,
-HepLorentzVector p4_gamma2){
+/*
+int jpsiantisigmaminussigmaplus::saveKinematicFitInfo(HepLorentzVector p4_gamma1,HepLorentzVector p4_gamma2,
+                                  m_kmfit_rec_mass){
 
-HepLorentzVector p4_gamma12 = p4_gamma1+p4_gamma2;
-m_kmfit_rec_mass=p4_gamma12.m(); 
-
+  HepLorentzVector p4_gamma12 = p4_gamma1 + p4_gamma2;
+  m_kmfit_rec_mass = p4_gamma12.m();
 }
 */
+
 void jpsiantisigmaminussigmaplus::saveTrkInfo(EvtRecTrackIterator itTrk_p) {
 
   RecMdcTrack* mdcTrk_p = (*itTrk_p)->mdcTrack(); 
