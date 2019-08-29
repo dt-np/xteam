@@ -136,8 +136,6 @@ std::vector<int> *m_raw_nhit;
 std::vector<int> *m_raw_module;
 std::vector<double> *m_raw_secmom;
 std::vector<double> *m_raw_time; 
-std::vector<double> *p4_gamma1;
-std::vector<double> *p4_gamma2;
 //jpsiantisigmaminussigmaplus
 int m_ntrk;
 
@@ -164,7 +162,9 @@ double m_prm_py;
 double m_prm_pz;
 
 // digamma invariant mass
-double m_kmfit_rec_mass;
+double m_kmfit_mass;
+double m_kmfit_energy1;
+double m_kmfit_energy2;
 
 //
 //functions
@@ -191,7 +191,7 @@ void calcTrackPID(EvtRecTrackIterator,
 		double&);
 int kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,
 		std::vector<int>);
-int KinematicFitInfo(HepLorentzVector,HepLorentzVector,double);
+void saveKinematicFitInfo(HepLorentzVector,HepLorentzVector);
 bool passVertexSelection(CLHEP::Hep3Vector,
 		RecMdcKalTrack* ); 
 CLHEP::Hep3Vector getOrigin();
@@ -243,8 +243,6 @@ m_raw_cstat(0),
 m_raw_nhit(0),
 m_raw_module(0),
 m_raw_secmom(0),
-p4_gamma1(0),
-p4_gamma2(0),
 m_raw_time(0)
 {
 declareProperty("OutputFileName",m_output_filename);
@@ -343,7 +341,6 @@ m_tree->Branch("event",&m_event,"event/I");
 // charged tracks
 m_tree->Branch("ncharged",&m_ncharged,"nchargedTrack/I");
 m_tree->Branch("nptrk", &m_nptrk, "nptrk/I");
-m_tree->Branch("nmtrk", &m_nmtrk, "nmtrk/I");
 m_tree->Branch("trkp_p", &m_trkp_p, "trkp_p/D"); 
 m_tree->Branch("trkp_px", &m_trkp_px, "trkp_px/D"); 
 m_tree->Branch("trkp_py", &m_trkp_py, "trkp_py/D"); 
@@ -351,14 +348,6 @@ m_tree->Branch("trkp_pz", &m_trkp_pz, "trkp_pz/D");
 m_tree->Branch("trkp_theta", &m_trkp_theta, "trkp_theta/D"); 
 m_tree->Branch("trkp_phi", &m_trkp_phi, "trkp_phi/D"); 
 m_tree->Branch("trkp_eraw", &m_trkp_eraw, "trkp_eraw/D"); 
-
-m_tree->Branch("trkm_p", &m_trkm_p, "trkm_p/D"); 
-m_tree->Branch("trkm_px", &m_trkm_px, "trkm_px/D"); 
-m_tree->Branch("trkm_py", &m_trkm_py, "trkm_py/D"); 
-m_tree->Branch("trkm_pz", &m_trkm_pz, "trkm_pz/D"); 
-m_tree->Branch("trkm_theta", &m_trkm_theta, "trkm_theta/D"); 
-m_tree->Branch("trkm_phi", &m_trkm_phi, "trkm_phi/D"); 
-m_tree->Branch("trkm_eraw", &m_trkm_eraw, "trkm_eraw/D");
 
 //vertex
 m_tree->Branch("vr0", &m_vr0, "vr0/D");
@@ -392,16 +381,15 @@ m_tree->Branch("prp_py", &m_prp_py, "prp_py/D");
 m_tree->Branch("prp_pz", &m_prp_pz, "prp_pz/D");
 
 // save gamma information
-m_tree->Branch("p4_gamma1",&p4_gamma1);
-m_tree->Branch("p4_gamma2",&p4_gamma2);
-m_tree->Branch("m_kmfit_rec_mass",&m_kmfit_rec_mass, "m_kmfit_rec_mass/D");
+m_tree->Branch("m_kmfit_mass",&m_kmfit_mass, "m_kmfit_mass/D");
+m_tree->Branch("m_kmfit_energy1",&m_kmfit_energy1, "m_kmfit_energy1/D");
+m_tree->Branch("m_kmfit_energy2",&m_kmfit_energy1, "m_kmfit_energy2/D");
 }
 
 void jpsiantisigmaminussigmaplus::clearVariables(){
 m_run=0;
 m_event=0;
 m_ncharged=-1;
-
 }
 
 bool jpsiantisigmaminussigmaplus::buildjpsiantisigmaminussigmaplus() {
@@ -417,8 +405,7 @@ if (selectProton(evtRecTrkCol, iPGood)!=1 ) return false;
 
 std::vector<int> iGam;
 selectNeutralTracks(evtRecEvent, evtRecTrkCol, iGam);
-//KinematicFitInfo(p4_gamma1, p4_gamma2, m_kmfit_rec_mass);
-kinematicFit(evtRecTrkCol, iGam); 
+if (kinematicFit(evtRecTrkCol, iGam)==0 ); 
 if (m_ngam >= 20) return false;
 //h_evtflw->Fill(9);
 
@@ -504,7 +491,7 @@ return iGood.size();
 
 int jpsiantisigmaminussigmaplus::selectProton(SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,
 				       std::vector<int> iPGood) {
-  int nprpr = 0;
+  int npr = 0;
   bool evtflw_filled = false;
   
 //cout<< "I reached here 1 "<< endl;
@@ -526,9 +513,9 @@ int jpsiantisigmaminussigmaplus::selectProton(SmartDataPtr<EvtRecTrackCol> evtRe
       RecMdcKalTrack *prpTrk = (*(evtRecTrkCol->begin()+iPGood[i1]))->mdcKalTrack();
       saveProtonInfo(prpTrk);
           }
-      nprpr++;
-      evtflw_filled = true;
-  return nprpr; 
+      npr++;
+      evtflw_filled = true; 
+  return npr; 
 }
 
 void jpsiantisigmaminussigmaplus::calcTrackPID(EvtRecTrackIterator itTrk_p,
@@ -638,13 +625,14 @@ int jpsiantisigmaminussigmaplus::selectNeutralTracks(SmartDataPtr<EvtRecEvent> e
 
   m_ngam = iGam.size();
   m_nshow = iShow.size();
-//cout<<"m_nGam"  <<  m_ngam <<endl;
+//cout<<"m_nGam....."  <<  m_ngam <<endl;
   saveGamInfo(iGam, evtRecTrkCol);
   return iGam.size(); 
+
+//cout<<"we are here at the value of m_nGam.....\n"   <<endl;
 }
 
-int jpsiantisigmaminussigmaplus::kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,
-                            std::vector<int> iGam)
+int jpsiantisigmaminussigmaplus::kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,std::vector<int> iGam)
 {
 
   HepLorentzVector pcms;
@@ -658,11 +646,9 @@ int jpsiantisigmaminussigmaplus::kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRe
   }
 
   int nGam = iGam.size();
-
   KalmanKinematicFit *kmfit = KalmanKinematicFit::instance();
   double chisq_4c = 9999.;
-double m_kmfit_rec_mass;
-  int ig[3] = {-1, -1, -1};
+  int ig[2] = {-1, -1};
   HepLorentzVector p4_gamma1, p4_gamma2;
 
   p4_gamma1 = HepLorentzVector(0, 0, 0, 0);
@@ -671,20 +657,14 @@ double m_kmfit_rec_mass;
   int count = 0;
   for (int i1 = 0; i1 < nGam; i1++)
   {
+    RecEmcShower *itTrk1 = (*(evtRecTrkCol->begin() + iGam[i1]))->emcShower();
     for (int i2 = 0; i2 < nGam; i2++)
     {
       if (i2 <= i1)
         continue;
-      for (int i3 = 0; i3 < nGam; i3++)
-      {
-        if (i3 <= i2)
-          continue;
 
-        RecEmcShower *itTrk1 = (*(evtRecTrkCol->begin() + iGam[i1]))->emcShower();
         RecEmcShower *itTrk2 = (*(evtRecTrkCol->begin() + iGam[i2]))->emcShower();
         kmfit->init();
-  //      kmfit->AddTrack(0, wpip);
-    //    kmfit->AddTrack(1, wpim);
         kmfit->AddTrack(0, 0.0, itTrk1);
         kmfit->AddTrack(1, 0.0, itTrk2);
         kmfit->AddFourMomentum(0, pcms);
@@ -692,40 +672,32 @@ double m_kmfit_rec_mass;
         //if(!kmfit->Fit(1)) continue;
         bool oksq = kmfit->Fit();
         if (oksq)
-        {
-          double chisq = kmfit->chisq();
+       {
+         double chisq = kmfit->chisq();
 
-         //std::cout << " checking the value of chisquare= " << chisq << std::endl;
-         //std::cout << "Chi Square = " << chisq << std::endl;
           count++;
           if (chisq < chisq_4c)
           {
-            chisq_4c = chisq;
-//cout<<"chisquare value"<<chisq<<endl;
+           chisq_4c = chisq;
             ig[0] = i1;
             ig[1] = i2;
             p4_gamma1 = kmfit->pfit(0);
             p4_gamma2 = kmfit->pfit(1);
-//cout<<"first gamma value"<< p4_gamma1<<endl;
-//cout<<"second gamma value"<< p4_gamma2<<endl;
-//HepLorentzVector p4_gamma12 = p4_gamma1+p4_gamma2;
-//m_kmfit_rec_mass=p4_gamma12.m();
-//cout<< "value of recoil mass" << m_kmfit_rec_mass<<endl;
-            }}}}}
+cout<<"gamma1........."<<p4_gamma1<<endl;
+cout<<"gamma2........."<<p4_gamma2<<endl;
+}}}}
 
-//saveKinematicFitInfo(p4_gamma1, p4_gamma2,m_kmfit_rec_mass);
+HepLorentzVector p4_gamma12 = p4_gamma1+p4_gamma2;
+cout<<"gamma12........."<<p4_gamma12<<endl;
+m_kmfit_mass = p4_gamma12.m();
+//m_kmfit_energy1 = p4_gamma1.e();
+//m_kmfit_energy2 = p4_gamma2.e();
 
-  return count;
+//cout<<"energy of gamma1........."<<m_kmfit_energy1<<endl;
+//cout<<"energy of gamma2........."<<m_kmfit_energy2<<endl;
+cout<<"invariant mass of gammas........."<<m_kmfit_mass<<endl;
+return count;
 }
-
-/*
-int jpsiantisigmaminussigmaplus::saveKinematicFitInfo(HepLorentzVector p4_gamma1,HepLorentzVector p4_gamma2,
-                                  m_kmfit_rec_mass){
-
-  HepLorentzVector p4_gamma12 = p4_gamma1 + p4_gamma2;
-  m_kmfit_rec_mass = p4_gamma12.m();
-}
-*/
 
 void jpsiantisigmaminussigmaplus::saveTrkInfo(EvtRecTrackIterator itTrk_p) {
 
@@ -736,18 +708,14 @@ void jpsiantisigmaminussigmaplus::saveTrkInfo(EvtRecTrackIterator itTrk_p) {
   m_trkp_pz = mdcTrk_p->pz();
   m_trkp_theta = mdcTrk_p->theta();
   m_trkp_phi = mdcTrk_p->phi();
-  
   if((*itTrk_p)->isEmcShowerValid()){
     RecEmcShower *emcTrk_p = (*itTrk_p)->emcShower();
     m_trkp_eraw = emcTrk_p->energy();
   }
-
 }
 
 void jpsiantisigmaminussigmaplus::saveGamInfo(std::vector<int> iGam,
 			    SmartDataPtr<EvtRecTrackCol> evtRecTrkCol){
-
-//std::cout<<"This function may have a problem......"<<std::endl;
 
 // EMC Info
 m_raw_gpx->clear();
@@ -798,7 +766,9 @@ HepLorentzVector p4 = HepLorentzVector(eraw * sin(theta) * cos(phi),
     m_raw_secmom->push_back(secmom);
     m_raw_time->push_back(time);
   }
+
 }
+
 void jpsiantisigmaminussigmaplus::saveProtonInfo(RecMdcKalTrack *prpTrk){
 
   m_prp_px = prpTrk->px();
