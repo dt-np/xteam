@@ -683,19 +683,23 @@ int jpsiantisigmaminussigmaplus::kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRe
             ig[1] = i2;
             p4_gamma1 = kmfit->pfit(0);
             p4_gamma2 = kmfit->pfit(1);
-cout<<"gamma1........."<<p4_gamma1<<endl;
-cout<<"gamma2........."<<p4_gamma2<<endl;
-}}}}
-
+//cout<<"gamma1........."<<p4_gamma1<<endl;
+//cout<<"gamma2........."<<p4_gamma2<<endl;
 HepLorentzVector p4_gamma12 = p4_gamma1+p4_gamma2;
 cout<<"gamma12........."<<p4_gamma12<<endl;
 m_kmfit_mass = p4_gamma12.m();
+cout<<"invariant mass of gammas........."<<m_kmfit_mass<<endl;
+}}}}
+
+//HepLorentzVector p4_gamma12 = p4_gamma1+p4_gamma2;
+//cout<<"gamma12........."<<p4_gamma12<<endl;
+//m_kmfit_mass = p4_gamma12.m();
 //m_kmfit_energy1 = p4_gamma1.e();
 //m_kmfit_energy2 = p4_gamma2.e();
 
 //cout<<"energy of gamma1........."<<m_kmfit_energy1<<endl;
 //cout<<"energy of gamma2........."<<m_kmfit_energy2<<endl;
-cout<<"invariant mass of gammas........."<<m_kmfit_mass<<endl;
+//cout<<"invariant mass of gammas........."<<m_kmfit_mass<<endl;
 return count;
 }
 
