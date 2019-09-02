@@ -327,6 +327,10 @@ void jpsiantisigmaminussigmaplus::book_histogram() {
 
 h_evtflw = new TH1F("hevtflw","eventflow",13,0,13);
 if (!h_evtflw) return;
+
+h_evtflw->GetXaxis()->SetBinLabel(1, "raw");
+h_evtflw->GetXaxis()->SetBinLabel(10, "N_{#gamma}<20");
+h_evtflw->GetXaxis()->SetBinLabel(5, "proton PID");
 }
 
 
@@ -407,7 +411,7 @@ std::vector<int> iGam;
 selectNeutralTracks(evtRecEvent, evtRecTrkCol, iGam);
 if (kinematicFit(evtRecTrkCol, iGam)==0 ); 
 if (m_ngam >= 20) return false;
-//h_evtflw->Fill(9);
+h_evtflw->Fill(9); //N_{#gamma} < 20
 
 return true;
 
@@ -483,10 +487,8 @@ m_nptrk = iPGood.size();
 if (m_nptrk > 0 ) {
    EvtRecTrackIterator itTrk_p = evtRecTrkCol->begin() + iPGood[0];
    saveTrkInfo(itTrk_p);
-  }
-
+}
 return iGood.size();
-
 }
 
 int jpsiantisigmaminussigmaplus::selectProton(SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,
@@ -686,9 +688,9 @@ int jpsiantisigmaminussigmaplus::kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRe
 //cout<<"gamma1........."<<p4_gamma1<<endl;
 //cout<<"gamma2........."<<p4_gamma2<<endl;
 HepLorentzVector p4_gamma12 = p4_gamma1+p4_gamma2;
-cout<<"gamma12........."<<p4_gamma12<<endl;
+//cout<<"gamma12........."<<p4_gamma12<<endl;
 m_kmfit_mass = p4_gamma12.m();
-cout<<"invariant mass of gammas........."<<m_kmfit_mass<<endl;
+//cout<<"invariant mass of gammas........."<<m_kmfit_mass<<endl;
 }}}}
 
 //HepLorentzVector p4_gamma12 = p4_gamma1+p4_gamma2;
