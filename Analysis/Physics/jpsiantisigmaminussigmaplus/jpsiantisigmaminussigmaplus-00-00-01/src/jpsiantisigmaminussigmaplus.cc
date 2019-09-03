@@ -329,8 +329,8 @@ h_evtflw = new TH1F("hevtflw","eventflow",13,0,13);
 if (!h_evtflw) return;
 
 h_evtflw->GetXaxis()->SetBinLabel(1, "raw");
-h_evtflw->GetXaxis()->SetBinLabel(10, "N_{#gamma}<20");
-h_evtflw->GetXaxis()->SetBinLabel(5, "proton PID");
+h_evtflw->GetXaxis()->SetBinLabel(5, "N_{#gamma}<20");
+h_evtflw->GetXaxis()->SetBinLabel(10, "proton PID");
 }
 
 
@@ -387,7 +387,7 @@ m_tree->Branch("prp_pz", &m_prp_pz, "prp_pz/D");
 // save gamma information
 m_tree->Branch("m_kmfit_mass",&m_kmfit_mass, "m_kmfit_mass/D");
 m_tree->Branch("m_kmfit_energy1",&m_kmfit_energy1, "m_kmfit_energy1/D");
-m_tree->Branch("m_kmfit_energy2",&m_kmfit_energy1, "m_kmfit_energy2/D");
+m_tree->Branch("m_kmfit_energy2",&m_kmfit_energy2, "m_kmfit_energy2/D");
 }
 
 void jpsiantisigmaminussigmaplus::clearVariables(){
@@ -409,9 +409,10 @@ if (selectProton(evtRecTrkCol, iPGood)!=1 ) return false;
 
 std::vector<int> iGam;
 selectNeutralTracks(evtRecEvent, evtRecTrkCol, iGam);
-if (kinematicFit(evtRecTrkCol, iGam)==0 ); 
+//if (kinematicFit(evtRecTrkCol, iGam)==0 ) return false; 
+kinematicFit(evtRecTrkCol, iGam); 
 if (m_ngam >= 20) return false;
-h_evtflw->Fill(9); //N_{#gamma} < 20
+h_evtflw->Fill(4); //N_{#gamma} < 20
 
 return true;
 
@@ -509,7 +510,7 @@ int jpsiantisigmaminussigmaplus::selectProton(SmartDataPtr<EvtRecTrackCol> evtRe
       m_prob_pip = prob_pip;
       m_prob_kp = prob_kp;
       m_prob_p = prob_p;
-      if ( !evtflw_filled ) h_evtflw->Fill(4); //PID
+      if ( !evtflw_filled ) h_evtflw->Fill(9); //PID
  
       // apply vertex fit
       RecMdcKalTrack *prpTrk = (*(evtRecTrkCol->begin()+iPGood[i1]))->mdcKalTrack();
@@ -649,7 +650,7 @@ int jpsiantisigmaminussigmaplus::kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRe
 
   int nGam = iGam.size();
   KalmanKinematicFit *kmfit = KalmanKinematicFit::instance();
-  double chisq_4c = 9999.;
+  //double chisq_4c = 9999.;
   int ig[2] = {-1, -1};
   HepLorentzVector p4_gamma1, p4_gamma2;
 
@@ -678,30 +679,23 @@ int jpsiantisigmaminussigmaplus::kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRe
          double chisq = kmfit->chisq();
 
           count++;
-          if (chisq < chisq_4c)
-          {
-           chisq_4c = chisq;
+          //if (chisq < chisq_4c)
+         // {
+         //  chisq_4c = chisq;
             ig[0] = i1;
             ig[1] = i2;
             p4_gamma1 = kmfit->pfit(0);
             p4_gamma2 = kmfit->pfit(1);
-//cout<<"gamma1........."<<p4_gamma1<<endl;
-//cout<<"gamma2........."<<p4_gamma2<<endl;
+
 HepLorentzVector p4_gamma12 = p4_gamma1+p4_gamma2;
 //cout<<"gamma12........."<<p4_gamma12<<endl;
 m_kmfit_mass = p4_gamma12.m();
-//cout<<"invariant mass of gammas........."<<m_kmfit_mass<<endl;
-}}}}
+m_kmfit_energy1 = p4_gamma1.e();
+m_kmfit_energy2 = p4_gamma2.e();
+//}
 
-//HepLorentzVector p4_gamma12 = p4_gamma1+p4_gamma2;
-//cout<<"gamma12........."<<p4_gamma12<<endl;
-//m_kmfit_mass = p4_gamma12.m();
-//m_kmfit_energy1 = p4_gamma1.e();
-//m_kmfit_energy2 = p4_gamma2.e();
+}}}
 
-//cout<<"energy of gamma1........."<<m_kmfit_energy1<<endl;
-//cout<<"energy of gamma2........."<<m_kmfit_energy2<<endl;
-//cout<<"invariant mass of gammas........."<<m_kmfit_mass<<endl;
 return count;
 }
 
