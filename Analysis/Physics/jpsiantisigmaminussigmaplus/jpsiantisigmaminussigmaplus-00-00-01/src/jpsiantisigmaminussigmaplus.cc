@@ -189,8 +189,7 @@ void calcTrackPID(EvtRecTrackIterator,
 		double&,
 		double&,
 		double&);
-int kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,
-		std::vector<int>);
+int pi0mass(SmartDataPtr<EvtRecTrackCol> evtRecTrkCol, std::vector<int>);
 void saveKinematicFitInfo(HepLorentzVector,HepLorentzVector);
 bool passVertexSelection(CLHEP::Hep3Vector,
 		RecMdcKalTrack* ); 
@@ -409,9 +408,9 @@ if (selectProton(evtRecTrkCol, iPGood)!=1 ) return false;
 
 std::vector<int> iGam;
 selectNeutralTracks(evtRecEvent, evtRecTrkCol, iGam);
-//if (kinematicFit(evtRecTrkCol, iGam)==0 ) return false; 
-kinematicFit(evtRecTrkCol, iGam); 
-if (m_ngam >= 20) return false;
+//if (pi0mass(evtRecTrkCol, iGam)==0 ) return false; 
+pi0mass(evtRecTrkCol, iGam); 
+if (m_ngam >= 15) return false;
 h_evtflw->Fill(4); //N_{#gamma} < 20
 
 return true;
@@ -635,22 +634,21 @@ int jpsiantisigmaminussigmaplus::selectNeutralTracks(SmartDataPtr<EvtRecEvent> e
 //cout<<"we are here at the value of m_nGam.....\n"   <<endl;
 }
 
-int jpsiantisigmaminussigmaplus::kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,std::vector<int> iGam)
+int jpsiantisigmaminussigmaplus::pi0mass(SmartDataPtr<EvtRecTrackCol> evtRecTrkCol, std::vector<int> iGam)
 {
+  //std::vector<int> iter_mc_gamma;
+  //iter_mc_gamma.clear();
+ 
+ // Event::EvtRecTrackCol::iterator iter_mc_gamma = evtRecTrkCol->begin();
+ // for (; iter_mc_gamma != evtRecTrkCol->end(); iter_mc_gamma++){
+ // iter_mc_gamma.push_back(evtRecTrkCol);
+ // cout<<iter_mc_gamma<<"";
+ // }
+//}
 
-  HepLorentzVector pcms;
-  if (!m_isZCcondition)
-  {
-    pcms = HepLorentzVector(0.011 * m_ecms, 0., 0., m_ecms);
-  }
-  else
-  {
-    pcms = HepLorentzVector(0.011 * m_ecms, -0.001, 0.005, m_ecms);
-  }
-
-  int nGam = iGam.size();
+   int nGam = iGam.size();
   KalmanKinematicFit *kmfit = KalmanKinematicFit::instance();
-  //double chisq_4c = 9999.;
+
   int ig[2] = {-1, -1};
   HepLorentzVector p4_gamma1, p4_gamma2;
 
@@ -660,17 +658,17 @@ int jpsiantisigmaminussigmaplus::kinematicFit(SmartDataPtr<EvtRecTrackCol> evtRe
   int count = 0;
   for (int i1 = 0; i1 < nGam; i1++)
   {
-    RecEmcShower *itTrk1 = (*(evtRecTrkCol->begin() + iGam[i1]))->emcShower();
     for (int i2 = 0; i2 < nGam; i2++)
     {
       if (i2 <= i1)
         continue;
 
+        RecEmcShower *itTrk1 = (*(evtRecTrkCol->begin() + iGam[i1]))->emcShower(); 
         RecEmcShower *itTrk2 = (*(evtRecTrkCol->begin() + iGam[i2]))->emcShower();
         kmfit->init();
         kmfit->AddTrack(0, 0.0, itTrk1);
         kmfit->AddTrack(1, 0.0, itTrk2);
-        kmfit->AddFourMomentum(0, pcms);
+        //kmfit->AddFourMomentum(0, pcms);
         //if(!kmfit->Fit(0)) continue;
         //if(!kmfit->Fit(1)) continue;
         bool oksq = kmfit->Fit();
@@ -749,7 +747,6 @@ HepLorentzVector p4 = HepLorentzVector(eraw * sin(theta) * cos(phi),
     m_raw_gpy->push_back(p4.py());
     m_raw_gpz->push_back(p4.pz());
     m_raw_ge->push_back(p4.e());
-
 
     int cstat = emcTrk->status();
     int nhit = emcTrk->numHits();
