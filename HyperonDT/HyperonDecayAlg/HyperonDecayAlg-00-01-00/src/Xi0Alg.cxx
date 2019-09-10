@@ -1,5 +1,5 @@
 #include "HyperonDecayAlg/Xi0Alg.h"
-//#include "HyperonDecayAlg/LambdaFinder.h"
+#include "HyperonDecayAlg/LambdaFinder.h"
 #include "HyperonDecayAlg/defs.h"
 
 
