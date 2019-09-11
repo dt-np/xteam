@@ -9,6 +9,9 @@ usage() {
     printf "\nSYNOPSIS\n"
     printf "\n\t%-5s\n" "source setup.sh [OPTION]" 
     printf "\nOPTIONS\n" 
+    printf "\n\t%-20s  %-40s"  "boss-6.6.4.p01"           "[Default]setup the boss 6.6.4.p01"
+    printf "\n" 
+    printf "\n\t%-20s  %-40s"  "init-boss-6.6.4.p01"      "initialise the boss 6.6.4.p01"
     printf "\n\t%-20s  %-40s"  "init-boss-6.6.4"      "initialise the boss 6.6.4"
     printf "\n\t%-20s  %-40s"  "boss-6.6.4"           "setup the boss 6.6.4"
     printf "\n\n" 
@@ -22,18 +25,39 @@ else
 fi
 
 case $option in
+
+    # --------------------------------------------------------------------------
+    #  Boss 6.6.4.p01 
+    # --------------------------------------------------------------------------
+
+    init-boss-6.6.4.p01) echo "Setting the environment for BOSS 6.6.4.p01..."
+
+    cp -r /afs/ihep.ac.cn/bes3/offline/Boss/cmthome/cmthome-6.6.4.p01/ ./
+
+
+    echo "set WorkArea \"\$(HOME)/bes/hypermiss\"" >> cmthome-6.6.4.p01/requirements
+    echo "path_remove CMTPATH  \"\${WorkArea}\"" >> cmthome-6.6.4.p01/requirements
+    echo "path_prepend CMTPATH  \"\${WorkArea}\"" >> cmthome-6.6.4.p01/requirements
+
+    cd cmthome-6.6.4.p01
+    source setupCMT.sh
+    cmt config
+    source setup.sh
+
+    cd ../TestRelease/TestRelease-00-00-84/cmt
     
+    cmt br cmt config
+    cmt br gmake
+    cd - 
+    cd .. 
+    ;; 
+
     # --------------------------------------------------------------------------
     #  Boss 6.6.4  
     # --------------------------------------------------------------------------
 
-    #init-boss-7.0.4) echo "Setting the environment for BOSS 7.0.4..."
     init-boss-6.6.4) echo "Setting the environment for BOSS 6.6.4..."
-
-
-    #cp -r /afs/ihep.ac.cn/bes3/offline/Boss/cmthome/cmthome-7.0.4/ ./
     cp -r /afs/ihep.ac.cn/bes3/offline/Boss/cmthome/cmthome-6.6.4/ ./
-
 
     echo "set WorkArea \"\$(HOME)/bes/hypermiss\"" >> cmthome-6.6.4/requirements
     echo "path_remove CMTPATH  \"\${WorkArea}\"" >> cmthome-6.6.4/requirements
@@ -55,6 +79,21 @@ case $option in
     boss-6.6.4) echo "Settingup boss 6.6.4"
 
     cd cmthome-6.6.4
+    source setupCMT.sh
+    cmt config
+    source setup.sh
+
+    cd ../TestRelease/TestRelease-00-00-84/cmt
+    source setup.sh
+    cd ../../../
+    
+    ;;
+
+    *) echo "Settingup boss 6.6.4.p01"
+    # Setup SL5 on SLC7 machine 
+    #/afs/ihep.ac.cn/soft/common/sysgroup/container/bin/hep_container shell SL5 
+
+    cd cmthome-6.6.4.p01
     source setupCMT.sh
     cmt config
     source setup.sh
