@@ -134,4 +134,12 @@ case $option in
 
         ;;
 
+   0.1.8) echo "Generate plot for pi0 "
+	cd python
+        root -l plotpi0.c
+
+        ;;
+
+
+
 esac
