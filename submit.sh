@@ -16,6 +16,9 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.1.3"    "Reconstruction -- 20000 jpsiantisigmaminussigmaplus MC signal..."
     printf "\n\t%-9s  %-40s"  "0.1.4"    "Preselection for 10 events -- generate root file [Checking interactively]..."
     printf "\n\t%-9s  %-40s"  "0.1.5"    "Preselection for 20k events -- generate root file [cluster job]..."
+    printf "\n\t%-9s  %-40s"  "0.1.6"    "Generate plot for prob_p "
+    
+    printf "\n\t%-9s  %-40s"  "0.1.7"    "Generate plot for pi0 "
 
     printf "\n\n" 
 
@@ -117,6 +120,18 @@ case $option in
         else
             echo "Default value is 'NO', please change the event number"
         fi
+        ;;
+
+    0.1.6) echo "Generate plot for prob_p "
+        cd python
+        root -l plot.c
+    	;;
+
+    0.1.7) echo "Generate plot for pi0 "
+ 
+       	cd python
+        root -l plotpi0.c
+
         ;;
 
 esac

@@ -13,7 +13,7 @@ MessageSvc.OutputLevel = 5;
                                                               
 // Number of events to be processed (default is 10)           
 //ApplicationMgr.EvtMax = 6000;                               
-ApplicationMgr.EvtMax = 1000;                                   
+ApplicationMgr.EvtMax = 20000;                                   
                                                               
 jpsiantisigmaminussigmaplus.IsMonteCarlo="true";                             
 jpsiantisigmaminussigmaplus.OutputFileName="../../../run/root_jpsiantisigmaminussigmaplus/jpsiantisigmaminussigmaplus_gen_mc.root"; 

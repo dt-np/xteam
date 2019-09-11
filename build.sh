@@ -12,6 +12,8 @@ usage() {
     printf "\nOPTIONS\n" 
     printf "\n\t%-5s  %-40s\n"  "1"  "build jpsiantisigmaminussigmaplus analyzer" 
 
+    printf "\n\t%-5s  %-40s\n"  "2"  "build Xi0Algo analyzer" 
+
 printf "\n\n" 
 }
 
@@ -28,4 +30,12 @@ case $option in
     cd Analysis/Physics/jpsiantisigmaminussigmaplus/jpsiantisigmaminussigmaplus-00-00-01/cmt
        gmake  
        ;;
+
+
+    2) echo "Building Xi0Alg module..."
+	cd HyperonDT/HyperonDecayAlg/HyperonDecayAlg-00-01-00/cmt
+
+       gmake
+	;;  
+
 esac
