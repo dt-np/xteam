@@ -20,6 +20,14 @@ usage() {
     
     printf "\n\t%-9s  %-40s"  "0.1.7"    "Generate plot for pi0 "
 
+    printf "\n\t%-9s  %-40s"  ""         ""
+    printf "\n\t%-9s  %-40s"  "0.2"      "[run jpsi data for HyperonDT]" 
+    printf "\n\t%-9s  %-40s"  "0.2.1"    "Split con3650 data sample with each group 20G"
+
+   
+
+
+
     printf "\n\n" 
 
 }
@@ -134,11 +142,14 @@ case $option in
 
         ;;
 
-   0.1.8) echo "Generate plot for pi0 "
-	cd python
-        root -l plotpi0.c
+    # --------------------------------------------------------------------------
+    #  0.2 MC  
+    # --------------------------------------------------------------------------
 
-        ;;
+
+0.2) echo "[Running on data--HyperonDT]"
+         ;;
+
 
 
 
