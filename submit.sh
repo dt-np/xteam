@@ -10,7 +10,7 @@ usage() {
     printf "\n\t%-5s\n" "./submit.sh [OPTION]" 
     printf "\nOPTIONS\n" 
 
-    printf "\n\t%-9s  %-40s"  "0.1"      "[run on jpsiantisigmaminussigmaplus]"
+    printf "\n\t%-9s  %-40s"  "0.1"      "[run on HyperonDT]"
     printf "\n\t%-9s  %-40s"  "0.1.1"    "Preselection for 10 events -- generate root file [Checking interactively]..."
     printf "\n\t%-9s  %-40s"  "0.1.2"    "Preselection for 20k events -- generate root file [cluster job]..."
     
@@ -42,7 +42,7 @@ case $option in
     # --------------------------------------------------------------------------
 
 
-0.1) echo "[run on signal MC--jpsiantisigmaminussigmaplus]"
+0.1) echo "[run for HyperonDT]"
 	 ;;
 
     0.1.1) echo "Preselection for 10 events -- generate root file [Checking interactively]..."
