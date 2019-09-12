@@ -11,21 +11,15 @@ usage() {
     printf "\nOPTIONS\n" 
 
     printf "\n\t%-9s  %-40s"  "0.1"      "[run on jpsiantisigmaminussigmaplus]"
-    printf "\n\t%-9s  %-40s"  "0.1.1"    "simulation --10 signal MC sample interactively for jpsiantisigmaminussigmaplus events..."
-    printf "\n\t%-9s  %-40s"  "0.1.2"    "Generate -- 20000 jpsiantisigmaminussigmaplus MC signal..."
-    printf "\n\t%-9s  %-40s"  "0.1.3"    "Reconstruction -- 20000 jpsiantisigmaminussigmaplus MC signal..."
-    printf "\n\t%-9s  %-40s"  "0.1.4"    "Preselection for 10 events -- generate root file [Checking interactively]..."
-    printf "\n\t%-9s  %-40s"  "0.1.5"    "Preselection for 20k events -- generate root file [cluster job]..."
-    printf "\n\t%-9s  %-40s"  "0.1.6"    "Generate plot for prob_p "
+    printf "\n\t%-9s  %-40s"  "0.1.1"    "Preselection for 10 events -- generate root file [Checking interactively]..."
+    printf "\n\t%-9s  %-40s"  "0.1.2"    "Preselection for 20k events -- generate root file [cluster job]..."
     
-    printf "\n\t%-9s  %-40s"  "0.1.7"    "Generate plot for pi0 "
-
     printf "\n\t%-9s  %-40s"  ""         ""
-    printf "\n\t%-9s  %-40s"  "0.2"      "[run jpsi data for HyperonDT]" 
-    printf "\n\t%-9s  %-40s"  "0.2.1"    "Split con3650 data sample with each group 20G"
-
-   
-
+    printf "\n\t%-9s  %-40s"  "0.2"      "[running on Inclusive MC sample for HyperonDT]" 
+    printf "\n\t%-9s  %-40s"  "0.2.1"    "Split MC sample with each group 20G"
+    printf "\n\t%-9s  %-40s"  "0.2.2"    "Generate Condor jobs on incl MC ---- 1..."
+    printf "\n\t%-9s  %-40s"  "0.2.3"    "Test on inclusive MC..."
+    printf "\n\t%-9s  %-40s"  "0.2.4"    "Submit Condor jobs on inclusive MC ----2"
 
 
     printf "\n\n" 
@@ -51,50 +45,7 @@ case $option in
 0.1) echo "[run on signal MC--jpsiantisigmaminussigmaplus]"
 	 ;;
 
-
-    0.1.1) echo "simulation --10 signal MC sample interactively for jpsiantisigmaminussigmaplus events..."
-        echo "have you changed event number for 10 events to run interactively?(yes / NO)"
-        
-        read opt
-        if [ $opt == "yes" ]
-            then
-            echo "now in yes"
-
-            cd /besfs/users/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts
-            cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_sim_jpsiantisigmaminussigmaplus.txt ./
-            boss.exe jobOptions_sim_jpsiantisigmaminussigmaplus.txt
-            cd $HOME/bes/hypermiss
-        else
-            echo "Default value is 'NO', please change event number."
-        fi
-        ;;
-    
-     0.1.2) echo "submitting the condor job for simulation -- 20000 signal MC sample jpsiantisigmaminussigmaplus events..."
-        echo "have you checked the lxslc7 machine? Condor job is only applicable on lxslc7 machine.(yes / NO)"
-        
-        read opt
-        if [ $opt == "yes" ]
-            then
-            echo "now in yes"
-        
-            cd /besfs/users/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts
-            cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_sim_jpsiantisigmaminussigmaplus.txt ./
-            boss.condor -os SL6 jobOptions_sim_jpsiantisigmaminussigmaplus.txt
-            cd $HOME/bes/hypermiss
-        else
-            echo "Default value is 'NO'."
-        fi
-        ;;
-    
-    0.1.3) echo "reconstruction -- generate 20000 signal MC sample..."
-            
-	    cd /besfs/users/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts
-        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_rec_jpsiantisigmaminussigmaplus.txt ./
-        boss.condor -os SL6 jobOptions_rec_jpsiantisigmaminussigmaplus.txt
-        cd $HOME/bes/hypermiss
-        ;;
-
-    0.1.4) echo "Preselection for 10 events -- generate root file [Checking interactively]..."
+    0.1.1) echo "Preselection for 10 events -- generate root file [Checking interactively]..."
 
         echo "have you changed event number to 10 for interactive job?(yes / NO)"
         
@@ -103,16 +54,16 @@ case $option in
             then
             echo "now in yes"
         
-        cd /besfs/users/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts
-        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_jpsiantisigmaminussigmaplus_gen_mc.txt ./
-	    boss.exe jobOptions_jpsiantisigmaminussigmaplus_gen_mc.txt
+        cd /besfs/users/amitraahul/bes/hypermiss/scripts/gen_script
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/gen_script/jobOptions_hyperon_gen_mc.txt ./
+	    boss.exe jobOptions_hyperon_gen_mc.txt
         cd $HOME/bes/hypermiss
         else
             echo "Default value is 'NO', please change the event number"
         fi
         ;;
         
-    0.1.5) echo "Preselection for 20k events -- generate root file [cluster job]..."
+    0.1.2) echo "Preselection for 20k events -- generate root file [cluster job]..."
 	
         echo "have you changed event number from 10 which was previously set for interactive job?(yes / NO)"
         
@@ -121,27 +72,16 @@ case $option in
             then
             echo "now in yes"
 
-	    cd /besfs/users/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts
-        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/jpsiantisigmaminussigmaplus/jobs_scripts/jobOptions_jpsiantisigmaminussigmaplus_gen_mc.txt ./
-	    boss.condor -g physics jobOptions_jpsiantisigmaminussigmaplus_gen_mc.txt
+        cd /besfs/users/amitraahul/bes/hypermiss/scripts/gen_script
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/gen_script/jobOptions_hyperon_gen_mc.txt ./
+	    boss.condor -g physics jobOptions_hyperon_gen_mc.txt
         cd $HOME/bes/hypermiss
         else
             echo "Default value is 'NO', please change the event number"
         fi
         ;;
 
-    0.1.6) echo "Generate plot for prob_p "
-        cd python
-        root -l plot.c
-    	;;
-
-    0.1.7) echo "Generate plot for pi0 "
- 
-       	cd python
-        root -l plotpi0.c
-
-        ;;
-
+   
     # --------------------------------------------------------------------------
     #  0.2 MC  
     # --------------------------------------------------------------------------
@@ -150,7 +90,45 @@ case $option in
 0.2) echo "[Running on data--HyperonDT]"
          ;;
 
+    0.2.1) echo "Split MC sample with each group 20G ..."
+	   ./python/get_samples.py /besfs2/offline/data/664-1/jpsi/09mc/dst dat/run/samples/inclusiveMC/mc_664p01_jpsi_09mc.txt 20G
+	   # made 394 groups 
+	   ;;
 
+    0.2.2) echo "Generate Condor jobs on incl MC ---- 1..."
+	    cd /besfs/users/amitraahul/bes/hypermiss/scripts/gen_script
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/gen_script/make_jobOption_file_inclusiveMC.sh ./
+		cd $HOME/bes/hypermiss
+        cd scripts/gen_script
+        ./make_jobOption_file_inclusiveMC.sh
+		cd ../../dat/run/jpsi_inclusive/job_text/inclusiveMC
+        mv jobOptions_inclusive_jpsi_mc-394.txt jobOptions_inclusive_jpsi_mc-0.txt       
+        cd $HOME/bes/hypermiss	 
+        ;;
 
+    0.2.3) echo "Test on incl MC..."
+        echo "have you changed test number?(yes / NO)
+        ./dat/run/jpsi_inclusive/job_text/inclusiveMC/jobOptions_inclusive_jpsi_mc-0.txt"
+        read opt
+        if [ $opt == "yes" ]
+            then 
+            echo "now in yes"  
+            cd dat/run/jpsi_inclusive/job_text/inclusiveMC
+            boss.exe jobOptions_inclusive_jpsi_mc-0.txt
+            cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change test number."
+        fi
+        ;;
+
+    0.2.4) echo "Submit Condor jobs on incl MC ---- 2..."
+        cd dat/run/jpsi_inclusive/job_text/inclusiveMC
+        boss.condor -g physics -n 394 jobOptions_inclusive_jpsi_mc-%{ProcId}.txt
+        cd $HOME/bes/hypermiss	    
+        ;;
+
+    0.2.5) echo "Check condor jobs on inclusive MC..."
+        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_inclusiveMC 394
+        ;;
 
 esac
