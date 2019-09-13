@@ -1,18 +1,17 @@
 #!/bin/bash
 
-JobText_SaveDir=../../dat/run/jpsi_inclusive/job_text/inclusiveMC
-
+JobText_SaveDir=../../dat/run/jpsi_inclusive/job_text/data
 
 for num in {1..394}
 do
-    file_list=mc_664p01_jpsi_09mc_20G-${num}.txt
-    rootfile=jpsi_inclusive_jpsi_mc-${num}.root
-    jobOptions=jobOptions_inclusive_jpsi_mc-${num}.txt
+    file_list=data_664p01_jpsi_20G-${num}.txt
+    rootfile=jpsi_data09-${num}.root
+    jobOptions=jobOptions_jpsi_09-${num}.txt
     echo   "#include \"\$ROOTIOROOT/share/jobOptions_ReadRec.txt\"        "  > ${JobText_SaveDir}/${jobOptions}
     echo   "#include \"\$VERTEXFITROOT/share/jobOptions_VertexDbSvc.txt\" " >> ${JobText_SaveDir}/${jobOptions}
     echo   "#include \"\$MAGNETICFIELDROOT/share/MagneticField.txt\"      " >> ${JobText_SaveDir}/${jobOptions}
     echo   "#include \"\$ABSCORROOT/share/jobOptions_AbsCor.txt\"         " >> ${JobText_SaveDir}/${jobOptions}
-    echo   "#include \"\$HOME/bes/hypermiss/dat/run/samples/inclusiveMC/$file_list\" " >> ${JobText_SaveDir}/${jobOptions}
+    echo   "#include \"\$HOME/bes/hypermiss/dat/run/samples/data/$file_list\" " >> ${JobText_SaveDir}/${jobOptions}
     echo   "                                                              " >> ${JobText_SaveDir}/${jobOptions}
     echo   "                                                              " >> ${JobText_SaveDir}/${jobOptions}
     echo   "ApplicationMgr.DLLs += {\"HyperonDecayAlg\"};                       " >> ${JobText_SaveDir}/${jobOptions}
@@ -26,7 +25,7 @@ do
     echo   "ApplicationMgr.EvtMax = -1;                                   " >> ${JobText_SaveDir}/${jobOptions}
     echo   "                                                              " >> ${JobText_SaveDir}/${jobOptions}
     echo   "ApplicationMgr.HistogramPersistency = \"ROOT\";               " >> ${JobText_SaveDir}/${jobOptions}
-    echo   "NTupleSvc.Output = {\"FILE1 DATAFILE='$HOME/bes/hypermiss/dat/run/jpsi_inclusive/rootfile_inclusiveMC/$rootfile' OPT='NEW' TYP='ROOT'\"};" >> ${JobText_SaveDir}/${jobOptions}
+    echo   "NTupleSvc.Output = {\"FILE1 DATAFILE='$HOME/bes/hypermiss/dat/run/jpsi_inclusive/rootfile_data09/$rootfile' OPT='NEW' TYP='ROOT'\"};" >> ${JobText_SaveDir}/${jobOptions}
 
     echo   "                                                              " >> ${JobText_SaveDir}/${jobOptions}
     echo   "                                                              " >> ${JobText_SaveDir}/${jobOptions}
