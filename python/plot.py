@@ -18,5 +18,3 @@ tr1.Draw('vr0')
 canvas.SaveAs('../run/plots/Plot.pdf')
 f.Print()
 f.Close()
-
-

@@ -16,6 +16,7 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.1.3"    "Test on data 09..."
     printf "\n\t%-9s  %-40s"  "0.1.4"    "Submit Condor jobs on data 09 ----2"
     printf "\n\t%-9s  %-40s"  "0.1.5"    "Check condor jobs on data 09...."
+    printf "\n\t%-9s  %-40s"  "0.1.6"    "Test 1 job on data 2009 event..."
 
     printf "\n\t%-9s  %-40s"  ""         ""
     printf "\n\t%-9s  %-40s"  "0.2"      "[running on Inclusive MC sample for HyperonDT]" 
@@ -89,6 +90,9 @@ case $option in
         ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_data09 394
         ;;
 
+    0.1.6) echo "Test 1 job on data 2009 event..."
+        ./python/sel_events.py run/jpsi_inclusive/rootfile_data09/jpsi_data09-1.root run/jpsi_inclusive/event_data09/jpsi_inclusive_data_event-1.root                                                              
+	   ;;
    
     # --------------------------------------------------------------------------
     #  0.2 inclusiveMC  
