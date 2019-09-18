@@ -2,7 +2,7 @@
 
 JobText_SaveDir=../../dat/run/jpsi_inclusive/job_text/data
 
-for num in {1..394}
+for num in {1..7259}
 do
     file_list=data_664p01_jpsi_20G-${num}.txt
     rootfile=jpsi_data09-${num}.root
