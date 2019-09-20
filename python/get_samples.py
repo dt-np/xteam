@@ -41,6 +41,9 @@ def main():
     file_list = []
     for root, dirs, files in os.walk(src):
         for f in files:
+            # skip files with not suffix, e.g. jpsi664dst
+            if len(f.split('.')) == 1: 
+                continue 
             file_list.append(os.path.join(root, f))
 
     if len(args) == 2:
@@ -50,8 +53,7 @@ def main():
     if len(args) == 3:
         size = args[2]
         sys.stdout.write('Size limit per list: %s\n' %size)
-#        groups = group_files_by_size(file_list, size)
-        groups = group_files_by_number(file_list, size)
+        groups = group_files_by_size(file_list, size)
         path, name = os.path.split(dst)
         dst_com = name.split('.')[0] 
         dst_ext = name.split('.')[1]
