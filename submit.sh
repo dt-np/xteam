@@ -26,8 +26,9 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.2.1"    "Split MC sample with each group 20G"
     printf "\n\t%-9s  %-40s"  "0.2.2"    "Generate Condor jobs on incl MC ---- 1..."
     printf "\n\t%-9s  %-40s"  "0.2.3"    "Test on inclusive MC..."
-    printf "\n\t%-9s  %-40s"  "0.2.4"    "Submit Condor jobs on inclusive MC ----2"
-    printf "\n\t%-9s  %-40s"  "0.2.5"    "Check condor jobs on inclusive MC...."
+    printf "\n\t%-9s  %-40s"  "0.2.4"    "Submit Condor jobs on inclusive MC for 10 jobs----2"
+    printf "\n\t%-9s  %-40s"  "0.2.5"    "Submit Condor jobs on inclusive MC for all jobs----3"
+    printf "\n\t%-9s  %-40s"  "0.2.6"    "Check condor jobs on inclusive MC...."
 
     printf "\n\n" 
 
@@ -54,7 +55,7 @@ case $option in
 
     0.1.1) echo "Split data with each group 20G ..."
 	   ./python/get_samples.py /besfs2/offline/data/664-1/jpsi/dst dat/run/samples/data/data_664p01_jpsi.txt 20G
-	   # made 7259 groups 
+	   # made 1520 groups 
     
 	   ;;
 
@@ -65,7 +66,7 @@ case $option in
         cd scripts/gen_script
         ./make_jobOption_file_data09.sh
 		cd ../../dat/run/jpsi_inclusive/job_text/data
-        mv jobOptions_jpsi_09-7259.txt jobOptions_jpsi_09-0.txt       
+        mv jobOptions_jpsi_09-1520.txt jobOptions_jpsi_09-0.txt       
         cd $HOME/bes/hypermiss	 
         ;;
 
@@ -73,6 +74,7 @@ case $option in
         echo "have you changed test number?(yes / NO)
         ./dat/run/jpsi_inclusive/job_text/data/jobOptions_jpsi_09-0.txt"
         read opt
+
         if [ $opt == "yes" ]
             then 
             echo "now in yes"  
@@ -98,12 +100,12 @@ case $option in
 
     0.1.6) echo "Submit Condor jobs on data 09 for all the jobs---- 4..."
         cd dat/run/jpsi_inclusive/job_text/data
-        boss.condor -g physics -n 7259 jobOptions_jpsi_09-%{ProcId}.txt
+        boss.condor -g physics -n 1520 jobOptions_jpsi_09-%{ProcId}.txt
         cd $HOME/bes/hypermiss	    
         ;;
 
     0.1.7) echo "Check condor jobs on data 09...."
-        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_data09 7259
+        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_data09 1520
         ;;
 
     0.1.8) echo "Reading the ntuples and saving them into tree/branches"
@@ -126,7 +128,7 @@ case $option in
 
     0.2.1) echo "Split MC sample with each group 20G ..."
 	   ./python/get_samples.py /besfs2/offline/data/664-1/jpsi/09mc/dst dat/run/samples/inclusiveMC/mc_664p01_jpsi_09mc.txt 20G
-	   # made 394 groups 
+	   # made 185 groups 
 	   ;;
 
     0.2.2) echo "Generate Condor jobs on incl MC ---- 1..."
@@ -136,7 +138,7 @@ case $option in
         cd scripts/gen_script
         ./make_jobOption_file_inclusiveMC.sh
 		cd ../../dat/run/jpsi_inclusive/job_text/inclusiveMC
-        mv jobOptions_inclusive_jpsi_mc-394.txt jobOptions_inclusive_jpsi_mc-0.txt       
+        mv jobOptions_inclusive_jpsi_mc-185.txt jobOptions_inclusive_jpsi_mc-0.txt       
         cd $HOME/bes/hypermiss	 
         ;;
 
@@ -155,14 +157,20 @@ case $option in
         fi
         ;;
 
-    0.2.4) echo "Submit Condor jobs on incl MC ---- 2..."
+    0.2.4) echo "Submit Condor jobs on incl MC for 10 jobs---- 2..."
         cd dat/run/jpsi_inclusive/job_text/inclusiveMC
-        boss.condor -g physics -n 394 jobOptions_inclusive_jpsi_mc-%{ProcId}.txt
+        boss.condor -g physics -n 10 jobOptions_inclusive_jpsi_mc-%{ProcId}.txt
         cd $HOME/bes/hypermiss	    
         ;;
 
-    0.2.5) echo "Check condor jobs on inclusive MC..."
-        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_inclusiveMC 394
+    0.2.5) echo "Submit Condor jobs on incl MC for all jobs---- 3..."
+        cd dat/run/jpsi_inclusive/job_text/inclusiveMC
+        boss.condor -g physics -n 185 jobOptions_inclusive_jpsi_mc-%{ProcId}.txt
+        cd $HOME/bes/hypermiss	    
+        ;;
+        
+    0.2.6) echo "Check condor jobs on inclusive MC..."
+        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_inclusiveMC 185
         ;;
 
 esac

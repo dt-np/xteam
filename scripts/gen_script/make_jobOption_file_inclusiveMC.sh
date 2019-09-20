@@ -3,7 +3,7 @@
 JobText_SaveDir=../../dat/run/jpsi_inclusive/job_text/inclusiveMC
 
 
-for num in {1..394}
+for num in {1..185}
 do
     file_list=mc_664p01_jpsi_09mc_20G-${num}.txt
     rootfile=jpsi_inclusive_jpsi_mc-${num}.root
