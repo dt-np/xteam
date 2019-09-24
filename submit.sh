@@ -30,8 +30,7 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.2.5"    "Submit Condor jobs on inclusive MC for all jobs----3"
     printf "\n\t%-9s  %-40s"  "0.2.6"    "Check condor jobs on inclusive MC...."
 
-    printf "\n\n" 
-
+    printf "\n\n"
 }
 
 
@@ -105,7 +104,7 @@ case $option in
         ;;
 
     0.1.7) echo "Check condor jobs on data 09...."
-        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_data09 1520
+        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_data09 500
         ;;
 
     0.1.8) echo "Reading the ntuples and saving them into tree/branches"
@@ -118,6 +117,7 @@ case $option in
         ./python/sel_events.py dat/run/jpsi_inclusive/rootfile_data09/jpsi_data09-1.root dat/run/jpsi_inclusive/event_data09/jpsi_inclusive_data_event-1.root                                                              
 	   ;;
    
+
     # --------------------------------------------------------------------------
     #  0.2 inclusiveMC  
     # --------------------------------------------------------------------------

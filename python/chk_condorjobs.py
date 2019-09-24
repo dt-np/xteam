@@ -36,8 +36,8 @@ def main():
     log = src
     logdir = src.split('/')[-1]
     
-    if logdir in ['event_data_by_5', 'event_data09', 'event_data3650', 'event_data', 
-    'event_inclusiveMC', 'rootfile_data09', 'rootfile_data_by_5', 'rootfile_data', 'rootfile_data3650', 
+    if logdir in ['event_data09', 'event_data3650', 'event_data', 
+    'event_inclusiveMC', 'rootfile_data09', 'rootfile_data', 'rootfile_data3650', 
     'rootfile_inclusiveMC', 'event', 'Data12_event', 'rootfile','Data12', 'data', 'mc_psip12', 
     'con3650', 'data09', 'mc_psip09', 'inclusiveMC']:
         logfiletype = 'BossLogFile'
@@ -46,13 +46,13 @@ def main():
     else:
         raise NameError(logdir)
 
-    if logdir in ['inclusiveMC']:
-        # print(log)
-        # print(logdir)
-        #exit()
-        pass
-    else: 
-        log = log.replace(logdir, 'log/%s' %logdir)
+    # if logdir in ['rootfile_data09']: 
+    #     #print(log)
+    #     #print(logdir)
+    #     #exit()
+    #     pass
+    #else: 
+    log = log.replace(logdir, 'log/%s' %logdir)
     
     sys.stdout.write('Scanning %s...\n' %src)
 
