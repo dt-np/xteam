@@ -15,11 +15,12 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.1.2"    "Generate Condor jobs on data 09 ---- 1..."
     printf "\n\t%-9s  %-40s"  "0.1.3"    "Test on data 09..."
     printf "\n\t%-9s  %-40s"  "0.1.4"    "Submit Condor jobs on data 09 for first 5 jobs----2"
-    printf "\n\t%-9s  %-40s"  "0.1.5"    "Submit Condor jobs on data 09 for 500 jobs----3"
-    printf "\n\t%-9s  %-40s"  "0.1.6"    "Submit Condor jobs on data 09 for all the jobs----4"
-    printf "\n\t%-9s  %-40s"  "0.1.7"    "Check condor jobs on data 09...."
-    printf "\n\t%-9s  %-40s"  "0.1.8"    "Reading the ntuples and saving them into tree/branches"
-    printf "\n\t%-9s  %-40s"  "0.1.9"    "Test 1 job on data 2009 event..."
+    printf "\n\t%-9s  %-40s"  "0.1.5"    "Check condor jobs on data 09...."
+    printf "\n\t%-9s  %-40s"  "0.1.6"    "Submit Condor jobs on data 09 for 500 jobs----3"
+    printf "\n\t%-9s  %-40s"  "0.1.7"    "Submit Condor jobs on data 09 for all the jobs----4"
+    printf "\n\t%-9s  %-40s"  "0.1.8"    "Check condor jobs on data 09...."
+    printf "\n\t%-9s  %-40s"  "0.1.9"    "Reading the ntuples and saving them into tree/branches"
+    printf "\n\t%-9s  %-40s"  "0.1.10"    "Test 1 job on data 2009 event..."
 
     printf "\n\t%-9s  %-40s"  ""         ""
     printf "\n\t%-9s  %-40s"  "0.2"      "[running on Inclusive MC sample for HyperonDT]" 
@@ -86,34 +87,45 @@ case $option in
         ;;
 
     0.1.4) echo "Submit Condor jobs on data 09 for first 5 jobs---- 2..."
-        cd dat/run/jpsi_inclusive/job_text/data
+        cd dat/run/jpsi_inclusive/job_text/log
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/dat/run/jpsi_inclusive/job_text/data/jobOptions_jpsi_09-0.txt ./
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/dat/run/jpsi_inclusive/job_text/data/jobOptions_jpsi_09-1.txt ./
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/dat/run/jpsi_inclusive/job_text/data/jobOptions_jpsi_09-2.txt ./
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/dat/run/jpsi_inclusive/job_text/data/jobOptions_jpsi_09-3.txt ./
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/dat/run/jpsi_inclusive/job_text/data/jobOptions_jpsi_09-4.txt ./
         boss.condor -g physics -n 5 jobOptions_jpsi_09-%{ProcId}.txt
         cd $HOME/bes/hypermiss
         ;;
+    
+    0.1.5) echo "Check condor jobs on data 09...."
+        cd $HOME/bes/hypermiss/dat/run/jpsi_inclusive/job_text/log
+        rm *.txt
+        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/job_text/log 5
+        ;;
 
-    0.1.5) echo "Submit Condor jobs on data 09 for  500 jobs---- 3..."
+    0.1.6) echo "Submit Condor jobs on data 09 for  500 jobs---- 3..."
         cd dat/run/jpsi_inclusive/job_text/data
         boss.condor -g physics -n 500 jobOptions_jpsi_09-%{ProcId}.txt
         cd $HOME/bes/hypermiss
         ;;
 
-    0.1.6) echo "Submit Condor jobs on data 09 for all the jobs---- 4..."
+    0.1.7) echo "Submit Condor jobs on data 09 for all the jobs---- 4..."
         cd dat/run/jpsi_inclusive/job_text/data
         boss.condor -g physics -n 1520 jobOptions_jpsi_09-%{ProcId}.txt
         cd $HOME/bes/hypermiss	    
         ;;
 
-    0.1.7) echo "Check condor jobs on data 09...."
-        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_data09 500
+    0.1.8) echo "Check condor jobs on data 09...."
+        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/job_text/data 500
         ;;
 
-    0.1.8) echo "Reading the ntuples and saving them into tree/branches"
+    0.1.9) echo "Reading the ntuples and saving them into tree/branches"
         cd HyperonDT/analysis/sigmaplus/version0.0.1/analysis_st
         ./jobdata09.sh
         cd $HOME/bes/hypermiss
         ;;
 
-    0.1.9) echo "Test 1 job on data 2009 event..."
+    0.1.10) echo "Test 1 job on data 2009 event..."
         ./python/sel_events.py dat/run/jpsi_inclusive/rootfile_data09/jpsi_data09-1.root dat/run/jpsi_inclusive/event_data09/jpsi_inclusive_data_event-1.root                                                              
 	   ;;
    
