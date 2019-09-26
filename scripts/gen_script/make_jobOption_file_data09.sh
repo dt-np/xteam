@@ -1,6 +1,6 @@
 #!/bin/bash
 
-JobText_SaveDir=../../dat/run/jpsi_inclusive/job_text/data
+JobText_SaveDir=../../dat/run/jpsi_inclusive/job_text/data09
 
 for num in {1..1520}
 do
@@ -11,7 +11,7 @@ do
     echo   "#include \"\$VERTEXFITROOT/share/jobOptions_VertexDbSvc.txt\" " >> ${JobText_SaveDir}/${jobOptions}
     echo   "#include \"\$MAGNETICFIELDROOT/share/MagneticField.txt\"      " >> ${JobText_SaveDir}/${jobOptions}
     echo   "#include \"\$ABSCORROOT/share/jobOptions_AbsCor.txt\"         " >> ${JobText_SaveDir}/${jobOptions}
-    echo   "#include \"\$HOME/bes/hypermiss/dat/run/samples/data/$file_list\" " >> ${JobText_SaveDir}/${jobOptions}
+    echo   "#include \"\$HOME/bes/hypermiss/dat/run/samples/data09/$file_list\" " >> ${JobText_SaveDir}/${jobOptions}
     echo   "                                                              " >> ${JobText_SaveDir}/${jobOptions}
     echo   "                                                              " >> ${JobText_SaveDir}/${jobOptions}
     echo   "ApplicationMgr.DLLs += {\"HyperonDecayAlg\"};                       " >> ${JobText_SaveDir}/${jobOptions}
