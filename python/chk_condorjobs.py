@@ -32,28 +32,19 @@ def main():
     src = args[0]
     num = int(args[1])
     jobs_created = set(range(1, num+1))
-
-    log = src
-    logdir = src.split('/')[-1]
     
-    if logdir in ['event_data09', 'event_data3650', 'event_data', 
-    'event_inclusiveMC', 'rootfile_data09', 'rootfile_data', 'rootfile_data3650', 
-    'rootfile_inclusiveMC', 'event', 'Data12_event', 'rootfile','Data12', 'data', 'mc_psip12', 
-    'con3650', 'data09', 'mc_psip09', 'inclusiveMC']:
+    log = src 
+    log = log.replace('rootfile_', 'job_text/')
+ 
+    logdir = log.split('/')[-1]
+
+    if logdir in ['data09', 'inclusiveMC']:    
         logfiletype = 'BossLogFile'
     elif logdir == 'events':
         logfiletype = 'EventsLogFile'
     else:
         raise NameError(logdir)
 
-    # if logdir in ['rootfile_data09']: 
-    #     #print(log)
-    #     #print(logdir)
-    #     #exit()
-    #     pass
-    #else: 
-    log = log.replace(logdir, 'log/%s' %logdir)
-    
     sys.stdout.write('Scanning %s...\n' %src)
 
     file_list = []
@@ -67,33 +58,37 @@ def main():
     sys.stdout.write('Checking log files...\n')
     jobs_not_terminated = []
     num_logfiles = []
+
     for root, dirs, files in os.walk(log):
-        num_logfiles = files 
+        num_logfiles = files
         if len(files) == 0:
             sys.stdout.write('No log files found!\n')
             break 
         for f in files:
             if logfiletype == 'BossLogFile': 
+                suffix = f.split('.')[-1]
+                if suffix != 'bosslog': 
+                    continue 
                 l = BossLogFile( os.path.join(root, f) )
             elif logfiletype == 'EventsLogFile':
                 l = EventsLogFile( os.path.join(root, f) )
             else:
                 raise NameError(logfiletype) 
-
+ 
             if not l.terminated:
                 sys.stdout.write('%s ... Not OK.\n' %f)
                 job = f.split('-')[-1]
                 jobs_not_terminated.append(job)
             else:
                 sys.stdout.write('%s ... OK.\n' %f)
-
-
+    
     sys.stdout.write('\nFound %s files, with total size %s.\n' %(
         len(file_list), size(total_size)))
-    
-    if len(jobs_not_terminated) > 0: 
+
+    if len(jobs_not_terminated) > 0:
         sys.stdout.write('Non-terminated jobs are (%s): %s\n' % (
             len(jobs_not_terminated), ','.join(jobs_not_terminated)))
+
     elif len(num_logfiles) > 0 :
         sys.stdout.write('All finished jobs are terminated correctly. \n')
 
@@ -108,3 +103,4 @@ def main():
                 
 if __name__ == '__main__':
     main()
+
