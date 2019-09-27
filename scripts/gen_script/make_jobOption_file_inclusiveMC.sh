@@ -1,6 +1,6 @@
 #!/bin/bash
 
-JobText_SaveDir=../../dat/run/jpsi_inclusive/job_text/inclusiveMC
+JobText_SaveDir=../../dat/run/jpsi_inclusive/job_text/inclusiveMC_09
 
 
 for num in {1..185}
@@ -12,7 +12,7 @@ do
     echo   "#include \"\$VERTEXFITROOT/share/jobOptions_VertexDbSvc.txt\" " >> ${JobText_SaveDir}/${jobOptions}
     echo   "#include \"\$MAGNETICFIELDROOT/share/MagneticField.txt\"      " >> ${JobText_SaveDir}/${jobOptions}
     echo   "#include \"\$ABSCORROOT/share/jobOptions_AbsCor.txt\"         " >> ${JobText_SaveDir}/${jobOptions}
-    echo   "#include \"\$HOME/bes/hypermiss/dat/run/samples/inclusiveMC/$file_list\" " >> ${JobText_SaveDir}/${jobOptions}
+    echo   "#include \"\$HOME/bes/hypermiss/dat/run/samples/inclusiveMC_09/$file_list\" " >> ${JobText_SaveDir}/${jobOptions}
     echo   "                                                              " >> ${JobText_SaveDir}/${jobOptions}
     echo   "                                                              " >> ${JobText_SaveDir}/${jobOptions}
     echo   "ApplicationMgr.DLLs += {\"HyperonDecayAlg\"};                       " >> ${JobText_SaveDir}/${jobOptions}
@@ -26,7 +26,7 @@ do
     echo   "ApplicationMgr.EvtMax = -1;                                   " >> ${JobText_SaveDir}/${jobOptions}
     echo   "                                                              " >> ${JobText_SaveDir}/${jobOptions}
     echo   "ApplicationMgr.HistogramPersistency = \"ROOT\";               " >> ${JobText_SaveDir}/${jobOptions}
-    echo   "NTupleSvc.Output = {\"FILE1 DATAFILE='$HOME/bes/hypermiss/dat/run/jpsi_inclusive/rootfile_inclusiveMC/$rootfile' OPT='NEW' TYP='ROOT'\"};" >> ${JobText_SaveDir}/${jobOptions}
+    echo   "NTupleSvc.Output = {\"FILE1 DATAFILE='$HOME/bes/hypermiss/dat/run/jpsi_inclusive/rootfile_inclusiveMC_09/$rootfile' OPT='NEW' TYP='ROOT'\"};" >> ${JobText_SaveDir}/${jobOptions}
 
     echo   "                                                              " >> ${JobText_SaveDir}/${jobOptions}
     echo   "                                                              " >> ${JobText_SaveDir}/${jobOptions}

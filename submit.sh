@@ -16,12 +16,10 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.1.3"    "Test on data 09..."
     printf "\n\t%-9s  %-40s"  "0.1.4"    "Submit Condor jobs on data 09 for first 5 jobs----2"
     printf "\n\t%-9s  %-40s"  "0.1.5"    "Check condor jobs for 5 jobs on data 09...."
-    printf "\n\t%-9s  %-40s"  "0.1.6"    "Submit Condor jobs on data 09 for 500 jobs----3"
-    printf "\n\t%-9s  %-40s"  "0.1.7"    "Check condor jobs on data 09 for 500 jobs...."
-    printf "\n\t%-9s  %-40s"  "0.1.8"    "Submit Condor jobs on data 09 for all the 1520 jobs----4"
-    printf "\n\t%-9s  %-40s"  "0.1.9"    "Check condor jobs on data 09 for all the jobs...."
-    printf "\n\t%-9s  %-40s"  "0.1.10"    "Reading the ntuples and saving them into tree/branches"
-    printf "\n\t%-9s  %-40s"  "0.1.11"    "Test 1 job on data 2009 event..."
+    printf "\n\t%-9s  %-40s"  "0.1.6"    "Submit Condor jobs on data 09 for all the 1520 jobs----4"
+    printf "\n\t%-9s  %-40s"  "0.1.7"    "Check condor jobs on data 09 for all the jobs...."
+    printf "\n\t%-9s  %-40s"  "0.1.8"    "Reading the ntuples and saving them into tree/branches"
+    printf "\n\t%-9s  %-40s"  "0.1.9"    "Test 1 job on data 2009 event..."
 
     printf "\n\t%-9s  %-40s"  ""         ""
     printf "\n\t%-9s  %-40s"  "0.2"      "[running on Inclusive MC sample for HyperonDT]" 
@@ -29,8 +27,9 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.2.2"    "Generate Condor jobs on incl MC ---- 1..."
     printf "\n\t%-9s  %-40s"  "0.2.3"    "Test on inclusive MC..."
     printf "\n\t%-9s  %-40s"  "0.2.4"    "Submit Condor jobs on inclusive MC for 10 jobs----2"
-    printf "\n\t%-9s  %-40s"  "0.2.5"    "Submit Condor jobs on inclusive MC for all jobs----3"
-    printf "\n\t%-9s  %-40s"  "0.2.6"    "Check condor jobs on inclusive MC...."
+    printf "\n\t%-9s  %-40s"  "0.2.5"    "Check condor jobs on inclusive MC for 10 jobs----2"
+    printf "\n\t%-9s  %-40s"  "0.2.6"    "Submit Condor jobs on inclusive MC for all 185 jobs----3"
+    printf "\n\t%-9s  %-40s"  "0.2.7"    "Check condor jobs on inclusive MC...."
 
     printf "\n\n"
 }
@@ -97,48 +96,37 @@ case $option in
         ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_data09 5
         ;;
 
-    0.1.6) echo "Submit Condor jobs on data 09 for 500 jobs---- 3..."
-        cd dat/run/jpsi_inclusive/job_text/data09
-        boss.condor -g physics -n 500 jobOptions_jpsi_09-%{ProcId}.txt
-        cd $HOME/bes/hypermiss
-        ;;
-
-    0.1.7) echo "Check condor jobs on data 09 for 500 jobs ...."
-        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_data09 500
-        ;;
-
-
-    0.1.8) echo "Submit Condor jobs on data 09 for all the 1520 jobs---- 4..."
+    0.1.6) echo "Submit Condor jobs on data 09 for all the 1520 jobs---- 3..."
         cd dat/run/jpsi_inclusive/job_text/data09
         boss.condor -g physics -n 1520 jobOptions_jpsi_09-%{ProcId}.txt
         cd $HOME/bes/hypermiss	    
         ;;
 
-    0.1.9) echo "Check condor jobs on data 09 for all the jobs...."
+    0.1.7) echo "Check condor jobs on data 09 for all the jobs...."
         ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_data09 1520
         ;;
 
-    0.1.10) echo "Reading the ntuples and saving them into tree/branches"
+    0.1.8) echo "Reading the ntuples and saving them into tree/branches"
         cd HyperonDT/analysis/sigmaplus/version0.0.1/analysis_st
         ./jobdata09.sh
         cd $HOME/bes/hypermiss
         ;;
 
-    0.1.11) echo "Test 1 job on data 2009 event..."
+    0.1.9) echo "Test 1 job on data 2009 event..."
         ./python/sel_events.py dat/run/jpsi_inclusive/rootfile_data09/jpsi_data09-1.root dat/run/jpsi_inclusive/event_data09/jpsi_inclusive_data_event-1.root                                                              
 	   ;;
    
 
     # --------------------------------------------------------------------------
-    #  0.2 inclusiveMC  
+    #  0.2 inclusiveMC  09
     # --------------------------------------------------------------------------
 
 
-0.2) echo "[Running on inclusiveMC data--HyperonDT]"
+0.2) echo "[Running on inclusiveMC_09  data--HyperonDT]"
          ;;
 
     0.2.1) echo "Split MC sample with each group 20G ..."
-	   ./python/get_samples.py /besfs2/offline/data/664-1/jpsi/09mc/dst dat/run/samples/inclusiveMC/mc_664p01_jpsi_09mc.txt 20G
+	   ./python/get_samples.py /besfs2/offline/data/664-1/jpsi/09mc/dst dat/run/samples/inclusiveMC_09/mc_664p01_jpsi_09mc.txt 20G
 	   # made 185 groups 
 	   ;;
 
@@ -148,7 +136,7 @@ case $option in
 		cd $HOME/bes/hypermiss
         cd scripts/gen_script
         ./make_jobOption_file_inclusiveMC.sh
-		cd ../../dat/run/jpsi_inclusive/job_text/inclusiveMC
+		cd ../../dat/run/jpsi_inclusive/job_text/inclusiveMC_09
         mv jobOptions_inclusive_jpsi_mc-185.txt jobOptions_inclusive_jpsi_mc-0.txt       
         cd $HOME/bes/hypermiss	 
         ;;
@@ -160,7 +148,7 @@ case $option in
         if [ $opt == "yes" ]
             then 
             echo "now in yes"  
-            cd dat/run/jpsi_inclusive/job_text/inclusiveMC
+            cd dat/run/jpsi_inclusive/job_text/inclusiveMC_09
             boss.exe jobOptions_inclusive_jpsi_mc-0.txt
             cd $HOME/bes/hypermiss
         else
@@ -169,19 +157,23 @@ case $option in
         ;;
 
     0.2.4) echo "Submit Condor jobs on incl MC for 10 jobs---- 2..."
-        cd dat/run/jpsi_inclusive/job_text/inclusiveMC
+        cd dat/run/jpsi_inclusive/job_text/inclusiveMC_09
         boss.condor -g physics -n 10 jobOptions_inclusive_jpsi_mc-%{ProcId}.txt
         cd $HOME/bes/hypermiss	    
         ;;
 
-    0.2.5) echo "Submit Condor jobs on incl MC for all jobs---- 3..."
-        cd dat/run/jpsi_inclusive/job_text/inclusiveMC
+    0.2.5) echo "Check condor jobs on inclusive MC..."
+        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_inclusiveMC_09 10
+        ;;
+
+    0.2.6) echo "Submit Condor jobs on incl MC for all jobs---- 3..."
+        cd dat/run/jpsi_inclusive/job_text/inclusiveMC_09
         boss.condor -g physics -n 185 jobOptions_inclusive_jpsi_mc-%{ProcId}.txt
         cd $HOME/bes/hypermiss	    
         ;;
         
-    0.2.6) echo "Check condor jobs on inclusive MC..."
-        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_inclusiveMC 185
+    0.2.7) echo "Check condor jobs on inclusive MC..."
+        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_inclusiveMC_09 185
         ;;
 
 esac
