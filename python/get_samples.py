@@ -8,7 +8,7 @@ __copyright__ = "Copyright (c) SHI Xin"
 __created__ = "[2016-05-30 Mon 09:19]"
 
 import sys
-import os
+import os,re
 from tools import save_list_into_file, group_files_by_size, group_files_by_number
 
 
@@ -41,11 +41,20 @@ def main():
     file_list = []
     for root, dirs, files in os.walk(src):
         for f in files:
+            # print(root)
+            # print(dirs)
+            #exit()
             # skip files with not suffix, e.g. jpsi664dst
             if len(f.split('.')) == 1: 
-                continue 
+                continue
+            tempdirs=root.split('/')[7]
+            tempstr=re.findall(r"\d\d",tempdirs)
+            #print tempstr,int(tempstr[0])==12
+            if int(tempstr[0])==12:
+                continue
+            #exit()
             file_list.append(os.path.join(root, f))
-
+            
     if len(args) == 2:
         save_list_into_file(file_list, dst)
         return
