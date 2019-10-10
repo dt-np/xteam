@@ -41,13 +41,12 @@ def main():
     file_list = []
     for root, dirs, files in os.walk(src):
         for f in files:
-            # print(root)
-            # print(dirs)
-            #exit()
             # skip files with not suffix, e.g. jpsi664dst
             if len(f.split('.')) == 1: 
                 continue
             tempdirs=root.split('/')[7]
+            if tempdirs.find('09scan')!=-1:
+		        continue
             tempstr=re.findall(r"\d\d",tempdirs)
             #print tempstr,int(tempstr[0])==12
             if int(tempstr[0])==12:
