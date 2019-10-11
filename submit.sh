@@ -16,7 +16,7 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.1.3"    "Test on data 09..."
     printf "\n\t%-9s  %-40s"  "0.1.4"    "Submit Condor jobs on data 09 for first 5 jobs----2"
     printf "\n\t%-9s  %-40s"  "0.1.5"    "Check condor jobs for 5 jobs on data 09...."
-    printf "\n\t%-9s  %-40s"  "0.1.6"    "Submit Condor jobs on data 09 for all the 389 jobs----4"
+    printf "\n\t%-9s  %-40s"  "0.1.6"    "Submit Condor jobs on data 09 for all the 388 jobs----4"
     printf "\n\t%-9s  %-40s"  "0.1.7"    "Check condor jobs on data 09 for all the jobs...."
     printf "\n\t%-9s  %-40s"  "0.1.8"    "Reading the ntuples and saving them into tree/branches"
     printf "\n\t%-9s  %-40s"  "0.1.9"    "Test 1 job on data 2009 event..."
@@ -53,7 +53,7 @@ case $option in
 
     0.1.1) echo "Split data 09 with each group 20G ..."
 	   ./python/get_samples.py /besfs2/offline/data/664-1/jpsi/dst dat/run/samples/data09/data_664p01_jpsi.txt 20G
-	   # made 389 groups 
+	   # made 388 groups 
     
 	   ;;
 
@@ -64,7 +64,7 @@ case $option in
         cd scripts/gen_script
         ./make_jobOption_file_data09.sh
 		cd ../../dat/run/jpsi_inclusive/job_text/data09
-        mv jobOptions_jpsi_09-389.txt jobOptions_jpsi_09-0.txt
+        mv jobOptions_jpsi_09-388.txt jobOptions_jpsi_09-0.txt
         cd $HOME/bes/hypermiss	 
         ;;
 
@@ -94,14 +94,14 @@ case $option in
         ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_data09 5
         ;;
 
-    0.1.6) echo "Submit Condor jobs on data 09 for all the 389 jobs---- 3..."
+    0.1.6) echo "Submit Condor jobs on data 09 for all the 388 jobs---- 3..."
         cd dat/run/jpsi_inclusive/job_text/data09
-        boss.condor -g physics -n 389 jobOptions_jpsi_09-%{ProcId}.txt
+        boss.condor -g physics -n 388 jobOptions_jpsi_09-%{ProcId}.txt
         cd $HOME/bes/hypermiss	    
         ;;
 
     0.1.7) echo "Check condor jobs on data 09 for all the jobs...."
-        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_data09 389
+        ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_data09 388
         ;;
 
     0.1.8) echo "Reading the ntuples and saving them into tree/branches"
