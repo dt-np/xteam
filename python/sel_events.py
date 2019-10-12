@@ -28,10 +28,12 @@ h_ngoodshower = ROOT.TH1D('h_ngoodshower', 'ngshw',100, 0, 10)
 h_ne = ROOT.TH1D('h_ne', 'ne', 100, -1, 3)
 h_energy_gamma1 = ROOT.TH1D('h_energy_gamma1', 'energy_gamma1', 100, 0, 2)
 h_energy_gamma2 = ROOT.TH1D('h_energy_gamma2', 'energy_gamma2', 100, 0, 2)
-h_pi0 = ROOT.TH1D ('h_pi0','mass_gam12',100, 0, 1)
+h_pi0 = ROOT.TH1D ('h_pi0','mass_gam12',100, 0, 0.5)
 h_lambda = ROOT.TH1D ('h_lambda','mass_lambda',100, 1, 1.3)
-h_xi0 = ROOT.TH1D ('h_xi0','mass_xi0',100, 1, 3)
+h_xi0 = ROOT.TH1D ('h_xi0','mass_xi0',2000, 1, 3)
 h_rec_mass_xi0 = ROOT.TH1D ('h_rec_mass_xi0','rec_mass_xi0',100, 0, 2)
+
+mgamgam = ROOT.vector('double')()
 
 def main ():     
     args = sys.argv[1:]
@@ -47,6 +49,10 @@ def main ():
     chain.Add(infile)
     fout = ROOT.TFile(outfile, "RECREATE")
     entries = chain.GetEntries()
+
+   
+    t_out = ROOT.TTree('tree', 'tree')
+    t_out.Branch('mgamgam', mgamgam)
     
     pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=entries).start()
     time_start = time()
@@ -66,30 +72,45 @@ def main ():
         h_ngoodshower.Fill(chain.ngshw)
         h_ne.Fill(chain.ne)
         
-        # setting gammas with p4shower information
-        p4shw_gam1 = ROOT.TLorentzVector(chain.p4shw[0],chain.p4shw[1],chain.p4shw[2],chain.p4shw[3])
-        p4shw_gam2 = ROOT.TLorentzVector(chain.p4shw[6],chain.p4shw[7],chain.p4shw[8],chain.p4shw[9])
-        p4shw_gam12 = p4shw_gam1 + p4shw_gam2
-        mass_gam12 = p4shw_gam12.M()
-        h_pi0.Fill(mass_gam12)
-
-        energy_gamma1 = p4shw_gam1.E()
-        energy_gamma2 = p4shw_gam2.E()
-        h_energy_gamma1.Fill(energy_gamma1)
-        h_energy_gamma2.Fill(energy_gamma2)
-
         p4_lambda =ROOT.TLorentzVector(chain.p4lambda[0],chain.p4lambda[1],chain.p4lambda[2],chain.p4lambda[3])
         mass_lambda = p4_lambda.M()
         h_lambda.Fill(mass_lambda)
 
-        p4_xi0 = p4shw_gam12 + p4_lambda
-        mass_xi0 = p4_xi0.M()
-        h_xi0.Fill(mass_xi0)
+        # setting gammas with p4shower information
+        for l in range(chain.ngshw):
+	    for m in range(chain.ngshw):
+		if l==m:
+		    continue
+                indexgshw1 = l*6
+                indexgshw2 = m*6
+                p4shw_gam1 = ROOT.TLorentzVector(chain.p4shw[indexgshw1],chain.p4shw[indexgshw1+1],chain.p4shw[indexgshw1+2],chain.p4shw[indexgshw1+3])
+                p4shw_gam2 = ROOT.TLorentzVector(chain.p4shw[indexgshw2],chain.p4shw[indexgshw2+1],chain.p4shw[indexgshw1+2],chain.p4shw[indexgshw1+3])
+        	p4shw_gam12 = p4shw_gam1 + p4shw_gam2
+	        mass_gam12 = p4shw_gam12.M()
+                mgamgam.push_back(mass_gam12)
+#		cut_pi=(mass_gam12 < 0.125 or mass_gam12 > 0.145)
+#		if cut_pi:
+#		    continue
+        	h_pi0.Fill(mass_gam12)
 
-        p4_rec_xi0 = cms_p4 - p4_xi0
-        rec_mass_xi0 = p4_rec_xi0.M()
-        h_rec_mass_xi0.Fill(rec_mass_xi0)
+        	energy_gamma1 = p4shw_gam1.E()
+        	energy_gamma2 = p4shw_gam2.E()
+        	h_energy_gamma1.Fill(energy_gamma1)
+        	h_energy_gamma2.Fill(energy_gamma2)
 
+        	p4_xi0 = p4shw_gam12 + p4_lambda
+        	mass_xi0 = p4_xi0.M()
+        	h_xi0.Fill(mass_xi0)
+
+        	p4_rec_xi0 = cms_p4 - p4_xi0
+        	rec_mass_xi0 = p4_rec_xi0.M()
+        	h_rec_mass_xi0.Fill(rec_mass_xi0)
+
+		t_out.Fill()
+		mgamgam.clear()
+
+    t_out.Write()
+   
     h_run.Write()
     h_event.Write()
     h_ncharged.Write()
