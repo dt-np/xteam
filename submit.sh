@@ -19,6 +19,10 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.1.6"    "Submit Condor jobs on data 09 for all the 388 jobs----4"
     printf "\n\t%-9s  %-40s"  "0.1.7"    "Check condor jobs on data 09 for all the jobs...."
     printf "\n\t%-9s  %-40s"  "0.1.8"    "Test 1 job on data 2009 event..."
+    printf "\n\t%-9s  %-40s"  "0.1.9"    "Generate Condor jobs on data 2009 event ---- 1"
+    printf "\n\t%-9s  %-40s"  "0.1.10"    "Submit Condor jobs on data 2009 event ---- 2"
+    printf "\n\t%-9s  %-40s"  "0.1.11"    "Check Condor jobs on data 2009 event..."
+    printf "\n\t%-9s  %-40s"  "0.1.12"     "Merge rootfile on data 2009 event..."
 
     printf "\n\t%-9s  %-40s"  ""         ""
     printf "\n\t%-9s  %-40s"  "0.2"      "[running on Inclusive MC sample for HyperonDT]" 
@@ -29,6 +33,12 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.2.5"    "Check condor jobs on inclusive MC for 10 jobs----2"
     printf "\n\t%-9s  %-40s"  "0.2.6"    "Submit Condor jobs on inclusive MC for all 185 jobs----3"
     printf "\n\t%-9s  %-40s"  "0.2.7"    "Check condor jobs on inclusive MC...."
+    printf "\n\t%-9s  %-40s"  "0.2.8"    "Test 1 job on inclusive MC event..."
+    printf "\n\t%-9s  %-40s"  "0.2.9"    "Generate Condor jobs on inclusive MC event ---- 1"
+    printf "\n\t%-9s  %-40s"  "0.2.10"    "Submit Condor jobs on inclusive MC event ---- 2"
+    printf "\n\t%-9s  %-40s"  "0.2.11"    "Check Condor jobs on inclusive MC event..."
+    printf "\n\t%-9s  %-40s"  "0.2.12"     "Merge rootfile on inclusive MC event..."
+
 
     printf "\n\t%-9s  %-40s"  "0.3"      "[run on signal MC for Xi0]"
     printf "\n\t%-9s  %-40s"  "0.3.1"    "simulation --10 signal MC sample interactively for Xi0 events..."
@@ -36,7 +46,7 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.3.3"    "Reconstruction -- 20000 Xi0 MC signal..."
     printf "\n\t%-9s  %-40s"  "0.3.4"    "Preselection for 10 events -- generate root file [Checking interactively]..."
     printf "\n\t%-9s  %-40s"  "0.3.5"    "Preselection for 20k events -- generate root file [cluster job]..."
-
+    printf "\n\t%-9s  %-40s"  "0.3.6"     "Select events on signal MC sample..."
 
     printf "\n\n"
 }
@@ -112,9 +122,32 @@ case $option in
         ;;
 
     0.1.8) echo "Test 1 job on data 2009 event..."
-        ./python/sel_events.py dat/run/jpsi_inclusive/rootfile_data09/jpsi_data09-1.root dat/run/jpsi_inclusive/event_data09/jpsi_inclusive_data_event-1.root                                                              
+        ./python/sel_events.py dat/run/jpsi_inclusive/rootfile_data09/jpsi_data09-1.root dat/run/jpsi_inclusive/event_data09/jpsi_data09_event-1.root                                                              
 	   ;;
-   
+    
+    0.1.9) echo "Generate Condor jobs on data 2009 event ---- 1..."
+        mkdir -p dat/run/jpsi_inclusive/job_text/data09_event
+        cd scripts/gen_script
+        ./make_jobOption_file_data09_event.sh
+        cd ../../dat/run/jpsi_inclusive/job_text/data09_event
+        chmod 755 jobOptions_data09_event-*
+        mv jobOptions_data09_event-388.sh jobOptions_data09_event-0.sh
+        cd $HOME/bes/hypermiss
+	   ;;
+
+    0.1.10) echo "Submit Condor jobs on data 2009 event...2"
+        cd dat/run/jpsi_inclusive/job_text/data09_event
+        hep_sub -g physics -n 388 jobOptions_data09_event-%{ProcId}.sh
+        cd $HOME/bes/hypermiss
+        ;;
+
+    0.1.11) echo "Check Condor jobs on data 2009 event..."
+	   ./python/chk_condorjobs.py dat/run/jpsi_inclusive/event_data09 388
+	   ;;
+
+    0.1.12) echo  "Merge rootfile on data 2009 event..."
+       ./python/mrg_rootfiles.py dat/run/jpsi_inclusive/event_data09 dat/run/jpsi_inclusive/merge_root_event09
+        ;;
 
     # --------------------------------------------------------------------------
     #  0.2 inclusiveMC  09
@@ -171,9 +204,38 @@ case $option in
         cd $HOME/bes/hypermiss	    
         ;;
         
-    0.2.7) echo "Check condor jobs on inclusive MC..."
+    0.2.7) echo "Check condor jobs on inclusive MC ..."
         ./python/chk_condorjobs.py dat/run/jpsi_inclusive/rootfile_inclusiveMC_09 185
         ;;
+
+    0.2.8) echo "Test 1 job on inclusive MC event..."
+        ./python/sel_events.py dat/run/jpsi_inclusive/rootfile_inclusiveMC_09/jpsi_inclusive_jpsi_mc-1.root dat/run/jpsi_inclusive/event_inclusiveMC_09/jpsi_inclusiveMC_event-1.root                                                              
+	   ;;
+
+    0.2.9) echo "Generate Condor jobs on inclusive MC event ---- 1..."
+        mkdir -p dat/run/jpsi_inclusive/job_text/inclusiveMC_event
+        cd scripts/gen_script
+        ./make_jobOption_file_inclusiveMC_event.sh
+        cd ../../dat/run/jpsi_inclusive/job_text/inclusiveMC_event
+        chmod 755 jobOptions_inclusive_mc_event-*
+        mv jobOptions_inclusive_mc_event-185.sh jobOptions_inclusive_mc_event-0.sh
+        cd $HOME/bes/hypermiss
+	   ;;
+
+    0.2.10) echo "Submit Condor jobs on inclusive MC event...2"
+        cd dat/run/jpsi_inclusive/job_text/inclusiveMC_event
+        hep_sub -g physics -n 185 jobOptions_inclusive_mc_event-%{ProcId}.sh
+        cd $HOME/bes/hypermiss
+        ;;
+
+    0.2.11) echo "Check Condor jobs on inclusive MC event..."
+	   ./python/chk_condorjobs.py dat/run/jpsi_inclusive/event_inclusiveMC_09 185
+	   ;;
+
+    0.2.12) echo  "Merge rootfile on inclusive MC event..."
+       ./python/mrg_rootfiles.py dat/run/jpsi_inclusive/event_inclusiveMC_09 dat/run/jpsi_inclusive/merge_root_event09
+        ;;
+
 
     # --------------------------------------------------------------------------
     #  0.3 signal MC  
@@ -264,4 +326,8 @@ case $option in
         fi
         ;;
 
+    0.3.6) echo "Select events on signal MC sample..."
+    #   ./python/sel_events.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0.root dat/run/signalMC/event_signalMC/jpsi2xi0_event_mostenergetic.root 
+        ./python/sel_events.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0.root dat/run/signalMC/event_signalMC/jpsi2xi0_event_massdiff.root 
+	   ;;
 esac

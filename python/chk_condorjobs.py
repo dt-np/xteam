@@ -37,7 +37,7 @@ def main():
     log = log.replace('rootfile_', 'job_text/')
      
     logdir = log.split('/')[-1]
-    if logdir in ['data09', 'inclusiveMC_09']:    
+    if logdir in ['data09', 'inclusiveMC_09', 'event_data09', 'event_inclusiveMC_09' ]:    
         logfiletype = 'BossLogFile'
     elif logdir == 'events':
         logfiletype = 'EventsLogFile'
