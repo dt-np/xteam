@@ -28,8 +28,6 @@ mgamgam = ROOT.vector('double')()
 def mass_loop_pi0(chain):
     for l in range(chain.ngshw):
         for m in range(chain.ngshw):
-            if l == m:
-                continue
             indexgshw1 = l*6
             indexgshw2 = m*6
             p4shw_gam1 = ROOT.TLorentzVector(chain.p4shw[indexgshw1], chain.p4shw[indexgshw1+1], chain.p4shw[indexgshw1+2], chain.p4shw[indexgshw1+3])
