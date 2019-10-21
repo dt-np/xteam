@@ -24,25 +24,22 @@ mgamgam = ROOT.vector('double')()
 
 # loop through each gamma photons to reconstruct pi0 candidates
 def mass_loop_pi0(chain):
+    #print('\n')
     for l in range(chain.ngshw):
         for m in range(chain.ngshw):
-            if l == m:
-                continue            
+            if l >= m:
+                continue
+            #print('l= ',l, ' m= ',m)
             indexgshw1 = l*6
-            indexgshw2 = m*6
+            indexgshw2 = m*6            
             p4shw_gam1 = ROOT.TLorentzVector(chain.p4shw[indexgshw1], chain.p4shw[indexgshw1+1], chain.p4shw[indexgshw1+2], chain.p4shw[indexgshw1+3])
             p4shw_gam2 = ROOT.TLorentzVector(chain.p4shw[indexgshw2], chain.p4shw[indexgshw2+1], chain.p4shw[indexgshw2+2], chain.p4shw[indexgshw2+3])
-
-            print(chain.p4shw[indexgshw1], chain.p4shw[indexgshw1+1],chain.p4shw[indexgshw1+2], chain.p4shw[indexgshw1+3])
-            print(chain.p4shw[indexgshw2], chain.p4shw[indexgshw2+1],chain.p4shw[indexgshw2+2], chain.p4shw[indexgshw2+3])
             p4shw_gam12 = p4shw_gam1 + p4shw_gam2
-            exit()
             mass_gam12 = p4shw_gam12.M()
             mgamgam.push_back(mass_gam12)
     #		cut_pi=(mass_gam12 < 0.125 or mass_gam12 > 0.145)
     #		if cut_pi:
-    #		    continue
-    
+    #		    continue    
 def main():
     args = sys.argv[1:]
 
@@ -84,7 +81,6 @@ def main():
     pbar.finish()
     dur = duration(time()-time_start)
     sys.stdout.write(' \nDone in %s. \n' % dur)
-
 
 if __name__ == '__main__':
     main()
