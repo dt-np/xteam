@@ -23,16 +23,20 @@ ECMS = 3.09  # GeV
 mgamgam = ROOT.vector('double')()
 
 # loop through each gamma photons to reconstruct pi0 candidates
-
-
 def mass_loop_pi0(chain):
     for l in range(chain.ngshw):
         for m in range(chain.ngshw):
+            if l == m:
+                continue            
             indexgshw1 = l*6
             indexgshw2 = m*6
             p4shw_gam1 = ROOT.TLorentzVector(chain.p4shw[indexgshw1], chain.p4shw[indexgshw1+1], chain.p4shw[indexgshw1+2], chain.p4shw[indexgshw1+3])
             p4shw_gam2 = ROOT.TLorentzVector(chain.p4shw[indexgshw2], chain.p4shw[indexgshw2+1], chain.p4shw[indexgshw2+2], chain.p4shw[indexgshw2+3])
+
+            print(chain.p4shw[indexgshw1], chain.p4shw[indexgshw1+1],chain.p4shw[indexgshw1+2], chain.p4shw[indexgshw1+3])
+            print(chain.p4shw[indexgshw2], chain.p4shw[indexgshw2+1],chain.p4shw[indexgshw2+2], chain.p4shw[indexgshw2+3])
             p4shw_gam12 = p4shw_gam1 + p4shw_gam2
+            exit()
             mass_gam12 = p4shw_gam12.M()
             mgamgam.push_back(mass_gam12)
     #		cut_pi=(mass_gam12 < 0.125 or mass_gam12 > 0.145)
@@ -43,7 +47,7 @@ def main():
     args = sys.argv[1:]
 
     if (len(args) < 2):
-        print 'input error'
+        print ('input error')
     infile = args[0]
     outfile = args[1]
     check_outfile_path(outfile)
@@ -63,7 +67,7 @@ def main():
     t_out.Branch("event", n_event, "event/I")
     pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=entries).start()
     time_start = time()
-    print 'entries=', entries
+    print ('entries='), entries
     for k in range(entries):
         pbar.update(k+1)
         chain.GetEntry(k)
