@@ -23,6 +23,7 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.1.10"    "Submit Condor jobs on data 2009 event ---- 2"
     printf "\n\t%-9s  %-40s"  "0.1.11"    "Check Condor jobs on data 2009 event..."
     printf "\n\t%-9s  %-40s"  "0.1.12"     "Merge rootfile on data 2009 event..."
+    printf "\n\t%-9s  %-40s"  "0.1.13"     "Generate plot for mgamgam..."
 
     printf "\n\t%-9s  %-40s"  ""         ""
     printf "\n\t%-9s  %-40s"  "0.2"      "[running on Inclusive MC sample for HyperonDT]" 
@@ -38,7 +39,7 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.2.10"    "Submit Condor jobs on inclusive MC event ---- 2"
     printf "\n\t%-9s  %-40s"  "0.2.11"    "Check Condor jobs on inclusive MC event..."
     printf "\n\t%-9s  %-40s"  "0.2.12"     "Merge rootfile on inclusive MC event..."
-
+    printf "\n\t%-9s  %-40s"  "0.2.13"     "Generate plot for mgamgam..."
 
     printf "\n\t%-9s  %-40s"  "0.3"      "[run on signal MC for Xi0]"
     printf "\n\t%-9s  %-40s"  "0.3.1"    "simulation --10 signal MC sample interactively for Xi0 events..."
@@ -47,6 +48,7 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.3.4"    "Preselection for 10 events -- generate root file [Checking interactively]..."
     printf "\n\t%-9s  %-40s"  "0.3.5"    "Preselection for 20k events -- generate root file [cluster job]..."
     printf "\n\t%-9s  %-40s"  "0.3.6"     "Select events on signal MC sample..."
+    printf "\n\t%-9s  %-40s"  "0.3.7"     "Generate plot for mgamgam..."
 
     printf "\n\n"
 }
