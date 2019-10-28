@@ -149,6 +149,11 @@ case $option in
        ./python/mrg_rootfiles.py dat/run/jpsi_inclusive/event_data09 dat/run/jpsi_inclusive/merge_root_event09
         ;;
 
+    0.1.13) echo "Generate plot for mgamgam "
+        cd plots
+        root -l plot_data_pi0.c
+    	;;
+
     # --------------------------------------------------------------------------
     #  0.2 inclusiveMC  09
     # --------------------------------------------------------------------------
@@ -236,6 +241,10 @@ case $option in
        ./python/mrg_rootfiles.py dat/run/jpsi_inclusive/event_inclusiveMC_09 dat/run/jpsi_inclusive/merge_root_event09
         ;;
 
+    0.2.13) echo "Generate plot for mgamgam "
+        cd plots
+        root -l plot_incl_pi0.c
+    	;;
 
     # --------------------------------------------------------------------------
     #  0.3 signal MC  
@@ -330,4 +339,10 @@ case $option in
     #   ./python/sel_events.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0.root dat/run/signalMC/event_signalMC/jpsi2xi0_event_mostenergetic.root 
         ./python/sel_events.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0.root dat/run/signalMC/event_signalMC/jpsi2xi0_event.root 
 	   ;;
+
+
+    0.3.7) echo "Generate plot for mgamgam "
+        cd plots
+        root -l plot_pi0.c
+    	;;
 esac
