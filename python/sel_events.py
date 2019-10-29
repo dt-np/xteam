@@ -15,13 +15,13 @@ import ROOT
 import sys
 import os
 import math
-#from ROOT import TChain
+
 
 MJPSI = 3.097  # GeV
 ECMS = 3.09  # GeV
 
-ngamgam = array('i', [0])
-mgamgam = array('d',1000*[0])
+#ngamgam = array('i', [0])
+mgamgam = array('d', [0])
 
 # loop through each gamma photons to reconstruct pi0 candidates
 def mass_loop_pi0(chain):
@@ -37,11 +37,9 @@ def mass_loop_pi0(chain):
             p4shw_gam2 = ROOT.TLorentzVector(chain.p4shw[indexgshw2], chain.p4shw[indexgshw2+1], chain.p4shw[indexgshw2+2], chain.p4shw[indexgshw2+3])
             p4shw_gam12 = p4shw_gam1 + p4shw_gam2
             mass_gam12 = p4shw_gam12.M()
-            mgamgam[ngamgam[0]]=mass_gam12
-	    ngamgam[0]+=1
-    #		cut_pi=(mass_gam12 < 0.125 or mass_gam12 > 0.145)
-    #		if cut_pi:
-    #		    continue    
+            mgamgam=mass_gam12
+	    #ngamgam[0]+=1
+    
 def main():
     args = sys.argv[1:]
 
@@ -57,14 +55,17 @@ def main():
     fout = ROOT.TFile(outfile, "RECREATE")
     entries = chain.GetEntries()
 
-    t_out = ROOT.TTree('tree', 'tree')
-    t_out.Branch('ngamgam', ngamgam,"ngamgam/I")
-    t_out.Branch('mgamgam', mgamgam,"mgamgam[ngamgam]/D")
+    t_out = ROOT.TTree('pi0', 'pi0')
+    #t_out.Branch('ngamgam', ngamgam,"ngamgam/I")
+    t_out.Branch('mgamgam', mgamgam,"mgamgam/D")
     
     n_run = array('i', [0])
     n_event = array('i', [0])
+    n_indexmc = array('i',[0])
     t_out.Branch("run", n_run, "run/I")
     t_out.Branch("event", n_event, "event/I")
+    t_out.Branch("indexmc", n_indexmc, "indexmc/I")
+       
     pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=entries).start()
     time_start = time()
     print ('entries='), entries
@@ -73,10 +74,12 @@ def main():
         chain.GetEntry(k)
         n_run[0] = chain.run
         n_event[0] = chain.event
+        n_indexmc[0] = chain.indexmc
+        
         mass_loop_pi0(chain)
         
         t_out.Fill()
-	ngamgam[0]=0
+	#ngamgam[0]=0
        
     t_out.Write()
     t_out.Print()
