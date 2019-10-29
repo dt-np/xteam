@@ -21,7 +21,7 @@ MJPSI = 3.097  # GeV
 ECMS = 3.09  # GeV
 
 ngamgam = array('i', [0])
-mgamgam = array('d',1000*[0])
+mgamgam = array('d',100*[0])
 t_out = ROOT.TTree('pi0', 'pi0')
 t_out.Branch('ngamgam', ngamgam,"ngamgam/I")
 t_out.Branch('mgamgam', mgamgam,"mgamgam[ngamgam]/D")
@@ -41,8 +41,9 @@ def mass_loop_pi0(chain):
             p4shw_gam12 = p4shw_gam1 + p4shw_gam2
             mass_gam12 = p4shw_gam12.M()
             mgamgam[ngamgam[0]]=mass_gam12
+            t_out.Fill()
 	    ngamgam[0]+=1
-        t_out.Fill()
+        
 	ngamgam[0]=0
 
 def main():
