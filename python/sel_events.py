@@ -41,11 +41,14 @@ def mass_loop_pi0(chain):
             p4shw_gam12 = p4shw_gam1 + p4shw_gam2
             mass_gam12 = p4shw_gam12.M()
             mgamgam[ngamgam[0]]=mass_gam12
+            #print mgamgam[ngamgam[0]]
+            
+        #     cut_pi=(mass_gam12 < 0.125 or mass_gam12 > 0.145)
+        # if cut_pi:
+        #     continue
             t_out.Fill()
-	    ngamgam[0]+=1
-        
-	ngamgam[0]=0
-
+	ngamgam[0]+=1
+    #exit()
 def main():
     args = sys.argv[1:]
 
@@ -78,7 +81,8 @@ def main():
         n_indexmc[0] = chain.indexmc
         
         mass_loop_pi0(chain)
-       
+        ngamgam[0]=0
+          
     t_out.Write()
     t_out.Print()
     fout.Close()
