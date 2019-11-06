@@ -35,8 +35,7 @@ t_out.Branch("motheridx", n_motheridx, "motheridx[100]/I")
 #t_out.Branch('ngamgam', ngamgam,"ngamgam/I")
 t_out.Branch('mgamgam', mgamgam,"mgamgam/D")
 
-# loop through each gamma photons to reconstruct pi0 candidates
-
+# select the pi0 candidate by comparing the closest mass from pdg value
 def mass_diff_pi0(chain):
     tempindexgshw1=-1
     tempindexgshw2=-1
@@ -69,7 +68,7 @@ def mass_diff_pi0(chain):
         mgamgam[0]=-666
     t_out.Fill()
 
-
+# loop through each gamma photons to reconstruct pi0 candidates
 def mass_loop_pi0(chain):
     #print('\n')
     for l in range(chain.ngshw):
@@ -101,12 +100,9 @@ def main():
     outfile = args[1]
     check_outfile_path(outfile)
     chain = ROOT.TChain("xi0", "")
-    # chain.Add("dat/run/jpsi_inclusive/rootfile_data09/jpsi_data09-*.root")
     chain.Add(infile)
     fout = ROOT.TFile(outfile, "RECREATE")
-    entries = chain.GetEntries()
-    
-       
+    entries = chain.GetEntries()  
     pbar = ProgressBar(widgets=[Percentage(), Bar()], maxval=entries).start()
     time_start = time()
     print ('entries='), entries
