@@ -82,14 +82,13 @@ def mass_loop_pi0(chain):
             p4shw_gam2 = ROOT.TLorentzVector(chain.p4shw[indexgshw2], chain.p4shw[indexgshw2+1], chain.p4shw[indexgshw2+2], chain.p4shw[indexgshw2+3])
             p4shw_gam12 = p4shw_gam1 + p4shw_gam2
             mass_gam12 = p4shw_gam12.M()
-            mgamgam[ngamgam[0]]=mass_gam12
+            mgamgam[0]=mass_gam12
             #print mgamgam[ngamgam[0]]
-            
+             
         #     cut_pi=(mass_gam12 < 0.125 or mass_gam12 > 0.145)
         # if cut_pi:
         #     continue
             t_out.Fill()
-	ngamgam[0]+=1
     #exit()
 def main():
     args = sys.argv[1:]
@@ -116,9 +115,8 @@ def main():
 	    n_pdgid[ii]=chain.p4truth[ii*6+4]
 	    n_motheridx[ii]=chain.p4truth[ii*6+5]
         
-#	mass_loop_pi0(chain)
-#       ngamgam[0]=0
-	mass_diff_pi0(chain)
+	mass_loop_pi0(chain)
+#       mass_diff_pi0(chain)
           
     t_out.Write()
     t_out.Print()
