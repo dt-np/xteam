@@ -26,6 +26,9 @@ n_pdgid = array('i', 100*[-99])
 n_motheridx = array('i', 100*[-99])
 #ngamgam = array('i', [0])
 mgamgam = array('d',[0])
+mlambda = array('d',[0])
+mxi0 = array('d',[0])
+mrecxi0 = array('d',[0])
 t_out = ROOT.TTree('pi0', 'pi0')
 t_out.Branch("run", n_run, "run/I")
 t_out.Branch("event", n_event, "event/I")
@@ -34,7 +37,11 @@ t_out.Branch("pdgid", n_pdgid, "pdgid[100]/I")
 t_out.Branch("motheridx", n_motheridx, "motheridx[100]/I")
 #t_out.Branch('ngamgam', ngamgam,"ngamgam/I")
 t_out.Branch('mgamgam', mgamgam,"mgamgam/D")
+t_out.Branch('mlambda', mlambda, "mlambda/D")
+t_out.Branch('mxi0', mxi0, "mxi0/D")
+t_out.Branch('mrecxi0', mrecxi0, "mrecxi0/D")
 
+cms_p4 = ROOT.TLorentzVector(0.011*ECMS, 0, 0, ECMS)
 # select the pi0 candidate by comparing the closest mass from pdg value
 def mass_diff_pi0(chain):
     tempindexgshw1=-1
@@ -60,10 +67,6 @@ def mass_diff_pi0(chain):
         p4shw_gam2 = ROOT.TLorentzVector(chain.p4shw[tempindexgshw2],chain.p4shw[tempindexgshw2+1],chain.p4shw[tempindexgshw2+2],chain.p4shw[tempindexgshw2+3])
         p4shw_gam12 = p4shw_gam1 + p4shw_gam2
         mgamgam[0]=p4shw_gam12.M()
-#        print chain.run, chain.event
-#        print chain.p4shw[tempindexgshw1],chain.p4shw[tempindexgshw1+1],chain.p4shw[tempindexgshw1+2],chain.p4shw[tempindexgshw1+3]
-#        print chain.p4shw[tempindexgshw2],chain.p4shw[tempindexgshw2+1],chain.p4shw[tempindexgshw2+2],chain.p4shw[tempindexgshw2+3]
-#        print p4shw_gam12.M()
     else:
         mgamgam[0]=-666
     t_out.Fill()
@@ -71,6 +74,9 @@ def mass_diff_pi0(chain):
 # loop through each gamma photons to reconstruct pi0 candidates
 def mass_loop_pi0(chain):
     #print('\n')
+    p4_lambda = ROOT.TLorentzVector(chain.p4lambda[0], chain.p4lambda[1], chain.p4lambda[2], chain.p4lambda[3])
+    mass_lambda = p4_lambda.M()
+    mlambda[0] = mass_lambda
     for l in range(chain.ngshw):
         for m in range(chain.ngshw):
             if l >= m:
@@ -83,13 +89,16 @@ def mass_loop_pi0(chain):
             p4shw_gam12 = p4shw_gam1 + p4shw_gam2
             mass_gam12 = p4shw_gam12.M()
             mgamgam[0]=mass_gam12
-            #print mgamgam[ngamgam[0]]
-             
-        #     cut_pi=(mass_gam12 < 0.125 or mass_gam12 > 0.145)
-        # if cut_pi:
-        #     continue
-            t_out.Fill()
-    #exit()
+
+            p4_xi0 = p4shw_gam12 + p4_lambda
+            mass_xi0 = p4_xi0.M()
+            mxi0[0] = mass_xi0
+            p4_rec_xi0 = cms_p4 - p4_xi0
+            rec_mass_xi0 = p4_rec_xi0.M()
+            mrecxi0[0] = rec_mass_xi0
+            #filling the tree at candidate level 
+            t_out.Fill()            
+
 def main():
     args = sys.argv[1:]
 
@@ -111,13 +120,13 @@ def main():
         n_run[0] = chain.run
         n_event[0] = chain.event
         n_indexmc[0] = chain.indexmc
-	for ii in range(n_indexmc[0]):
-	    n_pdgid[ii]=chain.p4truth[ii*6+4]
-	    n_motheridx[ii]=chain.p4truth[ii*6+5]
         
-	mass_loop_pi0(chain)
+        for ii in range(n_indexmc[0]):
+            n_pdgid[ii]=int(chain.p4truth[ii*6+4])
+            n_motheridx[ii]=int(chain.p4truth[ii*6+5])
+        mass_loop_pi0(chain)
 #       mass_diff_pi0(chain)
-          
+        
     t_out.Write()
     t_out.Print()
     fout.Close()

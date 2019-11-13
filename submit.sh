@@ -49,6 +49,9 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.3.5"    "Preselection for 20k events -- generate root file [cluster job]..."
     printf "\n\t%-9s  %-40s"  "0.3.6"     "Select events on signal MC sample..."
     printf "\n\t%-9s  %-40s"  "0.3.7"     "Generate plot for mgamgam..."
+    printf "\n\t%-9s  %-40s"  "0.3.8"     "Generate plot for lambda..."
+    printf "\n\t%-9s  %-40s"  "0.3.9"       "Generate plot for xi0..."
+    printf "\n\t%-9s  %-40s"  "0.3.10"       "Generate plot for recoil_xi0.."
 
     printf "\n\n"
 }
@@ -347,4 +350,18 @@ case $option in
         cd plots
         root -l plot_pi0.c
     	;;
+
+    0.3.8) echo "Generate plot for lambda..."
+        cd plots
+        root -l lambda.c
+        ;;
+    0.3.9) echo "Generate plot for xi0..."
+        cd plots
+        root -l xi0.c
+        ;;
+
+    0.3.10) echo "Generate plot for recoil_xi0..."
+        cd plots
+        root -l rec_xi0.c
+        ;;
 esac
