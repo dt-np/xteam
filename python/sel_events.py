@@ -24,7 +24,6 @@ n_event = array('i', [0])
 n_indexmc = array('i',[0])
 n_pdgid = array('i', 100*[-99])
 n_motheridx = array('i', 100*[-99])
-#ngamgam = array('i', [0])
 mgamgam = array('d',[0])
 mlambda = array('d',[0])
 mxi0 = array('d',[0])
@@ -35,13 +34,13 @@ t_out.Branch("event", n_event, "event/I")
 t_out.Branch("indexmc", n_indexmc, "indexmc/I")
 t_out.Branch("pdgid", n_pdgid, "pdgid[100]/I")
 t_out.Branch("motheridx", n_motheridx, "motheridx[100]/I")
-#t_out.Branch('ngamgam', ngamgam,"ngamgam/I")
 t_out.Branch('mgamgam', mgamgam,"mgamgam/D")
 t_out.Branch('mlambda', mlambda, "mlambda/D")
 t_out.Branch('mxi0', mxi0, "mxi0/D")
 t_out.Branch('mrecxi0', mrecxi0, "mrecxi0/D")
 
 cms_p4 = ROOT.TLorentzVector(0.011*ECMS, 0, 0, ECMS)
+
 # select the pi0 candidate by comparing the closest mass from pdg value
 def mass_diff_pi0(chain):
     tempindexgshw1=-1
@@ -96,6 +95,7 @@ def mass_loop_pi0(chain):
             p4_rec_xi0 = cms_p4 - p4_xi0
             rec_mass_xi0 = p4_rec_xi0.M()
             mrecxi0[0] = rec_mass_xi0
+            
             #filling the tree at candidate level 
             t_out.Fill()            
 
@@ -120,13 +120,38 @@ def main():
         n_run[0] = chain.run
         n_event[0] = chain.event
         n_indexmc[0] = chain.indexmc
-        
+        p4_lambda = ROOT.TLorentzVector(chain.p4lambda[0], chain.p4lambda[1], chain.p4lambda[2], chain.p4lambda[3])
+        mass_lambda = p4_lambda.M()
+        mlambda[0] = mass_lambda
+        Idgam1=-9 
+        Idgam2=-9
+        for ii in range(chain.ngshw):
+            if chain.p4shw[ii*6+4]==chain.Idshw1:
+                Idgam1=ii
+            if chain.p4shw[ii*6+4]==chain.Idshw2:
+                Idgam2=ii
+        if Idgam1==-9 or Idgam2==-9:
+            # print "there are not more than two gamma..."
+            continue
+        # Idgam1= chain.VIdG1[chain.Idshw1]
+        # Idgam2=chain.VIdG2[chain.Idshw2]
+        p4shw_gam1 = ROOT.TLorentzVector(chain.p4shw[Idgam1*6],chain.p4shw[Idgam1*6+1],chain.p4shw[Idgam1*6+2],chain.p4shw[Idgam1*6+3])
+        p4shw_gam2 = ROOT.TLorentzVector(chain.p4shw[Idgam2*6],chain.p4shw[Idgam2*6+1],chain.p4shw[Idgam2*6+2],chain.p4shw[Idgam2*6+3])
+        p4shw_gam12 = p4shw_gam1 + p4shw_gam2
+        mass_gam12 = p4shw_gam12.M()
+        mgamgam[0]=mass_gam12
         for ii in range(n_indexmc[0]):
             n_pdgid[ii]=int(chain.p4truth[ii*6+4])
             n_motheridx[ii]=int(chain.p4truth[ii*6+5])
-        mass_loop_pi0(chain)
-#       mass_diff_pi0(chain)
-        
+        p4_xi0 = p4shw_gam12 + p4_lambda
+        mass_xi0 = p4_xi0.M()
+        mxi0[0] = mass_xi0
+        p4_rec_xi0 = cms_p4 - p4_xi0
+        rec_mass_xi0 = p4_rec_xi0.M()
+        mrecxi0[0] = rec_mass_xi0
+        # mass_loop_pi0(chain)
+        # mass_diff_pi0(chain)
+        t_out.Fill()
     t_out.Write()
     t_out.Print()
     fout.Close()

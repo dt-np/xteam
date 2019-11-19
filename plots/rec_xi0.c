@@ -6,8 +6,8 @@ gStyle->SetOptStat(0);
 c1->SetFillColor(10);
 c1->SetFrameFillColor(10);
 TTree* tree = (TTree*) f.Get("pi0");
-Double_t  xmin = 0.8; 
-Double_t xmax = 1.8;
+Double_t  xmin = 1.0; 
+Double_t xmax = 1.6;
 Int_t xbins = 200;
 Double_t ytitle;
 TH1F *h = new TH1F("h", "", xbins, xmin, xmax);
@@ -18,7 +18,7 @@ tree->Draw("mrecxi0>>h");
 h->SetLineColor(kRed);
 h->Print();
 h->SetXTitle("recoil of M_{#Xi^{0}} (GeV/c^{2})");
-h->SetYTitle("Events/ (5 Mev/c^{2})");//0.7 Mev
+h->SetYTitle("Events/ (3 Mev/c^{2})");  //3.0 Mev
 h->SetFillColor(10);
 h->Draw("");
 c1->Update();
