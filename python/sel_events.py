@@ -17,7 +17,7 @@ import os
 import math
 
 MJPSI = 3.097  # GeV
-ECMS = 3.09  # GeV
+ECMS = 3.0969  # GeV
 
 n_run = array('i', [0])
 n_event = array('i', [0])
@@ -95,9 +95,9 @@ def mass_loop_pi0(chain):
             p4_rec_xi0 = cms_p4 - p4_xi0
             rec_mass_xi0 = p4_rec_xi0.M()
             mrecxi0[0] = rec_mass_xi0
-            
+
             #filling the tree at candidate level 
-            t_out.Fill()            
+            t_out.Fill()
 
 def main():
     args = sys.argv[1:]
@@ -123,26 +123,28 @@ def main():
         p4_lambda = ROOT.TLorentzVector(chain.p4lambda[0], chain.p4lambda[1], chain.p4lambda[2], chain.p4lambda[3])
         mass_lambda = p4_lambda.M()
         mlambda[0] = mass_lambda
-        Idgam1=-9 
+        if (mlambda[0] < 1.11 or mlambda[0] > 1.12):        
+            continue
+        for ii in range(n_indexmc[0]):
+            n_pdgid[ii]=int(chain.p4truth[ii*6+4])
+            n_motheridx[ii]=int(chain.p4truth[ii*6+5])
+        Idgam1=-9
         Idgam2=-9
         for ii in range(chain.ngshw):
             if chain.p4shw[ii*6+4]==chain.Idshw1:
                 Idgam1=ii
             if chain.p4shw[ii*6+4]==chain.Idshw2:
                 Idgam2=ii
-        if Idgam1==-9 or Idgam2==-9:
+            if Idgam1==-9 or Idgam2==-9:
             # print "there are not more than two gamma..."
-            continue
+                continue
         # Idgam1= chain.VIdG1[chain.Idshw1]
         # Idgam2=chain.VIdG2[chain.Idshw2]
         p4shw_gam1 = ROOT.TLorentzVector(chain.p4shw[Idgam1*6],chain.p4shw[Idgam1*6+1],chain.p4shw[Idgam1*6+2],chain.p4shw[Idgam1*6+3])
         p4shw_gam2 = ROOT.TLorentzVector(chain.p4shw[Idgam2*6],chain.p4shw[Idgam2*6+1],chain.p4shw[Idgam2*6+2],chain.p4shw[Idgam2*6+3])
         p4shw_gam12 = p4shw_gam1 + p4shw_gam2
         mass_gam12 = p4shw_gam12.M()
-        mgamgam[0]=mass_gam12
-        for ii in range(n_indexmc[0]):
-            n_pdgid[ii]=int(chain.p4truth[ii*6+4])
-            n_motheridx[ii]=int(chain.p4truth[ii*6+5])
+        mgamgam[0]=mass_gam12        
         p4_xi0 = p4shw_gam12 + p4_lambda
         mass_xi0 = p4_xi0.M()
         mxi0[0] = mass_xi0
@@ -151,6 +153,7 @@ def main():
         mrecxi0[0] = rec_mass_xi0
         # mass_loop_pi0(chain)
         # mass_diff_pi0(chain)
+        
         t_out.Fill()
     t_out.Write()
     t_out.Print()
