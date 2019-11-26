@@ -11,14 +11,14 @@ Double_t xmax = 1.5;
 Int_t xbins = 200;
 Double_t ytitle;
 TH1F *h = new TH1F("h", "", xbins, xmin, xmax);
-Double_t x[2000];
-tree->SetBranchAddress("mxi0", &x);
+//Double_t x[2000];
+//tree->SetBranchAddress("mxi0", &x);
 N=tree->GetEntries();
-tree->Draw("mxi0>>h");
+tree->Draw("mxi0>>h"," mlambda>1.11 && mlambda<1.12 ");
 h->SetLineColor(kRed);
 h->Print();
 h->SetXTitle("M_{#Xi^{0}} (GeV/c^{2})");
-h->SetYTitle("Events/ (1.5 Mev/c^{2})");    //1.5 Mev
+h->SetYTitle("Events/ (1.5 Mev/c^{2})");  //1.5 Mev
 h->SetFillColor(10);
 h->Draw("");
 c1->Update();
