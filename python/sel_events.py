@@ -28,6 +28,8 @@ mgamgam = array('d',[0])
 mlambda = array('d',[0])
 mxi0 = array('d',[0])
 mrecxi0 = array('d',[0])
+nextragam = array('i', [0])
+eextragam = array('d', 100*[-99])
 t_out = ROOT.TTree('pi0', 'pi0')
 t_out.Branch("run", n_run, "run/I")
 t_out.Branch("event", n_event, "event/I")
@@ -38,6 +40,8 @@ t_out.Branch('mgamgam', mgamgam,"mgamgam/D")
 t_out.Branch('mlambda', mlambda, "mlambda/D")
 t_out.Branch('mxi0', mxi0, "mxi0/D")
 t_out.Branch('mrecxi0', mrecxi0, "mrecxi0/D")
+t_out.Branch('nextragam', nextragam, "nextragam/I")
+t_out.Branch('eextragam', eextragam, "eextragam[100]/D")
 
 cms_p4 = ROOT.TLorentzVector(0.011*ECMS, 0, 0, ECMS)
 
@@ -123,13 +127,14 @@ def main():
         p4_lambda = ROOT.TLorentzVector(chain.p4lambda[0], chain.p4lambda[1], chain.p4lambda[2], chain.p4lambda[3])
         mass_lambda = p4_lambda.M()
         mlambda[0] = mass_lambda
-        if (mlambda[0] < 1.11 or mlambda[0] > 1.12):        
-            continue
+        # if (mlambda[0] < 1.11 or mlambda[0] > 1.12):        
+        #     continue
         for ii in range(n_indexmc[0]):
             n_pdgid[ii]=int(chain.p4truth[ii*6+4])
             n_motheridx[ii]=int(chain.p4truth[ii*6+5])
         Idgam1=-9
         Idgam2=-9
+        idextra=0
         for ii in range(chain.ngshw):
             if chain.p4shw[ii*6+4]==chain.Idshw1:
                 Idgam1=ii
@@ -138,6 +143,11 @@ def main():
             if Idgam1==-9 or Idgam2==-9:
             # print "there are not more than two gamma..."
                 continue
+            if chain.p4shw[ii*6+4] != chain.Idshw1 and chain.p4shw[ii*6+4] != chain.Idshw2:
+                eextragam[idextra] = chain.p4shw[ii*6+3]
+                idextra+=1
+        nextragam[0]=idextra-1
+
         # Idgam1= chain.VIdG1[chain.Idshw1]
         # Idgam2=chain.VIdG2[chain.Idshw2]
         p4shw_gam1 = ROOT.TLorentzVector(chain.p4shw[Idgam1*6],chain.p4shw[Idgam1*6+1],chain.p4shw[Idgam1*6+2],chain.p4shw[Idgam1*6+3])
