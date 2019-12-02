@@ -18,6 +18,8 @@ import math
 
 MJPSI = 3.097  # GeV
 ECMS = 3.0969  # GeV
+massLambdaPDG = 1.1157 # GeV
+massPi0PDG = 0.13498 # GeV
 
 n_run = array('i', [0])
 n_event = array('i', [0])
@@ -155,11 +157,13 @@ def main():
         p4shw_gam12 = p4shw_gam1 + p4shw_gam2
         mass_gam12 = p4shw_gam12.M()
         mgamgam[0]=mass_gam12        
-        p4_xi0 = p4shw_gam12 + p4_lambda
-        mass_xi0 = p4_xi0.M()
+        # p4_xi0 = p4shw_gam12 + p4_lambda
+        mass_xi0 = (p4shw_gam1 + p4shw_gam2 + p4_lambda).M() - p4_lambda.M() + massLambdaPDG - (p4shw_gam1 + p4shw_gam2).M() + massPi0PDG
+        # mass_xi0 = p4_xi0.M()
         mxi0[0] = mass_xi0
-        p4_rec_xi0 = cms_p4 - p4_xi0
-        rec_mass_xi0 = p4_rec_xi0.M()
+        # p4_rec_xi0 = cms_p4 - p4_xi0
+        # rec_mass_xi0 = p4_rec_xi0.M()
+        rec_mass_xi0 = (cms_p4 - p4shw_gam1 - p4shw_gam2 - p4_lambda).M() + p4_lambda.M() - massLambdaPDG + (p4shw_gam1 + p4shw_gam2).M() - massPi0PDG
         mrecxi0[0] = rec_mass_xi0
         # mass_loop_pi0(chain)
         # mass_diff_pi0(chain)
