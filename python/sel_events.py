@@ -18,7 +18,7 @@ import math
 
 MJPSI = 3.097  # GeV
 ECMS = 3.0969  # GeV
-massLambdaPDG = 1.1157 # GeV
+massLambdaPDG = 1.115683 # GeV
 massPi0PDG = 0.13498 # GeV
 
 n_run = array('i', [0])
