@@ -25,7 +25,6 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.1.12"     "Merge rootfile on data 2009 event..."
     printf "\n\t%-9s  %-40s"  "0.1.13"     "Generate plot for mgamgam..."
 
-    printf "\n\t%-9s  %-40s"  ""         ""
     printf "\n\t%-9s  %-40s"  "0.2"      "[running on Inclusive MC sample for HyperonDT]" 
     printf "\n\t%-9s  %-40s"  "0.2.1"    "Split MC sample with each group 20G"
     printf "\n\t%-9s  %-40s"  "0.2.2"    "Generate Condor jobs on incl MC ---- 1..."
@@ -50,8 +49,14 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.3.6"     "Select events on signal MC sample..."
     printf "\n\t%-9s  %-40s"  "0.3.7"     "Generate plot for mgamgam..."
     printf "\n\t%-9s  %-40s"  "0.3.8"     "Generate plot for lambda..."
-    printf "\n\t%-9s  %-40s"  "0.3.9"       "Generate plot for xi0..."
-    printf "\n\t%-9s  %-40s"  "0.3.10"       "Generate plot for recoil_xi0.."
+    printf "\n\t%-9s  %-40s"  "0.3.9"     "Generate plot for xi0..."
+    printf "\n\t%-9s  %-40s"  "0.3.10"    "Generate plot for recoil_xi0.."
+
+    printf "\n\t%-9s  %-40s"  "0.4"         "[run for topology to check the backgrounds]"
+    printf "\n\t%-9s  %-40s"  "0.4.1"       "Generate Condor jobs for topology on inclusive MC to select event"
+    printf "\n\t%-9s  %-40s"  "0.4.2"       "Submit Condor jobs on inclusive MC event for topology."
+    printf "\n\t%-9s  %-40s"  "0.4.3"       "Merge rootfile on inclusive MC topology event..."
+
 
     printf "\n\n"
 }
@@ -251,6 +256,7 @@ case $option in
         root -l plot_incl_pi0.c
     	;;
 
+
     # --------------------------------------------------------------------------
     #  0.3 signal MC  
     # --------------------------------------------------------------------------
@@ -345,7 +351,6 @@ case $option in
         ./python/sel_events.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0.root dat/run/signalMC/event_signalMC/jpsi2xi0_event.root 
 	   ;;
 
-
     0.3.7) echo "Generate plot for mgamgam "
         cd plots
         root -l plot_pi0.c
@@ -364,4 +369,32 @@ case $option in
         cd plots
         root -l rec_xi0.c
         ;;
+
+    # --------------------------------------------------------------------------
+    #  0.4 run for topology to check the backgrounds  
+    # -------------------------------------------------------------------------
+    
+0.4) echo "[run for topology to check the backgrounds]"
+	 ;;
+
+    0.4.1) echo "Generate Condor jobs for topology on inclusive MC to select event "
+        mkdir -p dat/run/jpsi_inclusive/job_text/inclusiveMC_event
+        cd scripts/gen_script
+        ./make_jobOption_file_inclusiveMC_event_topo.sh
+        cd ../../dat/run/jpsi_inclusive/job_text/inclusiveMC_event_topo
+        chmod 755 jobOptions_inclusive_mc_event_topo-*
+        mv jobOptions_inclusive_mc_event_topo-185.sh jobOptions_inclusive_mc_event_topo-0.sh
+        cd $HOME/bes/hypermiss
+	   ;;
+
+    0.4.2) echo "Submit Condor jobs on inclusive MC event for topology."
+        cd dat/run/jpsi_inclusive/job_text/inclusiveMC_event_topo
+        hep_sub -g physics -n 185 jobOptions_inclusive_mc_event_topo-%{ProcId}.sh
+        cd $HOME/bes/hypermiss  
+        ;;
+
+    0.4.3) echo  "Merge rootfile on inclusive MC topology event..."
+       ./python/mrg_rootfiles.py dat/run/jpsi_inclusive/event_inclusiveMC_09_topo dat/run/jpsi_inclusive/merge_root_event09
+       ;;
+
 esac
