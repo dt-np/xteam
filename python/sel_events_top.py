@@ -32,6 +32,9 @@ mxi0 = array('d', [0])
 mrecxi0 = array('d', [0])
 nextragam = array('i', [0])
 eextragam = array('d', 100*[-99])
+chargee = array('d', [0])
+eenergy = array('d', [0])
+
 t_out = ROOT.TTree('pi0', 'pi0')
 t_out.Branch("run", n_run, "run/I")
 t_out.Branch("event", n_event, "event/I")
@@ -44,6 +47,9 @@ t_out.Branch('mxi0', mxi0, "mxi0/D")
 t_out.Branch('mrecxi0', mrecxi0, "mrecxi0/D")
 t_out.Branch('nextragam', nextragam, "nextragam/I")
 t_out.Branch('eextragam', eextragam, "eextragam[100]/D")
+
+t_out.Branch("chargee", chargee, "chargee/D")
+t_out.Branch("eenergy", eenergy, "eenergy/D")
 
 cms_p4 = ROOT.TLorentzVector(0.011*ECMS, 0, 0, ECMS)
 
@@ -183,10 +189,19 @@ def main():
         rec_mass_xi0 = (cms_p4 - p4shw_gam1 - p4shw_gam2 - p4_lambda).M() + \
             p4_lambda.M() - massLambdaPDG + (p4shw_gam1 + p4shw_gam2).M() - massPi0PDG
         mrecxi0[0] = rec_mass_xi0
+        for ii in range(chain.ne):
+            p4elect = ROOT.TLorentzVector(
+                chain.p4e[ii*6], chain.p4e[ii*6+1], chain.p4e[ii*6+2], chain.p4e[ii*6+3])
+            chargee[0] = chain.p4e[ii*6+4]
+            eenergy[0] = p4elect.E()
+            t_out.Fill()
+
+
         # mass_loop_pi0(chain)
         # mass_diff_pi0(chain)
 
-        t_out.Fill()
+        # t_out.Fill()
+        
     t_out.Write()
     t_out.Print()
     fout.Close()

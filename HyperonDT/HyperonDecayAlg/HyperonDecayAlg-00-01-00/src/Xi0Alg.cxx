@@ -11,11 +11,6 @@ Xi0Alg::~Xi0Alg(){
 	//add your code for deconstructor
 }
 
-
-
-
-
-
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 StatusCode Xi0Alg::initialize(){
@@ -105,10 +100,7 @@ StatusCode Xi0Alg::execute(){
 		return StatusCode::SUCCESS;
 	}
 
-
-
 	Num[0] += 1;
-
 
 	//==============================================
 	//  Xi0 -> Lambda pi0
@@ -160,10 +152,9 @@ StatusCode Xi0Alg::execute(){
 	if(Vid1.size() == 0) return StatusCode::SUCCESS;
 	Num[2] += 1;
 
-
-
-
-	//pi0 candidate 
+	//
+	//pi0 candidate
+	// 
 	int nphoton = evtRecEvent->totalNeutral();
 	if(nphoton>10) return StatusCode::SUCCESS;
 	std::vector<int> iGoodGam;   iGoodGam.clear();
@@ -203,8 +194,8 @@ StatusCode Xi0Alg::execute(){
 	double deltaMass = 99.;
 	int id1_best, id2_best, idL_best, idpi0_best;
 	for(int i=0; i<Vid1.size(); i++)
-	{
-		int id1_this = Vid1[i];
+	{  
+		int id1_this = Vid1[i]; // proton/pion track id
 		int id2_this = Vid2[i];
 
 		HepLorentzVector p4candidate = Vp4L[i];;
@@ -216,22 +207,31 @@ StatusCode Xi0Alg::execute(){
 			HepLorentzVector p4G1 = myTools->getGammaP4(itTrk1);
 			HepLorentzVector p4G2 = myTools->getGammaP4(itTrk2);
 
-			HepLorentzVector p4gg  = p4G1 + p4G2;
+			HepLorentzVector p4gg  = p4G1 + p4G2; 
 			HepLorentzVector p4LPi = p4candidate + p4gg;
 			double mLPi  = p4LPi.m();
 			double rmLPi = (myTools->getCmsP4() - p4LPi).m();
 			double massdiff_this = mLPi - myTools->getMassXi0();
 
-			if(mLPi < 1.1 || mLPi > 1.54) continue;
-			if(rmLPi< 1.00 || rmLPi> 1.70) continue;
-
-			if(fabs(massdiff_this) < deltaMass){
-				deltaMass = fabs(massdiff_this);
+			// if(mLPi < 1.1 || mLPi > 1.54) continue;
+			// if(rmLPi< 1.00 || rmLPi> 1.70) continue;
+            
+			// if(fabs(massdiff_this) < deltaMass){
+			// 	deltaMass = fabs(massdiff_this);
+			// 	id1_best = id1_this;
+			// 	id2_best = id2_this;
+			// 	idL_best = i;
+			// 	idpi0_best = ii;
+			// }
+			double minmass = (mLPi - p4candidate.m()) - (myTools->getMassXi0() - myTools->getMassLambda());
+			if (fabs(minmass) < deltaMass)
+			{
+				deltaMass = fabs(minmass);
 				id1_best = id1_this;
 				id2_best = id2_this;
 				idL_best = i;
 				idpi0_best = ii;
-			}
+				}
 		}
 	}
 	if(deltaMass == 99.) return StatusCode::SUCCESS;
@@ -240,8 +240,6 @@ StatusCode Xi0Alg::execute(){
 
 	m_Idshw1 = VIdG1[idpi0_best];
 	m_Idshw2 = VIdG2[idpi0_best];
-
-
 
 	//==============================
 	// save information
@@ -306,9 +304,6 @@ StatusCode Xi0Alg::execute(){
 	}
 	m_notherLambda = notherLambda;
 
-
-
-
 	//-------------------------------------
 	// electron in other charged
 	//-------------------------------------
@@ -327,12 +322,10 @@ StatusCode Xi0Alg::execute(){
 	}
 	m_ne = ne;
 
-
 	//----------------------
 	// information of shw
 	// normally three tops in Lambda decay n pi0
 	//----------------------
-
 
 	for(int i=0;i<iGoodGam.size();i++)
 	{
@@ -353,8 +346,6 @@ StatusCode Xi0Alg::execute(){
 		m_p4shw[i][5] = etof;
 
 	}
-
-
 
 	m_tuple1->write();
 
@@ -381,8 +372,6 @@ StatusCode Xi0Alg::finalize(){
 	std::cout<<"-----------------------------"<<endl;
 	return StatusCode::SUCCESS;
 }
-
-
 
 //--------------------------------------------------------------------------------------------
 //--------------------add your code here,for other member-functions---------------------------
@@ -419,5 +408,3 @@ void Xi0Alg::mc_truth() {
 	m_idxmc = m_numParticle;
 
 }
-
-

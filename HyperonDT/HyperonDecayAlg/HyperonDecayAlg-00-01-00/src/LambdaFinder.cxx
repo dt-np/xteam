@@ -80,11 +80,6 @@ int LambdaFinder::LambdaSelector(int Id1, int Id2, SmartDataPtr<EvtRecTrackCol> 
 
 	if(findVee == false) return -3;
 
-
-
-
-
-
 	//second vertex 
 	Hep3Vector xorigin(0,0,0);
 	Hep3Vector sigv(0,0,0);
@@ -251,11 +246,6 @@ bool LambdaFinder::isGoodProtonFromLambda(EvtRecTrackIterator itTrk){
 	if(fabs(vz0) >= 20.) return false;//
 	if(fabs(cos(mdcTrk->theta())) > 0.93) return false;
 
-
-
-
-
-
 	ParticleID * pidp = ParticleID::instance();
 	pidp->init();
 	pidp->setMethod(pidp->methodProbability());
@@ -315,8 +305,6 @@ bool LambdaFinder::isGoodPionFromLambda(EvtRecTrackIterator itTrk){
 	if(fabs(cos(mdcTrk->theta())) > 0.93) return false;
 
 	return true;
-
-
 
 }
 

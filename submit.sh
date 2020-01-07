@@ -57,6 +57,29 @@ usage() {
     printf "\n\t%-9s  %-40s"  "0.4.2"       "Submit Condor jobs on inclusive MC event for topology."
     printf "\n\t%-9s  %-40s"  "0.4.3"       "Merge rootfile on inclusive MC topology event..."
 
+    printf "\n\t%-9s  %-40s"  "0.5"      "[run on signal MC for background Xi0]"
+    printf "\n\t%-9s  %-40s"  "0.5.1"    "simulation --10 signal MC sample interactively for background Xi0 events..."
+    printf "\n\t%-9s  %-40s"  "0.5.2"    "Generate -- 20000 Xi0 MC signal..."
+    printf "\n\t%-9s  %-40s"  "0.5.3"    "Reconstruction -- 20000 Xi0 MC signal..."
+    printf "\n\t%-9s  %-40s"  "0.5.4"    "Preselection for 10 events -- generate root file [Checking interactively]..."
+    printf "\n\t%-9s  %-40s"  "0.5.5"    "Preselection for 20k events -- generate root file [cluster job]..."
+    printf "\n\t%-9s  %-40s"  "0.5.6"     "Select events on signal MC background sample..."
+
+    printf "\n\t%-9s  %-40s"  "0.6"      "[run on signal MC for background Xi0]"
+    printf "\n\t%-9s  %-40s"  "0.6.1"    "simulation --10 signal MC sample interactively for background Xi0 events..."
+    printf "\n\t%-9s  %-40s"  "0.6.2"    "Generate -- 20000 Xi0 MC signal..."
+    printf "\n\t%-9s  %-40s"  "0.6.3"    "Reconstruction -- 20000 Xi0 MC signal..."
+    printf "\n\t%-9s  %-40s"  "0.6.4"    "Preselection for 10 events -- generate root file [Checking interactively]..."
+    printf "\n\t%-9s  %-40s"  "0.6.5"    "Preselection for 20k events -- generate root file [cluster job]..."
+    printf "\n\t%-9s  %-40s"  "0.6.6"     "Select events on signal MC background sample..."
+
+    printf "\n\t%-9s  %-40s"  "0.7"      "[run on signal MC for background Xi0]"
+    printf "\n\t%-9s  %-40s"  "0.7.1"    "simulation --10 signal MC sample interactively for Xi0 background events..."
+    printf "\n\t%-9s  %-40s"  "0.7.2"    "Generate -- 20000 Xi0 MC signal..."
+    printf "\n\t%-9s  %-40s"  "0.7.3"    "Reconstruction -- 20000 Xi0 MC signal..."
+    printf "\n\t%-9s  %-40s"  "0.7.4"    "Preselection for 10 events -- generate root file [Checking interactively]..."
+    printf "\n\t%-9s  %-40s"  "0.7.5"    "Preselection for 20k events -- generate root file [cluster job]..."
+    printf "\n\t%-9s  %-40s"  "0.7.6"     "Select events on signal MC background sample..."
 
     printf "\n\n"
 }
@@ -71,7 +94,7 @@ fi
 
 case $option in
     
-    # --------------------------------------------------------------------------
+    # -----------------------------------------------------------------------
     #  0.1 data-09
     # -----------------------------------------------------------------------
 
@@ -347,8 +370,8 @@ case $option in
         ;;
 
     0.3.6) echo "Select events on signal MC sample..."
-    #   ./python/sel_events.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0.root dat/run/signalMC/event_signalMC/jpsi2xi0_event_mostenergetic.root 
-        ./python/sel_events.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0.root dat/run/signalMC/event_signalMC/jpsi2xi0_event.root 
+      ./python/sel_events_top.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0.root dat/run/signalMC/event_signalMC/jpsi2xi0_event_selection.root 
+        # ./python/sel_events.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0.root dat/run/signalMC/event_signalMC/jpsi2xi0_event.root 
 	   ;;
 
     0.3.7) echo "Generate plot for mgamgam "
@@ -396,5 +419,523 @@ case $option in
     0.4.3) echo  "Merge rootfile on inclusive MC topology event..."
        ./python/mrg_rootfiles.py dat/run/jpsi_inclusive/event_inclusiveMC_09_topo dat/run/jpsi_inclusive/merge_root_event09
        ;;
+
+
+    # --------------------------------------------------------------------------
+    #  0.5 signal MC for background studies  
+    # --------------------------------------------------------------------------
+
+
+0.5) echo "[run on background signal MC --Xi0]"
+	 ;;
+
+    0.5.1) echo "simulation --10 signal MC sample interactively for Xi0 background events..."
+        echo "have you changed event number for 10 events to run interactively?(yes / NO)"
+        echo "copy the decay file into besfs before running this option for a new decay mode"
+        
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+            cp $HOME/bes/hypermiss/scripts/xi0/jobs_scripts/jpsi2xi0_0.dec /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/
+            cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+            cp $HOME/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_sim_jpsi2xi0_0.txt ./
+            boss.exe jobOptions_sim_jpsi2xi0_0.txt
+            cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change event number."
+        fi
+        ;;
+
+    0.5.2) echo "submitting the condor job for simulation -- 20000 signal MC sample for background jpsi2xi0 events..."
+        echo "have you checked the lxslc7 machine? Condor job is only applicable on lxslc7 machine.(yes / NO)"
+        
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+        
+            cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+            cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_sim_jpsi2xi0_0.txt ./
+            boss.condor -os SL6 jobOptions_sim_jpsi2xi0_0.txt
+            cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO'."
+        fi
+        ;;
+
+    0.5.3) echo "reconstruction -- generate 20000 background signal MC sample..."
+            
+	    cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_rec_jpsi2xi0_0.txt ./
+        boss.condor -os SL6 jobOptions_rec_jpsi2xi0_0.txt
+        cd $HOME/bes/hypermiss
+        ;;
+
+    0.5.4) echo "Preselection for 10 events -- generate root file [Checking interactively]..."
+
+        echo "have you changed event number to 10 for interactive job?(yes / NO)"
+        
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+        
+        cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_0_gen_mc.txt ./
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_0_gen_mc_pathfile.txt ./
+	    boss.exe jobOptions_jpsi2xi0_0_gen_mc.txt
+        cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change the event number"
+        fi
+        ;;
+
+    0.5.5) echo "Preselection for 20k events -- generate root file [cluster job]..."
+	
+        echo "have you changed event number from 10 which was previously set for interactive job?(yes / NO)"
+        
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+
+	    cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_0_gen_mc.txt ./
+	    boss.condor -g physics jobOptions_jpsi2xi0_0_gen_mc.txt
+        cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change the event number"
+        fi
+        ;;
+
+    0.5.6) echo "Select events on signal MC sample..."
+        ./python/sel_events_top.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0_0.root dat/run/signalMC/event_signalMC/jpsi2xi0_0_event.root 
+	    ;;
+
+    0.5.7) echo "Generate plot for xi0 from background ..."
+        cd plots
+        root -l xi0.c
+        ;;
+
+    0.5.8) echo "Generate plot for recoil_xi0 from background ..."
+        cd plots
+        root -l rec_xi0.c
+        ;;
+
+
+
+    # --------------------------------------------------------------------------
+    #  0.6 signal MC for background studies  
+    # --------------------------------------------------------------------------
+
+
+0.6) echo "[run on background signal MC --Xi0]"
+	 ;;
+
+    0.6.1) echo "simulation --10 signal MC sample interactively for Xi0 background events..."
+        echo "have you changed event number for 10 events to run interactively?(yes / NO)"
+        echo "copy the decay file into besfs before running this option for a new decay mode"
+        
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+            cp $HOME/bes/hypermiss/scripts/xi0/jobs_scripts/jpsi2xi0_1.dec /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/
+            cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+            cp $HOME/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_sim_jpsi2xi0_1.txt ./
+            boss.exe jobOptions_sim_jpsi2xi0_1.txt
+            cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change event number."
+        fi
+        ;;
+
+    0.6.2) echo "submitting the condor job for simulation -- 20000 signal MC sample for background jpsi2xi0 events..."
+        echo "have you checked the lxslc7 machine? Condor job is only applicable on lxslc7 machine.(yes / NO)"
+        
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+        
+            cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+            cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_sim_jpsi2xi0_1.txt ./
+            boss.condor -os SL6 jobOptions_sim_jpsi2xi0_1.txt
+            cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO'."
+        fi
+        ;;
+
+    0.6.3) echo "reconstruction -- generate 20000 background signal MC sample..."
+            
+	    cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_rec_jpsi2xi0_1.txt ./
+        boss.condor -os SL6 jobOptions_rec_jpsi2xi0_1.txt
+        cd $HOME/bes/hypermiss
+        ;;
+
+    0.6.4) echo "Preselection for 10 events -- generate root file [Checking interactively]..."
+
+        echo "have you changed event number to 10 for interactive job?(yes / NO)"
+        
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+        
+        cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_1_gen_mc.txt ./
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_1_gen_mc_pathfile.txt ./
+	    boss.exe jobOptions_jpsi2xi0_1_gen_mc.txt
+        cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change the event number"
+        fi
+        ;;
+
+    0.6.5) echo "Preselection for 20k events -- generate root file [cluster job]..."
+	
+        echo "have you changed event number from 10 which was previously set for interactive job?(yes / NO)"
+        
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+
+	    cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_1_gen_mc.txt ./
+	    boss.condor -g physics jobOptions_jpsi2xi0_1_gen_mc.txt
+        cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change the event number"
+        fi
+        ;;
+
+    0.6.6) echo "Select events on signal MC sample..."
+        ./python/sel_events_top.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0_1.root dat/run/signalMC/event_signalMC/jpsi2xi0_1_event.root 
+	    ;;
+
+    0.6.7) echo "Generate plot for xi0 from background ..."
+        cd plots
+        root -l xi0.c
+        ;;
+
+    0.6.8) echo "Generate plot for recoil_xi0 from background ..."
+        cd plots
+        root -l rec_xi0.c
+        ;;
+
+    # --------------------------------------------------------------------------
+    #  0.7 signal MC for background studies  
+    # --------------------------------------------------------------------------
+
+
+0.7) echo "[run on background signal MC --Xi0]"
+         ;;
+
+    0.7.1) echo "simulation --10 signal MC sample interactively for Xi0 background events..."
+        echo "have you changed event number for 10 events to run interactively?(yes / NO)"
+        echo "copy the decay file into besfs before running this option for a new decay mode"
+
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+            cp $HOME/bes/hypermiss/scripts/xi0/jobs_scripts/jpsi2xi0_2.dec /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/
+            cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+            cp $HOME/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_sim_jpsi2xi0_2.txt ./
+            boss.exe jobOptions_sim_jpsi2xi0_2.txt
+            cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change event number."
+        fi
+        ;;
+
+    0.7.2) echo "submitting the condor job for simulation -- 20000 signal MC sample for background jpsi2xi0 events..."
+        echo "have you checked the lxslc7 machine? Condor job is only applicable on lxslc7 machine.(yes / NO)"
+
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+
+            cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+            cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_sim_jpsi2xi0_2.txt ./
+            boss.condor -os SL6 jobOptions_sim_jpsi2xi0_2.txt
+            cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO'."
+        fi
+        ;;
+
+    0.7.3) echo "reconstruction -- generate 20000 background signal MC sample..."
+
+        cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_rec_jpsi2xi0_2.txt ./
+        boss.condor -os SL6 jobOptions_rec_jpsi2xi0_2.txt
+	cd $HOME/bes/hypermiss
+        ;;
+
+    0.7.4) echo "Preselection for 10 events -- generate root file [Checking interactively]..."
+
+        echo "have you changed event number to 10 for interactive job?(yes / NO)"
+
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+
+        cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_2_gen_mc.txt ./
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_2_gen_mc_pathfile.txt ./
+        boss.exe jobOptions_jpsi2xi0_2_gen_mc.txt
+        cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change the event number"
+        fi
+        ;;
+
+    
+    0.7.5) echo "Preselection for 20k events -- generate root file [cluster job]..."
+	
+        echo "have you changed event number from 10 which was previously set for interactive job?(yes / NO)"
+        
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+
+	    cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_2_gen_mc.txt ./
+	    boss.condor -g physics jobOptions_jpsi2xi0_2_gen_mc.txt
+        cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change the event number"
+        fi
+        ;;
+
+    0.7.6) echo "Select events on signal MC sample..."
+        ./python/sel_events_top.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0_2.root dat/run/signalMC/event_signalMC/jpsi2xi0_2_event.root 
+	    ;;
+
+    0.7.7) echo "Generate plot for xi0 from background ..."
+        cd plots
+        root -l xi0.c
+        ;;
+
+    0.7.8) echo "Generate plot for recoil_xi0 from background ..."
+        cd plots
+        root -l rec_xi0.c
+        ;;
+
+
+
+    # --------------------------------------------------------------------------
+    #  0.8 signal MC for background studies  
+    # --------------------------------------------------------------------------
+
+
+0.8) echo "[run on background signal MC --Xi0]"
+         ;;
+
+    0.8.1) echo "simulation --10 signal MC sample interactively for Xi0 background events..."
+        echo "have you changed event number for 10 events to run interactively?(yes / NO)"
+        echo "copy the decay file into besfs before running this option for a new decay mode"
+
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+            cp $HOME/bes/hypermiss/scripts/xi0/jobs_scripts/jpsi2xi0_3.dec /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/
+            cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+            cp $HOME/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_sim_jpsi2xi0_3.txt ./
+            boss.exe jobOptions_sim_jpsi2xi0_3.txt
+            cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change event number."
+        fi
+        ;;
+
+    0.8.2) echo "submitting the condor job for simulation -- 20000 signal MC sample for background jpsi2xi0 events..."
+        echo "have you checked the lxslc7 machine? Condor job is only applicable on lxslc7 machine.(yes / NO)"
+
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+
+            cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+            cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_sim_jpsi2xi0_3.txt ./
+            boss.condor -os SL6 jobOptions_sim_jpsi2xi0_3.txt
+            cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO'."
+        fi
+        ;;
+
+    0.8.3) echo "reconstruction -- generate 20000 background signal MC sample..."
+
+        cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_rec_jpsi2xi0_3.txt ./
+        boss.condor -os SL6 jobOptions_rec_jpsi2xi0_3.txt
+	    cd $HOME/bes/hypermiss
+        ;;
+
+    0.8.4) echo "Preselection for 10 events -- generate root file [Checking interactively]..."
+
+        echo "have you changed event number to 10 for interactive job?(yes / NO)"
+
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+
+        cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_3_gen_mc.txt ./
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_3_gen_mc_pathfile.txt ./
+        boss.exe jobOptions_jpsi2xi0_3_gen_mc.txt
+        cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change the event number"
+        fi
+        ;;
+
+    
+    0.8.5) echo "Preselection for 20k events -- generate root file [cluster job]..."
+	
+        echo "have you changed event number from 10 which was previously set for interactive job?(yes / NO)"
+        
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+
+	    cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_3_gen_mc.txt ./
+	    boss.condor -g physics jobOptions_jpsi2xi0_3_gen_mc.txt
+        cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change the event number"
+        fi
+        ;;
+
+    0.8.6) echo "Select events on signal MC sample..."
+        ./python/sel_events_top.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0_3.root dat/run/signalMC/event_signalMC/jpsi2xi0_3_event.root 
+	    ;;
+
+    0.8.7) echo "Generate plot for xi0 from background ..."
+        cd plots
+        root -l xi0.c
+        ;;
+
+    0.8.8) echo "Generate plot for recoil_xi0 from background ..."
+        cd plots
+        root -l rec_xi0.c
+        ;;
+
+    # --------------------------------------------------------------------------
+    #  0.9 signal MC for background studies  
+    # --------------------------------------------------------------------------
+
+
+0.9) echo "[run on background signal MC --Xi0]"
+         ;;
+
+    0.9.1) echo "simulation --10 signal MC sample interactively for Xi0 background events..."
+        echo "have you changed event number for 10 events to run interactively?(yes / NO)"
+        echo "copy the decay file into besfs before running this option for a new decay mode"
+
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+            cp $HOME/bes/hypermiss/scripts/xi0/jobs_scripts/jpsi2xi0_4.dec /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/
+            cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+            cp $HOME/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_sim_jpsi2xi0_4.txt ./
+            boss.exe jobOptions_sim_jpsi2xi0_4.txt
+            cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change event number."
+        fi
+        ;;
+
+    0.9.2) echo "submitting the condor job for simulation -- 20000 signal MC sample for background jpsi2xi0 events..."
+        echo "have you checked the lxslc7 machine? Condor job is only applicable on lxslc7 machine.(yes / NO)"
+
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+
+            cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+            cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_sim_jpsi2xi0_4.txt ./
+            boss.condor -os SL6 jobOptions_sim_jpsi2xi0_4.txt
+            cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO'."
+        fi
+        ;;
+
+    0.9.3) echo "reconstruction -- generate 20000 background signal MC sample..."
+
+        cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_rec_jpsi2xi0_4.txt ./
+        boss.condor -os SL6 jobOptions_rec_jpsi2xi0_4.txt
+	    cd $HOME/bes/hypermiss
+        ;;
+
+    0.9.4) echo "Preselection for 10 events -- generate root file [Checking interactively]..."
+
+        echo "have you changed event number to 10 for interactive job?(yes / NO)"
+
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+
+        cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_4_gen_mc.txt ./
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_4_gen_mc_pathfile.txt ./
+        boss.exe jobOptions_jpsi2xi0_4_gen_mc.txt
+        cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change the event number"
+        fi
+        ;;
+
+    
+    0.9.5) echo "Preselection for 20k events -- generate root file [cluster job]..."
+	
+        echo "have you changed event number from 10 which was previously set for interactive job?(yes / NO)"
+        
+        read opt
+        if [ $opt == "yes" ]
+            then
+            echo "now in yes"
+
+	    cd /besfs/users/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts
+        cp /afs/ihep.ac.cn/users/a/amitraahul/bes/hypermiss/scripts/xi0/jobs_scripts/jobOptions_jpsi2xi0_4_gen_mc.txt ./
+	    boss.condor -g physics jobOptions_jpsi2xi0_4_gen_mc.txt
+        cd $HOME/bes/hypermiss
+        else
+            echo "Default value is 'NO', please change the event number"
+        fi
+        ;;
+
+    0.9.6) echo "Select events on signal MC sample..."
+        ./python/sel_events_top.py dat/run/signalMC/root_jpsi2xi0/jpsi2xi0_4.root dat/run/signalMC/event_signalMC/jpsi2xi0_4_event.root 
+	    ;;
+
+    0.9.7) echo "Generate plot for xi0 from background ..."
+        cd plots
+        root -l xi0.c
+        ;;
+
+    0.9.8) echo "Generate plot for recoil_xi0 from background ..."
+        cd plots
+        root -l rec_xi0.c
+        ;;
 
 esac

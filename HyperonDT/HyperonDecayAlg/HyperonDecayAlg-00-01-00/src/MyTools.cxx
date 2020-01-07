@@ -46,9 +46,6 @@ HepLorentzVector MyTools::getGammaP4(const RecEmcShower* gTrk, Hep3Vector origin
 	return pGm;
 }
 
-
-
-
 HepLorentzVector MyTools::getGammaP4(EvtRecTrackIterator itTrk)
 {
 	RecEmcShower* emcTrk = (*itTrk)->emcShower();
@@ -58,8 +55,6 @@ HepLorentzVector MyTools::getGammaP4(EvtRecTrackIterator itTrk)
 	HepLorentzVector p4 = HepLorentzVector(eraw * sin(theta) * cos(phi), eraw * sin(theta) * sin(phi),eraw * cos(theta),eraw );
 	return p4;
 }
-
-
 
 void MyTools::selectNeutralTracks(SmartDataPtr<EvtRecEvent> evtRecEvent,
 		SmartDataPtr<EvtRecTrackCol> evtRecTrkCol,  vector<int> &iGam) {

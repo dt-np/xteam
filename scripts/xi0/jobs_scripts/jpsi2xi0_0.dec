@@ -1,0 +1,25 @@
+Decay J/psi
+1.0000      Xi0     anti-Xi0	              J2BB1;
+Enddecay
+
+Decay anti-Xi0
+1.0000    anti-Lambda0 pi0                     PHSP;
+Enddecay
+
+Decay anti-Lambda0
+1.0000    anti-p-  pi+                        PHSP;
+Enddecay
+
+Decay Xi0
+1.0000    Lambda0   pi0                     PHSP;
+Enddecay
+
+Decay Lambda0
+1.0000   p+  pi-                            PHSP;
+Enddecay
+
+Decay pi0
+1.0000      gamma   gamma                     PHSP;
+Enddecay
+
+End
