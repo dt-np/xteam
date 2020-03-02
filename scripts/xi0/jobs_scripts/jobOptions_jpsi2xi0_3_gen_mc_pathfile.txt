@@ -1,3 +1,0 @@
-EventCnvSvc.digiRootInputFile = {
-"/besfs/users/amitraahul/bes/hypermiss/dat/run/signalMC/dst_jpsi2xi0/jpsi2xi0_3.dst"
-};
