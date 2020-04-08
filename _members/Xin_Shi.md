@@ -10,9 +10,10 @@ title: Xin Shi (史欣)
 - Office: IHEP Main building B402, 19B YuquanLu Shijingshan District, Beijing 100049
 
 ## Research 
-- [ATLAS](http://atlas.cern) Silicon microstrip tracker phase II upgrade 
+- [RD50] (http://rd50.web.cern.ch) Radiation hard semiconductor devices for very high luminosity colliders 
+- [ATLAS](http://atlas.cern) Silicon microstrip tracker and timing detector upgrade 
 - [BESIII](http://bes3.ihep.ac.cn) New Physics Search 
-- [CEPC](http://cepc.ihep.ac.cn) Silicon Vertex Detector R&D
+- [CEPC](http://cepc.ihep.ac.cn) Silicon Detector and Higgs Physics
 
 ## Education
 - Ph.D., Experimental Particle Physics, [Cornell University](http://www.cornell.edu), 2011.
@@ -32,10 +33,6 @@ title: Xin Shi (史欣)
 ### Teaching Experience
 
 - “Physics II: Heat/Electromagnetism”, Department of Physics, Cornell University, 2008.
-- ​“Intermediate Quantum Mechanics”, Department of Physics, Cornell University, 2007.
+- “Intermediate Quantum Mechanics”, Department of Physics, Cornell University, 2007.
 - “Intermediate Electricity and Magnetism", Department of Physics, Cornell University,  2006.
-
-## Honors 
-- Fellow of China Program for Young Scientists, 2016 
-- Fellow of One Hundred Talents Program of Chinese Academy of Sciences, 2015 
 
