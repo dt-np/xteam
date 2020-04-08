@@ -10,7 +10,7 @@ title: Xin Shi (史欣)
 - Office: IHEP Main building B402, 19B YuquanLu Shijingshan District, Beijing 100049
 
 ## Research 
-- [RD50] (http://rd50.web.cern.ch) Radiation hard semiconductor devices for very high luminosity colliders 
+- [RD50](http://rd50.web.cern.ch) Radiation hard semiconductor devices for very high luminosity colliders 
 - [ATLAS](http://atlas.cern) Silicon microstrip tracker and timing detector upgrade 
 - [BESIII](http://bes3.ihep.ac.cn) New Physics Search 
 - [CEPC](http://cepc.ihep.ac.cn) Silicon Detector and Higgs Physics
