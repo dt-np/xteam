@@ -14,8 +14,8 @@ title: Yumo Su (苏禹磨)
 
 ## Current position:
 
-Big Data Engineer, [Helowin (好络维)](http://www.hellowin.cn), 2020-present
-Big Data Engineer, [Fusionskye (华青融天)](http://www.fusionskye.com), 2018-2020 
+- Big Data Engineer, [Helowin (好络维)](http://www.hellowin.cn), 2020-present
+- Big Data Engineer, [Fusionskye (华青融天)](http://www.fusionskye.com), 2018-2020 
 
 
 
