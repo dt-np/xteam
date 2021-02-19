@@ -5,7 +5,7 @@ title: Yumo Su (苏禹磨)
 <img src="/images/Yumo_Su.jpg" width="200"/>
 
 ## Contact: 
-- Email: suyumo@buaa.edu.cn
+- Email: suyumo[AT]buaa.edu.cn
 
 ## Education
 - M.S., Experimental Particle Physics, [Beihang University](http://www.buaa.edu.cn), 2018 
