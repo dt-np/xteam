@@ -5,7 +5,7 @@ title: Yuzhen Yang (杨玉真)
 <img src="/images/Yuzhen_Yang.jpg" width="200"/>
 
 ## Contact 
-- Email: yangyz@ihep.ac.cn 
+- Email: yzhyang896@163.com 
 - Office: IHEP Main building A404, 19B YuquanLu Shijingshan District, Beijing 100049
 
 ## Research 
@@ -18,5 +18,7 @@ title: Yuzhen Yang (杨玉真)
 
 ## Experience
 
-- Postdoctoral Research Fellow,[Institute of High Energy Physics](http://www.ihep.cas.cn) CAS, 2017 – present.
-- Visitor,[Rutherford Appleton Laboratory](https://stfc.ukri.org/about-us/where-we-work/rutherford-appleton-laboratory/) STFC, 2018 – present.
+- Lecture, [Shanghai University of Traditional Chinese Medicine](https://www.shutcm.edu.cn) 2020 - present. 
+- Postdoctoral Research Fellow, [Institute of High Energy Physics](http://www.ihep.cas.cn) CAS, 2017 – 2020.
+- Visitor, [Rutherford Appleton Laboratory](https://stfc.ukri.org/about-us/where-we-work/rutherford-appleton-laboratory/) STFC, 2018.
+
