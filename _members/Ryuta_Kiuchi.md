@@ -5,11 +5,11 @@ title: Ryuta Kiuchi (木内隆太)
 <img src="/images/Ryuta_Kiuchi.jpg" width="200"/>
 
 ## Contact 
-  - Email: kiuchi@ihep.ac.cn 
-  - Office: IHEP Main building A404, 19B YuquanLu Shijingshan District, Beijing 100049
+  - Email: kiuchi[AT]ihep.ac.cn 
+  - Office: IHEP Main building A407, 19B YuquanLu Shijingshan District, Beijing 100049
 
 ## Research 
-  - [CEPC](http://cepc.ihep.ac.cn) Silicon Vertex Detector R&D
+  - [CEPC](http://cepc.ihep.ac.cn) Silicon Drift Chamber Tracker R&D
   - [BESIII](http://bes3.ihep.ac.cn) New Physics Search 
 
 ## Education

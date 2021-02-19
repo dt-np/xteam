@@ -5,7 +5,7 @@ title: Maoqiang Jing (荆茂强)
 <img src="/images/Maoqiang_Jing.jpg" width="200"/>
 
 ## Contact
-- Email: jingmq@ihep.ac.cn
+- Email: jingmq[AT]ihep.ac.cn
 - Office: IHEP Main building B427, 19B YuquanLu Shijingshan District, Beijing 100049
 
 ## Research

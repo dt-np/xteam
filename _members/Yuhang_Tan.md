@@ -6,7 +6,7 @@ title: Yuhang Tan (谭雨航)
 <img src="/images/Yuhang_Tan.jpg" width="200"/>
 
 ## Contact 
-- Email: tanyuhang@ihep.ac.cn 
+- Email: tanyuhang[AT]ihep.ac.cn 
 - Office: IHEP Main building B427, 19B YuquanLu Shijingshan District, Beijing 100049
 
 
