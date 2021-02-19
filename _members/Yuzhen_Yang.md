@@ -5,7 +5,7 @@ title: Yuzhen Yang (杨玉真)
 <img src="/images/Yuzhen_Yang.jpg" width="200"/>
 
 ## Contact 
-- Email: yzhyang896@163.com 
+- Email: 825573380@qq.com 
 
 ## Research 
 - [ATLAS](http://atlas.cern) Silicon microstrip tracker phase II upgrade: Wire bonding, Hybrid assembly, Strip module production and electric test. 
