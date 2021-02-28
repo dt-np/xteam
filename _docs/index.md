@@ -4,7 +4,5 @@ layout: dochome
 permalink: /docs/
 ---
 
-Documents for X-Team. 
-
-
+Documents serves as the foundation for conducting research. 
 
