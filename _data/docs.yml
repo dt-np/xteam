@@ -1,20 +1,35 @@
-- title: Getting Started
+- title: Orgnization (0XX)
   pages: 
-  - quickstart 
-  - rule
-  
-- title: Computing
+  - 001_rule
+  - 002_journalclub
+  - 003_puertorico
+  - 004_quickstart 
+  - 005_conf
+
+
+
+- title: Physics (1XX)
+  pages: 
+  - 101_particle 
+
+
+
+- title: Detector (2XX) 
   pages:
-    - git
-    - mac
-    - vsc
-    - linux 
+  - 201_detector 
+  - 202_silicon 
+  - 203_pixel 
+  - 204_strip 
+  - 205_timing 
+  - 206_rad
 
-- title: Activities
-  pages: 
-    - journalclub
-    - puertorico
 
-- title: Conferences
-  pages: 
-    - conf2019
+
+- title: Computing (3XX)
+  pages:
+    - 301_linux 
+    - 302_mac
+    - 303_vsc
+    - 304_git
+    - 305_ml 
+    - 306_qc

@@ -1,5 +1,5 @@
 ---
-title: Puerto Rico
+title: 003 - Puerto Rico
 ---
 
 We play the board game [Puerto Rico][1] every month. 
