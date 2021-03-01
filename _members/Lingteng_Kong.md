@@ -6,8 +6,7 @@ title: Lingteng Kong (孔令腾)
 <img src="/images/Lingteng_Kong.jpg" width="200"/>
 
 ## Contact
-- Email: jn19830@bristol.ac.uk
-- Phone: +44-7908189041
+- Email: jn19830[AT]bristol.ac.uk
  
 ## Education
 - B.S., Physics, [University Of Chinese Academy of Sciences](http://www.ucas.ac.cn), 2019.
