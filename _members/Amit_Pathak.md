@@ -6,8 +6,7 @@ title: Amit Pathak
 <img src="/images/Amit_Pathak.jpg" width="200"/>
 
 ## Contact 
-- Email: amit@ihep.ac.cn
-- Email: amitraahul@gmail.com
+- Email: amitraahul[AT]gmail.com
 - Office: IHEP Main building A427, 19B YuquanLu Shijingshan District, Beijing 100049
 
 ## Research 

@@ -6,8 +6,7 @@ title: Tao Yang (杨涛)
 
 
 ## Contact 
-- Email: yangtao@ihep.ac.cn 
-- Phone: +86-17600973618
+- Email: yangtao[AT]ihep.ac.cn 
 - Office: IHEP Main building B427, 19B YuquanLu Shijingshan District, Beijing 100049
 
 ## Research

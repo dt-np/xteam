@@ -4,8 +4,8 @@ title: Kai Liu (刘凯)
 <img src="/images/Kai_Liu.png" width="200"/>
 
 ## Contact
-- Email: liukai@ihep.ac.cn
-- Office: IHEP Main building A404, 19B YuquanLu Shijingshan District, Beijing 100049
+- Email: liukai[AT]ihep.ac.cn
+- Office: IHEP Main building A407, 19B YuquanLu Shijingshan District, Beijing 100049
 
 ## Research
 - [BESIII](http://bes3.ihep.ac.cn) Heavy Flavor Physics in Charm Sector

@@ -5,7 +5,7 @@ title: Yihao Yang (杨宜昊)
 <img src="/images/Yihao_Yang.png" width="200"/>
 
 ## Contact: 
-- Email: yihaoy@umich.edu
+- Email: yihaoy[AT]umich.edu
 
 ## Education
 - B.S., Applied Physics, [University of Science and Technology of China](http://www.ustc.edu.cn), 2017 
