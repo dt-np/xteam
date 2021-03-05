@@ -23,4 +23,4 @@ The conclusion is that the time resolution of 3D semiconductor sensor is mainly 
 
 **Reference**
 
-[1]G. Kramberger et al. Timing performance of small cell 3D silicon detectors.[DOI: 10.1016/j.nima.2019.04.088](https://arxiv.org/pdf/1901.02538.pdf)
+[1]G. Kramberger et al. Timing performance of small cell 3D silicon detectors. [DOI: 10.1016/j.nima.2019.04.088](https://doi.org/10.1016/j.nima.2019.04.088)
