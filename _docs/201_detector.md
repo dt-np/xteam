@@ -18,26 +18,27 @@ is also commonly required for the particle detectors.   <br>
 Those detectors are classifiable from several perspective, and the following examples are some of the typical classification. <br>
 
 
-## Classification of detectors by signals:          <br>
+## Classification of detectors by signals:          
 ### 1a) Producing photons as signal
   - Cherenkov detectors (RICH, ...)            
-  - Counters (TOF, ...)                                   
+  - Counters (TOF, ...)   
+
 ### 1b) Producing electrical current as signal   
   - Silicon detectors (pixel/microstrip, ...)                   
-  - Wire chambers (MWDC, ...)                                 
+  - Wire chambers (MWDC, ...), TPC, ...                                 
 
 ## Classification of detectors by measurement purposes:   
-### 2a) Measurement of particle Momentum  <br>
-### Silicon strip detectors
-#### Drift chambers  
+### 2a) Measurement of particle Momentum  
+  - Silicon strip detectors
+  - Drift chambers  
 
-### 2b) Measurement of particle Vertex    <br>
-### Silicon pixel detectors
+### 2b) Measurement of particle Vertex    
+  - Silicon pixel detectors
 
-## 2c) Measurement of particle Energy    <br>
+### 2c) Measurement of particle Energy    
   - Calorimeters (ECal/HCal)
 
-## 2d) Measurement of particle ID        <br>  
+### 2d) Measurement of particle ID          
   - Drift chambers, TOFs, RICH, ...
 
 
