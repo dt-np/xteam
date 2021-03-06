@@ -6,7 +6,7 @@ title: 201 - Particle Detector
 * TOC
 {:toc}
 
-# What is the Detector for Particle Physics Experiment?
+## What is the Detector for Particle Physics Experiment?
 Detectors widely used in particle physics experiments extract signals in the
 form of either photons or electrical current when particles pass through the detector material.
 In addition, precise timing resolution is demanded especially for experiments in modern era
@@ -18,20 +18,20 @@ is also commonly required for the particle detectors.   <br>
 Those detectors are classifiable from several perspective, and the following examples are some of the typical classification. <br>
 
 
-# Classification of detectors by signals:          <br>
-## 1a) Producing photons as signal
+## Classification of detectors by signals:          <br>
+### 1a) Producing photons as signal
   - Cherenkov detectors (RICH, ...)            
   - Counters (TOF, ...)                                   
-## 1b) Producing electrical current as signal   
+### 1b) Producing electrical current as signal   
   - Silicon detectors (pixel/microstrip, ...)                   
   - Wire chambers (MWDC, ...)                                 
 
-# Classification of detectors by measurement purposes:   
-## 2a) Measurement of particle Momentum  <br>
+## Classification of detectors by measurement purposes:   
+### 2a) Measurement of particle Momentum  <br>
 ### Silicon strip detectors
 #### Drift chambers  
 
-## 2b) Measurement of particle Vertex    <br>
+### 2b) Measurement of particle Vertex    <br>
 ### Silicon pixel detectors
 
 ## 2c) Measurement of particle Energy    <br>
