@@ -19,18 +19,18 @@ Those detectors are classifiable from several perspective, and the following exa
 
 
 # Classification of detectors by signals:          <br>
-1. #### 1a) Producing photons as signal
+## 1a) Producing photons as signal
   - Cherenkov detectors (RICH, ...)            
   - Counters (TOF, ...)                                   
-2. #### 1b) Producing electrical current as signal   
+## 1b) Producing electrical current as signal   
   - Silicon detectors (pixel/microstrip, ...)                   
   - Wire chambers (MWDC, ...)                                 
 
 # Classification of detectors by measurement purposes:   
 ## 2a) Measurement of particle Momentum  <br>
-  - Silicon strip detectors
+### Silicon strip detectors
 ## 2b) Measurement of particle Vertex    <br>
-  - Silicon pixel detectors
+### Silicon pixel detectors
 ## 2c) Measurement of particle Energy    <br>
   - Calorimeters (ECal/HCal)
 ## 2d) Measurement of particle ID        <br>  
