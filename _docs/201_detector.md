@@ -29,10 +29,14 @@ Those detectors are classifiable from several perspective, and the following exa
 # Classification of detectors by measurement purposes:   
 ## 2a) Measurement of particle Momentum  <br>
 ### Silicon strip detectors
+#### Drift chambers  
+
 ## 2b) Measurement of particle Vertex    <br>
 ### Silicon pixel detectors
+
 ## 2c) Measurement of particle Energy    <br>
   - Calorimeters (ECal/HCal)
+
 ## 2d) Measurement of particle ID        <br>  
   - Drift chambers, TOFs, RICH, ...
 
