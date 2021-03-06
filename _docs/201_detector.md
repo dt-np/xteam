@@ -39,7 +39,11 @@ Those detectors are classifiable from several perspective, and the following exa
   - Calorimeters (ECal/HCal)
 
 ### 2d) Measurement of particle ID          
-  - Drift chambers, TOFs, RICH, ...
+  - Drift chambers
+  - TOFs
+  - RICH
+  - ...
 
 
-# Examples of particle detectors
+<br>
+**Above list is kind of a template yet (March 6th, 2021). Need updates.   <br>
