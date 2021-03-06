@@ -25,7 +25,10 @@ Those detectors are classifiable from several perspective, and the following exa
 
 ### 1b) Producing electrical current as signal   
   - Silicon detectors (pixel/microstrip, ...)                   
-  - Wire chambers (MWDC, ...), TPC, ...                                 
+  - Wire chambers (MWDC, ...), TPC
+  - ...
+
+<br>  
 
 ## Classification of detectors by measurement purposes:   
 ### 2a) Measurement of particle Momentum  
@@ -46,4 +49,4 @@ Those detectors are classifiable from several perspective, and the following exa
 
 
 <br>
-**Above list is kind of a template yet (March 6th, 2021). Need updates.   <br>
+**Above list/format is a first template (March 6th, 2021).   <br>
