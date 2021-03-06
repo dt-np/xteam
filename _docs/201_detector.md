@@ -6,21 +6,30 @@ title: 201 - Particle Detector
 * TOC
 {:toc}
 
-## What is the Detector for Particle Physics Experiment? 
-Detectors used in particle physics experiments extract signals in the 
-form of either photons or electrical current when particles pass detector material. In addition, fine timing resolution is demanded especially in modern experiments which is the characteristic different from others, for example,  some of key detectors used in astrophysics with wide timing gate, human eyes etc. Capability of recording information regarding event topology is also commonly required for the particle detectors. 
+## What is the Detector for Particle Physics Experiment?
+Detectors used in particle physics experiments extract signals in the
+form of either photons or electrical current when particles pass through the detector material.
+In addition, precise timing resolution is demanded especially for experiments in modern era
+which is the characteristic different from others, for example,  some of key detectors
+used in astrophysics having long timing gate, human eyes etc.
+Capability of reproducing the event topology by means of hit position information
+is also commonly required for the particle detectors.   <br>
+Those detectors are classifiable by several perspective, and the following examples are some of the typical classification. <br>
 
-Classification of detectors;    <br>
-1a) detectors of photon signal  <br>
-1b) detectors of electrical current  <br>  
-<br>
 
-2a) for Momentum measurement <br>
-2b) for Vertex measurement  <br>
-2c) for Energy measurement  <br>
-2d) for Particle ID measurement <br>  
+Classification of detectors by signals:          <br>
+1a) Producing photons as signal             <br>
+    - Cherenkov detectors (RICH)            <br>
+    - ...                                   <br>
+1b) Producing electrical current as signal  <br>  
+    - Silicon detectors                     <br>
+    - ...                                   <br>
+
+Classification of detectors by measurement purposes:   <br>
+2a) Measurement of particle Momentum  <br>
+2b) Measurement of particle Vertex    <br>
+2c) Measurement of particle Energy    <br>
+2d) Measurement of particle ID        <br>  
 
 
 ## Examples of particle detectors
-
-
