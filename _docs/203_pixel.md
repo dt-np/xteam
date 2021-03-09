@@ -1,6 +1,8 @@
 ---
 title: 203 - Pixel Detector  
+use_math: true
 ---
+
 
 **Contents**
 * TOC
