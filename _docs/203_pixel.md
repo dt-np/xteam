@@ -17,7 +17,7 @@ This Threorem is base on the classical electromagnetic theory and with the help 
 
 Simply, we just use the theorem to calculate the current on the electrode of insterest of a fully depleted silicon detector in a few steps when a charge *q* is drifting in it.
   
-  *Remove all the fixed charge and set the targeted electrode at 1 volt with the other at 0 volt.
+*Remove all the fixed charge and set the targeted electrode at 1 volt with the other at 0 volt.*
   
   *Calculate the Laplace Equation that describes the scene above, and the result is called Weighting Potential $\phi_w(x).
   
