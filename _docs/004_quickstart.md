@@ -42,3 +42,9 @@ $$
 \kappa=\frac{\int D(E) \phi(E) d E}{95 M e V m b \cdot \Phi}=\frac{\Phi_{e q}}{\Phi}
 $$
 
+```tex
+Calculate the induced current on the targeted electrode: $$i(t) = E_w(x) \cdot V(x,t) \cdot q$$
+```
+will generate:
+
+Calculate the induced current on the targeted electrode: $$i(t) = E_w(x) \cdot V(x,t) \cdot q$$
