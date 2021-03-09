@@ -6,7 +6,7 @@ title: Suyu Xiao (肖素玉)
 <img src="/images/Suyu_Xiao.jpg" width="200"/>
 
 ## Contact 
-- Email: xiaosuyu@ihep.ac.cn 
+- Email: xiaosuyu[AT]ihep.ac.cn 
 - Office: IHEP Main building A427, 19B YuquanLu Shijingshan District, Beijing 100049
 
 ## Research 

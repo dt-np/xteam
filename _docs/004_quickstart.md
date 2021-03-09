@@ -1,6 +1,11 @@
 ---
-title: Quick Start 
+title: 004 - Quick Start 
+use_math: true 
 ---
+
+**Contents**
+* TOC
+{:toc}
 
 ## Distributed Analysis Scheme 
 
@@ -14,4 +19,26 @@ Here is a nice [talk](https://indico.ihep.ac.cn/event/7614/session/9/material/0/
 
 How to write the MarkDown page like in this web? One can check [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). 
 
+## MathJax 
+
+Just need to set the following in the page: 
+
+```yaml
+---
+use_math: true 
+---
+```
+
+the the following LaTeX code
+
+```tex
+$$
+\kappa=\frac{\int D(E) \phi(E) d E}{95 M e V m b \cdot \Phi}=\frac{\Phi_{e q}}{\Phi}
+$$
+```
+will generate: 
+
+$$
+\kappa=\frac{\int D(E) \phi(E) d E}{95 M e V m b \cdot \Phi}=\frac{\Phi_{e q}}{\Phi}
+$$
 

@@ -5,9 +5,9 @@ title: Xin Shi (史欣)
 <img src="/images/Xin_Shi.jpg" width="200"/>
 
 ## Contact 
-- Email: shixin@ihep.ac.cn 
+- Email: shixin[AT]ihep.ac.cn 
 - Phone: +86-10-88235172
-- Office: IHEP Main building B402, 19B YuquanLu Shijingshan District, Beijing 100049
+- Office: IHEP Main building B402, 19B Yuquan Road Shijingshan District, Beijing 100049
 
 ## Research 
 - [RD50](http://rd50.web.cern.ch) Radiation hard semiconductor devices for very high luminosity colliders 
