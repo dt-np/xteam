@@ -19,13 +19,13 @@ Simply, we just use the theorem to calculate the current on the electrode of ins
   
 *Remove all the fixed charge and set the targeted electrode at 1 volt with the other at 0 volt.*
   
-  *Calculate the Laplace Equation that describes the scene above, and the result is called Weighting Potential $\phi_w(x).*
+  *Calculate the Laplace Equation that describes the scene above, and the result is called Weighting Potential $\phi_w(x)$.*
   
-  *Calculate the negative gradient of $\phi_w, which is called Weighting Potential E_w(x).*
+  *Calculate the negative gradient of $\phi_w, which is called Weighting Potential $E_w(x)$.*
   
-  *Calculate the true electric field in the detector and get the trajectory of the drifting charge using numeric method, then we know the V(x,t)*
+  *Calculate the true electric field in the detector and get the trajectory of the drifting charge using numeric method, then we know the $V(x,t)$*
   
-  *Calculate the induced current on the targeted electrode: i(t) = E_w(x) \cdot V(x,t) \cdot q*
+  *Calculate the induced current on the targeted electrode: $i(t) = E_w(x) \cdot V(x,t) \cdot q$*
 
 For more charges, we just need to add up all the carriers' contribution.
 
