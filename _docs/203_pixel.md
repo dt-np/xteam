@@ -37,4 +37,5 @@ use_math: true
 
 ## Reference
 [1]He Z . Review of the Shockley–Ramo theorem and its application in semiconductor gamma-ray detectors[J]. Nuclear Instruments & Methods in Physics Research, 2001, 463(1-2):250-267.
+
 [2]Bruyneel-EGAN-School-P1.pdf
