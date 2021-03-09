@@ -23,11 +23,11 @@ use_math: true
   
   2.Calculate the Laplace Equation that describes the scene above, and the result is called Weighting Potential $$\phi_w(x)$$ .
   
-  3.Calculate the negative gradient of $$\phi_w$$, which is called Weighting Potential $$E_w(x)$$ .
+  3.Calculate the negative gradient of $$\phi_w$$, which is called Weighting Potential $$\vec{E_w(x)}$$ .
   
-  4.Calculate the true electric field in the detector and get the trajectory of the drifting charge using numeric method, then we know the $$V(x,t)$$ .
+  4.Calculate the true electric field in the detector and get the trajectory of the drifting charge using numeric method, then we know the $$\vec{V(x,t)}$$ .
   
-  5.Calculate the induced current on the targeted electrode: $$i(t) = E_w(x) \cdot V(x,t) \cdot q$$ .
+  5.Calculate the induced current on the targeted electrode: $$i(t) = \vec{E_w(x)} \cdot \vec{V(x,t)} \cdot q$$ .
 
   For more charges, we just need to add up all the carriers' contribution.
 
