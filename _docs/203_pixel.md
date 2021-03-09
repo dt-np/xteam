@@ -23,7 +23,7 @@ use_math: true
   
   2.Calculate the Laplace Equation that describes the scene above, and the result is called Weighting Potential $$\phi_w(x)$$ .
   
-  3.Calculate the negative gradient of $\phi_w, which is called Weighting Potential $$E_w(x)$$ .
+  3.Calculate the negative gradient of $$\phi_w$$, which is called Weighting Potential $$E_w(x)$$ .
   
   4.Calculate the true electric field in the detector and get the trajectory of the drifting charge using numeric method, then we know the $$V(x,t)$$ .
   
