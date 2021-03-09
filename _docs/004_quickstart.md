@@ -45,8 +45,8 @@ $$
 this one
 
 ```tex
-Calculate the induced current on the targeted electrode: $$i(t) = E_w(x) \cdot V(x,t) \cdot q$$
+Calculate the induced current on the targeted electrode: $$i(t) = \vec{E_w}(\vec{x}) \cdot \vec{v}(\vec{x},t) \cdot q$$
 ```
 will generate:
 
-Calculate the induced current on the targeted electrode: $$i(t) = E_w(x) \cdot V(x,t) \cdot q$$
+Calculate the induced current on the targeted electrode: $$i(t) = \vec{E_w}(\vec{x}) \cdot \vec{v}(\vec{x},t) \cdot q$$
