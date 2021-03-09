@@ -31,7 +31,7 @@ use_math: true
 
   For more charges, we just need to add up all the carriers' contribution.
 
-<img src="/images/circuit_with.png" width="600"/>
+<img src="/images/circuit_with.png" width="650"/>
 
   Considering the circuit to get the waveform, we refer to the detector as a current source with a parallel capacitance that is equal to the capacitance of the detector measured through CV.
 
