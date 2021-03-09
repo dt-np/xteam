@@ -21,7 +21,7 @@ use_math: true
   
   1.Remove all the fixed charge and set the targeted electrode at 1 volt with the other at 0 volt.
   
-  2.Calculate the Laplace Equation that describes the scene above, and the result is called Weighting Potential $\phi_w(x)$ .
+  2.Calculate the Laplace Equation that describes the scene above, and the result is called Weighting Potential $$\phi_w(x)$$ .
   
   3.Calculate the negative gradient of $\phi_w, which is called Weighting Potential $E_w(x)$ .
   
