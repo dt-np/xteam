@@ -21,9 +21,9 @@ use_math: true
   
   1.Remove all the space charge and set the targeted electrode at 1 volt with the other at 0 volt.
   
-  2.Calculate the Laplace Equation that describes the scene above, and the result is called Weighting Field $$\phi_w(\vec{x})$$ .
+  2.Calculate the Laplace Equation that describes the scene above, and the result is called Weighting Potential $$\phi_w(\vec{x})$$ .
   
-  3.Calculate the negative gradient of $$\phi_w$$, which is called Weighting Potential $$\vec{E_w}(\vec{x})$$ .
+  3.Calculate the negative gradient of $$\phi_w$$, which is called Weighting Field $$\vec{E_w}(\vec{x})$$ .
   
   4.Calculate the true electric field in the detector and get the trajectory of the drifting charge using numeric method, then we know the $$\vec{v}(\vec{x},t)$$ .
   
