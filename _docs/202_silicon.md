@@ -29,12 +29,7 @@ title: 202 - Silicon Detector
 
   For more charges, we just need to add up all the carriers' contribution.
 
-<img src="/images/circuit_with.png" width="600"/>
-
   Considering the circuit to get the waveform, we refer to the detector as a current source with a parallel capacitance that is equal to the capacitance of the detector measured through CV.
 
 ## Reference
-[1]He Z . Review of the Shockley–Ramo theorem and its application in semiconductor gamma-ray detectors[J]. Nuclear Instruments & Methods in Physics Research, 2001, 463(1-2):250-267.
-
-[2]Bruyneel-EGAN-School-P1.pdf
-
+[1]He Z . Review of the Shockley–Ramo theorem and its application in semiconductor gamma-ray detectors[J]. Nuclear Instruments & Methods in Physics Research, 2001, 463(1-2):250-267. <http://cztlab.engin.umich.edu/wp-content/uploads/sites/187/2015/03/ShockleyRamo.pdf>
