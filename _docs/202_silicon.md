@@ -10,7 +10,7 @@ use_math: true
 ## What is Silicon Detector ?
 
 
-## Shockley-Ramo Theorem
+## Shockley-Ramo Theorem[1]
 
   Shockley-Ramo Theorem is used to calculate the induced current on the electrode of a vacuum tube firstly, then it is also applied to calculate the induced current on electrode with fixed charges in between. Therefore, this theorem can be applied to calculate the current on the electrode of a fully depleted silicon detector.
 
