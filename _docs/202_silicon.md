@@ -1,5 +1,6 @@
 ---
 title: 202 - Silicon Detector  
+use_math: true
 ---
 
 **Contents**
