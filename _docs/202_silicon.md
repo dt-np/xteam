@@ -9,6 +9,17 @@ use_math: true
 
 ## What is Silicon Detector ?
 
+Semiconductor is a kind of material with conductivity between metal and insulator. It is located in group IV of the periodic table of elements and compound semiconductor materials, which are widely used in detectors, integrated circuits and other fields.
+
+<a href="/images/element_table.jpg">
+<img src="/images/element_table.jpg" width="400"/>
+</a>
+
+Most semiconductor devices have PN junction formed by the contact of p-type semiconductor and n-type semiconductor.
+
+Due to the different carrier concentrations on both sides, the electrons in the N region diffuse to the p region, the positively charged donor ions stay in the N region, the holes in the p region diffuse to the N region, and the negatively charged acceptor ions stay in the p region. The net positive charge of N region, P region and net negative charge induce a built-in electric field near the metallurgical junction, and the direction is from n region to p region. We can see clearly the net positive charge and net negative charge regions formed in the semiconductor. Since there is no movable charge in this region, it is called space charge region or depletion region. There is still a concentration gradient at the edge of the depletion region, and most carriers are subjected to a "diffusion force".
+At the same time, most carriers are also affected by the electric field force in the depletion region, which is opposite to the "diffusion force".
+
 
 ## Shockley-Ramo Theorem[1]
 
