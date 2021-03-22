@@ -76,7 +76,7 @@ Both 4H-SiC and 6H-SiC lattices are formed by a corresponding number of cubic an
 with a stacking sequences of ABCB (4H-SiC) or ABCACB (6H-SiC), as shown in Figure 2.
 
 <center>
-<img src="/images/sd_sic_polytypes" width="500"/>
+<img src="/images/sd_sic_polytypes.png" width="500"/>
 </center>
 
 <center>
@@ -94,7 +94,7 @@ but there is an angle between the growth direction and the normal direction of t
 The miscut angle is usually in the range of 3.5 - 8.5°.
 
 <center>
-<img src="/images/sp_sic_miscut" width="500"/>
+<img src="/images/sp_sic_miscut.png" width="500"/>
 </center>
 
 <center>
