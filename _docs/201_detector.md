@@ -54,7 +54,7 @@ Those detectors are classifiable from several perspective, and the following exa
 
 ## Silicon Carbide
 ### 3a）Crystal structure of silicon carbide
-Unlike silicon, SiC has different crystal structures called polytypes , like 3C、4H、6H .  <br>
+One of the differences between silicon carbide and silicon: silicon carbide has a polycrystalline crystal structure, such as 3C, 4H, 6H.
 
 <center>
 <img src="/images/sic_hexagonal.png" width="500"/>
@@ -66,14 +66,13 @@ Figure 1. Crystal orientations in a hexagonal SiC polytype.
 </font>
 </center>
 
-In a hexagonal crystal, four Miller indices are used to define a direction: a1, a2, a3, and c. 
-However, a1, a2, and a3 depend on each other with the relationship: a1 + a2 + a3 = 0.
-Therefore, it is sufficient to use only three of the four Miller indices to determine any direction. 
-For example, the direction [1120] is specified as {1 1 0}, omitting the third Miller index.  <br>
+In hexagonal crystal structures, four Miller indices (a1, a2, a3, c) are commonly used to indicate directions.
+However, it can be proved that there are the following relations between a1, a2 and a3: a1 + a2 + a3 = 0.
+Therefore, it is simple and efficient to use only three Miller indices (a1, a2, and c) to indicate the direction, regardless of a3.
+For example, the direction [11(-2)0] is simplified as as {1 1 0}.  <br>
 
 ### 3b) Layer structure of SiC
-Both 4H-SiC and 6H-SiC lattices are formed by a corresponding number of cubic and hexagonal bonds 
-with a stacking sequences of ABCB (4H-SiC) or ABCACB (6H-SiC), as shown in Figure 2.
+Both 4H-SiC and 6H-SiC lattices belong to hexagonal lattice structure, and the difference lies in the sequence of accumulation layers.For 4H-SiC, the deposit order is ABCB and for 6H-SiC, the deposit order is ABCACB.as shown in Figure 2.
 
 <center>
 <img src="/images/sd_sic_polytypes.png" width="500"/>
