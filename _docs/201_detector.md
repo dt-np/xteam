@@ -102,7 +102,8 @@ Figure 3. Definition of miscut angle.
 </font>
 </center>
 
+## 
 **Reference**
-[1]
+[1] TCAD Sentaurus™ Tutorial
 
 
