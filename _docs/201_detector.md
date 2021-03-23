@@ -52,6 +52,7 @@ Those detectors are classifiable from several perspective, and the following exa
 **Above list/format is a first template (March 6th, 2021).   <br>
 
 
+
 ## Silicon Carbide
 ### 3a）Crystal structure of silicon carbide
 One of the differences between silicon carbide and silicon: silicon carbide has a polycrystalline crystal structure, such as 3C, 4H, 6H.
@@ -62,7 +63,7 @@ One of the differences between silicon carbide and silicon: silicon carbide has 
 
 <center>
 <font size=2 >
-Figure 1. Crystal orientations in a hexagonal SiC polytype.
+Figure 1. Crystal orientations in a hexagonal SiC polytype.(Reference:Synopsys.TCAD Sentaurus™ Tutorial.Sentaurus Device)
 </font>
 </center>
 
@@ -81,7 +82,7 @@ Both 4H-SiC and 6H-SiC lattices belong to hexagonal lattice structure, and the d
 <center>
 <font size=2 >
 Figure 2. Layer structure of SiC (towards [0001] direction) with (left) tetrahedrally bonded carbon 
-  atoms linked to three Si atoms within the bilayer and (right) shown together with the stacking sequences for 4H-SiC and 6H-SiC polytypes.
+  atoms linked to three Si atoms within the bilayer and (right) shown together with the stacking sequences for 4H-SiC and 6H-SiC polytypes.(Reference:Synopsys.TCAD Sentaurus™ Tutorial.Sentaurus Device)
 </font>
 </center>
 
@@ -99,11 +100,11 @@ The miscut angle is usually in the range of 3.5 - 8.5°.
 <center>
 <font size=2 >
 Figure 3. Definition of miscut angle.
+  (Reference:Synopsys.TCAD Sentaurus™ Tutorial.Sentaurus Device)
 </font>
 </center>
 
 ## 
 **Reference**
-[1] TCAD Sentaurus™ Tutorial
-
-
+[1] Synopsys.TCAD Sentaurus™ Tutorial.Sentaurus Device.v2018.
+[2] Synopsys.Sentaurus™ Device User Guide.June 2018.
