@@ -57,9 +57,13 @@ $$
 
 where the U is the voltage of the electrode.
 
-The weighting field $$E_{w}$$ is a measure of electrostatic coupling between the point "A" and the detector electrode. The weighting potential $$U_{w}$$ is the ratio of the "A" potential and the electrode potential after one or more potentials and charges are changed.
+The weighting potential $$U_{w}$$ is the ratio of the "A" potential and the electrode potential after one or more potentials and charges are changed. The weighting field $$E_{w}=\nabla U_{w}$$ is a measure of electrostatic coupling between the point "A" and the detector electrode. 
 
-$\eqref{eq3}$
+The $$E_{w}$$ and $$U_{w}$$ are obtained as a solution of $\eqref{eq3}$ with the following boundary conditions:
+-$$U_{w}=1$$ at the readout electrode,$$U_{w}=0$$ at the other electrodes.
+-$$
+\frac{\partial U_{w}}{\partial x}=0,\frac{\partial U_{w}}{\partial y}=0,\frac{\partial U_{w}}{\partial z}=0   \tag{1-6} \label{eq6}
+$$
 
 **Reference**
 
