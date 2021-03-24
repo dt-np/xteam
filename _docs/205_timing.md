@@ -34,7 +34,7 @@ The time resolution simulation of silicon detector is essential for designing an
 The electic potential $$ V_{E} $$  at a point "A" in a static electric filed E is given by:
 
 $$
-V_{E}=-\int_{C}Edl 
+V_{E}=-\int_{C}Edl \tag{1} \label{eq1}
 $$
 
 where C is the path connecting the ponit  with zero potential.  According to the Gauss's law and Poisson's equation, the electric potential statisfies:
@@ -45,7 +45,7 @@ where $$\rho$$ is the total charge density, and $$varepsilon_{0}$$ is permittivi
 
 $$-\nabla^{2}V_{E} = \frac{e_{0}N_{eff}}{\varepsilon_{S_{i}}\varepsilon_{0}}$$
 
-$$E=-\nablaV_{E}   $$
+$$E=-\nabla V_{E}   $$
 
 At the borders of simulated volume, the voltage is same on the both sides of the electrode and the edge interface. The boundary conditions were:
 
