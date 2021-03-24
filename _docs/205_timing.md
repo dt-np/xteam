@@ -31,35 +31,35 @@ The conclusion is that the time walk contribution for time resolution of 3D semi
 ## The time resolution simulation of silicon detector
 The time resolution simulation of the silicon detector is essential for designing and improving the timing detector, and the simulation can predict the operation of the silicon detector to a certain extent. The simulation comprises four parts: electric and weighting field calculation, the charge generation by incident particles, the drift of the generated charge and the calculation of induced current, and the readout electronics.
 ### 1. Electric and Weighting Field Calculation
-The electric potential $$ V_{E} $$  at the point "A" in a static electric filed E is given by:
+The electric potential $$ V_{E} $$  at the point "A" in a static electric field E is given by:
 
 $$
 V_{E}=-\int_{C}Edl \tag{1-1} \label{eq1}
 $$
 
-shere C is the path connecting the "A" point with zero potential. According to Gauss's law and Poisson's equation, the electric potential satisfies:
+where C is the path connecting the "A" point with zero potential. According to Gauss's law and Poisson's equation, the electric potential satisfies:
 
 $$ 
 -\nabla^{2}V_{E} = \rho/\varepsilon_{0}   \tag{1-2} \label{eq2}
 $$ 
 
-where $$\rho$$ is the total charge density, and $$\varepsilon_{0}$$ is permittivity of vacuum. if the material of detector is silicon and the effective concentration of the detector is $$ N_{eff}(\vec{r})$$. The equation becomes:
+where $$\rho$$ is the total charge density, and $$\varepsilon_{0}$$ is permittivity of vacuum. if the material of detector is silicon and the effective concentration of the detector is $$ N_{eff}(\vec{r})$$. The equation becomes <sup>[2]</sup>:
 
 $$-\nabla^{2}V_{E}(\vec{r}) = \frac{e_{0}N_{eff}(\vec{r})}{\varepsilon_{S_{i}}\varepsilon_{0}} \tag{1-3} \label{eq3}$$
 
 $$E(\vec{r})=-\nabla V_{E}(\vec{r})  \tag{1-4} \label{eq4} $$
 
-At the borders of simulated volume, the voltage is same on the both sides of the electrode and the edge interface. The boundary conditions were:
+At the borders of simulated volume, the voltage is same on the both sides of the electrode and the edge interface. The boundary conditions were  <sup>[2]</sup>:
 
 $$
-\frac{\partial U}{\partial x}=0,\frac{\partial U)}{\partial y}=0,\frac{\partial U}{\partial z}=0   \tag{1-5} \label{eq5}
+\frac{\partial U}{\partial x}=0,\frac{\partial U}{\partial y}=0,\frac{\partial U}{\partial z}=0   \tag{1-5} \label{eq5}
 $$
 
-where the U is the voltage of the electrode. By solving equations $$\eqref{eq3}$$, $$\eqref{eq4}$$ and $$\eqref{eq5}$$, we can get the electric field distribution of the detector
+where the U is the voltage of the electrode. By solving equations $$\eqref{eq3}$$, $$\eqref{eq4}$$ and $$\eqref{eq5}$$, we can get the electric field distribution of the detector.
 
 The weighting potential $$U_{w}(\vec{r})$$ is the ratio of the potential of "A" point and the potential of electrode after one or more potentials and charges are changed. The weighting field $$E_{w}(\vec{r})=-\nabla U_{w}(\vec{r})$$ is a measure of electrostatic coupling between the point "A" and the detector electrode. 
 
-The $$E_{w}(\vec{r})$$ and $$U_{w}(\vec{r})$$ are obtained as a solution of $$\eqref{eq3}$$ with the following boundary conditions:
+The $$E_{w}(\vec{r})$$ and $$U_{w}(\vec{r})$$ are obtained as a solution of the equation $$\eqref{eq3}$$ with the following boundary conditions  <sup>[2]</sup>:
 - $$U_{w}(\vec{r})=1$$ at the readout electrode, $$U_{w}(\vec{r})=0$$ at the other electrodes.
 - $$
 \frac{\partial U_{w}(\vec{r})}{\partial x}=0,\frac{\partial U_{w}(\vec{r})}{\partial y}=0,\frac{\partial U_{w}(\vec{r})}{\partial z}=0   \tag{1-6} \label{eq6}
