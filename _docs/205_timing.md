@@ -33,25 +33,27 @@ The time resolution simulation of silicon detector is essential for designing an
 ### 1. Electric and Weighting Field Calculation
 The electic potential $$ V_{E} $$  at a point "A" in a static electric filed $$ E $$ is given by:
 $$
-V_{E}=-\int_{C}\Edl
+V_{E}=-\int_{C}\Edl \label{eq1}
 $$
 where C is the path connecting the ponit 
 
 with zero potential.  According to the Gauss's law and Poisson's equation, the electric potential statisfies:
-$$ -\nabla^{2}V_{E} = \rho/\varepsilon_{0}$$
+$$ -\nabla^{2}V_{E} = \rho/\varepsilon_{0}    \label{eq2}$$ 
 where $$\rho$$ is the total charge density, and $$varepsilon_{0}$$ is permittivity of vacuum.
 if the material of detector is silicon and the effective concentration of the detector is $$ N_{eff}. The equation becomes:
-$$-\nabla^{2}V_{E} = \frac{e_{0}N_{eff}}{\varepsilon_{S_{i}}\varepsilon_{0}}$$
+$$-\nabla^{2}V_{E} = \frac{e_{0}N_{eff}}{\varepsilon_{S_{i}}\varepsilon_{0}}  \label{eq3}$$
 
-$$E=-\nablaV_{E}$$
+$$E=-\nablaV_{E}   \label{eq4}$$
 
 At the borders of simulated volume, the voltage is same on the both sides of the electrode and the edge interface. The boundary conditions were:
 $$
-\frac{\partial U}{\partial x}=0,\frac{\partial U}{\partial y}=0,\frac{\partial U}{\partial z}=0
+\frac{\partial U}{\partial x}=0,\frac{\partial U}{\partial y}=0,\frac{\partial U}{\partial z}=0  \label{eq5}
 $$
 where the U is the voltage of the electrode.
 
 The weighting field $$E_{w}$$ is a measure of electrostatic coupling between the point "A" and the detector electrode. The weighting potential $$U_{w}$$ is the ratio of the "A" potential and the electrode potential after one or more potentials and charges are changed.
+
+
 
 **Reference**
 
