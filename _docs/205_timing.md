@@ -29,15 +29,15 @@ The time resolution of a detector is largely given by jitter contribution and ti
 The conclusion is that the time walk contribution for time resolution of 3D semiconductor detector is mainly given by the location of impact within the detector.
 
 ## The time resolution simulation of silicon detector
-The time resolution simulation of silicon detector is essential for designing and improving timing detector. The simulation can predict the operation of silicon detector to a certain extent. The simulation consists of four parts: electric and weighting field calculation, the charge generation by incident particles, the drift of the generated charge, and the readout electronics.
+The time resolution simulation of the silicon detector is essential for designing and improving the timing detector, and the simulation can predict the operation of the silicon detector to a certain extent. The simulation comprises four parts: electric and weighting field calculation, the charge generation by incident particles, the drift of the generated charge and the calculation of induced current, and the readout electronics.
 ### 1. Electric and Weighting Field Calculation
-The electic potential $$ V_{E} $$  at a point "A" in a static electric filed E is given by:
+The electric potential $$ V_{E} $$  at the point "A" in a static electric filed E is given by:
 
 $$
 V_{E}=-\int_{C}Edl \tag{1-1} \label{eq1}
 $$
 
-where C is the path connecting the ponit  with zero potential.  According to the Gauss's law and Poisson's equation, the electric potential statisfies:
+shere C is the path connecting the "A" point with zero potential. According to Gauss's law and Poisson's equation, the electric potential satisfies:
 
 $$ 
 -\nabla^{2}V_{E} = \rho/\varepsilon_{0}   \tag{1-2} \label{eq2}
@@ -52,40 +52,42 @@ $$E(\vec{r})=-\nabla V_{E}(\vec{r})  \tag{1-4} \label{eq4} $$
 At the borders of simulated volume, the voltage is same on the both sides of the electrode and the edge interface. The boundary conditions were:
 
 $$
-\frac{\partial U(\vec{r})}{\partial x}=0,\frac{\partial U(\vec{r})}{\partial y}=0,\frac{\partial U(\vec{r})}{\partial z}=0   \tag{1-5} \label{eq5}
+\frac{\partial U}{\partial x}=0,\frac{\partial U)}{\partial y}=0,\frac{\partial U}{\partial z}=0   \tag{1-5} \label{eq5}
 $$
 
-where the U is the voltage of the electrode.
+where the U is the voltage of the electrode. By solving equations $$\eqref{eq3}$$, $$\eqref{eq4}$$ and $$\eqref{eq5}$$, we can get the electric field distribution of the detector
 
-The weighting potential $$U_{w}(\vec{r})$$ is the ratio of the "A" potential and the electrode potential after one or more potentials and charges are changed. The weighting field $$E_{w}(\vec{r})=-\nabla U_{w}(\vec{r})$$ is a measure of electrostatic coupling between the point "A" and the detector electrode. 
+The weighting potential $$U_{w}(\vec{r})$$ is the ratio of the potential of "A" point and the potential of electrode after one or more potentials and charges are changed. The weighting field $$E_{w}(\vec{r})=-\nabla U_{w}(\vec{r})$$ is a measure of electrostatic coupling between the point "A" and the detector electrode. 
 
 The $$E_{w}(\vec{r})$$ and $$U_{w}(\vec{r})$$ are obtained as a solution of $$\eqref{eq3}$$ with the following boundary conditions:
-- $$U_{w}(\vec{r})=1$$ at the readout electrode,$$U_{w}(\vec{r})=0$$ at the other electrodes.
+- $$U_{w}(\vec{r})=1$$ at the readout electrode, $$U_{w}(\vec{r})=0$$ at the other electrodes.
 - $$
 \frac{\partial U_{w}(\vec{r})}{\partial x}=0,\frac{\partial U_{w}(\vec{r})}{\partial y}=0,\frac{\partial U_{w}(\vec{r})}{\partial z}=0   \tag{1-6} \label{eq6}
 $$
 
-The calculation of the electric and weighting field is important for the carrier drift.
+The calculation of the electric and weighting field is important for the simulation of carrier drift.
 
 ### 2. Charge generation by incident particles
  
- When a particles through the detector, the energy lost of the particle in silicon is:
+ When a particle through the detector, the energy loss of the particle in silicon is:
  
  $$
  \Delta E_{S{i}}  = \frac{dE}{dx}\Delta x  \tag{2-1} \label{eq7}
  $$
  
- where the most probable energy loss $$\frac{dE}{dx}$$ in silicon is 273 eV/$$\mu$$m, and the $$\Delta x$$ the dirft distance of the particle.
+ where the most probable energy loss $$\frac{dE}{dx}$$ in silicon is 273 eV/$$\mu$$m, and the $$\Delta x$$ is the drift distance of the particle.
  
- If we divide the track of particle into N steps,  the amount of charge that may be generated in i-th step is:
+ If we divide the track of particle into N steps, the amount of charge generated in i-th step is:
  
  $$
  Q_{i}=\frac{1}{3.6eV}(frac{dE}{dx})_{i}Delta x_{i}  \tag{2-1} \label{eq8}
  $$
 
 
-Through $$\eqref{eq8}$$, we can roughly estimate that there will be about 7500 electron-hole pair generated when the particles pass through the sensor with a thickness of 100$$\um$$m.
+Through $$\eqref{eq8}$$, we can roughly estimate that there will be about 7500 electron-hole pair generated when the particles pass through the sensor with a thickness of 100$$\mu$$m.
 
 **Reference**
 
-[1]G. Kramberger et al. Timing performance of small cell 3D silicon detectors. [DOI: 10.1016/j.nima.2019.04.088](https://doi.org/10.1016/j.nima.2019.04.088)
+[1]. G. Kramberger et al. Timing performance of small cell 3D silicon detectors. [DOI: 10.1016/j.nima.2019.04.088](https://doi.org/10.1016/j.nima.2019.04.088)
+
+[2]. G. Kramberger et al. Signal development in irradiated silicon detectors. [CERN-THESIS-2001-038](https://inspirehep.net/literature/1088069)
