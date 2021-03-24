@@ -43,16 +43,16 @@ $$
 -\nabla^{2}V_{E} = \rho/\varepsilon_{0}   \tag{1-2} \label{eq2}
 $$ 
 
-where $$\rho$$ is the total charge density, and $$\varepsilon_{0}$$ is permittivity of vacuum. if the material of detector is silicon and the effective concentration of the detector is $$ N_{eff}$$. The equation becomes:
+where $$\rho$$ is the total charge density, and $$\varepsilon_{0}$$ is permittivity of vacuum. if the material of detector is silicon and the effective concentration of the detector is $$ N_{eff}(\vec{r})$$. The equation becomes:
 
-$$-\nabla^{2}V_{E} = \frac{e_{0}N_{eff}}{\varepsilon_{S_{i}}\varepsilon_{0}} \tag{1-3} \label{eq3}$$
+$$-\nabla^{2}V_{E}(\vec{r}) = \frac{e_{0}N_{eff}(\vec{r})}{\varepsilon_{S_{i}}\varepsilon_{0}} \tag{1-3} \label{eq3}$$
 
-$$E=-\nabla V_{E}  \tag{1-4} \label{eq4} $$
+$$E=-\nabla V_{E}(\vec{r})  \tag{1-4} \label{eq4} $$
 
 At the borders of simulated volume, the voltage is same on the both sides of the electrode and the edge interface. The boundary conditions were:
 
 $$
-\frac{\partial U}{\partial x}=0,\frac{\partial U}{\partial y}=0,\frac{\partial U}{\partial z}=0   \tag{1-5} \label{eq5}
+\frac{\partial U(\vec{r})}{\partial x}=0,\frac{\partial U(\vec{r})}{\partial y}=0,\frac{\partial U(\vec{r})}{\partial z}=0   \tag{1-5} \label{eq5}
 $$
 
 where the U is the voltage of the electrode.
