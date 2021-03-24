@@ -80,11 +80,11 @@ The calculation of the electric and weighting field is important for the simulat
  If we divide the track of particle into N steps, the amount of charge generated in i-th step is:
  
  $$
- Q_{i}=\frac{1}{3.6eV}(frac{dE}{dx})_{i}Delta x_{i}  \tag{2-1} \label{eq8}
+ Q_{i}=\frac{1}{3.6eV}(\frac{dE}{dx})_{i} \Delta x_{i}  \tag{2-1} \label{eq8}
  $$
 
 
-Through $$\eqref{eq8}$$, we can roughly estimate that there will be about 7500 electron-hole pair generated when the particles pass through the sensor with a thickness of 100$$\mu$$m.
+Through $$\eqref{eq8}$$, we can roughly estimate that there will be about 7500 electron-hole pairs generated when a particle pass through the sensor with a thickness of 100$$\mu$$m.
 
 **Reference**
 
