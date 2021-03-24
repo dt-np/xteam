@@ -1,5 +1,6 @@
 ---
 title: 205 - Timing Detector  
+use_math: true
 ---
 
 **Contents**
@@ -22,8 +23,8 @@ Fig.1  3D-Silicon sensor structure. Simulated drift tracks of electrons (blue) a
 The time resolution of a detector is largely given by jitter contribution and time walk contribution.  
 
 1.The jitter contribution is determined by the ratio of the rise time of the signal waveform and signal to noise ratio. Due to the sensor cell of 3D sensor is only about 30 $$\mu$$ m, the rise time is small. When the signal to noise ratio is small, the jitter contribution to time resolution is relatively more important and possibly even dominant. When the signal to noise is enough (like Low Gain Avalanche Detectors (LGAD)), the jitter contribution can be ignored.
-
-2.The time work contribution is caused by the difference in signal height and signal shapes. 
+2.
+3.The time work contribution is caused by the difference in signal height and signal shapes. 
 - The difference in signal height can be reduced by using Constant Fraction Discrimination(CFD). 
 - The signal shapes are mainly affected by the differences in drift paths of generated carriers. Fluctuations in ionization rates along the track path (Landau fluctuations) add to the differences in pulse shapes. In 3D detectors, Landau fluctuations are less important because of charges generated at different depths have the same drift distance to the collection electrode. The time walk contribution mainly depends on the location of the mpact within the cell of the sensor. <sup>[1]</sup>
 
