@@ -47,7 +47,7 @@ where $$\rho$$ is the total charge density, and $$\varepsilon_{0}$$ is permittiv
 
 $$-\nabla^{2}V_{E}(\vec{r}) = \frac{e_{0}N_{eff}(\vec{r})}{\varepsilon_{S_{i}}\varepsilon_{0}} \tag{1-3} \label{eq3}$$
 
-$$E=-\nabla V_{E}(\vec{r})  \tag{1-4} \label{eq4} $$
+$$E(\vec{r})=-\nabla V_{E}(\vec{r})  \tag{1-4} \label{eq4} $$
 
 At the borders of simulated volume, the voltage is same on the both sides of the electrode and the edge interface. The boundary conditions were:
 
@@ -57,13 +57,34 @@ $$
 
 where the U is the voltage of the electrode.
 
-The weighting potential $$U_{w}(\vec{r})$$ is the ratio of the "A" potential and the electrode potential after one or more potentials and charges are changed. The weighting field $$E_{w}(\vec{r})=\nabla U_{w}(\vec{r})$$ is a measure of electrostatic coupling between the point "A" and the detector electrode. 
+The weighting potential $$U_{w}(\vec{r})$$ is the ratio of the "A" potential and the electrode potential after one or more potentials and charges are changed. The weighting field $$E_{w}(\vec{r})=-\nabla U_{w}(\vec{r})$$ is a measure of electrostatic coupling between the point "A" and the detector electrode. 
 
 The $$E_{w}(\vec{r})$$ and $$U_{w}(\vec{r})$$ are obtained as a solution of $$\eqref{eq3}$$ with the following boundary conditions:
 - $$U_{w}(\vec{r})=1$$ at the readout electrode,$$U_{w}(\vec{r})=0$$ at the other electrodes.
 - $$
 \frac{\partial U_{w}(\vec{r})}{\partial x}=0,\frac{\partial U_{w}(\vec{r})}{\partial y}=0,\frac{\partial U_{w}(\vec{r})}{\partial z}=0   \tag{1-6} \label{eq6}
 $$
+
+The calculation of the electric and weighting field is important for the carrier drift.
+
+### 2. Charge generation by incident particles
+ 
+ When a particles through the detector, the energy lost of the particle in silicon is:
+ 
+ $$
+ \Delta E_{S{i}}  = \frac{dE}{dx}\Delta x  \tag{2-1} \label{eq7}
+ $$
+ 
+ where the most probable energy loss $$\frac{dE}{dx}$$ in silicon is 273 eV/$$\mu$$m, and the $$\Delta x$$ the dirft distance of the particle.
+ 
+ If we divide the track of particle into N steps,  the amount of charge that may be generated in i-th step is:
+ 
+ $$
+ Q_{i}=\frac{1}{3.6eV}(frac{dE}{dx})_{i}Delta x_{i}  \tag{2-1} \label{eq8}
+ $$
+
+
+Through $$\eqref{eq8}$$, we can roughly estimate that there will be about 7500 electron-hole pair generated when the particles pass through the sensor with a thickness of 100$$\um$$m.
 
 **Reference**
 
