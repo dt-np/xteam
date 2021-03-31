@@ -22,7 +22,7 @@ Due to the different carrier concentrations on both sides, the electrons in the 
 At the same time, most carriers are also affected by the electric field force in the depletion region, which is opposite to the "diffusion force".
 
 
-## Shockley-Ramo Theorem[1]
+## Shockley-Ramo Theorem<sup>[1]</sup>
 
   Shockley-Ramo Theorem is used to calculate the induced current on the electrode of a vacuum tube firstly, then it is also applied to calculate the induced current on electrode with fixed charges in between. Therefore, this theorem can be applied to calculate the current on the electrode of a fully depleted silicon detector.
 
@@ -46,4 +46,4 @@ At the same time, most carriers are also affected by the electric field force in
 
  **Reference**
  
-[1]He Z . Review of the Shockley–Ramo theorem and its application in semiconductor gamma-ray detectors[J]. Nuclear Instruments & Methods in Physics Research, 2001, 463(1-2):250-267.  <http://cztlab.engin.umich.edu/wp-content/uploads/sites/187/2015/03/ShockleyRamo.pdf>
+[1]He Z . Review of the Shockley–Ramo theorem and its application in semiconductor gamma-ray detectors. Nuclear Instruments and Methods in Physics Research Section A, 2001, 463(1-2):250-267.  <http://cztlab.engin.umich.edu/wp-content/uploads/sites/187/2015/03/ShockleyRamo.pdf>
