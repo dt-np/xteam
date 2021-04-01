@@ -57,7 +57,7 @@ $$
 
 The  $$V_{E}$$ is equal to the applied voltage at the electrodes, and the $$V_{E}$$ is 0 at the readout electrodes. By solving equations $$\eqref{eq3}$$, $$\eqref{eq4}$$ and $$\eqref{eq5}$$, we can get the electric field distribution of the detector.
 
-The weighting potential $$U_{w}(\vec{r})$$ is the ratio of the potential of "A" point after one or more potentials and charges are changed. The weighting field $$E_{w}(\vec{r})=-\nabla U_{w}(\vec{r})$$ is a measure of electrostatic coupling between the point "A" and the detector electrode after one or more potentials and charges are changed.
+The weighting potential $$U_{w}(\vec{r})$$ is the ratio of the potential of "A" point and after one or more potentials and charges are changed. The weighting field $$E_{w}(\vec{r})=-\nabla U_{w}(\vec{r})$$ is a measure of electrostatic coupling between the point "A" and the detector electrode after one or more potentials and charges are changed.
 
 The $$E_{w}(\vec{r})$$ and $$U_{w}(\vec{r})$$ are obtained as a solution of the equation $$\eqref{eq3}$$ with the following boundary conditions  <sup>[2]</sup>:
 - $$U_{w}(\vec{r})=1$$ at the readout electrode, $$U_{w}(\vec{r})=0$$ at the other electrodes.
