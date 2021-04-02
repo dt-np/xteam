@@ -18,7 +18,7 @@ Fig.1  3D-Silicon detector structure. Simulated drift tracks of electrons (blue)
 
 The time resolution of a detector is largely given by jitter contribution and time walk contribution.  
 
-1.The jitter contribution is determined by the ratio of the rise time of the signal waveform and signal to noise ratio. Due to the detector cell of 3D detector is only about 30 $$\mu$$ m, the rise time is small. When the signal to noise ratio is small, the jitter contribution to time resolution is relatively more important and possibly even dominant. When the signal to noise is enough (like Low Gain Avalanche Detectors (LGAD)), the jitter contribution can be ignored.
+1.Noise can cause the fluctuation of threshold time, which is the main contribution of timing jitter. The noise is determined by the ratio of the rise time of the signal waveform and signal to noise ratio. Due to the detector cell of 3D detector is only about 30 $$\mu$$ m, the rise time is small. When the signal to noise ratio is small, the jitter contribution to time resolution is relatively more important and possibly even dominant. When the signal to noise is enough (like Low Gain Avalanche Detectors (LGAD)), the jitter contribution can be ignored.
 
 
 2.The time work contribution is caused by the difference in signal height and signal shapes. 
