@@ -42,7 +42,7 @@ use_math: true
   In silicon detector, when the field in wide space charge region(wider than mean free path) is strong enough to reach a threshold, the carriers like electron and holes can generate some electron-hole pairs through Impact Ionization. And the reciprocal of the mean free time is called the ionization coefficient $$\alpha$$. For electrons, that is $$\alpha_n$$ and the $$\alpha_p$$ is for holes, then we have the generation rate:
 
 $$
-G_{ii} = 1/q (\alpha_n abs(\vec{J_n}) + \alpha_p abs(\vec{J_p}))  
+G_{ii} = \frac{1}{q} (\alpha_n \lvert\vec{J_n}\rvert + \alpha_p \lvert\vec{J_p}\rvert)  
 $$
 
 where $$\vec{J_n}$$ and $$\vec{J_p}$$ are the electron and hole current density vectors.
