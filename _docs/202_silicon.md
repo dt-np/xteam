@@ -37,7 +37,7 @@ use_math: true
 [1]He Z . Review of the Shockley–Ramo theorem and its application in semiconductor gamma-ray detectors[J]. Nuclear Instruments & Methods in Physics Research, 2001, 463(1-2):250-267.  <http://cztlab.engin.umich.edu/wp-content/uploads/sites/187/2015/03/ShockleyRamo.pdf>
 
 
-## Impact Ionization and Impact Ionization Model[2]</sup>
+## Impact Ionization and Impact Ionization Model<sup>[2]</sup>
 
   In silicon detector, when the field in wide space charge region(wider than mean free path) is strong enough to reach a threshold, the carriers like electron and holes can generate some electron-hole pairs through Impact Ionization. And the reciprocal of the mean free time is called the ionization coefficient $$\alpha$$. For electrons, that is $$\alpha_n$$ and the $$\alpha_p$$ is for holes, then we have the generation rate:
 
