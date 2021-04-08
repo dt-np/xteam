@@ -56,4 +56,5 @@ There are some Impact Ionization Models:
   6. Hatakeyama Mode
 
 **Reference**
+
 [2] Sentaurus™ Device UserGuide Version P-2019.03, March 2019 <>
