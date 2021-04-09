@@ -39,7 +39,7 @@ use_math: true
 
 ## Impact Ionization and Impact Ionization Model<sup>[2]</sup>
 
-  In silicon detector, when the field in wide space charge region(wider than mean free path) is strong enough to reach a threshold, the carriers like electron and holes can generate some electron-hole pairs through Impact Ionization. And the reciprocal of the mean free time is called the ionization coefficient $$\alpha$$. For electrons, that is $$\alpha_n$$ and the $$\alpha_p$$ is for holes, then we have the generation rate:
+  In silicon detector, when the field in wide space charge region(wider than mean free path) is strong enough to reach a threshold, the carriers like electrons and holes can generate some electron-hole pairs through Impact Ionization. And the reciprocal of the mean free time is called the ionization coefficient $$\alpha$$. For electrons, that is $$\alpha_n$$ and the $$\alpha_p$$ is for holes, then we have the generation rate:
 
 $$
 G_{ii} = \frac{1}{q} (\alpha_n \lvert\vec{J_n}\rvert + \alpha_p \lvert\vec{J_p}\rvert)  
