@@ -99,11 +99,11 @@ There are some Impact Ionization Models and they give the ionization coefficient
       for holes:
       
       $$
-      \begin{array}{l}
-      \qquad a(T)=a_{0}+a_{1} t \quad b(T)=b_{0} \exp \left[b_{1} t\right] \quad c(T)=c_{0} t^{c_{1}} \quad d(T)=d_{0}+d_{1} t+d_{2} t^{2} \\
-      \text { where } t=T / 1 \mathrm{~K} .
-      \end{array}
+      a(T)=a_{0}+a_{1} t \quad b(T)=b_{0} \exp \left[b_{1} t\right] \quad c(T)=c_{0} t^{c_{1}} \quad d(T)=d_{0}+d_{1} t+d_{2} t^{2}
       $$
+      
+      where $$t=T / 1 \mathrm{~K}$$ .
+      
       
   5. the new University of Bologna Mode
       
