@@ -48,6 +48,7 @@ $$
 where $$\vec{J_n}$$ and $$\vec{J_p}$$ are the electron and hole current density vectors.
 
 There are some Impact Ionization Models and they give the ionization coefficient $$\alpha$$'s dependence on temperature and electrical field: 
+  
   1. van Overstraeten – de Man Mode
   
   $$
