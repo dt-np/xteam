@@ -110,11 +110,37 @@ There are some Impact Ionization Models and they give the ionization coefficient
       $$
       \alpha\left(F_{\text {ava }}, T\right)=\frac{F_{\text {ava }}}{a(T)+b(T) \exp \left[\frac{d(T)}{F_{\text {ava }}+c(T)}\right]}
       $$
+      
+      $$
+      a(T)=\sum_{k=0}^{3} a_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad b(T)=\sum_{k=0}^{10} b_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad c(T)=\sum_{k=0}^{3} c_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad d(T)=\sum_{k=0}^{3} d_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}
+      $$
   
   6. Hatakeyama Mode
       
       $$
-      a(T)=\sum_{k=0}^{3} a_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad b(T)=\sum_{k=0}^{10} b_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad c(T)=\sum_{k=0}^{3} c_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad d(T)=\sum_{k=0}^{3} d_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}
+      \begin{array}{c}
+      \alpha=\gamma a e^{-\frac{\gamma b}{F}} \\
+      \gamma=\frac{\tanh \left(\frac{\hbar \omega_{\mathrm{op}}}{2 k T_{0}}\right)}{\tanh \left(\frac{\hbar \omega_{\mathrm{op}}}{2 k T}\right)}
+      \end{array}
+      $$
+      
+      $$
+      F^{2}=F_{0001}^{2}+F_{11 \overline{2} 0}^{2}
+      $$
+
+      $$
+      B=\frac{F}{\sqrt{\left(\frac{F_{11 \overline{2} 0}}{b_{11 \overline{2} 0}}\right)^{2}+\left(\frac{F_{0001}}{b_{0001}}\right)^{2}}}
+      $$
+      
+      $$
+      a=a_{11 \overline{2} 0}^{\left(\frac{B F_{1120}}{b_{11 \overline{2} 0} F}\right)^{2}} a_{0001}^{\left(\frac{B F_{0001}}{b_{0001} F}\right)^{2}}
+      $$
+      
+      $$
+      \begin{array}{c}
+      A=\log \frac{a_{0001}}{a_{11\overline{2} 0} } \\
+      b=B \sqrt{1-\theta A^{2}\left(\frac{B F_{11 \overline{2} 0} F_{0001}}{F b_{11 \overline{2} 0} b_{0001}}\right)^{2}}
+      \end{array}
       $$
 
 **Reference**
