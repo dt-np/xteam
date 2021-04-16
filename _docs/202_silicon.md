@@ -111,6 +111,8 @@ There are some Impact Ionization Models and they give the ionization coefficient
       \alpha\left(F_{\text {ava }}, T\right)=\frac{F_{\text {ava }}}{a(T)+b(T) \exp \left[\frac{d(T)}{F_{\text {ava }}+c(T)}\right]}
       $$
       
+      with
+      
       $$
       a(T)=\sum_{k=0}^{3} a_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad b(T)=\sum_{k=0}^{10} b_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad c(T)=\sum_{k=0}^{3} c_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad d(T)=\sum_{k=0}^{3} d_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}
       $$
@@ -118,10 +120,13 @@ There are some Impact Ionization Models and they give the ionization coefficient
   6. Hatakeyama Mode
       
       $$
-      \begin{array}{c}
-      \alpha=\gamma a e^{-\frac{\gamma b}{F}} \\
+      \alpha=\gamma a e^{-\frac{\gamma b}{F}}
+      $$
+      
+      with
+      
+      $$
       \gamma=\frac{\tanh \left(\frac{\hbar \omega_{\mathrm{op}}}{2 k T_{0}}\right)}{\tanh \left(\frac{\hbar \omega_{\mathrm{op}}}{2 k T}\right)}
-      \end{array}
       $$
       
       $$
