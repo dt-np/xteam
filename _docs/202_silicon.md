@@ -49,35 +49,43 @@ where $$\vec{J_n}$$ and $$\vec{J_p}$$ are the electron and hole current density 
 
 There are some Impact Ionization Models and they give the ionization coefficient $$\alpha$$'s dependence on temperature and electrical field: 
   1. van Overstraeten – de Man Mode
+  
   $$
   \alpha(F_{ava})=\gamma a exp(-\frac{\gamma b}{F_{ava}})
   $$
+  
   with
+  
   $$
   \gamma = \frac{tanh(\frac{\hbar \omega_{op}}{2k T_0})}{tanh(\frac{\hbar \omega_{op}}{2kT})}
   $$
   
   2. Okuto–Crowell Mode
+  
   $$
   \alpha(F_{ava})=a \cdot \big (1+c(T-T_0) \big )F^{\gamma}_{ava} exp \big [ -\big (\frac{b[1+d(T-T_0)]}{F_{ava}} \big )^{\delta} \big ]
   $$
   
   3. Lackner Mode
+  
   $$
   
   $$
   
   4. University of Bologna Mode
+  
   $$
   
   $$
 
   5. the new University of Bologna Mode
+  
   $$
   
   $$
   
   6. Hatakeyama Mode
+  
   $$
   
   $$
