@@ -70,25 +70,51 @@ There are some Impact Ionization Models and they give the ionization coefficient
   3. Lackner Mode
       
       $$
-  
+      \alpha_{\mathrm{v}}\left(F_{\mathrm{ava}}\right)=\frac{\gamma a_{\mathrm{v}}}{Z} \exp \left(-\frac{\gamma b_{\mathrm{v}}}{F_{\mathrm{ava}}}\right) \text { where } v=n, p
+      $$
+      
+      with:
+      
+      $$
+      \begin{array}{c}
+      Z=1+\frac{\gamma b_{n}}{F_{\text {ava }}} \exp \left(-\frac{\gamma b_{n}}{F_{\text {ava }}}\right)+\frac{\gamma b_{p}}{F_{\text {ava }}} \exp \left(-\frac{\gamma b_{p}} {F_{\text {ava }}}\right) \\
+      \gamma=\frac{\tanh \left(\frac{\hbar \omega_{\mathrm{op}}}{2 k T_{0}}\right)}{\tanh \left(\frac{\hbar \omega_{\mathrm{op}}}{2 k T}\right)}
+      \end{array}
       $$
   
   4. University of Bologna Mode
       
-      $$
+      The model reads:
       
       $$
+      \alpha\left(F_{\text {ava }}, T\right)=\frac{F_{\text {ava }}}{a(T)+b(T) \exp \left[\frac{d(T)}{F_{\text {ava }}+c(T)}\right]}
+      $$
 
+      for electrons:
+      
+      $$
+      a(T)=a_{0}+a_{1} t^{a_{2}} \quad b(T)=b_{0} \quad c(T)=c_{0}+c_{1} t+c_{2} t^{2} \quad d(T)=d_{0}+d_{1} t+d_{2} t^{2}
+      $$
+      
+      for holes:
+      
+      $$
+      \begin{array}{l}
+      \qquad a(T)=a_{0}+a_{1} t \quad b(T)=b_{0} \exp \left[b_{1} t\right] \quad c(T)=c_{0} t^{c_{1}} \quad d(T)=d_{0}+d_{1} t+d_{2} t^{2} \\
+      \text { where } t=T / 1 \mathrm{~K} .
+      \end{array}
+      $$
+      
   5. the new University of Bologna Mode
       
       $$
-      
+      \alpha\left(F_{\text {ava }}, T\right)=\frac{F_{\text {ava }}}{a(T)+b(T) \exp \left[\frac{d(T)}{F_{\text {ava }}+c(T)}\right]}
       $$
   
   6. Hatakeyama Mode
       
       $$
-      
+      a(T)=\sum_{k=0}^{3} a_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad b(T)=\sum_{k=0}^{10} b_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad c(T)=\sum_{k=0}^{3} c_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad d(T)=\sum_{k=0}^{3} d_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}
       $$
 
 **Reference**
