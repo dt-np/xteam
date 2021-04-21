@@ -60,13 +60,17 @@ There are some Impact Ionization Models and they give the ionization coefficient
       $$
       \gamma = \frac{tanh(\frac{\hbar \omega_{op}}{2k T_0})}{tanh(\frac{\hbar \omega_{op}}{2kT})}
       $$
-  
+      
+      $$a,b,E_0,\hbar \omega_{op},\lambda,\beta$$ are paremeters given by the model.
+      
   2. Okuto–Crowell Mode
       
       $$
       \alpha(F_{ava})=a \cdot \big (1+c(T-T_0) \big )F^{\gamma}_{ava} exp \big [ -\big (\frac{b[1+d(T-T_0)]}{F_{ava}} \big )^{\delta} \big ]
       $$
   
+      $$a,b,c,d,\gamma,\delta,\lambda,\beta$$ are parameters given by the model.
+      
   3. Lackner Mode
       
       $$
@@ -82,6 +86,8 @@ There are some Impact Ionization Models and they give the ionization coefficient
       \end{array}
       $$
   
+      $$a,b,\hbar \omega_{op},\lambda,\beta$$ are parameters given by the model.
+      
   4. University of Bologna Mode
       
       The model reads:
@@ -104,6 +110,7 @@ There are some Impact Ionization Models and they give the ionization coefficient
       
       where $$t=T / 1 \mathrm{~K}$$ .
       
+      $$a_0,a_1,a_2,b_0,b_1,c_0,c_1,c_2,d_0,d_1,d_2,\lambda,\beta$$ are parameters given by the model.
       
   5. the new University of Bologna Mode
       
@@ -116,7 +123,9 @@ There are some Impact Ionization Models and they give the ionization coefficient
       $$
       a(T)=\sum_{k=0}^{3} a_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad b(T)=\sum_{k=0}^{10} b_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad c(T)=\sum_{k=0}^{3} c_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad d(T)=\sum_{k=0}^{3} d_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}
       $$
-  
+      
+       $$a_0,a_1,a_2,a_3,b_0,b_1,b_2,b_3,b_4,b_5,b_6,b_6,b_7,b_8,b_9,b_{10},c_0,c_1,c_2,c_3,d_0,d_1,d_2,d_3,\lambda,\beta$$ are parameters given by the model.
+      
   6. Hatakeyama Mode
       
       $$
@@ -147,6 +156,8 @@ There are some Impact Ionization Models and they give the ionization coefficient
       b=B \sqrt{1-\theta A^{2}\left(\frac{B F_{11 \overline{2} 0} F_{0001}}{F b_{11 \overline{2} 0} b_{0001}}\right)^{2}}
       \end{array}
       $$
+
+      $$a_{0001},a_{11 \overline{2} 0},b_{0001},b_{11 \overline{2} 0},\hbar \omega_{op},\theta$$ are parameters given by the model.
 
 **Reference**
 
