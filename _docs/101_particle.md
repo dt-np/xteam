@@ -27,8 +27,10 @@ In the process of human exploration of the universe, a series of studies on gala
 [6] Pongkitivanichkul C, Samart D, Thongyoi N, et al. A kaluza–klein inspired brans–dicke gravity with dark matter and dark energy model [J/OL]. Physics of the Dark Universe, 2020, 30: 100731. https://www.sciencedirect.com/science/article/pii/S2212686420304441. DOI: https://doi.org/10.1016/j.dark.2020.100731.
 
 [7] Jungman G, Kamionkowski M, Griest K. Supersymmetric dark matter [J/OL]. Physics Reports, 1996, 267(5): 195-373. https://www.sciencedirect.com/science/article/pii/0370157395000585. DOI: https://doi.org/10.1016/0370-1573(95)00058-5.
-[8] Bertone G, Hooper D, Silk J. Particle dark matter: evidence, candidates and constraints [J/OL]. Physics Reports, 2005, 405(5): 279-390. https://www.sciencedirect.com/science/article/pii/S0370157304003515. DOI: https://doi.org/10.1016/j.physrep.2004.08.031.
-[9] Feng J L. Dark matter candidates from particle physics and methods of detection [J/OL]. Annual Review of Astronomy and Astrophysics, 2010, 48(1): 495–545. http://dx.doi.org/10.1146/annurev-astro-082708-101659. 
+
+[8] Bertone G, Hooper D, Silk J. Particle dark matter: evidence, candidates and constraints [J/OL]. Physics Reports, 2005, 405(5): 279-390. https://www.sciencedirect.com/science/article/pii/S0370157304003515. DOI: https://doi.org/10.1016/j.physrep.2004.08.031.
+
+[9] Feng J L. Dark matter candidates from particle physics and methods of detection [J/OL]. Annual Review of Astronomy and Astrophysics, 2010, 48(1): 495–545. http://dx.doi.org/10.1146/annurev-astro-082708-101659. 
  
 [11] Buchmueller O, Dolan M J, Malik S A, et al. Characterising dark matter searches at colliders and direct detection experiments: vector mediators [J/OL]. Journal of High Energy Physics, 2015, 2015(1). http://dx.doi.org/10.1007/JHEP01(2015)037. DOI: 10.1007/jhep01(2015)037.
 
