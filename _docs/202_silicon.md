@@ -9,8 +9,20 @@ use_math: true
 
 ## What is Silicon Detector ?
 
+Semiconductor is a kind of material with conductivity between metal and insulator. It is located in group IV(C, Si,  Ge and their compounds) or III-V(compound of them, like GaAs) of the periodic table of elements and compound semiconductor materials, which are widely used in detectors, integrated circuits and other fields. 
+The commonly used semiconductor detectors are p-n junction semiconductor detector, lithium drift semiconductor detector and high purity germanium semiconductor detector. And another interface which is similar to p-n junction is Schottky junction or Schottky barrier, connected metal with semiconductor. 
 
-## Shockley-Ramo Theorem[1]
+<a href="/images/element_table.jpg">
+<img src="/images/element_table.jpg" width="400"/>
+</a>
+
+Here we introduce some details about p-n junction semiconductor, formed by the contact of p-type semiconductor and n-type semiconductor. or metal and semiconductor.
+
+Due to the different carrier concentrations on both sides, the electrons in the N region diffuse to the p region, the positively charged donor ions stay in the N region, the holes in the p region diffuse to the N region, and the negatively charged acceptor ions stay in the p region. The net positive charge of N region, P region and net negative charge induce a built-in electric field near the metallurgical junction, and the direction is from n region to p region. We can see clearly the net positive charge and net negative charge regions formed in the semiconductor. Since there is no movable charge in this region, it is called space charge region or depletion region. There is still a concentration gradient at the edge of the depletion region, and most carriers are subjected to a "diffusion force".
+At the same time, most carriers are also affected by the electric field force in the depletion region, which is opposite to the "diffusion force".
+
+
+## Shockley-Ramo Theorem<sup>[1]</sup>
 
   Shockley-Ramo Theorem is used to calculate the induced current on the electrode of a vacuum tube firstly, then it is also applied to calculate the induced current on electrode with fixed charges in between. Therefore, this theorem can be applied to calculate the current on the electrode of a fully depleted silicon detector.
 
@@ -31,10 +43,6 @@ use_math: true
   For more charges, we just need to add up all the carriers' contribution.
 
   Considering the circuit to get the waveform, we refer to the detector as a current source with a parallel capacitance that is equal to the capacitance of the detector measured through CV.
-
- **Reference**
- 
-[1]He Z . Review of the Shockley–Ramo theorem and its application in semiconductor gamma-ray detectors[J]. Nuclear Instruments & Methods in Physics Research, 2001, 463(1-2):250-267.  <http://cztlab.engin.umich.edu/wp-content/uploads/sites/187/2015/03/ShockleyRamo.pdf>
 
 
 ## Impact Ionization and Impact Ionization Model<sup>[2]</sup>
@@ -160,5 +168,7 @@ There are some Impact Ionization Models and they give the ionization coefficient
       $$a_{0001},a_{11 \overline{2} 0},b_{0001},b_{11 \overline{2} 0},\hbar \omega_{op},\theta$$ are parameters given by the model.
 
 **Reference**
+
+[1]He Z . Review of the Shockley–Ramo theorem and its application in semiconductor gamma-ray detectors. Nuclear Instruments and Methods in Physics Research Section A, 2001, 463(1-2):250-267.  <http://cztlab.engin.umich.edu/wp-content/uploads/sites/187/2015/03/ShockleyRamo.pdf>
 
 [2] Sentaurus™ Device UserGuide Version P-2019.03, March 2019
