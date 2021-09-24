@@ -44,6 +44,131 @@ At the same time, most carriers are also affected by the electric field force in
 
   Considering the circuit to get the waveform, we refer to the detector as a current source with a parallel capacitance that is equal to the capacitance of the detector measured through CV.
 
- **Reference**
- 
+
+## Impact Ionization and Impact Ionization Model<sup>[2]</sup>
+
+  In silicon detector, when the field in wide space charge region(wider than mean free path) is strong enough to reach a threshold, the carriers like electrons and holes can generate some electron-hole pairs through Impact Ionization. And the reciprocal of the mean free time is called the ionization coefficient $$\alpha$$. For electrons, that is $$\alpha_n$$ and the $$\alpha_p$$ is for holes, then we have the generation rate:
+
+$$
+G_{ii} = \frac{1}{q} (\alpha_n \lvert\vec{J_n}\rvert + \alpha_p \lvert\vec{J_p}\rvert)  
+$$
+
+where $$\vec{J_n}$$ and $$\vec{J_p}$$ are the electron and hole current density vectors.
+
+There are some Impact Ionization Models and they give the ionization coefficient $$\alpha$$'s dependence on temperature and electrical field: 
+  
+  1. van Overstraeten – de Man Mode
+  
+      $$
+      \alpha(F_{ava})=\gamma a exp(-\frac{\gamma b}{F_{ava}})
+      $$
+  
+      with
+  
+      $$
+      \gamma = \frac{tanh(\frac{\hbar \omega_{op}}{2k T_0})}{tanh(\frac{\hbar \omega_{op}}{2kT})}
+      $$
+      
+      $$a,b,E_0,\hbar \omega_{op},\lambda,\beta$$ are paremeters given by the model.
+      
+  2. Okuto–Crowell Mode
+      
+      $$
+      \alpha(F_{ava})=a \cdot \big (1+c(T-T_0) \big )F^{\gamma}_{ava} exp \big [ -\big (\frac{b[1+d(T-T_0)]}{F_{ava}} \big )^{\delta} \big ]
+      $$
+  
+      $$a,b,c,d,\gamma,\delta,\lambda,\beta$$ are parameters given by the model.
+      
+  3. Lackner Mode
+      
+      $$
+      \alpha_{\mathrm{v}}\left(F_{\mathrm{ava}}\right)=\frac{\gamma a_{\mathrm{v}}}{Z} \exp \left(-\frac{\gamma b_{\mathrm{v}}}{F_{\mathrm{ava}}}\right) \text { where } v=n, p
+      $$
+      
+      with:
+      
+      $$
+      \begin{array}{c}
+      Z=1+\frac{\gamma b_{n}}{F_{\text {ava }}} \exp \left(-\frac{\gamma b_{n}}{F_{\text {ava }}}\right)+\frac{\gamma b_{p}}{F_{\text {ava }}} \exp \left(-\frac{\gamma b_{p}} {F_{\text {ava }}}\right) \\
+      \gamma=\frac{\tanh \left(\frac{\hbar \omega_{\mathrm{op}}}{2 k T_{0}}\right)}{\tanh \left(\frac{\hbar \omega_{\mathrm{op}}}{2 k T}\right)}
+      \end{array}
+      $$
+  
+      $$a,b,\hbar \omega_{op},\lambda,\beta$$ are parameters given by the model.
+      
+  4. University of Bologna Mode
+      
+      The model reads:
+      
+      $$
+      \alpha\left(F_{\text {ava }}, T\right)=\frac{F_{\text {ava }}}{a(T)+b(T) \exp \left[\frac{d(T)}{F_{\text {ava }}+c(T)}\right]}
+      $$
+
+      for electrons:
+      
+      $$
+      a(T)=a_{0}+a_{1} t^{a_{2}} \quad b(T)=b_{0} \quad c(T)=c_{0}+c_{1} t+c_{2} t^{2} \quad d(T)=d_{0}+d_{1} t+d_{2} t^{2}
+      $$
+      
+      for holes:
+      
+      $$
+      a(T)=a_{0}+a_{1} t \quad b(T)=b_{0} \exp \left[b_{1} t\right] \quad c(T)=c_{0} t^{c_{1}} \quad d(T)=d_{0}+d_{1} t+d_{2} t^{2}
+      $$
+      
+      where $$t=T / 1 \mathrm{~K}$$ .
+      
+      $$a_0,a_1,a_2,b_0,b_1,c_0,c_1,c_2,d_0,d_1,d_2,\lambda,\beta$$ are parameters given by the model.
+      
+  5. the new University of Bologna Mode
+      
+      $$
+      \alpha\left(F_{\text {ava }}, T\right)=\frac{F_{\text {ava }}}{a(T)+b(T) \exp \left[\frac{d(T)}{F_{\text {ava }}+c(T)}\right]}
+      $$
+      
+      with
+      
+      $$
+      a(T)=\sum_{k=0}^{3} a_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad b(T)=\sum_{k=0}^{10} b_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad c(T)=\sum_{k=0}^{3} c_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}, \quad d(T)=\sum_{k=0}^{3} d_{k}\left(\frac{T}{1 \mathrm{~K}}\right)^{k}
+      $$
+      
+       $$a_0,a_1,a_2,a_3,b_0,b_1,b_2,b_3,b_4,b_5,b_6,b_6,b_7,b_8,b_9,b_{10},c_0,c_1,c_2,c_3,d_0,d_1,d_2,d_3,\lambda,\beta$$ are parameters given by the model.
+      
+  6. Hatakeyama Mode
+      
+      $$
+      \alpha=\gamma a e^{-\frac{\gamma b}{F}}
+      $$
+      
+      with
+      
+      $$
+      \gamma=\frac{\tanh \left(\frac{\hbar \omega_{\mathrm{op}}}{2 k T_{0}}\right)}{\tanh \left(\frac{\hbar \omega_{\mathrm{op}}}{2 k T}\right)}
+      $$
+      
+      $$
+      F^{2}=F_{0001}^{2}+F_{11 \overline{2} 0}^{2}
+      $$
+
+      $$
+      B=\frac{F}{\sqrt{\left(\frac{F_{11 \overline{2} 0}}{b_{11 \overline{2} 0}}\right)^{2}+\left(\frac{F_{0001}}{b_{0001}}\right)^{2}}}
+      $$
+      
+      $$
+      a=a_{11 \overline{2} 0}^{\left(\frac{B F_{1120}}{b_{11 \overline{2} 0} F}\right)^{2}} a_{0001}^{\left(\frac{B F_{0001}}{b_{0001} F}\right)^{2}}
+      $$
+      
+      $$
+      \begin{array}{c}
+      A=\log \frac{a_{0001}}{a_{11\overline{2} 0} } \\
+      b=B \sqrt{1-\theta A^{2}\left(\frac{B F_{11 \overline{2} 0} F_{0001}}{F b_{11 \overline{2} 0} b_{0001}}\right)^{2}}
+      \end{array}
+      $$
+
+      $$a_{0001},a_{11 \overline{2} 0},b_{0001},b_{11 \overline{2} 0},\hbar \omega_{op},\theta$$ are parameters given by the model.
+
+**Reference**
+
 [1]He Z . Review of the Shockley–Ramo theorem and its application in semiconductor gamma-ray detectors. Nuclear Instruments and Methods in Physics Research Section A, 2001, 463(1-2):250-267.  <http://cztlab.engin.umich.edu/wp-content/uploads/sites/187/2015/03/ShockleyRamo.pdf>
+
+[2] Sentaurus™ Device UserGuide Version P-2019.03, March 2019
