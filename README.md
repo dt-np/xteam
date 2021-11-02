@@ -1,4 +1,4 @@
-## Welcome to X-Team ! 
+## Welcome to S-Group ! 
 
 http://xteam.ihep.ac.cn 
 
