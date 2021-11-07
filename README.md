@@ -1,6 +1,6 @@
 ## Welcome to S-Group ! 
 
-http://xteam.ihep.ac.cn 
+http://Zombatar.github.io (temp)
 
 ### For Developers 
 
