@@ -1,18 +1,29 @@
-- title: Team Members
+- title: Team Leader
+  pages:
+    - Weiming_Song
+
+
+- title: Doctoral Students
   pages:
     - Amit_Pathak
-    - Cheng_Liu
-    - Haolin_Yang
+    - Wenyu_Sun
     - Honghong_Zhang
+
+
+- title: Postgraduates
+  pages:
+    - Xionghao_Wu    
+    - Haolin_Yang
+    - Zhaoling_Zhang
+    - Xingye_Zhai
+    - Cheng_Liu
+    - Yi_Ding
+
+- title: Undergraduates
+  pages:
     - Jiaqi_Wu
     - Jing_Yuan
     - Siman_Liu
     - Wanyi_Zhuang
-    - Wenyu_Sun
-    - Xingye_Zhai
     - Xinyue_Wang
-    - Xionghao_Wu
-    - Yi_Ding
     - Yipu_Liao
-    - Zhaoling_Zhang
-
