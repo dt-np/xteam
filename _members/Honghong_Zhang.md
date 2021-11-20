@@ -3,7 +3,7 @@ title: Honghong Zhang (张宏宏)
 ---
 
 ## Contact
-- Email: zhanghh[AT]ihep.ac.cn
+- Email: [zhanghh@ihep.ac.cn](zhanghh@ihep.ac.cn)
 - Office: JLU, Physics building 422, 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research
@@ -11,6 +11,6 @@ title: Honghong Zhang (张宏宏)
 
 ## Education
 
-- PhD, Physics, Jilin University, Changchun, 2020-Now.
+- PhD, Physics, [Jilin University, Changchun](https://phy.jlu.edu.cn/), 2020-Now.
 - M.S., Physics, Guangxi Normal University, Guilin, 2016-2019.
 - B.S., Physics, Tibet University, Lhasa, 2012-2016.
