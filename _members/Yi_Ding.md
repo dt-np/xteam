@@ -1,5 +1,6 @@
 ---
 title: Yi Ding (丁逸)
+use_math: true
 ---
 
 <img src="/images/Yi_Ding.jpg" width="200"/>
