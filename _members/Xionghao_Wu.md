@@ -1,5 +1,6 @@
 ---
 title: Xionghao Wu (伍雄浩)
+use_math: true
 ---
 
 ## Contact
