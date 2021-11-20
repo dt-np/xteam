@@ -1,5 +1,6 @@
 ---
 title:  Jing Yuan (袁菁)
+use_math: true
 ---
 
 ## Contact
