@@ -3,7 +3,7 @@ title: Yipu Liao (廖一朴)
 ---
 
 ## Contact
-- Email: [liaoypkirk@163.com](liaoypkirk@163.com)
+- Email: liaoypkirk[AT]163.com
 - Office: JLU, Physics building, 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research

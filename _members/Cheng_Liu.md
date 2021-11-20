@@ -3,7 +3,7 @@ title: Cheng Liu (刘成)
 ---
 
 ## Contact
-- Email: [liucheng21@mails.jlu.edu.cn](liucheng21@mails.jlu.edu.cn)
+- Email: liucheng21[AT]mails.jlu.edu.cn
 - Office: JLU, Physics building 422, 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research

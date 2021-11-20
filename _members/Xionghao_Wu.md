@@ -3,7 +3,7 @@ title: Xionghao Wu (伍雄浩)
 ---
 
 ## Contact
-- Email: [xhwu20@mails.jlu.edu.cn](xhwu20@mails.jlu.edu.cn)
+- Email: xhwu20[AT]mails.jlu.edu.cn
 - Office: JLU, Physics building 422, 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research

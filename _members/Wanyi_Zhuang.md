@@ -6,7 +6,7 @@ title:  Wanyi Zhuang (庄婉仪)
 
 ## Contact
 
-- Email: [2713549086@qq.com](2713549086@qq.com)
+- Email: 2713549086[AT]qq.com
 - Office: JLU, Physics building, 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research

@@ -3,7 +3,7 @@ title: Wenyu Sun (孙文玉)
 ---
 
 ## Contact
-- Email: [sunwenyu@ihep.ac.cn](sunwenyu@ihep.ac.cn)
+- Email: sunwenyu[AT]ihep.ac.cn
 - Office: JLU, Physics building 422, 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research

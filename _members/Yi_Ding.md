@@ -6,7 +6,7 @@ title: Yi Ding (丁逸)
 
 ## Contact
 
-- Email: [dingyi21@mails.jlu.edu.cn](dingyi21@mails.jlu.edu.cn)
+- Email: dingyi21[AT]mails.jlu.edu.cn
 - Office: JLU, Physics building 422, 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research

@@ -3,7 +3,7 @@ title: Xingye Zhai (翟星晔)
 ---
 
 ## Contact
-- Email: [zhaixingye1998@163.com](zhaixingye1998@163.com)
+- Email: zhaixingye1998[AT]163.com
 - Office: Center for Theoretical Physics (Jilin University), 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research

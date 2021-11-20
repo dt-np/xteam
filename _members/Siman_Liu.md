@@ -6,7 +6,7 @@ title:  Siman Liu (刘思曼)
 
 ## Contact
 
-- Email: [liusm1119@mails.jlu.edu.cn](liusm1119@mails.jlu.edu.cn)
+- Email: liusm1119[AT]mails.jlu.edu.cn
 - Office: JLU, Physics building, 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research

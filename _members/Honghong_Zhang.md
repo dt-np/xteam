@@ -3,7 +3,7 @@ title: Honghong Zhang (张宏宏)
 ---
 
 ## Contact
-- Email: [zhanghh@ihep.ac.cn](zhanghh@ihep.ac.cn)
+- Email: zhanghh[AT]ihep.ac.cn
 - Office: JLU, Physics building 422, 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research

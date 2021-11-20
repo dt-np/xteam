@@ -6,7 +6,7 @@ title: Weimin Song (宋维民)
 
 ## Contact
 
-- Email: [weiminsong@jlu.edu.cn](weiminsong@jlu.edu.cn)
+- Email: weiminsong[AT]jlu.edu.cn
 - Office: JLU, Physics building 314, 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research

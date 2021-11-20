@@ -4,7 +4,7 @@ title:  Jing Yuan (袁菁)
 
 ## Contact
 
-- Email: [jing.y.jlu@foxmail.com](jing.y.jlu@foxmail.com)
+- Email: jing.y.jlu[AT]foxmail.com
 - Office: JLU, Physics building, 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research

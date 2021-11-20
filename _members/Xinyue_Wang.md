@@ -6,7 +6,7 @@ title: Xinyue Wang (王馨悦)
 
 ## Contact
 
-- Email: [wangxy37@163.com](wangxy37@163.com)
+- Email: wangxy37[AT]163.com
 - Office: JLU, Physics building, 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research
