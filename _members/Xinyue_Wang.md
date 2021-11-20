@@ -1,5 +1,6 @@
 ---
 title: Xinyue Wang (王馨悦)
+use_math: true
 ---
 
 <img src="/images/Xinyue_Wang.jpg" width="200"/>
