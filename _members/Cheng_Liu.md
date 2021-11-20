@@ -1,5 +1,6 @@
 ---
 title: Cheng Liu (刘成)
+use_math: true
 ---
 
 ## Contact
