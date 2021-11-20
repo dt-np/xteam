@@ -7,9 +7,9 @@ title: Cheng Liu (刘成)
 - Office: JLU, Physics building 422, 2699 Qianjin Street, Changchun, Jilin, 130012
 
 ## Research
-- [BESIII](http://bes3.ihep.ac.cn)  Determination of the number of $\Psi(2S)$ events produced in the $e^{+}e^{-}$ collisions
+- [BESIII](http://bes3.ihep.ac.cn)  Determination of the number of $$\Psi(2S)$$ events produced in the $$e^{+}e^{-}$$ collisions
 
 ## Education
 
-- M.S., Theoretical Physics, Jilin University, Changchun, 2021-Now.
+- M.S., Theoretical Physics, [Jilin University, Changchun](https://phy.jlu.edu.cn/), 2021-Now.
 - B.S., Applied Physics, Changchun Normal University, Changchun, 2016-2020.

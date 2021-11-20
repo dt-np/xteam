@@ -11,4 +11,4 @@ title: Yipu Liao (廖一朴)
 - [BESIII](http://bes3.ihep.ac.cn)  CGEM Detector software digitalization.
 
 ## Education
-- B.S., Physics, [Jilin University, Changchun](http://www.usc.edu.cn/), 2018-Now.
+- B.S., Physics, [Jilin University, Changchun](https://phy.jlu.edu.cn/), 2018-Now.

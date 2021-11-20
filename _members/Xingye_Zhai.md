@@ -10,6 +10,5 @@ title: Xingye Zhai (翟星晔)
 - [CEPC](http://cepc.ihep.ac.cn)  Silicon Vertex Detector Pixel Sensor Jadepix3 Test
 
 ## Education
-- M.S., Experimental Particle Physics, [Jilin University, Changchun](http://www.usc.edu.cn/), 2020-Now.
-- B.S., Applied Physics, [Jilin University, Changchun](http://www.usc.edu.cn/), 2016-2020.
-
+- M.S., Experimental Particle Physics, [Jilin University, Changchun](https://phy.jlu.edu.cn/), 2020-Now.
+- B.S., Applied Physics, [Jilin University, Changchun](https://phy.jlu.edu.cn/), 2016-2020.

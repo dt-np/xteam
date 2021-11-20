@@ -5,5 +5,3 @@ permalink: /members/
 ---
 
 Members in our group.
-
-

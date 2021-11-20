@@ -10,5 +10,6 @@ title: Haolin Yang (杨昊霖)
 - [BESIII](http://bes3.ihep.ac.cn) Physical analysis
 
 ## Education
-- PhD, Experimental Particle Physics, [Jilin University, Changchun](http://www.usc.edu.cn/), 2021-Now.
-- B.S., Physics, [Jilin University, Changchun](http://www.usc.edu.cn/), 2017-2021.
+- PhD, Experimental Particle Physics, [Jilin University, Changchun](https://phy.jlu.edu.cn/), 2021-Now.
+- B.S., Physics, [Jilin University, Changchun](https://phy.jlu.edu.cn/), 2017-2021.
+

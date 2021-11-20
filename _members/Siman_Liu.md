@@ -13,4 +13,5 @@ title:  Siman Liu (刘思曼)
 - [CEPC](http://cepc.ihep.ac.cn)  Ionization Measurement using Cluster Counting Method
 
 ## Education
-- B.S., Physics, [Jilin University, Changchun](http://www.usc.edu.cn/), 2019-Now.
+- B.S., Physics, [Jilin University, Changchun](https://phy.jlu.edu.cn/), 2019-Now.
+
