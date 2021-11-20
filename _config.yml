@@ -15,7 +15,7 @@ collections:
     output: true
  
   docs:
-    permalink: /docs/:path/
+    permalink: /documents/:path/
     output: true
 
   posts:
@@ -34,10 +34,10 @@ defaults:
     values:
       layout: members 
   - scope:
-      path: _docs
-      type: docs
+      path: _documents
+      type: documents
     values:
-      layout: docs 
+      layout: documents
   - scope:
       path: _posts
       type: posts
