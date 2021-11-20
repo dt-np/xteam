@@ -1,5 +1,6 @@
 ---
 title: Wenyu Sun (孙文玉)
+use_math: true
 ---
 
 ## Contact
@@ -17,7 +18,3 @@ title: Wenyu Sun (孙文玉)
 - PhD, Experimental Particlal Physics, [Jilin University, Changchun](https://phy.jlu.edu.cn/), 2020-Now.
 - M.S., Experimental Particlal Physics, Nanjing Normal University, 2017-2020.
 - B.S., Physics, Shandong University Of Technology, 2013-2017.
-
----
-use_math: true 
----
