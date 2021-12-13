@@ -62,7 +62,7 @@ use_math: true
 
 ## Publications 
 
-1. R. Kiuchi, ..., X. Shi*, ... Physics potential for the $H\rightarrow ZZ^*$ decay at the CEPC, Eur. Phys. J. C (2021) 81:879   
+1. R. Kiuchi, ..., X. Shi*, ... Physics potential for the $$H\rightarrow ZZ^*$$ decay at the CEPC, Eur. Phys. J. C (2021) 81:879   
 2. Y. Yang, ..., X. Shi*, ... Characterization of the first prototype NDL Low Gain Avalanche Detectors (LGAD), Nucl. Instrum. Methods A 1011 (2021) 165591
 3. Y. Tan, ..., X. Shi*, Radiation effects on NDL prototype LGAD sensors after proton irradiation, Nucl. Instrum. Methods A 1010 (2021) 165559 
 4. S. Xiao, ..., X. Shi*, ... Beam test results of NDL Low Gain Avalanche Detectors (LGAD), Nucl. Instrum. Methods A 989 (2021) 164959 
@@ -74,18 +74,18 @@ use_math: true
 10. Y. Han, ..., X. Shi, ... Test beam measurements of an irradiated prototype pixel sensor designed for the CEPC vertex detector, Nucl. Instrum. Methods A 977 (2020) 163267  
 11. X. Shi*, et al., Radiation campaign of HPK prototype LGAD sensors for the High-Granularity Timing Detector (HGTD), Nucl. Instrum. Methods A 979 (2020) 164382 
 12. K. Wu, ... , X. Shi, ... Design and fabrication of Low Gain Avalanche Detectors (LGAD): a TCAD simulation study, JINST 15 C03008 (2020)
-13. M. Ablikim, ..., X. Shi, ... [BESIII Collaboration], First observation of the decay $\chi_{cJ}\to\Sigma^{+}\bar{p}K_S^0 + c.c. (J=0,1,2)$, Phys.Rev. D100, 092006 (2019)
+13. M. Ablikim, ..., X. Shi, ... [BESIII Collaboration], First observation of the decay $$\chi_{cJ}\to\Sigma^{+}\bar{p}K_S^0 + c.c. (J=0,1,2)$$, Phys.Rev. D100, 092006 (2019)
 14. L.J. Chen, ..., X. Shi, ... Characterization of the first prototype CMOS pixel sensor developed for the CEPC vertex detector, Radiation Detection technology and Methods 3:45 (2019) 
 15. F. An, ..., X. Shi, ... Precision Higgs Physics at the CEPC, Chinese Physics C  Vol. 43, No.4 (2019) 043002 
 16. X. Shi*, Overview of the CEPC Project, Particle Physics at the Silver Jubilee of Lomonosov Conferences, pp. 189-192 (2019) 
 17. X. Shi, Charm Physics at BESIII, PoS DIS2017, 146 (2017)
 18. ATLAS Collaboration, ATLAS Inner Tracker Strip Detector, ATL-TDR-025, (2017) 
-19. V. Khachatryan, ..., X. Shi, ... [CMS and LHCb Collaborations], Observation of the rare $B_s^0 \to \mu^+ \mu^-$ decay from the combined analysis of CMS and LHCb  data, Nature 522, 68--72 (2015)
-20. G. Bonvicini, ..., X. Shi, ... [CLEO Collaboration], Updated measurements of absolute ${D}^{+}$ and ${D}^{0}$ hadronic branching fractions and $\sigma{}({e}^{+}{e}^{-}\rightarrow{}D\overline{D})$ at $E_{\mathrm{cm}}=3774~\mathrm{MeV}$, Phys.Rev. D89, 072002 (2014), Phys. Rev. D91, 019903 (2015)
-21. S. Chatrchyan, ..., X. Shi, ... [CMS Collaboration], Measurement of the $B_s^0\rightarrow\mu^+\mu^-$ Branching Fraction and Search for $B^0\rightarrow\mu^+\mu^-$ with the CMS Experiment, Phys.Rev.Lett. 111, 101804 (2013) 
-23. S. Chatrchyan, ..., X. Shi, ... [CMS Collaboration], Angular analysis and branching fraction measurement of the decay $B^0 \to K^{*0} \mu^+\mu^-$, Phys.Lett. B727, 77-100 (2013)
+19. V. Khachatryan, ..., X. Shi, ... [CMS and LHCb Collaborations], Observation of the rare $$B_s^0 \to \mu^+ \mu^-$$ decay from the combined analysis of CMS and LHCb  data, Nature 522, 68--72 (2015)
+20. G. Bonvicini, ..., X. Shi, ... [CLEO Collaboration], Updated measurements of absolute $${D}^{+}$$ and $${D}^{0}$$ hadronic branching fractions and $$\sigma{}({e}^{+}{e}^{-}\rightarrow{}D\overline{D})$$ at $$E_{\mathrm{cm}}=3774~\mathrm{MeV}$$, Phys.Rev. D89, 072002 (2014), Phys. Rev. D91, 019903 (2015)
+21. S. Chatrchyan, ..., X. Shi, ... [CMS Collaboration], Measurement of the $$B_s^0\rightarrow\mu^+\mu^-$$ Branching Fraction and Search for $$B^0\rightarrow\mu^+\mu^-$$ with the CMS Experiment, Phys.Rev.Lett. 111, 101804 (2013) 
+23. S. Chatrchyan, ..., X. Shi, ... [CMS Collaboration], Angular analysis and branching fraction measurement of the decay $$B^0 \to K^{*0} \mu^+\mu^-$$, Phys.Lett. B727, 77-100 (2013)
 24. Xin Shi [CMS Collaboration], Studies of rare $B$ meson decays with the CMS detector, PoS DIS2013, 186 (2013)
 25. S. Chatrchyan, ..., X. Shi, ...[CMS Collaboration], Missing transverse energy performance of the CMS detector, JINST 6 (2011) P09001
-26. S. Dobbs, ..., X. Shi, ... [CLEO Collaboration], Measurement of Absolute Hadronic Branching Fractions of $D$ Mesons and $e^+ e^- \to D \overline{D}$ Cross Sections at the $\psi(3770)$, Phys.Rev. D76, 112001 (2007)
-27. M. Ablikim, ... X. Shi, ... [BES Collaboration], Measurement of the $\chi_{c2}$ Polarization in $\psi(2S)\to\gamma\chi_{c2}$, Phys.Rev. D70, 092004 (2004)
+26. S. Dobbs, ..., X. Shi, ... [CLEO Collaboration], Measurement of Absolute Hadronic Branching Fractions of $D$ Mesons and $$e^+ e^- \to D \overline{D}$$ Cross Sections at the $$\psi(3770)$$, Phys.Rev. D76, 112001 (2007)
+27. M. Ablikim, ... X. Shi, ... [BES Collaboration], Measurement of the $$\chi_{c2}$$ Polarization in $$\psi(2S)\to\gamma\chi_{c2}$$, Phys.Rev. D70, 092004 (2004)
 28. X. Shi*, C. Z. Yuan, Y. Ban, Study of VC Trigger Efficiency on BESII, High Energy Physics and Nuclear Physics, Vol.28, No.9, 982-985 (2004)
