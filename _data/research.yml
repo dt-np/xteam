@@ -4,17 +4,22 @@
 
 - title: BESIII
   pages:
-    - bes3/intro
-    - bes3/jpsi2invi
-    - bes3/chic2invi
+    - bes3/chicJ2SigmapK 
+    #- bes3/intro
+    #- bes3/jpsi2invi
+    #- bes3/chic2invi
 
 - title: CEPC
   pages:
-    - cepc/intro
+    - cepc/higgs 
     - cepc/jadepix
+    #- cepc/intro
 
 - title: RD50
   pages:
+    - rd50/lgad 
     - rd50/raser 
+    - rd50/sic 
+      
 
-    
+     
