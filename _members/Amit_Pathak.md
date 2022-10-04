@@ -1,13 +1,13 @@
 ---
-title: Amit Pathak
+title: Amit Pathak (李浩然)
 ---
 
 
 <img src="/images/Amit_Pathak.jpg" width="200"/>
 
-## Contact 
+<!-- ## Contact 
 - Email: amitraahul[AT]gmail.com
-- Office: IHEP Main building A427, 19B YuquanLu Shijingshan District, Beijing 100049
+- Office: IHEP Main building A427, 19B YuquanLu Shijingshan District, Beijing 100049 -->
 
 ## Research 
 - [BESIII](http://bes3.ihep.ac.cn) New Physics Search
