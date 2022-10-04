@@ -5,10 +5,10 @@ title: Yuhang Tan (谭雨航)
 
 <img src="/images/Yuhang_Tan.jpg" width="200"/>
 
-## Contact
+<!-- ## Contact
 
 - Email: tanyuhang@ihep.ac.cn
-- Office: IHEP Main building B427, 19B YuquanLu Shijingshan District, Beijing 100049
+- Office: IHEP Main building B427, 19B YuquanLu Shijingshan District, Beijing 100049 -->
 
 ## Research
 
@@ -17,5 +17,5 @@ title: Yuhang Tan (谭雨航)
 - [CEPC](http://cepc.ihep.ac.cn) Search for invisible decays of the Higgs boson produced at the CEPC. [DOI: 10.1088/1674-1137/abb4d8](http://cpc.ihep.ac.cn/article/id/058e8591-4350-4764-af02-cc449ae69d2f)
 
 ## Education
-- M.S., Particle Physics and Neulear Physics, [University of Chinese Academy of Sciences](http://www.ucas.ac.cn/), 2017-now.
+- Ph.D., Particle Physics and Neulear Physics, [University of Chinese Academy of Sciences](http://www.ucas.ac.cn/), 2017-2022. 
 - B.S., Theoretical physics, [Shandong University](http://www.sdu.edu.cn/), 2013-2017.

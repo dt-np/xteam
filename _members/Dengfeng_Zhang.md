@@ -2,9 +2,9 @@
 title: Dengfeng Zhang (张登峰)
 ---
 
-Contact:
+<!-- Contact:
 ---
-Email: dengfeng.zhang[AT]cern.ch 
+Email: dengfeng.zhang[AT]cern.ch  -->
 
 Working Experience:
 ---

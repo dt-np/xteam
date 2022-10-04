@@ -10,8 +10,8 @@ title: Lingteng Kong (孔令腾)
  
 ## Education
 - B.S., Physics, [University Of Chinese Academy of Sciences](http://www.ucas.ac.cn), 2019.
-- MSc, Nuclear Science and Engineering, [University of Bristol](https://www.bristol.ac.uk/), 2020.
-- PhD, Physics, [University of Bristol](https://www.bristol.ac.uk/), Now.
+- M.Sc., Nuclear Science and Engineering, [University of Bristol](https://www.bristol.ac.uk/), 2020.
+- Ph.D., Physics, [University of Bristol](https://www.bristol.ac.uk/), Now.
 
 
 

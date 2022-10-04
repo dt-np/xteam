@@ -2,29 +2,28 @@
   pages:
     - Xin_Shi
 
-- title: Postdocs 
-  pages:    
-    - Ryuta_Kiuchi
-    - Kai_Liu 
+# - title: Postdocs 
+  # pages:    
 
 - title: Graduates 
   pages:
-
-    - Yuhang_Tan
     - Tao_Yang
     - Maoqiang_Jing  
 
 - title: Alumni 
   pages: 
-
-    - Yihao_Yang 
-    - Yumo_Su 
-    - Hao_Zeng
-    - Lingteng_Kong
+    - Kai_Liu 
+    - Yuhang_Tan
+    - Ryuta_Kiuchi
+    - Suyu_Xiao   
+    - Dengfeng_Zhang
+    - Amit_Pathak
     - Shan_Gu 
     - Yuzhen_Yang 
-    - Amit_Pathak
-    - Dengfeng_Zhang
-    - Suyu_Xiao   
+    - Hao_Zeng
+    - Yumo_Su 
+    - Lingteng_Kong
+    - Yihao_Yang 
+   
    
 

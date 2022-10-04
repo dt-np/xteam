@@ -12,7 +12,7 @@ use_math: true
 
 1. T. Yang, _et al_., Time Resolution of the 4H-SiC PIN Detector, [Front. Phys. 10:718071](https://doi.org/10.3389/fphy.2022.718071) 
 
-1. Y. Tan, _et al_., Timing Performance Simulation for 3D 4H-SiC Detector, [Micromachines 2022, 13, 46](https://doi.org/ 10.3390/mi13010046)
+1. Y. Tan, _et al_., Timing Performance Simulation for 3D 4H-SiC Detector, [Micromachines 2022, 13, 46](https://doi.org/10.3390/mi13010046)
 
 
 1.  R. Kiuchi, _et al_., Physics potential for the $$H\rightarrow ZZ^*$$ decay at the CEPC, [Eur. Phys. J. C (2021) 81:879](https://doi.org/10.1140/epjc/s10052-021-09653-0)  
