@@ -14,6 +14,9 @@ use_math: true
 
 1. Y. Tan, _et al_., Timing Performance Simulation for 3D 4H-SiC Detector, [Micromachines 2022, 13, 46](https://doi.org/10.3390/mi13010046)
 
+1. M. Li,  _et al_., Effects of Shallow Carbon and Deep N++ Layer on the Radiation Hardness of IHEP-IME LGAD Sensors, [IEEE Transactions on Nuclear Science, Volume 69, 2022](https://doi.org/10.1109/TNS.2022.3161048)
+
+1. M. Zhao, _et al_., Low Gain Avalanche Detectors with good time resolution developed by IHEP and IME for ATLAS HGTD project, [Nucl. Instrum. Methods A, Volume 1033, 2022](https://doi.org/10.1016/j.nima.2022.166604) 
 
 1.  R. Kiuchi, _et al_., Physics potential for the $$H\rightarrow ZZ^*$$ decay at the CEPC, [Eur. Phys. J. C (2021) 81:879](https://doi.org/10.1140/epjc/s10052-021-09653-0)  
 
@@ -22,6 +25,7 @@ use_math: true
 
 3. Y. Tan, _et al_., Radiation effects on NDL prototype LGAD sensors after proton irradiation, [Nucl. Instrum. Methods A 1010 (2021) 165559](https://doi.org/10.1016/j.nima.2021.165559) 
 
+1. M. Li, _et al_., The performance of IHEP-NDL LGAD sensors after neutron irradiation, [2021 JINST 16 P08053](https://doi.org/10.1088/1748-0221/16/08/P08053)
 
 4. S. Xiao,  _et al_., Beam test results of NDL Low Gain Avalanche Detectors (LGAD), [Nucl. Instrum. Methods A 989 (2021) 164959](https://doi.org/10.1016/j.nima.2020.164956)
 
@@ -45,11 +49,11 @@ use_math: true
 
 14. L.J. Chen, _et al_., Characterization of the first prototype CMOS pixel sensor developed for the CEPC vertex detector, [Radiation Detection technology and Methods 3:45 (2019)](https://doi.org/10.1007/s41605-019-0124-0)
 
-15. F. An, _et al_., Precision Higgs Physics at the CEPC, Chinese Physics C  Vol. 43, No.4 (2019) 043002 
+15. F. An, _et al_., Precision Higgs Physics at the CEPC, [Chinese Physics C  Vol. 43, No.4 (2019) 043002](https://doi.org/10.1088/1674-1137/43/4/043002)
 
-16. X. Shi*, Overview of the CEPC Project, Particle Physics at the Silver Jubilee of Lomonosov Conferences, pp. 189-192 (2019) 
+16. X. Shi, Overview of the CEPC Project, Particle Physics at the Silver Jubilee of Lomonosov Conferences, pp. 189-192 (2019) 
 
-17. X. Shi, Charm Physics at BESIII, PoS DIS2017, 146 (2017)
+17. X. Shi, Charm Physics at BESIII, [PoS DIS2017, 146 (2017)](https://doi.org/10.22323/1.297.0146) 
 
 18. ATLAS Collaboration, ATLAS Inner Tracker Strip Detector, [ATL-TDR-025, (2017)](https://cds.cern.ch/record/2257755/) 
 

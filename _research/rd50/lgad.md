@@ -20,6 +20,22 @@ We report precise TCAD simulations of IHEP-IME-v1 Low Gain Avalanche Diode (LGAD
 Further reading: T. Yang, _et al_., Leakage Current Simulations of Low Gain Avalanche Diode with Improved Radiation Damage Modeling, [Nucl. Instrum. Methods A 1040 (2022) 167111](https://doi.org/10.1016/j.nima.2022.167111) 
 
 
+## Low Gain Avalanche Detectors with good time resolution developed by IHEP and IME for ATLAS HGTD project
+
+This paper shows the simulation and test results of 50 μm thick Low Gain Avalanche Detectors (LGAD) sensors designed by the Institute of High Energy Physics (IHEP) and fabricated by the Institute of Microelectronics of the Chinese Academy of Sciences (IME). Three wafers have been produced with four different gain layer implant doses each. Different production processes, including variation in the n++ layer implant energy and carbon co-implantation were used. Test results show that the IHEP-IME sensors with the higher dose of gain layer have lower breakdown voltages and higher gain layer voltages from capacitance–voltage properties, which are consistent with the TCAD simulation. Beta test results show that the time resolution of IHEP-IME sensors is better than 35 ps when operated at high voltage and the collected charges of IHEP-IME sensors are larger than 15 fC before irradiation, which fulfill the required specifications of sensors before irradiations for the ATLAS HGTD project. 
+
+<a href="/research/rd50/lgad_ime_fig2.png">
+<img src="/research/rd50/lgad_ime_fig2.png" width="200"/>
+</a>
+
+<a href="/research/rd50/lgad_ime_fig6.png">
+<img src="/research/rd50/lgad_ime_fig6.png" width="400"/>
+</a>
+
+
+Further reading: M. Zhao, _et al_., Low Gain Avalanche Detectors with good time resolution developed by IHEP and IME for ATLAS HGTD project, [Nucl. Instrum. Methods A, Volume 1033, 2022](https://doi.org/10.1016/j.nima.2022.166604) 
+
+
 ## Characterization of the first prototype NDL Low Gain Avalanche Detectors (LGAD) 
 
 Low Gain Avalanche Detectors (LGAD) are silicon particle sensors with intrinsic gain through a thin p-type multiplication layer inserted between n-type implant and p-type bulk. The first prototype of LGAD sensors in China have been developed at the Institute of High Energy Physics (IHEP) of Chinese Academic Sciences and the Novel Device Laboratory (NDL) of Beijing Normal University. With an active thickness of 33 µm, good breakdown performance, gain > 10, these sensors have reached jitter contribution of 10 ps to timing resolution with laser tests.
@@ -44,6 +60,18 @@ The beam tests were performed with 5 GeV electron beam at DESY. The timing perfo
 Further reading: S. Xiao,  _et al_., Beam test results of NDL Low Gain Avalanche Detectors (LGAD), [Nucl. Instrum. Methods A 989 (2021) 164959](https://doi.org/10.1016/j.nima.2020.164956)
 
 
+## Effects of Shallow Carbon and Deep N++ Layer on the Radiation Hardness of IHEP-IME LGAD Sensors 
+
+Low-gain avalanche diode (LGAD) is the chosen technology for the ATLAS high-granularity timing detector (HGTD). According to previous studies, the acceptor removal effect due to the radiation and the single-event burnout (SEB) at high bias voltages are still a challenge for the LGAD. The Institute of High Energy Physics (IHEP), Beijing, China, cooperated with the Institute of Microelectronics (IME), Beijing, China, for the design and fabrication of the IHEP-IME LGAD sensors with shallow carbon and deep N++ layer to improve the radiation hardness of LGAD. After neutron irradiation up to $$2.5\times10^{15} n_{eq}/cm^2$$, the leakage current, the collected charge, and timing resolution of the three IHEP-IME sensors measured with a beta telescope setup meet the HGTD requirements (<125 $$\mu A/cm^2$$, >4fC, and <70 ps). The LGAD sensor with shallow carbon had the lowest operation voltage after irradiation and is very promising to avoid the SEB effect. A sensor with a deep N++ layer increased the breakdown voltage of the LGAD with a high dopant concentration, which could alleviate the problem of the early breakdown of radiation-hard LGAD before irradiation.
+
+<a href="/research/rd50/lgad_ime_carbon_fig10.png">
+<img src="/research/rd50/lgad_ime_carbon_fig10.png" width="400"/>
+</a>
+
+Further reading: M. Li,  _et al_., Effects of Shallow Carbon and Deep N++ Layer on the Radiation Hardness of IHEP-IME LGAD Sensors, [IEEE Transactions on Nuclear Science, Volume 69, 2022](https://doi.org/10.1109/TNS.2022.3161048)
+
+
+
 ## Radiation effects on NDL prototype LGAD sensors after proton irradiation 
 
 We study the radiation effects of the Low Gain Avalanche Detector (LGAD) sensors developed by the Institute of High Energy Physics (IHEP) and the Novel Device Laboratory (NDL) of Beijing Normal University in China. These sensors have been irradiated at the China Institute of Atomic Energy (CIAE) using 100 MeV proton beam with five different fluences from 7$$\times10^{14}\rm n_{eq}/cm^2$$ up to $$4.5\times10^{15}\rm n_{eq}/cm^2$$. The result indicates that the effective doping concentration in the gain layer decreases with the increase of irradiation fluence, as expected by the acceptor removal mechanism. By comparing data and model gives the acceptor removal coefficient $$\rm c_{A} = \rm (5.52\pm0.58)\times10^{-16} cm^2$$, which shows the NDL sensor has fairly good radiation resistance. The time resolution of the sensors after irradiation was measured at $$(-30 \pm2)^{\circ}C$$.
@@ -55,6 +83,19 @@ We study the radiation effects of the Low Gain Avalanche Detector (LGAD) sensors
 
 Further reading: Y. Tan, _et al_., Radiation effects on NDL prototype LGAD sensors after proton irradiation, [Nucl. Instrum. Methods A 1010 (2021) 165559](https://doi.org/10.1016/j.nima.2021.165559) 
 
+
+
+## The performance of IHEP-NDL LGAD sensors after neutron irradiation
+
+The performances of Low Gain Avalanche Diode (LGAD) sensors from a neutron irradiation campaign with fluences of $$0.8\times10^{15}$$, $$1.5\times10^{15}$$ and $$2.5\times10^{15} n_{eq}/cm^2$$ are reported in this article. These LGAD sensors are developed by the Institute of High Energy Physics, Chinese Academy of Sciences and the Novel Device Laboratory for the High Granularity Timing Detector of the High Luminosity Large Hadron Collider. The timing resolution and collected charge of the LGAD sensors were measured with electrons from a beta source. After irradiation with a fluence of $$2.5\times10^{15} n_{eq}/cm^2$$, the collected charge decreases from 40 fC to 7 fC, the signal-to-noise ratio deteriorates from 48 to 12, and the timing resolution increases from 29 ps to 39 ps.
+
+
+<a href="/research/rd50/lgad_ndl_neutron_fig7.png">
+<img src="/research/rd50/lgad_ndl_neutron_fig7.png" width="400"/>
+</a>
+
+
+Further reading: M. Li, _et al_., The performance of IHEP-NDL LGAD sensors after neutron irradiation, [2021 JINST 16 P08053](https://doi.org/10.1088/1748-0221/16/08/P08053)
 
 ## Design of Low Gain Avalanche Detectors (LGAD) with 400 keV ion implantation energy for multiplication layer fabrication 
 
