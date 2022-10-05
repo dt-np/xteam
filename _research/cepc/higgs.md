@@ -18,7 +18,7 @@ The precision of the yield measurement of the Higgs boson decaying into a pair o
 </a>
 
 
-Further reading:  R. Kiuchi, _et al_., Physics potential for the $$H\rightarrow ZZ^*$$ decay at the CEPC, [Eur. Phys. J. C (2021) 81:879](https://doi.org/10.1140/epjc/s10052-021-09653-0)    
+Further reading: R. Kiuchi, _et al_., Physics potential for the $$H\rightarrow ZZ^*$$ decay at the CEPC, [Eur. Phys. J. C (2021) 81:879](https://doi.org/10.1140/epjc/s10052-021-09653-0)    
 
 
 ## Search for invisible decays of the Higgs boson produced at the CEPC
@@ -29,7 +29,20 @@ The Circular Electron Positron Collider (CEPC) proposed as a future Higgs boson 
 <img src="/research/cepc/hig2inv_fig6.png" width="400"/>
 </a>
 
-Further reading:   Y. Tan, _et al_., Search for invisible decay of a Higgs boson produced at the CEPC, [Chinese Physics C Vol. 44, No. 12 (2020) 123001](https://doi.org/10.1088/1674-1137/abb4d8) 
+Further reading: Y. Tan, _et al_., Search for invisible decay of a Higgs boson produced at the CEPC, [Chinese Physics C Vol. 44, No. 12 (2020) 123001](https://doi.org/10.1088/1674-1137/abb4d8) 
+
+
+##  Precision Higgs physics at the CEPC
+
+The discovery of the Higgs boson with its mass around 125 GeV by the ATLAS and CMS Collaborations marked the beginning of a new era in high energy physics. The Higgs boson will be the subject of extensive studies of the ongoing LHC program. At the same time, lepton collider based Higgs factories have been proposed as a possible next step beyond the LHC, with its main goal to precisely measure the properties of the Higgs boson and probe potential new physics associated with the Higgs boson. The Circular Electron Positron Collider (CEPC) is one of such proposed Higgs factories. The CEPC is an $$e^+e^−$$ circular collider proposed by and to be hosted in China. Located in a tunnel of approximately 100 km in circumference, it will operate at a center-of-mass energy of 240 GeV as the Higgs factory. In this paper, we present the first estimates on the precision of the Higgs boson property measurements achievable at the CEPC and discuss implications of these measurements.
+
+<a href="/research/cepc/higgs_fig8.png">
+<img src="/research/cepc/higgs_fig8.png" width="400"/>
+</a>
+
+Further reading: F. An, _et al_., Precision Higgs Physics at the CEPC, [Chinese Physics C  Vol. 43, No.4 (2019) 043002](https://doi.org/10.1088/1674-1137/43/4/043002)
+
+
 
 
 
